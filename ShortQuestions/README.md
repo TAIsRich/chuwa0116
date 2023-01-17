@@ -36,7 +36,18 @@ Its roles include:
 
 
 
-### 11.
+### 11. What is the difference between package and install in maven lifecycle?
+- When running the command mvn package, it runs the commands for all lifecycle phases till package:     
+
+    validate >> compile >> test (optional) >> package
+
+- When running the command mvn install：
+
+    validate >> compile >> test (optional) >> package >> verify >> install
+
+So, install commands does everything that package does and some more ( install the package into the local respository, for use as a dependency in other projects locally)
+
+
 
 
 
