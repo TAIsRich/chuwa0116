@@ -4,7 +4,7 @@
 ## How to record your assignments by using this repo:
 
 ### Clone this repo:
-open your teminal, run below command
+open your teminal, run below command.
 
 ```bash
 cd your_work_dir
