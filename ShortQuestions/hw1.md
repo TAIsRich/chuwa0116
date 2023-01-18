@@ -91,9 +91,8 @@ Deploy: It copies the packaged code to the remote repository for sharing it with
 
 ### 11. what is the difference between package and install in maven lifecycle ?
 
-```
-Package & install are various phases in maven build lifecycle. package phase will execute all phases prior to that & it will stop with packaging the project as a jar. Similarly install phase will execute all prior phases & finally install the project locally for other dependent projects.
-```
+
+
 
 ### 12. What is plugins in maven, list some plugins.
 ```
