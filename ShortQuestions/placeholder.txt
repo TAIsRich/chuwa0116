@@ -1,1 +1,4 @@
 write your answer to this folder.
+1. Done.
+2. Done.
+3. type git init.
