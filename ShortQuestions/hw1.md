@@ -1,4 +1,5 @@
 1. Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
+
 # The largest heading
 ## The second largest heading
 ###### The smallest heading
@@ -66,86 +67,91 @@ You can also use words, to fit your writing style more closely[^note].
 Let's rename \*our-new-project\* to \*our-old-project\*.
 
 2. practice git using the platform. list the git commands you learned
+
 git commit
+
 git checkout/git switch
+
 git merge
+
 git branch
+
 git rebase
+
 git revert
+
 git diff
+
 git remote
 
 3. What is the basic steps to init a git repo in you local ?
+
 git init
 
 4. How to clone a repo from Github ?
+
 git clone <url>
 
 5. How to create a new branch and checkout to that branch ?
+
 git checkout -b <name>
 
 6. How to merge the branch_test to master branch in command ? show me the commands
+
 git checkout master
+
 git merge branch_test
 
 7. How to stash your new code before leaving branch branch_learn_stash and pop your stash when you
 checkout back to **branch_learn_stash ? try commands way and intellij way.
+
 git stash
+
 git stash pop
 
 8. How do you understand PR is based on Branch?
+
 Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
 
 9. What is maven role ? what it be used to do ?
+
 Maven is chiefly used for Java-based projects, helping to download dependencies, which refers to the libraries or JAR files. The tool helps get the right JAR files for each project as there may be different versions of separate packages.
 
 10. What is the lifecycle of maven? could you tell me the details ?
+
 There are three main built-in build lifecycles: default, clean and site. The default lifecycle handles your project deployment, the clean lifecycle handles project cleaning, while the site lifecycle handles the creation of your project's web site.
 
 Details:
+
 Validate: This step validates if the project structure is correct. For example: It checks if all the dependencies have been downloaded and are available in the local repository.
+
 Compile: It compiles the source code, converts the .java files to .class and stores the classes in target/classes folder.
+
 Test: It runs unit tests for the project.
+
 Package: This step packages the compiled code in distributable format like JAR or WAR.
+
 Integration test: It runs the integration tests for the project.
+
 Verify: This step runs checks to verify that the project is valid and meets the quality standards.
+
 Install: This step installs the packaged code to the local Maven repository.
+
 Deploy: It copies the packaged code to the remote repository for sharing it with other developers.
 
 11. what is the difference between package and install in maven lifecycle ?
+
 Install: This step installs the packaged code to the local Maven repository.
+
 Package: This step packages the compiled code in distributable format like JAR or WAR.
 
 Package & install are various phases in maven build lifecycle. package phase will execute all phases prior to that & it will stop with packaging the project as a jar. Similarly install phase will execute all prior phases & finally install the project locally for other dependent projects.
 
 12. What is plugins in maven, list some plugins.
+
 What is a Plugin? "Maven" is really just a core framework for a collection of Maven Plugins. In other words, plugins are where much of the real action is performed, plugins are used to: create jar files, create war files, compile code, unit test code, create project documentation, and on and on.
 
-Plugin	Type*	Version	Release Date	Description	Source Repository	Issue Tracking
-Core plugins				Plugins corresponding to default core phases (ie. clean, compile). They may have multiple goals as well.		
-clean	B	3.2.0	2022-04-01	Clean up after the build.	Git / GitHub	Jira MCLEAN
-compiler	B	3.10.1	2022-03-11	Compiles Java sources.	Git / GitHub	Jira MCOMPILER
-deploy	B	3.0.0	2022-07-16	Deploy the built artifact to the remote repository.	Git / GitHub	Jira MDEPLOY
-failsafe	B	3.0.0-M8	2023-01-11	Run the JUnit integration tests in an isolated classloader.	Git / GitHub	Jira SUREFIRE
-install	B	3.1.0	2022-11-13	Install the built artifact into the local repository.	Git / GitHub	Jira MINSTALL
-resources	B	3.3.0	2022-07-23	Copy the resources to the output directory for including in the JAR.	Git / GitHub	Jira MRESOURCES
-site	B	4.0.0-M4	2022-12-02	Generate a site for the current project.	Git / GitHub	Jira MSITE
-surefire	B	3.0.0-M8	2023-01-11	Run the JUnit unit tests in an isolated classloader.	Git / GitHub	Jira SUREFIRE
-verifier	B	1.1	2015-04-14	Useful for integration tests - verifies the existence of certain conditions.	Git / GitHub	Jira MVERIFIER
-Packaging types/tools				These plugins relate to packaging respective artifact types.		
-ear	B	3.3.0	2022-10-18	Generate an EAR from the current project.	Git / GitHub	Jira MEAR
-ejb	B	3.2.1	2022-04-18	Build an EJB (and optional client) from the current project.	Git / GitHub	Jira MEJB
-jar	B	3.3.0	2022-09-12	Build a JAR from the current project.	Git / GitHub	Jira MJAR
-rar	B	3.0.0	2022-07-17	Build a RAR from the current project.	Git / GitHub	Jira MRAR
-war	B	3.3.2	2021-09-10	Build a WAR from the current project.	Git / GitHub	Jira MWAR
-app-client/acr	B	3.1.0	2018-06-19	Build a JavaEE application client from the current project.	Git / GitHub	Jira MACR
-shade	B	3.4.1	2022-10-27	Build an Uber-JAR from the current project, including dependencies.	Git / GitHub	Jira MSHADE
-source	B	3.2.1	2019-12-21	Build a source-JAR from the current project.	Git / GitHub	Jira MSOURCES
-jlink	B	3.1.0	2020-12-28	Build Java Run Time Image.	Git / GitHub	Jira MJLINK
-jmod	B	3.0.0-alpha-1	2017-09-17	Build Java JMod files.	Git / GitHub	Jira MJMOD
+clean compiler deploy ear ejb jar...
 
-13. In chuwa0116, MavenProject directory, create a maven Module using Intellij, named it as belows:
-1. groupID: com.chuwa.learn
-2. artifactID: java-core
-14. Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
-students' PR, please don't merge it.
+https://maven.apache.org/plugins/
+
