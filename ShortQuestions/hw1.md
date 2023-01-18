@@ -1,4 +1,4 @@
-1. 
+### 1. Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
 
 ### 2. practice git using the platform. list the git commands you learn
     git init
@@ -15,8 +15,8 @@
     
 
 
-
 ### 3. What is the basic steps to init a git repo in you loc?
+    git init
 
 ### 4. How to clone a repo from Github
     git clone "url of repository"
@@ -43,6 +43,37 @@
     git stash pop
 
 - intellij way:
+
+    Save changes to a stash：  
+    1. From the main menu, choose <b>Git | Uncommitted Changes | Stash Changes</b>.  
+
+    2. In the <b>Stash</b> dialog that opens, select the appropriate Git root and make sure that the correct branch is checked out.
+
+    3. In the <b>Message</b> field describe the changes you are about to stash.
+
+    4. To stash local changes and bring the changes staged in the index to your working tree for examination and testing, select the <b>Keep index</b> option.
+
+    5. Click <b>Create Stash</b>.
+
+    Apply a stash：  
+
+    1. From the main menu, choose <b>Git | Uncommitted Changes | Unstash Changes</b>.
+
+    2. Select the Git root where you want to apply a stash, and make sure that the correct branch is checked out.
+
+    3. Select the stash you want to apply from the list.
+
+        If you want to check which files are affected in the selected stash, click <b>View</b>.
+
+    4. To remove the selected stash after it is applied, select the <b>Pop stash</b> option.
+
+    5. To apply stashed index modifications as well, select the <b>Reinstate Index</b> option.
+
+    6. If you want to create a new branch on the basis of the selected stash instead of applying it to the branch that is currently checked out, type the name of that branch in the <b>As new branch</b> field.
+
+    To remove a stash, select it in the list and click <b>Drop</b>. To remove all stashes, click <b>Clear</b>.
+
+
 
     
 
