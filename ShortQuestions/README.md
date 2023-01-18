@@ -5,7 +5,6 @@
 ---
   
 
-
 First line with two spaces after.  
 And the next line.
 
@@ -64,3 +63,15 @@ Try to put a blank line before...
 - Fourth item
 
 ---
+    <html>
+        <head>
+        </head>
+    </html>
+
+---
+
+<https://www.markdownguide.org>  
+<bashine1998@outlook.com>
+
+---
+My favorite search engine is [Google](https://google.com "The most popular search engine, actually sometimes I will still use Baidu").
