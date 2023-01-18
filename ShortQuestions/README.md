@@ -1,20 +1,38 @@
 1. 
 
+### 2. practice git using the platform. list the git commands you learn
+    git init
+    git clone
+    git status
+    git branch "branch_name"
+    git switch "branch_name"
+    git checkout
+    git pull
+    git add
+    git commit 
+    git push
+    git merge
+    
 
-2.
 
 
-3.
+### 3. What is the basic steps to init a git repo in you loc?
 
-4.
+### 4. How to clone a repo from Github
+    git clone "url of repository"
 
-5.
 
-6.
+### 5. How to create a new branch and checkout to that branch?
 
-7.
+    git branch new_branch_name
+    git switch new_branch_name
 
-8.
+### 6. 
+
+### 7.
+
+### 8. How do you understand PR is based on Branch?
+    Pull requests let us tell others about changes we have pushed to a branch in a repository. Once a pull request is opened, we can discuss and review the potential changes with collaborators and add follow-up commits before our changes are merged into the base branch.
 
 ### 9. What is maven role ? what it be used to do?   
     Maven is a robust project management tool based on the POM (Project Object Model) architecture. It is used for project build, as well as for managing dependencies and documentation.
@@ -83,5 +101,6 @@ There are some pulgins:
 
 ### 13. In chuwa0116, MavenProject directory, create a maven Module using Intellij, named it as belows:
 1.  groupID: com.chuwa.learn
-2.  artifactID: java-cor
+2.  artifactID: java-core
+
     
