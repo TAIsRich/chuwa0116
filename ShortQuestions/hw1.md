@@ -1,7 +1,4 @@
-HW1-1 Maven, Git, PR
-submit your assignments using PR
-In your first_name/notes branch, do the below steps:
-Write your hw1 in hw1.md
+# HW1-1 Maven, Git, PR
 
 1. Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
     - https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formattin g-on-github/basic-writing-and-formatting-syntax
