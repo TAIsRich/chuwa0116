@@ -18,3 +18,14 @@ git rebase
 5. Type git add to add the files   
 6. Type git commit   
 
+###### 4. How to clone a repository from Github:   
+1. Open “Git Bash” and change the current working directory to the location where you want the cloned directory.   
+2. Type git clone in the terminal, paste the URL you copied earlier, and press “enter” to create your local clone.   
+
+###### 5. How to create a new branch and checkout to that branch:   
+Use "git checkout -b <new branch name>"   
+
+###### 6. How to merge the branch_test to master branch in command:   
+git merge branch_test   
+
+
