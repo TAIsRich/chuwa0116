@@ -27,9 +27,24 @@
     git branch new_branch_name
     git switch new_branch_name
 
-### 6. 
+### 6.  How to merge the branch_test to master branch in command? show the commands?
+    git checkout master
+    git pull origin master
+    git merge branch_test
+    
 
-### 7.
+### 7. How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash ? try commands way and intellij way.
+- commands way:  
+
+    git stash 
+
+
+    git checkout branch_learn_stash  
+    git stash pop
+
+- intellij way:
+
+    
 
 ### 8. How do you understand PR is based on Branch?
     Pull requests let us tell others about changes we have pushed to a branch in a repository. Once a pull request is opened, we can discuss and review the potential changes with collaborators and add follow-up commits before our changes are merged into the base branch.
