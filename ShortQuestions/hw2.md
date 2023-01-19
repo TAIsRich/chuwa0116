@@ -52,7 +52,7 @@ Access Modifiers' scopes:
     If we make any class as final, it cannot be inherited, the class will be immutable.
 
 
-### 8.
+### 8. What is static keyword? (Filed, Method, Class). When do we usually use it??
 
 
 
