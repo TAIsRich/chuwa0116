@@ -1,44 +1,71 @@
-# Chuwa Training
+- Headings
+# Largest Heading
+## The second largest Heading
+###### The smallest heading
 
+- Styling Text
 
-## How to record your assignments by using this repo:
+Bold: **This is bold text**
+Italic: *This text is italicized*
+Strikethrough: ~~This was mistaken text~~
+Bold and nested italic: **This text is _extremely_ important**
+All bold and italic: ***All this text is important***
+Subscript: <sub>This is a subscript text</sub>
+Superscript: <sup>This is a superscript text</sup>
 
-### Clone this repo:
-open your teminal, run below command.
+- Quoting text:
+> Text that is a quote
 
-```bash
-cd your_work_dir
-git clone https://github.com/TAIsRich/chuwa0116.git
+- Quoting code:
 ```
-
-### send your github email address to me by slack. I will add you to this repo
-
-### Create your feature branch to implement the assignment.
-
-```bash
-git branch firstName_lastName/notes
-git checkout firstName_lastName/notes
-
-example: 
-HW1:
-git checkout -b firstName_lastName/hw1
-git add .
-git commit -m "commit_message"
-git push origin firstName_lastName/hw1
+class Solution {
+    public int largestVariance(String s) {
+      int[] buckets=new int[26];
+      for(char c:s.toCharArray())
+      buckets[c-'a']++;
+      int maxVariance=0;
+      for(char a='a';a<='z';++a)
+      for(char b='a';b<='z';++b){
+      if(a==b||buckets[a-'a']==0||buckets[b-'a']==0)continue;
+      int countA=0,countB=0,remainingB=buckets[b-'a'];
+      for(char c:s.toCharArray()){
+      if(c==a){++countA;}
+      else if(c==b){++countB;--remainingB;}
+      if(countB>0)maxVariance=Math.max(maxVariance,countA-countB);
+      if(countB>countA&&remainingB>0){
+      countB=0;
+      countA=0;
+      }
+      }
+      }
+      return maxVariance;
+    }
+}
 ```
-write your assignment under this feature branch.
+- Supported color models
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 
-**short questions assignments -> shortQuestions directory**
+- Links:
+You can search using [Google](https://google.com/).
 
-**coding assignments -> coding directory**
+- Relative links:
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
 
-### How to Raise a PR
-working on your homework branch, ie. **firstName_lastName/hw1**
-```bash
-git push origin firstName_lastName/hw1
-```
-then open your github, **Compare and Pull** or **New pull request**
-```text
-to **firstName_lastName/notes** from **firstName_lastName/hw1**
-```
-You should always raise your PRs to your own firstName_lastName/notes branch, **Please don't raise your PR to main branch**
+- Images
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
+- Lists:
+$-$ use is already performed in this file, at this time, I will only demonstrate the number list:
+1. list1
+2. list2
+3. list3
+- NestedList:
+1. First list item
+   - First nested list item
+     - Second nested list item
+
+- Task Lists:
+Could be used to track your Leetcode completion status:
+- [x] Trapping Rain Water    
+- [ ] Substring With Largest Variance   
+- [ ] LRU Cache
