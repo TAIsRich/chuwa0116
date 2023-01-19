@@ -52,7 +52,27 @@ Access Modifiers' scopes:
     If we make any class as final, it cannot be inherited, the class will be immutable.
 
 
-### 8. What is static keyword? (Filed, Method, Class). When do we usually use it??
+### 8. What is static keyword? (Field, Method, Class). When do we usually use it?
+    The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes. The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
+
+- Field  
+    When a variable is declared as static, then a single copy of the variable is created and shared among all objects at the class level. Static variables are, essentially, global variables. All instances of the class share the same static variable.
+
+    Use the static variable for the property that is common to all objects.
+- Method  
+
+    Methods declared as static have several restrictions: 
+
+    - They can only directly call other static methods.
+    - They can only directly access static data.
+    - They cannot refer to this or super in any way.
+
+    Use static methods for changing static variables.
+
+- Class  
+    A class can be made static only if it is a nested class. We cannot declare a top-level class with a static modifier but can declare nested classes as static. Such types of classes are called Nested static classes. Nested static class doesn’t need a reference of Outer class. In this case, a static class cannot access non-static members of the Outer class. 
+
+    Using the static class is a way of grouping classes together. It is also used to access the primitive member of the enclosing class through the object reference. 
 
 
 
