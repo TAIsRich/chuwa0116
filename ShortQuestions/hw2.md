@@ -99,3 +99,14 @@ Access Modifiers' scopes:
 ### 13.
 
 ### 14. What is Interface and what is abstract class? What are the differences between them?
+- Abstract classes are similar to normal classes, with the difference that they can include abstract methods, which are methods without a body. Abstract classes cannot be instantiated.
+
+- Interfaces are a kind of code contract, which must be implemented by a concrete class.
+
+| Interface     | Abstract Class |
+| ----------- | ----------- |
+| Interface can have only abstract methods | An abstract class can have abstract and non-abstract methods.|
+| Abstract class can have final, non-final, static and non-static variables.  | The interface has only static and final variables. |
+| Interface can't provide the implementation of abstract class.| Abstract class can provide the implementation of interface.|
+| An interface can be implemented using keyword "implements". | An abstract class can be extended using keyword "extends".  |
+| Interface supports multiple inheritance.| Abstract class doesn't support multiple inheritance.|
