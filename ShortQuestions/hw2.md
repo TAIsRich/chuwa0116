@@ -1,5 +1,15 @@
 ### 1.
-### 2.
+### 2. What is wrapper class in Java and Why we need wrapper class?  
+- A Wrapper class is a class which contains the primitive data types (int, char, short, byte, etc). In other words, wrapper classes provide a way to use **primitive data types (int, char, short, byte, etc)** as objects. These wrapper classes come under java.util package.  
+
+
+- Why we need wrapper class:
+    - Wrapper Class will **convert primitive data types into objects.** The objects are necessary if we wish to modify the arguments passed into the method (because primitive types are passed by value).  
+
+    - To bind the values of different primitive data types into objects. This helps in performing complex operations and working with collections like HashMap, ArrayList, etc.
+
+    - Since primitive data types can’t be given a null value, but wrapper classes can, they also act as a workaround for assigning a null value to any primitive data type.
+
 ### 3. What is the difference between HashMap and HashTable?
 | HashMap      | HashTable |
 | ----------- | ----------- |
@@ -47,7 +57,7 @@
 | this keyword used to access methods of the current class as it has reference of current class.| One can access the method of parent class with the help of super keyword.|
 | this keyword can be referred from static context i.e can be invoked from static instance. For instance we can write **System.out.println(this.x)**， which will print value of x without any compilation or runtime error. | On other hand super keyword can't be referred from static context i.e can't be invoked from static instance. For instance we cannot write **System.out.println(super.x)**， this will leads to compile time error.  |
 
-### 11.
+### 11. What is the Java load sequence?
 
 ### 12.
 
