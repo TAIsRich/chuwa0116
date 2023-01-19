@@ -4,7 +4,7 @@
 
 ##2.practice git using the platform, list the git commands you learned
 ####Anser:
-    1)git commit
+    1)git commit / git commit -m "message"
     2)git branch <branch_name>
     3)git checkout <branch_name>
     4)git checkout -b <branch_name>
@@ -110,4 +110,7 @@
 
 ##14.Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
 students' PR, please don't merge it.
+Answer:
+    Nicely Done! It is ready to merge!
+    
 
