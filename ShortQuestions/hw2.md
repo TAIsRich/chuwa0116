@@ -1,3 +1,41 @@
+###### 1.Write up Example code to demonstrate the three fundmental concepts of OOP. (referenceCodeDemo repo as example)    
+```
+public class Person {
+    private String id;
+    private String name;
+    private String gender;
+    public Person(String id){
+        this.id = id;
+    }
+    public Person(String id, String name, String gender){
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+    }
+    
+    public void goToWork(){
+        System.out.println("I am going to the company");
+    }
+}
+
+class Student extends Person{
+
+    public Student(String id) {
+        super(id);
+    }
+    
+    public Student(String id, String name, String gender){
+        super(id, name, gender);
+    }
+
+    @Override
+    public void goToWork(){
+        System.out.println("I am going to the School");
+    }
+}
+```   
+
+
 ###### 2. What is wrapper class in Java and Why we need wrapper class?   
 Wrapper classes provide a way to use primitive data types as objects   
 The primitive data type are not objects by default. They need to be converted into objects by using wrapper classes.   
