@@ -1,9 +1,9 @@
-1.Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
-Answer: 
-    see in the ShortQuestions/README.md
+##1.Learn MarkDown and show all of basic usage in the ShortQuestions/README.md
+####Answer: 
+####    see in the ShortQuestions/README.md
 
-2.practice git using the platform, list the git commands you learned
-Anser:
+##2.practice git using the platform, list the git commands you learned
+####Anser:
     1)git commit
     2)git branch <branch_name>
     3)git checkout <branch_name>
@@ -15,56 +15,56 @@ Anser:
     9)git fetch 
     10)git push
 
-3.What is the basic steps to init a git repo in your local?
-Answer:
+##3.What is the basic steps to init a git repo in your local?
+####Answer:
     1)open the terminal, and switch to the directory of local project , and initialize local repository using command: 
-    git init
+        git init
     2)git init: create a new git repository
       git init <directory>: convert the current directory to a git repository
     3)git init --bare: convert a specific directory to a git repository
     
     
 
-4.How to clone a repo from Github?
-Answer: 
-    1) using the command: git clone <webUrl>, eg:  git clone https://github.com/TAIsRich/chuwa0116.git
-    2) git clone via SSH,  eg: git clone git@github.com:TAIsRich/chuwa0116.git. This requires user to generate 
-        a new SSH key and apply SSH-Agent, then add the public key to remote repository before git clone.
+##4.How to clone a repo from Github?
+####Answer: 
+    1) using the command: git clone <webUrl>, 
+        eg:  git clone https://github.com/TAIsRich/chuwa0116.git
+    2) git clone via SSH,  eg: git clone git@github.com:TAIsRich/chuwa0116.git. 
+        This requires user to generate  a new SSH key and apply SSH-Agent, then add the public key to remote repository before git clone.
 
-5.How to create a new branch and checkout to that branch
-Answer:
+##5.How to create a new branch and checkout to that branch
+###Answer:
     use the command: checkout -b <branch_name> or 
                       git branch <branch_name> , git checkout <branch_name>
 
-6.How to merge the branch_test to master branch in command? show me the commands
-Answer:
+##6.How to merge the branch_test to master branch in command? show me the commands
+####Answer:
     use the command: git merge branch_test
 
-7.How to stash your new code before leaving branch branch_learn_stash and pop your stash 
-when you checkout back to **branch_learn_stash? try commands way and intellij way.
-Answer:
-    1） firstly using git stash or git stash save "message" (using git stash save cane add message)
-    2)when back to branch_learn_stash, using git stash pop 
+##7.How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash? try commands way and intellij way.
+####Answer:
+    1）firstly using: git stash or git stash save "message" (using git stash save can add message)
+    2) when back to branch_learn_stash, using git stash pop 
 
 
-8.How do you understand PR is based on Branch?
-Answer:
+##8.How do you understand PR is based on Branch?
+####Answer:
     the operation pull request are branch based, is not based on a single submission. When we create
     a pull request, we need to base it on a particular branch and request adoption. On each pull request, other 
     developers can find all modifications/commits for this branch. And it is more easier for others to do code review.
 
 
 
-9.What is maven role? What it be used to do?
-Answer:
+##9.What is maven role? What it be used to do?
+####Answer:
     1)Maven is a management and build tool specifically designed for Java projects. Applying Maven makes 
         operations such as downloading, adding and removing the dependencies/libraries of a project much easier.
     2) Maven provides a set of standardized project structure, and a standardized build process,
         including compile, test, package, release, and so on, which means Maven build project(Cycle). It also provides a dependency management
         mechanism, this helps to manage dependencies/package. 
  
-10.What is the lifecycle of maven? Could you tell me the details?
-Answer:
+##10.What is the lifecycle of maven? Could you tell me the details?
+####Answer:
     1）the lifecycle of maven includes: Clean->prepare-resources->validate->package->install
          (the clean stage: pre-clean -> clean -> post-clean)
         （the defaulted stage: validate->compile->test->package->integration-test->verify->
@@ -80,34 +80,34 @@ Answer:
                 it. 
         
 
-11.What is the difference between package and install in maven lifecycle?
-Answer: The difference is that package means packaging a project containing many files into a compressed file for installation or
+##11.What is the difference between package and install in maven lifecycle?
+####Answer: The difference is that package means packaging a project containing many files into a compressed file for installation or
         deployment. The Java project corresponds to the jar package, and the Web project corresponds to the war package.
         However, in the Maven environment, installing means specificaaly to the installation of the packaged result, a jar or war 
         package into a local repository. In this word, before going to install stage, it must go to package stage firstly. 
 
-12.What is plugins in maven, list some plugins.
-Answer:
+##12.What is plugins in maven, list some plugins.
+#####Answer:
     1）Maven is the core framework for Maven's collection of plugins, which means the plugin is where the most real actions/operations
         take place. The plugins are used to create the jar/war file, compile the code, unit test code, create project documents, etc.
         Hence, plugins are the core functionality of Maven, allowing common build logic to reused across multiple projects. This is implemented 
         by performing actions in the context of the project description.
     2）maven-antrun-plugin
         maven-archetype-plugin
-        maven-assembly-plugin
+        maven-assembly-plugi
         maven-dependency-plugin
         maven-enforcer-plugin
         maven-help-plugin
         maven-release-plugin
         maven-resources-plugin
 
-13.In chuwa0116, MavenProject directory, create a maven Module using Intellij, named it as belows:
+##13.In chuwa0116, MavenProject directory, create a maven Module using Intellij, named it as belows:
     1.groupID: com.chuwa.learn
     2.artifactID: java-core
-Answer:
+####Answer:
     the operation has been git to the remote repository.
 
 
-14.Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
+##14.Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
 students' PR, please don't merge it.
 
