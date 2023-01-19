@@ -23,7 +23,22 @@
     Garbage collection in Java is the automated process of deleting code that’s no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers.  
 
     Java applications are compiled into bytecode that may be executed by a JVM. Objects are produced on the heap (the memory space used for dynamic allocation), which are then monitored and tracked by garbage collection operations. Most objects used in Java code are short-lived and can be reclaimed shortly after they are created. The garbage collector uses a mark-and-sweep algorithm to mark all unreachable objects as garbage collection, then scans through live objects to find objects that are still reachable.
-### 6.
+
+
+
+
+### 6. What are access modifiers and their scopes in Java?
+    Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private
+
+Access Modifiers' scopes:   
+
+| Access Modifier     | within class | within package| outside package by subclass only  | outside package|
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| private | YES | NO | NO | NO |
+| default   | YES  | YES | NO | NO |
+| protected | YES| YES | YES | NO |
+| public | YES | YES | YES | YES |
+
 ### 7. What is final key word? (Field, Method, Class)
     The final key word in Java is used to restrict the user.
 - Field  
