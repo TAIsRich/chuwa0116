@@ -18,7 +18,7 @@
 | Threads are not required to wait and hence relatively performance is high. | It increases the waiting time of the thread and hence performance is low.|
 | Null is allowed for both key and value.| Null is not allowed for both key and value. Otherwise, we will get a null pointer exception.   |
 
-### 4.
+### 4. What is String pool in Java and why we need String pool? 
 ### 5. What is Java garbage collection?
     Garbage collection in Java is the automated process of deleting code that’s no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers.  
 
@@ -93,6 +93,7 @@ Access Modifiers' scopes:
 | this keyword can be referred from static context i.e can be invoked from static instance. For instance we can write **System.out.println(this.x)**， which will print value of x without any compilation or runtime error. | On other hand super keyword can't be referred from static context i.e can't be invoked from static instance. For instance we cannot write **System.out.println(super.x)**， this will leads to compile time error.  |
 
 ### 11. What is the Java load sequence?
+    The Java load sequence is the order in which the JVM loads and initializes the parts of a Java program, starting with class files, linking, initializing variables and static blocks, and ending with the main method starting execution.
 
 ### 12.
 
