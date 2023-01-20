@@ -1,6 +1,6 @@
 # HW2
 
-## 1. Refer coding folder
+## 1. Refer coding folder, Encapsulation.java file
 
 ## 2. What is wrapper class in Java and Why we need wrapper class?
 In java, a wrapper class is the class that wraps (or encapsulates) primitive data types, converting perimitive data to objects. 
@@ -100,3 +100,11 @@ by multiple classes, but they have some key differences:
 ## 15. Refer coding folder.
 
 ## 16. What are Queue interface implementations and what are the differences and when to use what?
+The Queue interface is a part of the Java Collection Framework and provides a mechanism for holding multiple 
+elements prior to processing. Some common implementations include:
+- LinkedList: FIFO
+- PriorityQueue: Heap
+- ArrayDeque: Double ended queue
+
+Choose what to use based on different scenarios, if you need heap, use PriorityQueue, if just FIFO, linkedlist queue.
+
