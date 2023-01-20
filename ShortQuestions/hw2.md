@@ -1,4 +1,102 @@
-### 1.
+### 1. Write up Example code to demonstrate the three foundmental concepts of OOP. (reference Code Demo repo as example)
+
+- Encapsulation  
+``` 
+    class Student {  
+        private int Student_Id;
+        private String name;
+        //getters, setters for Student_Id and name fields.
+        public int getId() {
+            return Student_Id;
+        }
+        public void setId(int s_id) {
+            this.Student_Id = s_id;
+        }
+        public String getname() {
+            return name;
+        }
+        public void setname(String s_name) {
+            this.name = s_name;
+        }
+    }
+
+    class Main {
+        public static void main (String[] args){
+            Student s = new Student();
+            s.setId(36);
+            s.setName("Xukun Cai");
+        }
+    }
+```
+
+- Inheritance
+```
+    class Bird {
+        protected int numOfWings = 2;
+        protected boolean canFly = true;
+
+        public void Fly(){
+            System.out.println("Let's fly!")
+        }
+
+    }
+
+    class Eagle extends Bird {
+        private boolean isPrey = true;
+        private int speed = 120;
+
+        public int getSpeed(){
+            return speed;
+        }
+
+        public void accelerate(){
+            speed += 10;
+        }
+
+    }
+```
+
+- polymorphism 
+```
+    class Shape {
+        public void area() {
+            System.out.println("Find area ");
+        }
+        public void area(int r) {
+            System.out.println("Circle area = "+3.14*r*r);
+        }
+
+        public void area(int width, int height, int t = 0) {
+            if (t==0) {
+                System.out.println("Rectangle area = "+width*height);
+            } else {
+                System.out.println("Triangle area = "+(int)(0.5*width*height));
+            }
+        }
+
+        public void draw() {
+            System.out.println("Drawing a shape");
+        }
+    }
+
+    class Circle extends Shape {
+        @Override
+        public void draw() {
+            System.out.println("Drawing a circle");
+        }
+    }
+
+    class Square extends Shape {
+        @Override
+        public void draw() {
+            System.out.println("Drawing a square");
+        }
+    }
+
+
+```
+
+
 ### 2. What is wrapper class in Java and Why we need wrapper class?  
 - A Wrapper class is a class which contains the primitive data types (int, char, short, byte, etc). In other words, wrapper classes provide a way to use **primitive data types (int, char, short, byte, etc)** as objects. These wrapper classes come under java.util package.  
 
