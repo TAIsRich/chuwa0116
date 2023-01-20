@@ -28,6 +28,18 @@ public class ParkingSpot {
         return vehicle == null;
     }
 
+    public boolean canFitVehicle(Vehicle vehicle){
+        return isEmpty() && vehicle.canFitInSpot(this);
+    }
+
+    public boolean park(Vehicle vehicle){
+        if (!canFitVehicle(vehicle)){
+            return false;
+        }
+        vehicle.addSpots(this);
+        return true;
+    }
+
     public void removeVehicle(){
         level.spotFreed();
         vehicle = null;

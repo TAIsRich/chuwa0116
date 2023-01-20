@@ -16,14 +16,14 @@ public class Level {
         int midSpots = numberSpots - largeSpots - smallSpots;
 
         for (int i = 0; i<numberSpots; i++){
-            VehicleSize s = VehicleSize.MotorBike;
+            VehicleSize s = VehicleSize.Motor;
             if (i<largeSpots){
                 s = VehicleSize.Bus;
             } else if (i<largeSpots+midSpots){
                 s = VehicleSize.Car;
             }
 
-            ownedSpots[i] = new ParkingSpot(floor, i/SPOT_PER_ROW, i, s);
+            ownedSpots[i] = new ParkingSpot(this, i/SPOT_PER_ROW, i, s);
         }
     }
 
@@ -42,6 +42,7 @@ public class Level {
         return parkAtSpot(spotNumber, vehicle);
     }
 
+
     private boolean parkAtSpot(int number, Vehicle vehicle){
         vehicle.clearSpots();
         boolean canPark = true;
@@ -51,6 +52,10 @@ public class Level {
 
         freeSpaces -= vehicle.spotsNeeded;
         return canPark;
+    }
+
+    public void spotFreed(){
+        freeSpaces += 1;
     }
 
     private int findAvailableSpots(Vehicle vehicle){

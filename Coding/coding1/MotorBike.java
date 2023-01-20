@@ -1,7 +1,8 @@
 public class MotorBike extends Vehicle {
-    public MotorBike(){
+    public MotorBike(String license){
         spotsNeeded = 1;
         size = VehicleSize.Motor;
+        licenseNumber = license;
     }
     
     public boolean canFitInSpot(ParkingSpot spot){

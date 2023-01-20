@@ -9,7 +9,7 @@ public class ParkingLot {
         }
     }
 
-    public boolearn tryParkVehicle(Vehicle vehicle){
+    public boolean tryParkVehicle(Vehicle vehicle){
         for (int i = 0; i< levels.length; i++){
             if (levels[i].parkVehicle(vehicle)){
                 return true;

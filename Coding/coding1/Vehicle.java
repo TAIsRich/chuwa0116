@@ -11,8 +11,12 @@ public abstract class Vehicle {
     public int getSpotsNeeded(){
         return spotsNeeded;
     }
-    public int getSize(){
+    public VehicleSize getSize(){
         return size;
+    }
+
+    public void addSpots(ParkingSpot spot){
+        parkedSpots.add(spot);
     }
 
     public void clearSpots(){
@@ -23,7 +27,7 @@ public abstract class Vehicle {
         parkedSpots.clear();
     }
 
-    public abstract boolean canFitIn(ParkingSpot spot);
+    public abstract boolean canFitInSpot(ParkingSpot spot);
 
 
 
