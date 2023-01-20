@@ -151,5 +151,12 @@ class can extend only one abstract class, but it can extends multiple interfaces
     it.(Do NOT just copy and paste)
 
 *** Question 16.  What are Queue interface implementations and what are the differences and when to use what?
+```
+Priorityqueue class is an implemnetatation, linkedlist is also an implemnetation. 
+
+Arraydeque: this is not thread-safe, array-based implementation of a queue. 
+linkedlist: not thread safe, it is implemented by a doubly linkedlist.
+PriorityQueue: order the element based on a priority heap.
+```
 
 
