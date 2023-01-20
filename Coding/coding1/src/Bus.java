@@ -1,11 +1,11 @@
 
-public class Car implements Vehicle {
+public class Bus implements Vehicle {
     private String licensePlate;
     private int size;
 
-    public Car(String licensePlate) {
+    public Bus(String licensePlate) {
         this.licensePlate = licensePlate;
-        this.size = 1;
+        this.size = 5;
     }
 
     @Override

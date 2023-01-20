@@ -1,50 +1,25 @@
-//implemented by having just a variable which represents the size of the spot
 public class ParkingSpot {
+    private int size;
     private Vehicle vehicle;
-    private VehicleSize spotSize;
-    private int lane;
-    private int spotNumber;
-    private Level level;
 
-    public ParkingSpot(Level lvl, int r, int n, VehicleSize s) {
-        level = lvl;
-        lane = r;
-        spotNumber = n;
-        spotSize = s;
+    public ParkingSpot(int size) {
+        this.size = size;
+        this.vehicle = null;
     }
 
-    public boolean isAvailable() {
-        return vehicle == null;
+    public int getSize() {
+        return size;
     }
 
-    public boolean canFitVehicle(Vehicle vehicle) {
-        //check if the spot is big enough and is available
-        return isAvailable() && vehicle.canFitInSpot(this);
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public boolean park(Vehicle v) {
-        if (!canFitVehicle(v))
-            return false;
-
-        vehicle = v;
-        vehicle.parkInSpot(this);
-        return true;
-    }
-
-    public int getLane() {
-        return lane;
-    }
-
-    public int getSpotNumber() {
-        return spotNumber;
-    }
-
-    public VehicleSize getSize() {
-        return spotSize;
+    public void parkVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
     public void removeVehicle() {
-        level.spotFreed();
-        vehicle = null;
+        this.vehicle = null;
     }
 }
