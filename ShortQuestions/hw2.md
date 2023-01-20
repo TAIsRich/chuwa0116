@@ -50,13 +50,25 @@ System.out.println("Salary : " + E1.salary + "\nBenefits : " + E1.benefits);
 }
 }
 
-2.  Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects.
-    Sometimes you must use wrapper classes, for example when working with Collection objects, such as ArrayList, where primitive types cannot be used (the list can only store objects).
+2. What is wrapper class in Java and Why we need wrapper class?
 
-3.
+Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects.
+Sometimes you must use wrapper classes, for example when working with Collection objects, such as ArrayList, where primitive types cannot be used (the list can only store objects).
+
+3. What is the difference between HashMap and HashTable?
 
 HashMap allows one null key and multiple null values whereas Hashtable doesn't allow any null key or value. HashMap is generally preferred over HashTable if thread synchronization is not needed.
 
-4.  String Pool in java is a pool of Strings stored in Java Heap Memory. It is created to decrease the number of string objects created in the memory. Whenever a new string is created, JVM first checks the string pool. If it encounters the same string, then instead of creating a new string, it returns a reference existing string to the variable.
+4. What is String pool in Java and why we need String pool?
 
-5.  Garbage collection in Java is the automated process of deleting code that's no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers. Java applications are compiled into bytecode that may be executed by a JVM.
+String Pool in java is a pool of Strings stored in Java Heap Memory. It is created to decrease the number of string objects created in the memory. Whenever a new string is created, JVM first checks the string pool. If it encounters the same string, then instead of creating a new string, it returns a reference existing string to the variable.
+
+5. What is Java garbage collection?
+
+Garbage collection in Java is the automated process of deleting code that's no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers. Java applications are compiled into bytecode that may be executed by a JVM.
+
+6. What are access modifiers and their scopes in Java?
+
+Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private.
+
+<img src = "Access-Modifiers-in-Java.png" alt = "access modifier" />
