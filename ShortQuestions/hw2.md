@@ -196,7 +196,7 @@ Access Modifiers' scopes:
 | this keyword can be referred from static context i.e can be invoked from static instance. For instance we can write **System.out.println(this.x)**， which will print value of x without any compilation or runtime error. | On other hand super keyword can't be referred from static context i.e can't be invoked from static instance. For instance we cannot write **System.out.println(super.x)**， this will leads to compile time error.  |
 
 ### 11. What is the Java load sequence?
-    The Java load sequence is the order in which the JVM loads and initializes the parts of a Java program, starting with class files, linking, initializing variables and static blocks, and ending with the main method starting execution.
+> The Java load sequence is the order in which the JVM loads and initializes the parts of a Java program, starting with class files, linking, initializing variables and static blocks, and ending with the main method starting execution.
 
 ### 12. What is Polymorphism? And how Java implements it?
 - Polymorphism in Java is the phenomenon by which an object can acquire an ability to operate from different perspectives.
