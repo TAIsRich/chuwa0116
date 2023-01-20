@@ -8,10 +8,29 @@ some code
 
 
 ### What is wrapper class in Java and Why we need wrapper class? 
+Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. 
+
+Sometimes you must use wrapper classes, for example when working with Collection objects, such as ArrayList, where primitive types cannot be used (the list can only store objects)
+
+```
+ArrayList<int> myNumbers = new ArrayList<int>(); // Invalid
+ArrayList<Integer> myNumbers = new ArrayList<Integer>(); // Valid
+```
+
 
 ### What is the difference between HashMap and HashTable?
 
+| HashMap  | HashTable |
+| ------------- | ------------- |
+| No method is synchronized.  | Every method is synchronized.  |
+| Multiple threads can operate simultaneously and hence hashmap’s object is not thread-safe.  | At a time only one thread is allowed to operate the Hashtable’s object. Hence it is thread-safe.  |
+| Threads are not required to wait and hence relatively performance is high. | It increases the waiting time of the thread and hence performance is low. |
+| Null is allowed for both key and value. | Null is not allowed for both key and value. Otherwise, we will get a null pointer exception. |
+
+
 ### What is String pool in Java and why we need String pool? 
+
+
 
 ### What is Java garbage collection?
 
