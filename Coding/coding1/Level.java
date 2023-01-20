@@ -1,20 +1,35 @@
-public class ParkingLot {
-    private  Level[] levels;
-    private final int NUM_LEVELS = 5;
+public class Level {
+    int floor;
+    ParkingSpot[] ownedSpots;
+    int freeSpaces = 0;
 
-    public ParkingLot(){
-        levels = new Level[NUM_LEVELS];
-        for (int i = 0; i<NUM_LEVELS; i++){
-            levels[i] = new Level(i, 30);
-        }
+    private final int SPOT_PER_ROW = 10;
+
+    public int getAvailableSpots(){
+        return freeSpaces;
     }
 
-    public boolearn tryParkVehicle(Vehicle vehicle){
-        for (int i = 0; i< levels.length; i++){
-            if (levels[i].parkVehicle(vehicle)){
-                return true;
-            }
+    public boolean parkVehicle(Vehicle vehicle){
+        if (getAvailableSpots()<vehicle.getSpotsNeeded()){
+            return false;
         }
-        return false;
+        int spotNumber = findAvailableSpots(vehicle);
+        if (spotNumber<0){
+            return false;
+        }
+        return parkAtSpot(spotNumber, vehicle);
     }
+
+    private boolean parkAtSpot(int number, Vehicle vehicle){
+        vehicle.clearSpots();
+        boolean canPark = true;
+        for (int i = num; i<num+vehicle.spotsNeeded; i++){
+            canPark = canPark & ownedSpots[i].park(vehicle);
+        }
+
+        freeSpaces -= vehicle.spotsNeeded;
+        return canPark;
+    }
+
+
 }

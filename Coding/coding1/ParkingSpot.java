@@ -24,8 +24,13 @@ public class ParkingSpot {
         return spotSize;
     }
 
-    public isEmpty(){
+    public boolean isEmpty(){
         return vehicle == null;
+    }
+
+    public void removeVehicle(){
+        level.spotFreed();
+        vehicle = null;
     }
 
 
