@@ -117,21 +117,21 @@
 | Null is allowed for both key and value.| Null is not allowed for both key and value. Otherwise, we will get a null pointer exception.   |
 
 ### 4. What is String pool in Java and why we need String pool? 
-    String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
+> String Pool in Java is a special storage space in Java Heap memory where string literals are stored.
 
-    When we create a string literal, the JVM first check that literal in the String pool. If the literal is already present in the pool, it returns a reference to the pooled instance. If the literal is not present in the pool, a new String object takes place in the String pool.
+> When we create a string literal, the JVM first check that literal in the String pool. If the literal is already present in the pool, it returns a reference to the pooled instance. If the literal is not present in the pool, a new String object takes place in the String pool.
 
-    We need string pool to get better performance and save more memory in many cases. 
+> We need string pool to get better performance and save more memory in many cases. 
 
 
 ### 5. What is Java garbage collection?
-    Garbage collection in Java is the automated process of deleting code that’s no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers.  
+> Garbage collection in Java is the automated process of deleting code that’s no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers.  
 
-    Java applications are compiled into bytecode that may be executed by a JVM. Objects are produced on the heap (the memory space used for dynamic allocation), which are then monitored and tracked by garbage collection operations. Most objects used in Java code are short-lived and can be reclaimed shortly after they are created. The garbage collector uses a mark-and-sweep algorithm to mark all unreachable objects as garbage collection, then scans through live objects to find objects that are still reachable.
+> Java applications are compiled into bytecode that may be executed by a JVM. Objects are produced on the heap (the memory space used for dynamic allocation), which are then monitored and tracked by garbage collection operations. Most objects used in Java code are short-lived and can be reclaimed shortly after they are created. The garbage collector uses a mark-and-sweep algorithm to mark all unreachable objects as garbage collection, then scans through live objects to find objects that are still reachable.
 
 
 ### 6. What are access modifiers and their scopes in Java?
-    Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private
+> Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private
 
 Access Modifiers' scopes:   
 
@@ -143,7 +143,7 @@ Access Modifiers' scopes:
 | public | YES | YES | YES | YES |
 
 ### 7. What is final key word? (Field, Method, Class)
-    The final key word in Java is used to restrict the user.
+> The final key word in Java is used to restrict the user.
 - Field  
 
     If we make any field as final, it will be constant, we cannot change the value of final field (variable).
@@ -156,7 +156,7 @@ Access Modifiers' scopes:
 
 
 ### 8. What is static keyword? (Field, Method, Class). When do we usually use it?
-    The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes. The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
+>The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes. The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
 
 - Field  
     When a variable is declared as static, then a single copy of the variable is created and shared among all objects at the class level. Static variables are, essentially, global variables. All instances of the class share the same static variable.
