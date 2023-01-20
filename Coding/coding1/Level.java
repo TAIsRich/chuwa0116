@@ -5,6 +5,28 @@ public class Level {
 
     private final int SPOT_PER_ROW = 10;
 
+    public Level(int floor, int numberSpots){
+        this.floor = floor;
+        this.freeSpaces = numberSpots;
+        this.ownedSpots = new ParkingSpot[numberSpots];
+
+        int largeSpots = numberSpots/4;
+        int smallSpots = numberSpots/4;
+
+        int midSpots = numberSpots - largeSpots - smallSpots;
+
+        for (int i = 0; i<numberSpots; i++){
+            VehicleSize s = VehicleSize.MotorBike;
+            if (i<largeSpots){
+                s = VehicleSize.Bus;
+            } else if (i<largeSpots+midSpots){
+                s = VehicleSize.Car;
+            }
+
+            ownedSpots[i] = new ParkingSpot(floor, i/SPOT_PER_ROW, i, s);
+        }
+    }
+
     public int getAvailableSpots(){
         return freeSpaces;
     }
@@ -23,12 +45,36 @@ public class Level {
     private boolean parkAtSpot(int number, Vehicle vehicle){
         vehicle.clearSpots();
         boolean canPark = true;
-        for (int i = num; i<num+vehicle.spotsNeeded; i++){
+        for (int i = number; i<number+vehicle.spotsNeeded; i++){
             canPark = canPark & ownedSpots[i].park(vehicle);
         }
 
         freeSpaces -= vehicle.spotsNeeded;
         return canPark;
+    }
+
+    private int findAvailableSpots(Vehicle vehicle){
+        int spotsNeeded = vehicle.getSpotsNeeded();
+		int lastRow = -1;
+		int spotsFound = 0;
+
+		for (int i = 0; i < ownedSpots.length; i++){
+			ParkingSpot spotd = ownedSpots[i];
+			if (lastRow != spotd.getRow()){
+				spotsFound = 0;
+				lastRow = spotd.getRow();
+			}
+			if (spotd.canFitVehicle(vehicle)){
+				spotsFound++;
+			} else{
+				spotsFound = 0;
+			}
+			if (spotsFound == spotsNeeded){
+				return i - (spotsNeeded - 1);
+			}
+		}
+
+        return -1;
     }
 
 
