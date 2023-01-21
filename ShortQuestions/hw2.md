@@ -88,7 +88,7 @@ public class SDE extends Employees {
      Super is used to access methods from parent class and this is used to access which from the current class.
 
 #### 11.  What is the Java load sequence?
-     Static blocks -> constructors -> instance methods.
+     Static blocks, constructors, instance methods.
 
 #### 12.  What is Polymorphism ? And how Java implements it ? 
      A class can provide different implementation of a method depends on the type of object passed.
