@@ -1,0 +1,128 @@
+1.  Write up Example code to demonstrate the three foundmental concepts of OOP. (reference Code Demo
+repo as example)
+ 1.  Encapsulation;
+
+  // fields to calculate area
+   class Area {
+   int length;
+   int breadth;
+
+  // constructor to initialize values
+  Area(int length, int breadth) {
+    this.length = length;
+    this.breadth = breadth;
+  }
+
+  // method to calculate area
+  public void getArea() {
+    int area = length * breadth;
+    System.out.println("Area: " + area);
+  }
+  }
+class Main {
+  public static void main(String[] args) {
+
+    Area rectangle = new Area(2, 16);
+    rectangle.getArea();
+  }
+}
+
+ 2.  Polymorphism
+
+  class Shapes {
+    public void area() {
+      System.out.println("The formula for area of ");
+    }
+  }
+  class Triangle extends Shapes {
+    public void area() {
+      System.out.println("Triangle is ½ * base * height ");
+    }
+  }
+  class Circle extends Shapes {
+    public void area() {
+      System.out.println("Circle is 3.14 * radius * radius ");
+    }
+  }
+  class Main {
+    public static void main(String[] args) {
+      Shapes myShape = new Shapes();  // Create a Shapes object
+      Shapes myTriangle = new Triangle();  // Create a Triangle object
+      Shapes myCircle = new Circle();  // Create a Circle object
+      myShape.area();
+      myTriangle.area();
+      myShape.area();
+      myCircle.area();
+    }
+  }
+
+ 3.  Inheritance
+  class Vehicle {
+    protected String brand = "Ford";        // Vehicle attribute
+    public void honk() {                    // Vehicle method
+      System.out.println("Tuut, tuut!");
+    }
+  }
+
+  class Car extends Vehicle {
+    private String modelName = "Mustang";    // Car attribute
+    public static void main(String[] args) {
+
+      // Create a myCar object
+      Car myCar = new Car();
+
+      // Call the honk() method (from the Vehicle class) on the myCar object
+      myCar.honk();
+
+      // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+      System.out.println(myCar.brand + " " + myCar.modelName);
+    }
+  }
+
+2.  What is wrapper class in Java and Why we need wrapper class?
+The wrapper classes in java are used for the methods that support objects like a conversion from other types.
+Wrapper classes are useful for synchronization in multithreading. The synchronization process allows only one thread to use a shared resource at a time. For that, wrapper class objects are required.
+
+3.  What is the difference between HashMap and HashTable?
+HashMap allows one null key and multiple null values whereas Hashtable doesn't allow any null key or value. HashMap is generally preferred over HashTable if thread synchronization is not needed.
+
+4.  What is String pool in Java and why we need String pool?
+String Pool in Java is a special storage space in Java Heap memory where string literals are stored. It is also known by the names - String Constant Pool or String Intern Pool. Whenever a string literal is created, the JVM first checks the String Constant Pool before creating a new String object corresponding to it
+
+5.  What is Java garbage collection?
+Garbage collection in Java is the automated process of deleting code that's no longer needed or used. This automatically frees up memory space and ideally makes coding Java apps easier for developers. Java applications are compiled into bytecode that may be executed by a JVM.
+
+6.  What are access modifiers and their scopes in Java?
+What are Access Modifiers? Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private.
+
+7.  What is final key word? (Filed, Method, Class)
+The final keyword is a concept of inheritance and it is used with the classes, methods, and variables. The finally block comes with a try and catch block in exception handling. finalize() method is used with the objects to clean the memory space. The final variable cannot be reinitialized with another value.
+
+8.  What is static keyword? (Filed, Method, Class). When do we usually use it?
+In Java, static keyword is mainly used for memory management. It can be used with variables, methods, blocks and nested classes. It is a keyword which is used to share the same variable or method of a given class. Basically, static is used for a constant variable or a method that is same for every instance of a class.
+
+9.  What is the differences between overriding and overloading?
+Overriding occurs when the method signature is the same in the superclass and the child class. Overloading occurs when two or more methods in the same class have the same name but different parameters.
+
+10.  What is the differences between super and this?
+“super” and “this” in Java are two predefined keywords, that cannot be used as an identifier. “super” in Java is used to refer to methods, static and instance variables, constructors of an immediate parent class. “this” in Java is used to refer to methods, static and instance variables, constructors of a current class.
+
+11.  What is the Java load sequence?
+The ClassLoader Delegation Hierarchy Model always functions in the order Application ClassLoader->Extension ClassLoader->Bootstrap ClassLoader. The Bootstrap ClassLoader is always given the higher priority, next is Extension ClassLoader and then Application ClassLoader.
+
+12.  What is Polymorphism ? And how Java implements it ?
+In Java, polymorphism refers to the ability of a class to provide different implementations of a method, depending on the type of object that is passed to the method. To put it simply, polymorphism in Java allows us to perform the same action in many different ways.
+
+13.  What is Encapsulation ? How Java implements it? And why we need encapsulation?
+Encapsulation is one of the key features of object-oriented programming. Encapsulation refers to the bundling of fields and methods inside a single class. It prevents outer classes from accessing and changing fields and methods of a class. This also helps to achieve data hiding.
+
+14.  What is Interface and what is abstract class? What are the differences between them?
+Interfaces are a kind of code contract, which must be implemented by a concrete class. Abstract classes are similar to normal classes, with the difference that they can include abstract methods, which are methods without a body. Abstract classes cannot be instantiated.
+
+15.  (OOD) Design a parking lot (put the code to codingQuestions/coding1 folder, )
+1.  If you have no ability to design it, please find the solution in internet, then understand it, and re-type
+it.(Do NOT just copy and paste)
+
+16.  What are Queue interface implementations and what are the differences and when to use what?
+
+Two classes implement the Queue interface i.e. LinkedList and PriorityQueue. Following are some of the major characteristics of the Queue data structure: Queue follows the FIFO (First In, First Out) order. This means that the element is inserted in the queue at the end and removed from the queue at the beginning.
