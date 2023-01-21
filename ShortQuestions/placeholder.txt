@@ -1,1 +1,29 @@
 write your answer to this folder.
+
+1. 
+
+2. git commit, git branch, git checkout, git init, git clone, git merge
+
+3. git init
+
+4. git clone
+
+5. git branch, git checkout
+
+6. git checkout master, git merge branch_test
+
+7. 
+
+8. Pull request is to merge 
+
+9. 
+
+10. 
+
+11. 
+
+12. 
+
+13. 
+
+14. 
