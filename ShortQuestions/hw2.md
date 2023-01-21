@@ -109,15 +109,20 @@ class Student extends Person {
 ```
 
 ### ！2. What is wrapper class in Java and Why we need wrapper class?
-
+Wrapper classes provide a way to use primitive data types as objects, and also provides some utility methods and allows to use Enumerated Types.
 ### ！3. What is the difference between HashMap and HashTable?
-
+HashMap is not thread-safe, allows null keys and values, and is faster than Hashtable because it is not synchronized. Hashtable is thread-safe, does not allow null keys or values, and is slower than HashMap because it is synchronized.
 ### ！4. What is String pool in Java and why we need String pool? 
-
+String pool is a feature in Java that helps to optimize the memory usage of strings by reducing the number of duplicate strings and reusing the same object instead of creating new one. This can improve the performance of the application and save memory.
 ### ！5. What is Java garbage collection?
-
+Java garbage collection is the process of automatically freeing up memory that is no longer being used by a Java application. It is an important feature that helps to prevent memory leaks and improve the performance and stability of Java applications.
 ### ！6. What are access modifiers and their scopes in Java?
-
+In Java, access modifiers are keywords that are used to control the accessibility of classes, methods, and variables. The four main access modifiers in Java are:
+public: A public class, method, or variable can be accessed from anywhere, including other classes, packages, and subclasses.
+private: A private class, method, or variable can only be accessed within the same class in which it is defined. It is not visible to other classes, packages, or subclasses.
+protected: A protected method or variable can be accessed within the same package or by a subclass in a different package.
+default (or package-private): When no access modifier is specified, the class, method, or variable has default access and can be accessed within the same package, but not from classes in other packages.
+In addition, there is one more access modifier final, that can be used along with any access modifier to make a variable constant and prevent it from being reassigned, or a class final so that it can't be inherited.
 
 ### 7. What is final key word? (Field, Method, Class)
 ```java
@@ -179,6 +184,7 @@ class Person {
 - the method or field in this class
 
 ### ！11. What is the Java load sequence?
+the load sequence in Java refers to the order in which the various components of a Java program are loaded and initialized by the JVM. The JVM starts and loads the class loader, which loads the class files needed for the program to run, verifies their validity, initializes static variables, calls static initializer blocks, calls the main() method and creates objects. The order of loading and initialization is not guaranteed to be the same across different JVMs or even different runs of the same JVM.
 
 ### 12. What is Polymorphism? And how Java implements it?
 - In programming, polymorphism refers to the same object exhibiting different forms and behaviors.
@@ -211,4 +217,5 @@ abstract class Person {
 | 抽象方法	| 可以定义抽象方法	| 可以定义抽象方法|
 | 非抽象方法	| 可以定义非抽象方法	| 可以定义default方法|
 
-### 16. What are Queue interface implementations and what are the differences and when to use what?
+### ！16. What are Queue interface implementations and what are the differences and when to use what?
+The Queue interface is present in java.util package and extends the Collection interface is used to hold the elements about to be processed in FIFO(First In First Out) order. It is an ordered list of objects with its use limited to inserting elements at the end of the list and deleting elements from the start of the list, (i.e.), it follows the FIFO or the First-In-First-Out principle.
