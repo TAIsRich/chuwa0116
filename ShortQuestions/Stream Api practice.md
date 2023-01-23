@@ -77,7 +77,17 @@
 
 ## 5.
 ```
-
+	@Test
+	@DisplayName("Get the 3 cheapest products of \"Books\" category")
+	public void exercise5() {
+		List<Product> ans = productRepo.findAll()
+				.stream()
+				.filter(p -> p.getCategory().equalsIgnoreCase("Books"))
+				.sorted(Comparator.comparing(Product::getPrice))
+				.limit(3)
+				.collect(Collectors.toList());
+		ans.forEach(o -> log.info(o.toString()));
+	}
 ```
 
 ## 6.
