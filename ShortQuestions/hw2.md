@@ -2,7 +2,137 @@
 
 ### 1. Write up Example code to demonstrate the three foundmental concepts of OOP. (reference Code Demo repo as example)
 
+Encapsulation:
 ```
+public class Employee {
+
+    private String name;
+    private String employeeId;
+    private int salary;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+        
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int newSalary) {
+        this.salary = newSalary;
+    }
+
+    public Employee(String name, String employeeId, int salary, int age) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.SSN = SSN;
+        this.age = age;
+    }
+}
+```
+
+Polymorphism: 
+```
+class Animal {
+  public void animalSound() {
+    System.out.println("The animal makes a sound");
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println("The dog says: bow wow");
+  }
+}
+```
+
+Inheritance:
+```
+class Bicycle {
+    // the Bicycle class has two fields
+    public int gear;
+    public int speed;
+ 
+    // the Bicycle class has one constructor
+    public Bicycle(int gear, int speed)
+    {
+        this.gear = gear;
+        this.speed = speed;
+    }
+ 
+    // the Bicycle class has three methods
+    public void applyBrake(int decrement)
+    {
+        speed -= decrement;
+    }
+ 
+    public void speedUp(int increment)
+    {
+        speed += increment;
+    }
+ 
+    // toString() method to print info of Bicycle
+    public String toString()
+    {
+        return ("No of gears are " + gear + "\n"
+                + "speed of bicycle is " + speed);
+    }
+}
+```
+ 
+// derived class
+```
+class MountainBike extends Bicycle {
+ 
+    // the MountainBike subclass adds one more field
+    public int seatHeight;
+ 
+    // the MountainBike subclass has one constructor
+    public MountainBike(int gear, int speed,
+                        int startHeight)
+    {
+        // invoking base-class(Bicycle) constructor
+        super(gear, speed);
+        seatHeight = startHeight;
+    }
+ 
+    // the MountainBike subclass adds one more method
+    public void setHeight(int newValue)
+    {
+        seatHeight = newValue;
+    }
+ 
+    // overriding toString() method
+    // of Bicycle to print more info
+    @Override public String toString()
+    {
+        return (super.toString() + "\nseat height is "
+                + seatHeight);
+    }
+}
 ```
 
 ### 2. What is wrapper class in Java and Why we need wrapper class?
@@ -77,6 +207,22 @@ Overriding occurs when the method signature is the same in the superclass and th
 ```
 
 ### 11. What is the Java load sequence?
+
+```
+The Java load sequence refers to the order in which the Java Virtual Machine (JVM) loads various elements of a program into memory. The load sequence includes the following steps:
+
+Loading the bootstrap class loader: The JVM loads the bootstrap class loader, which is responsible for loading the core Java libraries and other core classes that are required for the JVM to run.
+
+Loading the extension class loader: The JVM loads the extension class loader, which is responsible for loading any additional classes that are provided as extensions to the core Java libraries.
+
+Loading the system class loader: The JVM loads the system class loader, which is responsible for loading any additional classes that are specific to the application or system.
+
+Loading of user defined classes: The JVM loads any user-defined classes, using the system class loader, that are required by the application.
+
+Once all classes are loaded, the JVM will also execute any static initializer blocks, which are used to initialize static variables and perform other one-time setup tasks.
+
+It's important to note that this sequence is not always strictly followed, and the loading order might vary depending on the way the classpath is set and the actual classes and libraries being used.
+```
 
 ### 12. What is Polymorphism ? And how Java implements it ?
 
