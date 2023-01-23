@@ -10,9 +10,9 @@ List<Product> res = productRepo.findAll()
 ####Exercise 2 — Obtain a list of order with products belong to category “Baby”     
 ```
 List<Order> result = orderRepo.findAll()
-				.stream()
-				.filter(o -> o.getProducts().stream().anyMatch(p -> p.getCategory().equalsIgnoreCase("Baby")))
-				.collect(Collectors.toList());
+	.stream()
+	.filter(o -> o.getProducts().stream().anyMatch(p -> p.getCategory().equalsIgnoreCase("Baby")))
+	.collect(Collectors.toList());
 ```   
 ####Exercise 3 — Obtain a list of product with category = “Toys” and then apply 10% discount    
 ```
@@ -26,13 +26,13 @@ List<Product> result = productRepo.findAll()
 ####Exercise 4 — Obtain a list of products ordered by customer of tier 2 between 01-Feb-2021 and 01-Apr-2021    
 ```
 List<Product> result = orderRepo.findAll()
-  .stream()
-  .filter(o -> o.getCustomer().getTier() == 2)
-  .filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 2, 1)) >= 0)
-  .filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 4, 1)) <= 0)
-  .flatMap(o -> o.getProducts().stream())
-  .distinct()
-  .collect(Collectors.toList());
+	.stream()
+	.filter(o -> o.getCustomer().getTier() == 2)
+	.filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 2, 1)) >= 0)
+  	.filter(o -> o.getOrderDate().compareTo(LocalDate.of(2021, 4, 1)) <= 0)
+  	.flatMap(o -> o.getProducts().stream())
+  	.distinct()
+  	.collect(Collectors.toList());
 ```
    
 ####Exercise 5 — Get the cheapest products of “Books” category    
@@ -83,37 +83,32 @@ Double result = orderRepo.findAll().stream()
 ####Exercise 10 — Obtain a collection of statistic figures (i.e. sum, average, max, min, count) for all products of category “Books”   
 ```
 DoubleSummaryStatistics statistics = productRepo.findAll().stream()
-				.filter(p -> p.getCategory().equalsIgnoreCase("Books"))
-				.mapToDouble(Product::getPrice)
-				.summaryStatistics();
+	.filter(p -> p.getCategory().equalsIgnoreCase("Books"))
+	.mapToDouble(Product::getPrice)
+	.summaryStatistics();
 ```
    
 ####Exercise 11 — Obtain a data map with order id and order’s product count   
 ```
 Map<Long, Integer>  result = orderRepo.findAll().stream()
-				.collect(
-						Collectors.toMap(
-								order -> order.getId(),
-								order -> order.getProducts().size()
-						)
-				);
+	.collect(
+		Collectors.toMap(
+			order -> order.getId(),
+			order -> order.getProducts().size()));
 ```
    
 ####Exercise 12 — Produce a data map with order records grouped by customer   
 ```
 Map<Customer, List<Order>> result = orderRepo.findAll().stream()
-				.collect(Collectors.groupingBy(Order::getCustomer));
+	.collect(Collectors.groupingBy(Order::getCustomer));
 ```
    
 ####Exercise 13 — Produce a data map with order record and product total sum   
 ```
 Map<Order, Double> result = orderRepo.findAll().stream()
-				.collect(
-						Collectors.toMap(
-								//Functional.identity() == o ->o
-								o ->o,
-								o -> o.getProducts().stream().mapToDouble(Product::getPrice).sum())
-				);
+	.collect(
+		Collectors.toMap(
+			o -> o.getProducts().stream().mapToDouble(Product::getPrice).sum()));
 ```    
 
 ####Exercise 14 — Obtain a data map with list of product name by category    
