@@ -5,22 +5,22 @@ More info here: https://blog.devgenius.io/15-practical-exercises-help-you-master
 #### 1.Obtain a list of product with category = "Books" and price > 100
 ```java
     public void exercise1() {
-            List<Product> result = productRepo.findAll()
-                    .stream()
-                    .filter(p -> p.getCategory().matches("Books")) // match精确匹配 或 equalsIgnoreCase("Books")忽略大小写
-                    .filter(p -> p.getPrice() > 100)
-                    .collect(Collectors.toList());
+        List<Product> result = productRepo.findAll()
+    	  .stream()
+	  .filter(p -> p.getCategory().matches("Books")) // match精确匹配 或 equalsIgnoreCase("Books")忽略大小写
+	  .filter(p -> p.getPrice() > 100)
+	  .collect(Collectors.toList());
     
-            result.forEach(p -> log.info(p.toString()));
+          result.forEach(p -> log.info(p.toString()));
         }
 ```
 
 #### 2.Obtain a list of order with product category = "Baby"
 ```java
 public void exercise2() {
-		//这里使用anymatch（）的原因，一个order里有很多products
-		//如果使用allmatch（）则只返回当且仅当只有一个product category为Baby的order
-		//使用anymatch（）则返回购买了Baby products的order
+		//anymatch()： 一个order里有很多products
+		//allmatch（）只返回当且仅当只有一个product category为Baby的order
+		//anymatch（）返回购买了Baby products的order
 		List<Order> result = orderRepo.findAll()
 				.stream()
 				.filter(o -> o.getProducts().stream().anyMatch(p -> p.getCategory().equalsIgnoreCase("Baby")))
