@@ -1,7 +1,7 @@
 1. "Obtain a list of product with category = \"Books\" and price > 100"
     ```
         @Test
-	       @DisplayName("Obtain a list of product with category = \"Books\" and price > 100")
+        @DisplayName("Obtain a list of product with category = \"Books\" and price > 100")
         public void exercise1() {
             long startTime = System.currentTimeMillis();
             List<Product> result = productRepo.findAll()
