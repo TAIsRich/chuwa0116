@@ -91,7 +91,8 @@ This ensures that the `finally` block is executed even if an unexpected exceptio
 
 ## What are the types of design patterns in Java ?
 
-![img.png](img.png)
+![image](https://user-images.githubusercontent.com/93806902/214664792-7b9f1f49-f432-4fe2-a273-e3a1ba3eda28.png)
+
 
 ## [What are the SOLID Principles ?](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
 
