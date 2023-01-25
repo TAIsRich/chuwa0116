@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @author b1go
  * @date 6/12/22 4:43 PM
  */
-public class ArrayListExerciseTest {
+public class ArrayListExerciseTest extends ArrayList{
     /**
      * new ArrayList()
      * add elements

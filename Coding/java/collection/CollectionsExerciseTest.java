@@ -20,7 +20,16 @@ public class CollectionsExerciseTest {
 
     @Test
     public void learn_common_collections_operations() {
+        List<Integer> nums = new ArrayList<>();
+        nums.add(0);
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(3);
 
+        int max = Collections.max(nums);
+        int min = Collections.min(nums);
+        int freq = Collections.frequency(nums, 3);
     }
 
     /**
@@ -29,6 +38,12 @@ public class CollectionsExerciseTest {
 
     @Test
     public void learn_thread_safe_ArrayList() {
-
+        List<Integer> nums = new ArrayList<>();
+        nums.add(0);
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(3);
+        List<Integer> synlist = Collections.synchronizedList(list);
     }
 }

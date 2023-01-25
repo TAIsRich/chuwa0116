@@ -30,7 +30,28 @@ public class TreeMapExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(1, 100);
+        map.put(2, 200);
+        map.put(3, 300);
+        map.put(4, 400);
+        map.putIfAbsent(5, 500);
 
+        TreeMap<Integer, Integer> map2 = new TreeMap<>();
+        map2.put(6, 600);
+
+        map.putAll(map2);
+
+        int val = map.get(6);
+        int firstKey = map.firstKey();
+        int lastKey = map.lastKey();
+
+        boolean contains = map.containsKey(7);
+        boolean containsVal = map.containsValue(700);
+
+        Set<Integer> keys = map.keySet();
+        Collection<Integer> vals = map.values();
+        boolean empty = map.isEmpty();
     }
 
     /**
@@ -41,6 +62,14 @@ public class TreeMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(1, 100);
+        map.put(2, 200);
+        map.put(3, 300);
+        map.put(4, 400);
 
+        map.replace(1, 100, 10);
+        map.replace(2, 20);
+        map.remove(3);
     }
 }

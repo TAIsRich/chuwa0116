@@ -29,7 +29,25 @@ public class HashMapExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 100);
+        map.putIfAbsent(2, 200);
 
+        Map<Integer, Integer> map2 = new HashMap<>();
+        map2.put(3, 300);
+        map2.put(4, 400);
+
+        map.putAll(map2);
+
+        int value = map.get(1);
+        int defaultValue = map.getOrDefault(5, 50);
+
+        boolean containsKey = map.containsKey(5);
+        boolean containsValue = map.containsValue(500);
+
+        Set<Integer> s = map.keySet();
+        Collection<Integer> collectionValues = map.values();
+        boolean empty = map.isEmpty();
     }
 
     /**
@@ -46,6 +64,21 @@ public class HashMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 100);
+        map.putIfAbsent(2, 200);
+        map.replace(1, 100, 10);
+        map.replace(2, 200, 20);
+        map.replaceAll((key, val) -> val * val);
 
+        map.remove(1);
+        map.remove(2, 200);
+
+        map.add(3, 300);
+        map.add(4, 400);
+
+        map.compute(3, (k, v) -> v * v);
+        map.computeIfAbsent(6, k -> 600);
+        map.computeIfPresent(6, (k, v) -> v * v);
     }
 }

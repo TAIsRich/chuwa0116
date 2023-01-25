@@ -18,7 +18,8 @@ public class ArraysExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
-
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int num = numbers[0];
     }
 
     /**
@@ -35,7 +36,11 @@ public class ArraysExerciseTest {
      */
     @Test
     public void learn_search_and_sort() {
-
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int index = Arrays.binarySearch(numbers, 4);
+        Arrays.sort(numbers);
+        Arrays.sort(numbers, 3, 6);
+        Arrays.parallelSort(numbers);
     }
 
     /**
@@ -69,6 +74,9 @@ public class ArraysExerciseTest {
 
     @Test
     public void learn_common_operations() {
-
+        int[] numbers1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int[] numbers2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        boolean equal = Arrays.equals(numbers1, numbers2);
+        Arrays.fill(numbers1, 0);
     }
 }
