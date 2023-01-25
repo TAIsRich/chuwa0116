@@ -101,6 +101,30 @@
     Step2: make constructor be private 
     Step3: static synchronized getInstance method
     Step4: make sure thread safe
+    Code: via lazy load
+```
+public class Singleton {
+    private Singleton(){
+
+    }
+    //volatile:
+    private static volatile Singleton instance;
+
+    public static Singleton getInstance(){
+        //first check, if instance is not null, it is no need to Preemption lock
+        if(instance == null){
+            synchronized (Singleton.class){
+                //second check
+                if(instance == null){
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+
+```
+   
 
 ##14. What do you understand by the Open-Closed Principle (OCP) ?
 ####Answer:
