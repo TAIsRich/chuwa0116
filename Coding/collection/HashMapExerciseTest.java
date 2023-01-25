@@ -1,5 +1,7 @@
 package com.chuwa.exercise.collection;
 
+import java.util.HashMap;
+
 import org.junit.Test;
 
 /**
@@ -29,6 +31,14 @@ public class HashMapExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
+        HashMap<String, String> cityToProvince = new HashMap<>();
+        cityToProvince.put("Wuhan", "Hubei");
+        cityToProvince.put("Zhengzhou", "Henan");
+        cityToProvince.put("Hangzhou", "Zhejiang");
+
+        System.out.println(cityToProvince.get("Wuhan"));
+        System.out.println(cityToProvince.getOrDefault("Harbin", "HeilongJiang"));
+        System.out.println(cityToProvince.containsKey("Zhengzhou"));
 
     }
 
@@ -46,6 +56,20 @@ public class HashMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
+        HashMap<String, String> cityToProvince = new HashMap<>();
+        cityToProvince.put("Wuhan", "Hubei");
+        cityToProvince.put("Zhengzhou", "Henan");
+        cityToProvince.put("Hangzhou", "Zhejiang");
+        cityToProvince.put("Nanjing", "Js");
 
+        cityToProvince.replace("Nanjing", "Jiangsu");
+        System.out.println(cityToProvince.get("Nanjing"));
+
+        cityToProvince.remove("Zhengzhou");
+        System.out.println(cityToProvince.containsKey("Zhengzhou"));
+
+        
+
+        
     }
 }
