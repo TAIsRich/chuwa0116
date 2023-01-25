@@ -1,5 +1,7 @@
 package com.chuwa.exercise.collection;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 /**
@@ -18,7 +20,8 @@ public class ArraysExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
-
+        int[] values = new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        System.out.println(values[2]);
     }
 
     /**
@@ -35,7 +38,15 @@ public class ArraysExerciseTest {
      */
     @Test
     public void learn_search_and_sort() {
+        int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 16 };
+        Arrays.binarySearch(values, 5);
+        Arrays.sort(values, 2, 6);
 
+        for (int i = 0; i<values.length; i++){
+            System.out.println(values[i]);
+        }
+
+        Arrays.parallelSort(values);
     }
 
     /**
@@ -49,7 +60,15 @@ public class ArraysExerciseTest {
      */
     @Test
     public void learn_copy_of_array() {
-
+        int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 16 };
+        int[] valuesCopy1 = Arrays.copyOf(values);
+        for (int i = 0; i<valuesCopy1.length; i++){
+            System.out.println(valuesCopy1[i]);
+        }
+        int[] valuesCopy2 = Arrays.copyOf(values, 0, 6);
+        for (int i = 0; i<valuesCopy2.length; i++){
+            System.out.println(valuesCopy2[i]);
+        }
     }
 
     /**
@@ -69,6 +88,12 @@ public class ArraysExerciseTest {
 
     @Test
     public void learn_common_operations() {
+        int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 16 };
+        List<Integer> l = Arrays.asList(values);
 
+        Arrays.fill(values, 100);
+        for (int i = 0; i<l.size(); i++){
+            System.out.println(l.get(i));
+        }
     }
 }
