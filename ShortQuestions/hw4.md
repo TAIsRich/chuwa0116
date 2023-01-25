@@ -104,26 +104,30 @@ SOLID stands for:
 - I - Interface Segregation Principle
 - D - Dependency Inversion Principle
 
-Single-responsibility Principle (SRP) states:
+**Single-responsibility Principle (SRP) states:**
 > A class should have one and only one reason to change, meaning that a class should have only one job.
 
 For example, consider an application that takes a collection of shapes—circles, 
 and squares—and calculates the sum of the area of all the shapes in the collection.
 
-Open-closed Principle (OCP) states:
+
+**Open-closed Principle (OCP) states:**
 > Objects or entities should be open for extension but closed for modification.
 
 This means that a class should be extendable without modifying the class itself.
 
-Liskov Substitution Principle states:
+
+**Liskov Substitution Principle states:**
 > Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
 
 This means that every subclass or derived class should be substitutable for their base or parent class.
 
-Interface segregation principle states:
+
+**Interface segregation principle states:**
 > A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
 
-Dependency inversion principle states:
+
+**Dependency inversion principle states:**
 > Entities must depend on abstractions, not on concretions. 
 > It states that the high-level module must not depend on the low-level module, 
 > but they should depend on abstractions.
@@ -194,8 +198,8 @@ This means that a class should be extendable without modifying the class itself.
 then object of type A may be substituted with any object of type B. 
 What does this actually mean? (from OA ) choose your answer.
 
-1. <mark> It means that if the object of type A can do something, the object of type B could also be able tp
-   perform the same thing </mark>
+1. **It means that if the object of type A can do something, the object of type B could also be able tp
+   perform the same thing**
 2. It means that all the objects of type A could execute all the methods present in its subtype B
 3. It means if a method is present in class A, it should also be present in class B so that the object of
    type B could substitute object of type A.
