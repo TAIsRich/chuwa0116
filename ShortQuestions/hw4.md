@@ -1,5 +1,15 @@
+## 3. Can there be multiple finally blocks? 
+> There can only be one finally block, and it must follow the catch blocks.
+
+## 4. When both catch and finally return values, what will be the final result?
+> finally return will be the final result
+
 ## 6. What is the difference between throw and throws？
 > The throws keyword is used to declare which exceptions can be thrown from a method, while the throw keyword is used to explicitly throw an exception within a method or block of code.
+
+## 8. Why finally always be executed ?
+> The finally block always executes when the try block exits. This ensures that the finally block is executed even if an unexpected exception occurs.
+
 
 ## 9. What is Java 8 new features 
 - Permanent Generation
