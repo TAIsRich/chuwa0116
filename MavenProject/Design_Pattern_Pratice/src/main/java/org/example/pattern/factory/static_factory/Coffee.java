@@ -1,4 +1,4 @@
-package org.example.pattern.factory.simple_factory;
+package org.example.pattern.factory.static_factory;
 
 public abstract class Coffee {
 

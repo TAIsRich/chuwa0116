@@ -1,2 +1,8 @@
-package org.example.pattern.singleton.demo6;public class Singleton {
+package org.example.pattern.singleton.demo6;
+
+/**
+ * enum
+ */
+public enum Singleton {
+    INSTANCE;
 }

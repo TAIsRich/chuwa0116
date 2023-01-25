@@ -1,6 +1,6 @@
-package org.example.pattern.factory.before;
+package org.example.pattern.factory.simple_factory;
 
-public class AmericanCoffee extends Coffee{
+public class AmericanCoffee extends Coffee {
 
     @Override
     public String getName() {

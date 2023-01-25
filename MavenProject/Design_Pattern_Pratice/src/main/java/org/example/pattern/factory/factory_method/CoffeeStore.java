@@ -1,17 +1,18 @@
-package org.example.pattern.factory.static_factory;
+package org.example.pattern.factory.factory_method;
+
 
 public class CoffeeStore {
-    public Coffee orderCoffee(String type){
 
-        Coffee coffee = SimpleCoffeeFactory.createCoffee(type);
-        /**
-        coffee.addMilk();
-        coffee.addsugar();
+    private CoffeeFactory factory;
+    public void setFactory(CoffeeFactory factory){
+        this.factory = factory;
+    }
 
-        return coffee;
-         **/
-        coffee.addMilk();
+
+    public Coffee orderCoffee(){
+        Coffee coffee = factory.createCoffee();
         coffee.addsugar();
+        coffee.addMilk();
         return coffee;
     }
 }

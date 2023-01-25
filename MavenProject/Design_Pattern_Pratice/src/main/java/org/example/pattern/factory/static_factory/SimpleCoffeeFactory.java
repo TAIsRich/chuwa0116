@@ -1,8 +1,8 @@
-package org.example.pattern.factory.simple_factory;
+package org.example.pattern.factory.static_factory;
 
 public class SimpleCoffeeFactory {
 
-    public Coffee createCoffee(String type){
+    public static Coffee createCoffee(String type){
         Coffee coffee = null;
         if("american".equals(type)){
             coffee = new AmericanCoffee();
