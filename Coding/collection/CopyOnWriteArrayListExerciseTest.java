@@ -24,6 +24,19 @@ public class CopyOnWriteArrayListExerciseTest {
      */
     @Test
     public void learn_Inserting_And_Retrieving() {
+        CopyOnWriteArrayList al = new CopyOnWriteArrayList<>();
+        al.add("t");
+        al.add("e");
+        al.add("m");
+        al.add(0, "m");
+
+        CopyOnWriteArrayList anotheral = new CopyOnWriteArrayList<>();
+        anotheral.addAll(al);
+
+        for (int i = 0; i<anotheral.size(); i++){
+            System.out.println(anotheral.get(i));
+        }
+
 
     }
 
@@ -43,5 +56,9 @@ public class CopyOnWriteArrayListExerciseTest {
 
         //Created an iterator
         Iterator<String> itr = list.iterator();
+
+        while (iter.hasNext()){
+            System.out.println(iter.next());
+        }
     }
 }
