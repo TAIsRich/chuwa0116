@@ -1,4 +1,7 @@
-public class MobileBuilder extends Builder{
+package com.DesignPattern.builder;
+
+public class MobileBuild extends Builder{
+    
     public void buildFrame(){
         bike.setFrame("碳纤维车架");
     }

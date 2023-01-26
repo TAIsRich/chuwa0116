@@ -1,3 +1,5 @@
+package com.DesignPattern.builder;
+
 public class Bike{
     private String frame;
     private String seat;
