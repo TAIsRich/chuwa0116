@@ -2,8 +2,10 @@ package com.chuwa;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ParkingSystem {
+	Objects.hashCode()
 	private ParkingSlot[][][] slots;
 	private Map<Vehicle,ParkingSlot> map = new HashMap<>();
 	private int level,row,col;
