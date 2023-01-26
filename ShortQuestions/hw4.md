@@ -112,3 +112,8 @@ substituted with any object of type B**
 + It means If a method is present in class A, It should also be present in class B so that the object of type B could substitute object of type.
 
 **15.Design Patten**
+Watch the design pattern video, and type the code, submit it to MavenProject folder
+singleton: https://www.bilibili.com/video/BV1Np4y1z7BU?p=22
+Factory: https://www.bilibili.com/video/BV1Np4y1z7BU?p=35&vd_source=310561eab1216a27f7accf859bf7f6 d9
+Builder: https://www.bilibili.com/video/BV1Np4y1z7BU?p=50&vd_source=310561eab1216a27f7accf859bf7f6 d9
+Publisher_Subscriber: https://www.bilibili.com/video/BV1Np4y1z7BU?p=114&vd_source=310561eab1216a27f 7accf859bf7f6d9
