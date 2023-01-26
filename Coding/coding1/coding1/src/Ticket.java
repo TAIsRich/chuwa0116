@@ -2,13 +2,13 @@ import java.sql.Time;
 import java.util.List;
 
 public class Ticket {
-    private Vehicle v;
+    private Vehicle vehicle;
 
     private List<Spot> spots;
 
     private Time startTime;
 
-    public Vehicle getV() {
+    public Vehicle getVehicle() {
         return v;
     }
 
