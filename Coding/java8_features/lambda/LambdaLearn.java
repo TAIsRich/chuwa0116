@@ -18,12 +18,12 @@ public class LambdaLearn {
         // Interface var = new Class
         // List<Integer> var = new ArrayList<>()
         // Foo 这个interface有一个abstract method, 所以在Anonymous Class里需要override来提供method body
-        Foo fooByIC = new Foo() {
+        Foo fooByIC = new Foo(){
             @Override
-            public String aMethod(String string) {
+            public String aMethod(String string){
                 return string + " from Foo";
             }
-        };
+        }
 
         String hello = fooByIC.aMethod("hello");
         System.out.println(hello);
@@ -82,7 +82,7 @@ public class LambdaLearn {
         localVariable = "LOCAL"; // 新的内存地址
 
         Foo foo = parameter -> {
-//            return parameter + " " + localVariable;
+            // return parameter + " " + localVariable;
             return parameter;
         };
 
