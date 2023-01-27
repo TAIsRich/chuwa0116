@@ -23,7 +23,7 @@ public class LambdaLearn {
             public String aMethod(String string){
                 return string + " from Foo";
             }
-        }
+        };
 
         String hello = fooByIC.aMethod("hello");
         System.out.println(hello);
