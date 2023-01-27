@@ -1,9 +1,6 @@
 package com.chuwa.tutorial.t01_basic.generic;
 
-/**
- * @author b1go
- * @date 7/25/22 12:03 AM
- */
+
 public class GenericMethod {
     public static void main(String[] args) {
         System.out.printf("Max of %d, %d and %d is %d\n\n", 3, 4, 5,
