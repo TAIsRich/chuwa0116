@@ -2,10 +2,7 @@ package com.chuwa.tutorial.t06_java8.features.optional;
 
 import java.util.Optional;
 
-/**
- * @author b1go
- * @date 5/13/22 2:41 PM
- */
+
 public class Mobile {
     private long id;
     private String brand;

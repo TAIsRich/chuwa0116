@@ -23,10 +23,7 @@ public class LambdaLearn {
 
     @Test
     public void overrideFoo() {
-        // Before Java 8, we can use Anonymous Class to override this method
-        // Interface var = new Class
-        // List<Integer> var = new ArrayList<>()
-        // Foo 这个interface有一个abstract method, 所以在Anonymous Class里需要override来提供method body
+        //Anonymous Class
         Foo fooByIC = new Foo() {
             @Override
             public String aMethod(String string) {
@@ -40,8 +37,7 @@ public class LambdaLearn {
 
     @Test
     public void lambdaFoo() {
-        // Foo.aMethod() 是abstract method,缺少method body. lambda 提供method body.
-        // 比Anonymous class 简洁很多。
+        //lambda function
         Foo foo = parameter -> parameter + " from Foo";
 
         String hello = foo.aMethod("hello");
@@ -50,7 +46,6 @@ public class LambdaLearn {
 
     @Test
     public void lambdaFoo2() {
-        // 可以提供任何method body
         Foo foo = parameter -> parameter.toUpperCase() + " from Foo";
 
         String hello = foo.aMethod("hello");
@@ -60,6 +55,7 @@ public class LambdaLearn {
     @Test
     public void testFinal() {
         final String localVariable = "Local";
+        //if you want to return anything, use {}
         Foo foo = parameter -> {
             return parameter + " " + localVariable;
         };
@@ -68,9 +64,7 @@ public class LambdaLearn {
     }
 
     /**
-     * Use “Effectively Final” Variables
-     * 当variable只赋值一次，没有任何变动的时候，Java默认是final。
-     * 注意，在lambda expression的前后都不能被改变
+     * Use “Effectively Final” / final Variables
      */
     @Test
     public void testEffectivelyFinal() {
@@ -83,7 +77,7 @@ public class LambdaLearn {
     }
 
     /**
-     * 换object会报错，因为换了内存地址
+     * object can't change address
      */
     @Test
     public void testFinal21() {
@@ -91,19 +85,20 @@ public class LambdaLearn {
         localVariable = "LOCAL"; // 新的内存地址
 
         Foo foo = parameter -> {
-//            return parameter + " " + localVariable;
             return parameter;
         };
 
         System.out.println(foo.aMethod("hello"));
     }
 
+    /**
+     * can't change local variables' value after lambda
+     * */
     @Test
     public void testFinal22() {
         String localVariable = "Local";
 
         Foo foo = parameter -> {
-//            return parameter + " " + localVariable;
             return parameter;
         };
 
@@ -113,7 +108,7 @@ public class LambdaLearn {
     }
 
     /**
-     * Object 的set方法不会报错
+     * we can change object's attribute, as long as we don't change its address
      */
     @Test
     public void testFinal3() {
