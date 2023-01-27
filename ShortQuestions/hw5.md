@@ -5,6 +5,8 @@
 
 
 ## 2. Read those codes and type it one by one by yourself. the push the code to your branch
+
+
 ## 3. Write the Singleton design pattern include eager load and lazy load. 
 
 ```java
