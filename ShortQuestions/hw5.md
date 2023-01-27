@@ -2,8 +2,46 @@
 - Generics means **parameterized types**. The idea is to allow type (Integer, String, … etc., and user-defined types) to be a parameter to methods, classes, and interfaces. Using Generics, it is possible to create classes that work with different data types.
 
 
+
+
 ## 2. Read those codes and type it one by one by yourself. the push the code to your branch
 ## 3. Write the Singleton design pattern include eager load and lazy load. 
+
+```java
+public class EagerLoad {
+    private static EagerLoad instance = new EagerLoad();
+
+    private EagerLoad(){};
+
+    public static EagerLoad getInstance(){
+        return instance;
+    }
+}
+
+```
+
+```java
+public class LazyLoad {
+
+    private static volatile LazyLoad instance;
+
+    private LazyLoad(){};
+
+    public static LazyLoad getInstance(){
+        if (instance == null){
+
+            synchronized(LazyLoad.class){
+
+                if (instance == null){
+                    instance = new LazyLoad();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+```
 
 ## 4. What is Runtime Exception? could you give me some examples?
 > The Runtime Exception is the parent class in all exceptions of the Java programming language that are expected to crash or break down the program or application when they occur.
