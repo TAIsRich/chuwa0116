@@ -1,4 +1,6 @@
-package stream_api;
+package java8_features.stream_api;
+
+import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;

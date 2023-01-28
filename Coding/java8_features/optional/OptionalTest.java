@@ -1,3 +1,7 @@
+package java8_features.optional;
+
+import org.junit.Test;
+
 import java.util.Optional;
 
 /**

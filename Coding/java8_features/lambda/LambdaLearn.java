@@ -1,3 +1,5 @@
+package java8_features.lambda;
+
 import org.junit.Test;
 
 public class LambdaLearn {
