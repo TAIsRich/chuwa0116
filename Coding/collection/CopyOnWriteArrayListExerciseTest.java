@@ -1,10 +1,11 @@
-package com.chuwa.exercise.collection;
+
 
 import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 
 /**
  * @author b1go
@@ -57,8 +58,8 @@ public class CopyOnWriteArrayListExerciseTest {
         //Created an iterator
         Iterator<String> itr = list.iterator();
 
-        while (iter.hasNext()){
-            System.out.println(iter.next());
+        while (itr.hasNext()){
+            System.out.println(itr.next());
         }
     }
 }

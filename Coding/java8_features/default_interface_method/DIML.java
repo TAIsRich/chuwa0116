@@ -1,3 +1,5 @@
+
+
 public interface DIML {
     static final String BLOG = "is Chuwa a ";
 

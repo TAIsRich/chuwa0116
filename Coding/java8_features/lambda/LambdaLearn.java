@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class LambdaLearn {
 
     /**
@@ -106,16 +108,16 @@ public class LambdaLearn {
     /**
      * Object 的set方法不会报错
      */
-    @Test
-    public void testFinal3() {
-        List<Employee> employees = EmployeeData.getEmployees();
-
-        Employee employee = employees.get(0);
-        employee.setAge(55);
-        Foo foo = parameter -> {
-            return parameter + " " + employee;
-        };
-
-        System.out.println(foo.aMethod("hello"));
-    }
+//    @Test
+//    public void testFinal3() {
+//        List<Employee> employees = EmployeeData.getEmployees();
+//
+//        Employee employee = employees.get(0);
+//        employee.setAge(55);
+//        Foo foo = parameter -> {
+//            return parameter + " " + employee;
+//        };
+//
+//        System.out.println(foo.aMethod("hello"));
+//    }
 }

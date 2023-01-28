@@ -1,6 +1,8 @@
-package com.chuwa.exercise.collection;
 
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -61,11 +63,11 @@ public class ArraysExerciseTest {
     @Test
     public void learn_copy_of_array() {
         int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 16 };
-        int[] valuesCopy1 = Arrays.copyOf(values);
+        int[] valuesCopy1 = Arrays.copyOf(values, values.length);
         for (int i = 0; i<valuesCopy1.length; i++){
             System.out.println(valuesCopy1[i]);
         }
-        int[] valuesCopy2 = Arrays.copyOf(values, 0, 6);
+        int[] valuesCopy2 = Arrays.copyOfRange(values, 0, 6);
         for (int i = 0; i<valuesCopy2.length; i++){
             System.out.println(valuesCopy2[i]);
         }
@@ -89,7 +91,11 @@ public class ArraysExerciseTest {
     @Test
     public void learn_common_operations() {
         int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 16 };
-        List<Integer> l = Arrays.asList(values);
+
+        List<Integer> l = new ArrayList<>();
+        for (int value:values){
+            l.add(value);
+        }
 
         Arrays.fill(values, 100);
         for (int i = 0; i<l.size(); i++){

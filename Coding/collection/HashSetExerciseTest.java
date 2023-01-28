@@ -1,6 +1,9 @@
-package com.chuwa.exercise.collection;
+
 
 import org.junit.Test;
+import java.util.Set;
+import java.util.HashSet;
+
 
 /**
  * @author b1go

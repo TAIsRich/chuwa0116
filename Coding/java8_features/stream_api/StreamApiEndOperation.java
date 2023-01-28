@@ -1,6 +1,4 @@
-import com.chuwa.tutorial.t00_common.pojos.Employee;
-import com.chuwa.tutorial.t00_common.utils.EmployeeData;
-import org.junit.Test;
+package stream_api;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,6 +1,8 @@
-package com.chuwa.exercise.collection;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -23,7 +25,11 @@ public class CollectionsExerciseTest {
     @Test
     public void learn_common_collections_operations() {
         int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 9, 16 };
-        List<Integer> l = Arrays.asList(values);
+        List<Integer> l = new ArrayList<>();
+        for (int value : values){
+            l.add(value);
+        }
+
 
         int min = Collections.min(l);
         int max = Collections.max(l);
@@ -43,7 +49,10 @@ public class CollectionsExerciseTest {
     public void learn_thread_safe_ArrayList() {
         try {
             int[] values = new int[]{ 8, 2, 3, 7, 5, 6, 7, 5, 9, 9, 16 };
-            List<Integer> l = Arrays.asList(values);
+            List<Integer> l = new ArrayList<>();
+            for (int value : values){
+                l.add(value);
+            }
 
             List<Integer> l2 = Collections.synchronizedList(l);
         }  catch (IllegalArgumentException e){

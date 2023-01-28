@@ -1,4 +1,3 @@
-package com.chuwa.exercise.collection;
 
 import java.util.EnumMap;
 import java.util.IdentityHashMap;
@@ -55,7 +54,7 @@ public class AdditionalMapExerciseTest {
      */
     @Test
     public void learn_EnumMap() {
-        EnumMap<DayOfWeek, Integer> emap = new EnumMap<>(DayOfWeek.class);
+        EnumMap<DayOfWeek, String> emap = new EnumMap<>(DayOfWeek.class);
         emap.put(DayOfWeek.Fri, "HAPPY YEAH");
         emap.put(DayOfWeek.Mon, "Oh, I hate!");
         emap.putIfAbsent(DayOfWeek.Fri, "LALALALA");
