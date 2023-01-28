@@ -47,10 +47,10 @@
     }
     ```
 
-**5. What is Runtime Exception? could you give me some examples?**
+### 5. What is Runtime Exception? could you give me some examples?
 + Runtime/UncheckedException means the exception will be check during processing : NullPointerException
 
-**6. Could you give me one example of NullPointerException?**
+### 6. Could you give me one example of NullPointerException?
     ```java
         Employee e = new Employee();
         e = null;
@@ -58,29 +58,29 @@
 
     ```
 
-**7.  What is the Optional class?**
+### 7.  What is the Optional class?
 + Optional is a container object which may or may not contain a non-null value. 
 + It help us to do no null check.
 
-**8. What is the @FunctionalInterface?**
+### 8. What is the @FunctionalInterface?
 + It is functional interface and help to do the sanity check.
 + Only 1 abstract method.
 
-**9. what is lamda? **
+### 9. what is lamda? 
 + A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method
 
-**10. What is Method Reference?**
+### 10. What is Method Reference?
 + A method reference is the shorthand syntax for a lambda expression that contains just one method call.
 + To refer to a method in an object ``Object :: methodName``
 
-**11. What is Java 8 new features?**
+### 11. What is Java 8 new features?
 + Default method and static method in interface
 + Lambda & Functional Interface
 + Method reference
 + Stream API
 + Optional
 
-**12.Lambda can use unchanged variable outside of lambda? what is the details?**
+### 12.Lambda can use unchanged variable outside of lambda? what is the details?
 + Yes.
 + They can capture static variables, instance variables, and local variables, but only local variables must be final or effectively final.
     + Final variable 
