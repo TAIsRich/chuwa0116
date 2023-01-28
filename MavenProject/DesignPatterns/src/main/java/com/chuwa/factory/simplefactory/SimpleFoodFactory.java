@@ -1,6 +1,7 @@
 package com.chuwa.factory.simplefactory;
 
 import com.chuwa.factory.*;
+import jdk.internal.util.xml.impl.Pair;
 
 public class SimpleFoodFactory {
 	public Coffee getCoffee(String type){
@@ -18,6 +19,7 @@ public class SimpleFoodFactory {
 				return new AmericanDessert();
 			case "Latte":
 				return new LatteDessert();
+			Pair
 		}
 		return null;
 	}
