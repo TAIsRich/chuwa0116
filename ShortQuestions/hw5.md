@@ -49,6 +49,7 @@
 
 **5. What is Runtime Exception? could you give me some examples?**
 + Runtime/UncheckedException means the exception will be check during processing : NullPointerException
+
 **6. Could you give me one example of NullPointerException?**
     ```java
         Employee e = new Employee();
