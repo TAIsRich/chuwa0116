@@ -62,6 +62,21 @@ In the case of a thread pool, a group of fixed-size threads is created. A thread
 
 
 ## 14. Difference between shutdown() and shutdownNow() methods of executor
+- shutdown() will just tell the executor service that it can't accept new tasks, but the already submitted tasks continue to run
+
+- shutdownNow() will do the same AND will **try to cancel** the already submitted tasks by interrupting the relevant threads. Note that if your tasks ignore the interruption, shutdownNow will behave exactly the same way as shutdown.
 
 ## 15. What is Atomic classes? when do we use it?
 The atomic classes provide a **lock-free** and **thread-safe environment or programming** on a single variable
+
+## 16. What is the cocurrent collections?
+Concurrent collections in java are designed and optimized specifically for synchronized multithreaded access. These are the **thread safe collections**, and these are existing in **java.util.concurrent package**.
+
+## 17. what kind of locks you know?
+
+## 18. What is the difference between class lock and object lock
+| Class Level Lock    | Object Level Lock |
+| ----------- | ----------- |
+| It can be used when we want to prevent multiple threads to enter the synchronized block in any of all available instances on runtime| It can be used when you want non-static method or non-static block of the code should be accessed by only one thread|
+| It should always be used to make static data thread safe.  | It should always be used to make non-static data thread safe.  |
+| Multiple objects of class may exist but there is always one class’s class lock available | Every object the class may have their own lock|
