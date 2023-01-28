@@ -80,3 +80,11 @@ Concurrent collections in java are designed and optimized specifically for synch
 | It can be used when we want to prevent multiple threads to enter the synchronized block in any of all available instances on runtime| It can be used when you want non-static method or non-static block of the code should be accessed by only one thread|
 | It should always be used to make static data thread safe.  | It should always be used to make non-static data thread safe.  |
 | Multiple objects of class may exist but there is always one class’s class lock available | Every object the class may have their own lock|
+
+## 19. What is future and completableFuture?
+- Simply put, the Future class represents a future result of an asynchronous computation. This result will eventually appear in the Future after the processing is complete.
+
+- CompletableFuture is a feature for asynchronous programming using Java. Unlike procedural programming, asynchronous programming is about writing a non-blocking code by running all the tasks on separate threads instead of the main application thread and keep notifying the main thread about the progress, completion status, or if the task fails.
+
+## 20. What is threadLocal ?
+Java ThreadLocal is used to create thread local variables. We know that all threads of an Object share it’s variables, so the variable is not thread safe. We can use synchronization for thread safety but if we want to avoid synchronization, we can use ThreadLocal variables.
