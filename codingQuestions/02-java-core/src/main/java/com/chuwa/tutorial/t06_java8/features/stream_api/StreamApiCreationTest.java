@@ -13,7 +13,7 @@ import java.util.stream.Stream;
  * Collections 讲的是数据，Stream讲的是计算（CPU）
  * 1. Stream 自己不会存储元素
  * 2. Stream 不会改变源对象，相反，他们会返回一个持有结果的新stream
- * 3. Stream操作是延迟执行的，这意味着他们会等到需要结果的时候才执行。
+ * 3. Stream 操作是延迟执行的，这意味着他们会等到需要结果的时候才执行。
  * Stream执行流程：
  * 1. 创建Stream： 获取一个数据源
  * 2. 中间操作： 一个操作链： 对数据进行处理

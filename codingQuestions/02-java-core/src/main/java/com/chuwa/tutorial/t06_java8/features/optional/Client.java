@@ -2,10 +2,6 @@ package com.chuwa.tutorial.t06_java8.features.optional;
 
 import java.util.Optional;
 
-/**
- * @author b1go
- * @date 5/13/22 2:41 PM
- */
 public class Client {
 
     public int getMobileScreenWidth(Mobile7 mobile7) {

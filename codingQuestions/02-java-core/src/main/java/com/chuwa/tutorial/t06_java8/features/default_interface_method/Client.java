@@ -1,9 +1,6 @@
 package com.chuwa.tutorial.t06_java8.features.default_interface_method;
 
-/**
- * @author Yanan Lyu
- * @date 5/9/22 3:58 PM
- */
+
 public class Client {
 
     public static void main(String[] args) {

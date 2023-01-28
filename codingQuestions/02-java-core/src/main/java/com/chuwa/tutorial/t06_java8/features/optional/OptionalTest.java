@@ -13,7 +13,6 @@ import java.util.Optional;
 public class OptionalTest {
 
     /**
-     * https://www.youtube.com/watch?v=wOi2k4dJviM&list=PLmOn9nNkQxJH0qBIrtV6otI0Ep4o2q67A&index=684
      * of(T t) - 不可以为null
      * ofNullable(T t) - 可以为null
      * orElse(T t) - 如果当前的optional内部封装的t是非空的，则返回内部t, 如果内部的t是空的， 则返回orElse()方法中的t
@@ -25,8 +24,7 @@ public class OptionalTest {
         Optional<Employee> optional = Optional.of(employee);
 
         employee = null;
-        // of(T t) - 不可以为null
-        Optional<Employee> optional2 = Optional.of(employee);
+        Optional<Employee> optional2 = Optional.of(employee);//NullPointerException
     }
 
     @Test(expected = NullPointerException.class)
@@ -35,7 +33,6 @@ public class OptionalTest {
         Optional<Employee> optional = Optional.of(employee);
 
         employee = null;
-        // of(T t) - 不可以为null
         Optional<Employee> optional2 = Optional.of(employee);
     }
 
@@ -60,7 +57,7 @@ public class OptionalTest {
         Optional<Employee> optional2 = Optional.ofNullable(employee);
         System.out.println(optional2);
 
-        // remember type is not Optional, it is Employee
+        //T orElse(T other), if it's null, return other. Return type is T.
         Employee employee1 = Optional.ofNullable(employee).orElse(new Employee(1, "JCole", 30, 6666));
         System.out.println(employee1);
     }
@@ -75,7 +72,8 @@ public class OptionalTest {
         Optional<Employee> optional2 = Optional.ofNullable(employee);
         System.out.println(optional2);
 
-        // remember type is not Optional, it is Employee
+        //<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier)
+        //if it's null, throw exceptionSupplier
         Employee employee1 = Optional.ofNullable(employee).orElseThrow(() -> new RuntimeException("Wow Exception"));
         System.out.println(employee1);
     }
