@@ -1,4 +1,6 @@
 1. What is generic in Java?
+   1. It means parameterized types in Java, where types are also parameters of a method, class, or interface.
+   By using generic in Java, we could make our code more extendable and clean.
 2. See `Coding/hw5/java8`
 3. Practice stream API
 4. Write the Singleton design pattern include eager load and lazy load.
