@@ -1,3 +1,7 @@
+## 1. Explain volatile variables in java?
+- For Java, “volatile” tells the compiler that the value of a variable must never be cached as its value may change outside of the scope of the program itself.
+- Volatile variables have the visibility features of synchronized but not the atomicity features. The values of the volatile variable will never be cached and all writes and reads will be done to and from the main memory
+
 ## 3. Difference between Runnable and Callable
 | Runnable     | Callable |
 | ----------- | ----------- |
