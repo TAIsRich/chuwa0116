@@ -1,6 +1,6 @@
 # HW4 - Hao Jia
 
-### 1.
+### 1. 
 
 ### 2. What is the checked exception and unchecked exception in Java, could you give one example?
 
