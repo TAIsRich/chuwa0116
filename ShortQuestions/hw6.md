@@ -17,6 +17,8 @@
 | Defined in java.lang.Thread class. |Defined in java.lang.Runnable interface and must be overridden in the implementing class.|
 
 ## 5. Which way of creating threads is better: Thread class or Runnable interface?
+- By implementing **Runnable interface** is a better way to create a thread in java because when we create a thread by extending Thread class, all Thread class methods are inherited while we can perform the task with the one method (run method) only. It results into overhead inheritance.
+- Other reason is that java does not support **multiple inheritance** in case of classes. So if we create a thread by extending the Thread class, we will not be able to extend any other class.
 ## 6. what is the thread status?
 A thread is a path of execution in a program that goes through the following states of a thread. The five states are as follows:
 
