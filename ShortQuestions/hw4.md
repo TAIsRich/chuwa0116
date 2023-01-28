@@ -1,4 +1,5 @@
 ### 1.  Practice  collection
+
 ### 2.  What is the checked exception and unchecked exception in Java, could you give one example?
 Checked exceptions are the exceptions that are checked at compile time. Checked exceptions must use catch or throws. One example is IOException (e.g. FileNotFound).
 Unchecked exceptions are runtime exceptions that are not required to be caught or declared in a throws clause. One example is NullPointerException (NPE).
@@ -61,5 +62,5 @@ In general, we follow the below steps to create a singleton class:
 In object-oriented programming, the open–closed principle (OCP) states "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"; that is, such an entity can allow its behaviour to be extended without modifying its source code.
 ### 15.  Liskov’s substitution principle states that if class B is a subtype of class A, then object of type A may be  substituted with any object of type B. What does this actually mean? (from OA ) choose your answer.
 It mean that if the object of type A can do something, the object of type B could also be able to perform the same thing.
-
 ### 16.  Watch the design pattern video, and type the code, submit it to MavenProject folder
+
