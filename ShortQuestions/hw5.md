@@ -51,12 +51,10 @@
 + Runtime/UncheckedException means the exception will be check during processing : NullPointerException
 
 ### 6. Could you give me one example of NullPointerException?
-    ```java
         Employee e = new Employee();
         e = null;
         Systems.out.println(e);
-
-    ```
+    
 
 ### 7.  What is the Optional class?
 + Optional is a container object which may or may not contain a non-null value. 
