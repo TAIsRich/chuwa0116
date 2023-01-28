@@ -88,3 +88,9 @@ Concurrent collections in java are designed and optimized specifically for synch
 
 ## 20. What is threadLocal ?
 Java ThreadLocal is used to create thread local variables. We know that all threads of an Object share it’s variables, so the variable is not thread safe. We can use synchronization for thread safety but if we want to avoid synchronization, we can use ThreadLocal variables.
+
+## 23. write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10.
+in Coding/multi_thread_practice/waitNotify/OddEvenPrinter
+
+## 24. create 3 threads, one thread output 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random. 
+in Coding/multi_thread_practice/threeThreadsPrinter/printNumber1
