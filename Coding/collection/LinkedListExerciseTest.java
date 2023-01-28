@@ -64,7 +64,8 @@ public class LinkedListExerciseTest {
         System.out.println(number2);
 
         System.out.println(h.size());
-        h.sort();
+        h.sort((a, b)->{return a-b;});
         System.out.println(h.getFirst());
+    }
         
 }

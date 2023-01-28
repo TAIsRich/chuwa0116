@@ -1,7 +1,9 @@
-package com.chuwa.exercise.collection;
+
 
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -37,7 +39,7 @@ public class TreeMapExerciseTest {
         map.put(92037, "CA");
         map.putIfAbsent(98109, "WA");
 
-        TreeMap<String, Integer> map2 = new TreeMap<>();
+        TreeMap<Integer, String> map2 = new TreeMap<>();
         map2.put(92092, "CA");
         map2.put(10012, "NY");
 
@@ -49,7 +51,7 @@ public class TreeMapExerciseTest {
         System.out.println(map2.containsKey(98109));
 
 
-        Set<String> keys = map2.keySet();
+        Set<Integer> keys = map2.keySet();
   
         System.out.println(map2.isEmpty());
     }
