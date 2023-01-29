@@ -1,3 +1,5 @@
+package com.DesignPattern.builder;
+
 public class OfoBuilder extends Builder{
     public void buildFrame(){
         bike.setFrame() {
