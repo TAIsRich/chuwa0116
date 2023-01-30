@@ -125,8 +125,10 @@ Please check Coding folder
 ### 22. Read those interview questions and pick some important questions to this home work.
 
 ### 23. write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10. (solution is in com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
+Please check multithreading/c05_waitNotify/OddEventPrinter1.java 
 
 ### 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random. (solution is in com.chuwa.exercise.t08_multithreading.PrintNumber1)
+Please check multithreading/PrintNumber1.java
 
 
 
