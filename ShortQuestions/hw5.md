@@ -2,7 +2,7 @@
 - check generic package in coding package
 - 泛型就是编写模板代码来适应任意类型
 - 例如ArrayList<T>，然后在代码中为用到的类创建对应的ArrayList<类型>
-### 2. check java8feather package
+
 ### 4.  Write the Singleton design pattern include eager load and lazy load.
 ```java
 // eager load
