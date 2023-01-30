@@ -138,8 +138,240 @@ A Future represents the result of an asynchronous computation. Methods are provi
 
 CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.
 
-## 20 What is ThreadLocal?
+## 20. What is ThreadLocal?
 
 The `TheadLocal` construct allows us to store data that will be accessible only by a specific thread.
 
+## 22.Read those interview questions and pick some important questions to this home work.
 
+27. Explain context switching.
+
+Context switching is basically an important feature of multithreading. It is referred to as switching of CPU from one thread or process to another one. It allows multiple processes to share the same CPU. In context switching, the state of thread or process is stored so that the execution of the thread can be resumed later if required. 
+
+32. What is busy spinning?
+
+Busy Spinning, also known as Busy-waiting, is a technique in which one thread waits for some condition to happen, without calling wait or sleep methods and releasing the CPU. In this condition, one can pause a thread by making it run an empty loop for a certain time period, and it does not even give CPY control. Therefore, it is used to preserve CPU caches and avoid the cost of rebuilding cache.
+
+41. Is it possible to call the run() method directly to start a new thread?
+
+No, it's not possible at all. You need to call the start method to create a new thread otherwise run method won't create a new thread. Instead, it will execute in the current thread.
+
+42. Is it possible that each thread can have its stack in multithreaded programming?
+
+Of course, it is possible. In multithreaded programming, each thread maintains its own separate stack area in memory because of which every thread is independent of each other rather than dependent.
+
+## 23. write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10. (solution is in com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
+
+```Java
+class Playground {
+    static int cur = 1;
+    static int n = 10;
+
+    public static void main(String[ ] args) {
+        PrintFirst first = new PrintFirst();
+        Thread t1 = new Thread(first);
+        PrintSecond second = new PrintSecond();
+        Thread t2 = new Thread(second);
+
+        t2.start();
+        t1.start();
+    }
+
+    static Object Lock1 = new Object();
+
+    static class PrintFirst implements Runnable {
+        @Override
+        public void run() {
+            while(cur <= 10){
+                synchronized(Lock1){
+                    while(cur % 2 != 1){
+                        try{
+                            Lock1.wait();
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    if(cur <= 10) System.out.println(Thread.currentThread().getName() + " : " + cur);
+                    ++cur;
+                    Lock1.notify();
+                }
+            }
+        }
+    }
+
+    static class PrintSecond implements Runnable {
+        @Override
+        public void run() {
+            while(cur <= 10){
+                synchronized(Lock1){
+                    while(cur % 2 != 0){
+                        try{
+                            Lock1.wait();
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    if(cur <= 10) System.out.println(Thread.currentThread().getName() + " : " + cur);
+                    ++cur;
+                    Lock1.notify();
+                }
+            }
+        }
+    }
+}
+```
+
+```Java
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
+
+class Playground {
+    static Lock lock = new ReentrantLock();
+    static Condition c1 = lock.newCondition();
+    static Condition c2 = lock.newCondition();
+    static int cur = 1;
+    static int n = 10;
+
+    public static void main(String[ ] args) {
+        PrintFirst first = new PrintFirst();
+        Thread t1 = new Thread(first);
+        PrintSecond second = new PrintSecond();
+        Thread t2 = new Thread(second);
+
+        t2.start();
+        t1.start();
+    }
+
+    static class PrintFirst implements Runnable {
+        @Override
+        public void run() {
+            while(cur <= 10){
+                lock.lock();
+                while(cur % 2 != 1){
+                    try{
+                        c1.await();
+                    }
+                    catch(Exception e){
+                        System.out.println("e3");
+                    }
+                }
+                if(cur <= 10) System.out.println(Thread.currentThread().getName() + " : " + cur);
+                ++cur;
+                c2.signal();
+                lock.unlock();
+            }
+        }
+    }
+
+    static class PrintSecond implements Runnable {
+        @Override
+        public void run() {
+            while(cur <= 10){
+                lock.lock();
+                while(cur % 2 != 0){
+                    try{
+                        c2.await();
+                    }
+                    catch(Exception e){
+                        System.out.println("e3");
+                    }
+                }
+                if(cur <= 10) System.out.println(Thread.currentThread().getName() + " : " + cur);
+                ++cur;
+                c1.signal();
+                lock.unlock();
+            }
+        }
+    }
+}
+```
+
+
+
+## 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread output 21-22. threads run sequence is random. (solution is in com.chuwa.exercise.t08_multithreading.PrintNumber1)
+
+```Java
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
+
+class Playground {
+    static Lock lock = new ReentrantLock();
+    static Condition c1 = lock.newCondition();
+    static Condition c2 = lock.newCondition();
+    static int cur = 1;
+    static int n = 30;
+
+    public static void main(String[ ] args) {
+        PrintFirst first = new PrintFirst();
+        Thread t1 = new Thread(first);
+        PrintSecond second = new PrintSecond();
+        Thread t2 = new Thread(second);
+        PrintThird third = new PrintThird();
+        Thread t3 = new Thread(third);
+
+        t2.start();
+        t3.start();
+        t1.start();
+    }
+
+    static class PrintFirst implements Runnable {
+        @Override
+        public void run() {
+            lock.lock();
+            while(cur <= 10){
+                System.out.println(Thread.currentThread().getName() + " : " + cur);
+                ++cur;
+            }
+            c1.signal();
+            lock.unlock();
+        }
+    }
+
+    static class PrintSecond implements Runnable {
+        @Override
+        public void run() {
+            lock.lock();
+            while(cur < 10 || cur > 20){
+                try{
+                    c1.await();
+                }
+                catch(Exception e){
+                    System.out.println("e2");
+                }
+            }
+            while(cur <= 20){
+                System.out.println(Thread.currentThread().getName() + " : " + cur);
+                ++cur;
+            }
+            c2.signal();
+            lock.unlock();
+        }
+    }
+
+    static class PrintThird implements Runnable {
+        @Override
+        public void run() {
+            lock.lock();
+            while(cur < 20){
+                try{
+                    c2.await();
+                }
+                catch(Exception e){
+                    System.out.println("e3");
+                }
+            }
+            while(cur <= 30){
+                System.out.println(Thread.currentThread().getName() + " : " + cur);
+                ++cur;
+            }
+            lock.unlock();
+        }
+    }
+}
+
+
+```
