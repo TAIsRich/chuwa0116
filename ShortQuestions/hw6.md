@@ -70,7 +70,12 @@ Java Thread pool represents a group of worker threads that are waiting for the j
 In the case of a thread pool, a group of fixed-size threads is created. A thread from the thread pool is pulled out and assigned a job by the service provider. After completion of the job, the thread is contained in the thread pool again.
 
 ## 13. What is Executor Framework in Java, its different types and how to create these executors?
+The Executor Framework contains a bunch of components that are used to efficiently manage multiple threads. 
+ExecutorService and the class ThreadPoolExecutor.
 
+```java
+    ExecutorService es = Executors.newFixedThreadPool(8);
+```
 
 ## 14. Difference between shutdown() and shutdownNow() methods of executor
 - shutdown() will just tell the executor service that it can't accept new tasks, but the already submitted tasks continue to run
@@ -84,6 +89,9 @@ The atomic classes provide a **lock-free** and **thread-safe environment or prog
 Concurrent collections in java are designed and optimized specifically for synchronized multithreaded access. These are the **thread safe collections**, and these are existing in **java.util.concurrent package**.
 
 ## 17. what kind of locks you know?
+- ReentrantLock
+- ReadWriteLock
+- StampedLock
 
 ## 18. What is the difference between class lock and object lock
 | Class Level Lock    | Object Level Lock |
@@ -99,6 +107,9 @@ Concurrent collections in java are designed and optimized specifically for synch
 
 ## 20. What is threadLocal ?
 Java ThreadLocal is used to create thread local variables. We know that all threads of an Object share it’s variables, so the variable is not thread safe. We can use synchronization for thread safety but if we want to avoid synchronization, we can use ThreadLocal variables.
+
+## 21. Type the code by your self and try to understand it.
+in Coding/multi_thread_practice
 
 ## 23. write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10.
 in Coding/multi_thread_practice/waitNotify/OddEvenPrinter
