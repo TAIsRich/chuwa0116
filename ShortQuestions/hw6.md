@@ -133,6 +133,16 @@
 
 ##15. What is Atomic classes? when do we use it?
 ####Answer:
+    Atomic operations are operations that are not interrupted by thread scheduling mechanisms, and once started, run until
+    the end without any thread context switching. Java provides a Java.util.concurrent.atomic package since JDK 1.5. The atomic
+    action classes in this package provides a simple, high-performance, and thread-safe way to update a variable. The atomic 
+    package can be classified into four types of actomic update methods, namely Atomic update basic type, Atomic update array,
+    Atomic update reference, and Atomic update attribute. The classes in the Atomic package are basically wrapped classes 
+    implemented in Unsafe, thereby enabling an atomic operation. And it achieves visibility, reordering prevention, and atomicity
+     by decorating the internal value variable with the volatile keyword.  
+    
+    Atomic operation realizes thread safety witout lock. And it is suitble for counter, accumulator, and etc..
+    
 
 ##16. What is the concurrent collections?
 ####Answer:
