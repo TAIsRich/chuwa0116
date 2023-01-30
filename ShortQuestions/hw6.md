@@ -88,7 +88,9 @@
         2,4,6,8,10. (solution is in
         com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
     1. One solution use synchronized and wait notify
+       1. See codes in c05_waitNotify.OddEventPrinter
     2. One solution use ReentrantLock and await, signal
+        1. See codes in c05_waitNotify.OddEventPrinter1
 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
     output 21-22. threads run sequence is random. (solution is in
     com.chuwa.exercise.t08_multithreading.PrintNumber1)
