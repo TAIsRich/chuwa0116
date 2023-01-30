@@ -14,7 +14,7 @@ public class OddEventPrinter {
         new Thread(runnable).start();
     }
 
-    static class PrintRunnable implements Runnable {
+    public static class PrintRunnable implements Runnable {
         @Override
         public void run() {
             synchronized (monitor) {
