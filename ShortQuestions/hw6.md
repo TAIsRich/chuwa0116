@@ -94,3 +94,4 @@
 24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
     output 21-22. threads run sequence is random. (solution is in
     com.chuwa.exercise.t08_multithreading.PrintNumber1)
+    1. See codes in multithreading.PrintNumber1
