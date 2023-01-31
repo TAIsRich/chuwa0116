@@ -4,7 +4,47 @@
 - Volatile means that this variable can be modified by other threads any time, and every time the thread tries to change the variable, it will read or fetch the most recent value of this variable.
 
 ## How to create a new thread(Please also consider Thread Pool case)?
-
+```
+class Create extends Thread {
+    public void run()
+    {
+        System.out.print("create new thread");
+    }
+    public static void main(String[] args)
+    {
+        Create c = new Create(); // creating thread
+        c.start(); // starting thread
+    }
+}
+```
+```
+public class Main {
+    public static void main(String[] args) {
+// 创建一个固定大小的线程池:
+ExecutorService es = Executors.newFixedThreadPool(4); for (int i = 0; i < 6; i++) {
+es.submit(new Task("" + i));
+// 不用thread pool的话，怎么创建和执行一个thread. // Thread t0 = new Thread(new Task(" " + i)); // t.start();
+}
+// 关闭线程池:
+        es.shutdown();
+    }
+}
+class Task implements Runnable {
+    private final String name;
+    public Task(String name) {
+    this.name = name;
+}
+@Override
+public void run() {
+    System.out.println("start task " + name);
+    try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+}
+System.out.println("end task " + name);
+    }
+}
+```
 
 ## Difference between Runnable and Callable
 - The Runnable interface is a functional interface and has a single run() method that doesn't accept any parameters or return any values.
@@ -80,4 +120,5 @@ public class AtomicDemo {
 ## what is ThreadLocal?
 - The ThreadLocal class in Java allows programmers to create variables that are accessible only to the thread that created them. This is useful for creating thread-safe code, as it ensures that each thread has its own copy of a variable and can not interfere with other threads.
 
-## 
+## Read those interview questions and pick some important questions to this homework.
+- Once a thread has been started can it be started again?
