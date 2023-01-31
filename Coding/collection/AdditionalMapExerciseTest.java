@@ -1,11 +1,7 @@
-package com.chuwa.exercise.collection;
+package Coding.collection;
 
 import org.junit.Test;
 
-/**
- * @author b1go
- * @date 6/12/22 4:48 PM
- */
 public class AdditionalMapExerciseTest {
 
     /**
