@@ -57,9 +57,9 @@ public class ArraysExerciseTest {
     public void learn_copy_of_array() {
         int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         int[] newArr = Arrays.copyOf(numbers, 15);
-        System.out.println(newArr);
+        System.out.println(Arrays.toString(newArr));
         int[] newArr2 = Arrays.copyOfRange(numbers, 3, 9);
-        System.out.println(newArr2);
+        System.out.println(Arrays.toString(newArr2));
     }
 
     /**

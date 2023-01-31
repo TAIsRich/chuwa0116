@@ -110,19 +110,20 @@ public class ArrayListExerciseTest<T> extends ArrayList<T> {
         List<String> test = new ArrayList<>();
         test.add("Welcome");
         test.add("To");
-        test.add("chuwa");
+        test.add("Chuwa");
 
         Iterator itr = test.listIterator();
+        int i = 0;
         while (itr.hasNext()) {
-            int i = 0;
-            System.out.print(itr.next());
-
             // Removing odd elements
+            System.out.print(itr.next());
             if (i % 2 != 0){
                 itr.remove();
             }
+
             i++;
         }
+        System.out.print(test);
     }
 
     /**
