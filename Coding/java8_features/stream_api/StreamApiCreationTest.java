@@ -1,3 +1,5 @@
+package java8_features.stream_api;
+
 import org.junit.Test;
 
 import java.util.Arrays;

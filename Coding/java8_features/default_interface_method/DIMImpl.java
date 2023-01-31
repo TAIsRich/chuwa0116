@@ -1,4 +1,4 @@
-
+package java8_features.default_interface_method;
 
 public class DIMImpl implements DIML {
 

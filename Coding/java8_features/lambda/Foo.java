@@ -1,3 +1,4 @@
+package java8_features.lambda;
 
 @FunctionalInterface
 public interface Foo {

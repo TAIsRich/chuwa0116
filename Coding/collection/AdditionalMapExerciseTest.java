@@ -1,3 +1,4 @@
+package collection;
 
 import java.util.EnumMap;
 import java.util.IdentityHashMap;
