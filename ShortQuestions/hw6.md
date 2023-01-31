@@ -101,12 +101,12 @@ com.chuwa.tutorial.t08_multithreading)**
 **23. write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print
     2,4,6,8,10.**
 1. use synchronized and wait notify
-+ In multithreading/waitnotify/OddEvenPrinter
++ In `multithreading/waitnotify/OddEvenPrinter`
 2. use ReentrantLock and await, signal
-+ In multithreading/waitnotify/ReentranlockOddEvenPrinter
++ In `multithreading/waitnotify/ReentranlockOddEvenPrinter`
 
 **24. create 3 threads, one thread ouput 1-10, one thread output 11-20, one thread
 output 21-22. threads run sequence is random.**
-+ coding/multithreading/PrintNumber
++ `coding/multithreading/PrintNumber`
 
 
