@@ -334,6 +334,9 @@ The TheadLocal construct allows us to store data that will be accessible only by
 
 ## Read those interview questions and pick some important questions to this homework.
 
+- What's the difference between ReentrantLock, ReadWriteLock and StampedLock?
+- What's the difference between future and completableFuture?
+
 ## write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10. (solution is in com.chuwa.tutorial.t08_multithreading.c05_waitNotify.OddEventPrinter)
 1. One solution use synchronized and wait notify
 2. One solution use ReentrantLock and await, signal
