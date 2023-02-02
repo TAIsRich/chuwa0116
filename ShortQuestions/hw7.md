@@ -62,9 +62,9 @@ db.createCollection('oms_company_address')
 ![](./photos/11.png)
 We could see that after executing the following command in the terminal, we could successfully see the results above
 ```
-db.oms_company_address.insertMany([ {"_id":"1","id":"1","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Zhangsan1","phone":"312312312","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"Beijing 3rd Ave"},
-{"_id":"2","id":"2","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Zhangsan2","phone":"312312312","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"Beijing 3rd Ave"},
-{"_id":"3","id":"3","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Zhangsan3","phone":"312312312","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"Beijing 3rd Ave"}]);
+db.oms_company_address.insertMany([ {"_id":"1","id":"1","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Zhao","phone":"312312312","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"BJ"},
+{"_id":"2","id":"2","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Qian","phone":"888888888","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"BJ"},
+{"_id":"3","id":"3","address_name":"Beijing","send_status":"0","receive_status":"0","name":"Sungi","phone":"888888888","province":"Beijing","city":"Beijing","region":"Beijing","detail_address":"BJ"}]);
 ```
 
 ##### 4. Read one entry from `oms_company_address` collection (method: find() )
