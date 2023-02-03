@@ -478,55 +478,55 @@ db.createCollection("oms_company_address")
 3. Insert few random entries to oms_company_address collection (method: insert() )
 ```
 db.oms_company_address.insert({
-_id: 1
-address_name: "Icon",
-send_status: 1,
-receive_status: 0,
-name: "Tom",
-phone: "222-3333-4444",
-province: "Jiangsu",
-city: "Nanjing",
-region: "Gulou",
-detail_address: "somewhere1"
+    _id: 1
+    address_name: "Icon",
+    send_status: 1,
+    receive_status: 0,
+    name: "Tom",
+    phone: "222-3333-4444",
+    province: "Jiangsu",
+    city: "Nanjing",
+    region: "Gulou",
+    detail_address: "somewhere1"
 })
 
 db.oms_company_address.insert({
-_id: 2
-address_name: "Dean",
-send_status: 0,
-receive_status: 0,
-name: "Mark",
-phone: "333-3333-4444",
-province: "Beijing",
-city: "Beijing",
-region: "Chaoyang",
-detail_address: "somewhere2"
+    _id: 2
+    address_name: "Dean",
+    send_status: 0,
+    receive_status: 0,
+    name: "Mark",
+    phone: "333-3333-4444",
+    province: "Beijing",
+    city: "Beijing",
+    region: "Chaoyang",
+    detail_address: "somewhere2"
 })
 
 db.oms_company_address.insert({
-_id: 3
-address_name: "Tower",
-send_status: 1,
-receive_status: 0,
-name: "Sam",
-phone: "333-3333-5555",
-province: "Chengdu",
-city: "Sichuan",
-region: "someregion",
-detail_address: "somewhere3"
+    _id: 3
+    address_name: "Tower",
+    send_status: 1,
+    receive_status: 0,
+    name: "Sam",
+    phone: "333-3333-5555",
+    province: "Chengdu",
+    city: "Sichuan",
+    region: "someregion",
+    detail_address: "somewhere3"
 })
 
 db.oms_company_address.insert({
-_id: 4
-address_name: "Capstone",
-send_status: 0,
-receive_status: 0,
-name: "Amy",
-phone: "333-3333-7777",
-province: "Shanghai",
-city: "Shanghai",
-region: "Puxi",
-detail_address: "somewhere2"
+    _id: 4
+    address_name: "Capstone",
+    send_status: 0,
+    receive_status: 0,
+    name: "Amy",
+    phone: "333-3333-7777",
+    province: "Shanghai",
+    city: "Shanghai",
+    region: "Puxi",
+    detail_address: "somewhere2"
 })
 ```
 4. Read one entry from oms_company_address collection (method: find())
@@ -546,4 +546,93 @@ db.oms_company_address.update({'name': 'Sam'}, {$set:{'name': 'Alex'}})
 db.oms_company_address.remove({'name':'Amy'})
 ```
 
+## Explain how the below annotations specify the table in database?
+
+```java
+@Column(columnDefinition = "varchar(255) default 'John Snow'")
+private String name;
+  
+@Column(name="STUDENT_NAME", length=50, nullable=false, unique=false)
+private String studentName;
+```
+
+It creates a table with two column. One column is called name, it allows
+varchar(255) as attribute and if nothing specify, it will use the default
+name John Snow. Another column is called "STUDENT_NAME", the length of the 
+column is 50, it's field does not allow null value and accept non-unique field.
+
+## What is the default column names of the table in database for  `@Column`?
+
+```java
+@Column
+private String firstName;
+@Column
+private String operatingSystem;
+```
+
+firstName and operatingSystem
+
+## What are the layers in springboot application? what is the role of each layer?
+
+![img_1.png](img_1.png)
+
+1. Presentation Layer
+
+The presentation layer is the top layer of the spring boot architecture. 
+It consists of Views. i.e., the front-end part of the application. 
+It handles the HTTP requests and performs authentication. 
+It is responsible for converting the JSON field’s parameter to Java Objects 
+and vice-versa. Once it performs the authentication of the request it 
+passes it to the next layer. i.e., the business layer.
+
+2. Business Layer
+
+The business layer contains all the business logic. 
+It consists of services classes. 
+It is responsible for validation and authorization.
+
+3. Persistence Layer
+
+The persistence layer contains all the database storage logic. 
+It is responsible for converting business objects to the database row and 
+vice-versa.
+
+4. Database Layer
+
+The database layer contains all the databases such as MySql, MongoDB, etc. 
+This layer can contain multiple databases. 
+It is responsible for performing the CRUD operations.
+
+https://techwithmaddy.com/spring-boot-architecture#heading-spring-boot-workflow
+
+## Describe the flow in all the layers if an API is called by Postman.
+
+![img_3.png](img_3.png)
+
+Spring Boot workflow acts like this:
+1. The Client makes an HTTP request.
+2. The Controller class receives the HTTP request. 
+3. The Controller understands what type of request will process, and then it deals with it. 
+4. If it is needed, it calls the service class. 
+5. The Service Class is going to handle the business logic. It does this on the data from the database. 
+6. If everything goes well, we return a JSP page.
+
+## What is the application.properties? do you know application.yml?
+
+### application.properties
+
+In a spring boot application, application.properties file is used to 
+write the application-related property into that file. 
+This file contains the different configuration which is required to run 
+the application in a different environment, and each environment will 
+have a different property defined by it. Inside the application properties 
+file, we define every type of property like changing the port, 
+database connectivity, connection to the eureka server, and many more.
+
+### application.yml
+
+The application.properties file is not that readable.
+YAML is a superset of JSON, and as such is a very convenient format for 
+specifying hierarchical configuration data. YAML is more readable and it 
+is good for the developers to read/write configuration files.
 
