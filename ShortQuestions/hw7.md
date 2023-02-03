@@ -115,21 +115,72 @@ db.oms_company_address.remove({name: "third"})
 ##5) Each example with 404, 401,500 and any http status codes you know
 
 
+
+
+
 #API Design
 
 ##1.Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc. -- 命名规范
+####Answer:
+      1)Twitter:
+         User:
+         1)get account/settings: GET https://api.twitter.com/1.1/account/settings.json
+         2)get account/verify_credentials: GET https://api.twitter.com/1.1/account/verify_credentials.json
+         3)get users/profile_banner: GET https://api.twitter.com/1.1/users/profile_banner.json?screen_name=twitterapi
+         4)remove the uploaded profile banner for the authenticating user: POST https://api.twitter.com/1.1/account/remove_profile_banner.json
+         5)updates the authenticating user's settings: POST https://api.twitter.com/1.1/account/settings.json?lang=en
+         6)post account/update_profile: POST https://api.twitter.com/1.1/account/update_profile.json?name=Sean%20Cook&description=Keep%20calm%20and%20rock%20on.
+         7)post account/update_profile_image: POST https://api.twitter.com/1.1/account/update_profile_image.json?image=ABCDEFGH...
+         8)get saved_searches/list: GET https://api.twitter.com/1.1/saved_searches/list.json
+         9)post saved_searches/create: POST https://api.twitter.com/1.1/saved_searches/create.json?query=sandwiches
+         10)get saved_searches/show/:id: GET https://api.twitter.com/1.1/saved_searches/show/9569704.json
+
+      2)Paypal:
+      1.Orders:
+         1)create order: POST https://api-m.paypal.com/v2/checkout/orders
+         2)show order details: GET https://api-m.paypal.com/v2/checkout/orders/{id}
+         3)update order: PATCH https://api-m.paypal.com/v2/checkout/ordders/{id}
+         4)confirm the Order: POST https://api-m.paypal.com/v2/checkout/orders/{id}/confirm-payment-source
+         5)Authorize payment for order: POST https://api-m.paypal.com/v2/checkout/orders/{id}/authorize
+         6)Capture payment for order: POST https://api-m.paypal.com/v2/checkout/orders/{id}/capture
+      2.Payment:
+         1)show details for authorized payment: GET https://api-m.paypal.com/v2/payments/authorizations/{authorization_id}
+         2)Capture authorized payment: POST https://api-m.paypal.com/v2/payments/authorizations/{authorization_id}/capture
+         3)reauthorize authorized payment: POST https://api-m.paypal.com/v2/payments/authorizations/{authorization_id}/reauthorize
+         4)void authorized payment: POST https://api-m.paypal.com/v2/payments/authorizations/{authorization_id}/void
+         5)show captured payment details: GET https://api-m.paypal.com/v2/payments/captures/{capture_id}
+         6)refund captured payment: POST https://api-m.paypal.com/v2/payments/captures/{capture_id}/refund
+         7)show refund detains: GET https://api-m.paypal.com/v2/payments/refund/{refund_id}
+   
 
 ##2.Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
-Design APIs for the following features (思考：path variable 怎么⽤？有sub resources, 哪些地⽅该⽤复数)
-1. find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
-2. Find the customer's history orders from 10/10/2022 to 10/24/2022
-3. find the customer's delievery addresses
-4. If I also want to get customer's default payment and default delievery address, what kind of the API (URL)
+#### Answer:
+      1)GET: used to when we read information from the database
+      example: 
+      show the details of a user's account: GET /api/v1/users/{user_id}/account/settings
+      2)POST: used to create or save data 
+      example:
+      create a new blog: POST /api/v1/users/{user_id}/articles/{article_id}
+      3)PUT: used to update data
+      example:
+      update the password of the user: PUT /api/v1/users/{user_id}/account
+      4)DELETE: used to delete data
+      example: 
+      delete a blog: DELETE /api/v1/users/{user_id}/articels/{article_id} 
+
+
+##Design APIs for the following features (思考：path variable 怎么⽤？有sub resources, 哪些地⽅该⽤复数)
+   1. find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
+   2. Find the customer's history orders from 10/10/2022 to 10/24/2022
+   3. find the customer's delievery addresses
+   4. If I also want to get customer's default payment and default delievery address, what kind of the API (URL)
    should be?
-
-
-
-
+####Answer:
+      1)GET /api/v1/{user_id}/account/payments/{payment_id}
+      2)GET /api/v1/{user_id}/orders/?start_date=10-10-2022 & end_date=10-24-2022
+      3)GET /api/v1/users/{user_id}/account/addresses
+      4)GET /api/v1/{user_id}/account/payments/default
+         GET /api/v1/{user_id}/account/addresses/default
 
 
 #Spring Boot:
@@ -167,7 +218,8 @@ private String operatingSystem;
 
 ##4.What are the layers in springboot application? what is the role of each layer?
 ####Answer:
-      Spring Boot is built on top of the Spring framework mainly for REST APIs. Spring Boot requires very few configurations. It has four layers:
+      Spring Boot is built on top of the Spring framework mainly for REST APIs. Spring Boot requires very few configurations. 
+      It has four layers:
       Presentation layer — The view part of the MVC framework that handles the front-end.
       Business layer — The controller where all the business logic and validations are done.
       Persistence layer — This layer translates the business objects to database objects.
@@ -184,11 +236,12 @@ private String operatingSystem;
 
 ##7.Create a Project, name it with mongo-blog, write a POST API for mongo-blog, change database to MongoDB;
 ####Answer:
-
+   the code is in the mongo-blog
 
 
 ##8.In your redbook application, write the code for RUD APIs
 ####Answer:
+   the code is in the redbook.
 
 
 
