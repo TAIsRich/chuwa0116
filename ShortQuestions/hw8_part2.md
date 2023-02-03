@@ -42,5 +42,6 @@ application.properties file is used to write the application-related property in
 YAML configuration file in Spring Boot provides a very convenient syntax for storing logging configurations in a hierarchical format.
 
 ### 7. Create a Project, name it with mongo-blog, write a POST API for mongo-blog, change database to MongoDB
+See Coding/mongo-blog and screenshot
 ### 8.  In your redbook application, write the code for RUD APIs.
-See Coding
+See Coding/redbook

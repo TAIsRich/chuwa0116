@@ -95,6 +95,26 @@ DELETE
 
 delete a blog
 
-/v1/blog-list/blog/{title}
+```/v1/blog-list/blog/{title}```
+
+
+### Design APIs for the following features (思考：path variable 怎么用？有sub resources, 哪些地方该用复数)
++  find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay
+
+```/v1/customers/{customersID}/payments```
+
++ Find the customer's history orders from 10/10/2022 to 10/24/2022
+
+```/v1/customers/{customersID}/orders/date?start=1010/2022&&end=10/24/2022```
+
++ find the customer's delivery addresses
+
+```/v1/customers/{customersID}/delivery-addresses```
+
++ If I also want to get customer's default payment and default delivery address, what kind of the API (URL) should be?
+
+```/v1/customers/{customersID}/payments/default```
+```/v1/customers/{customersID}/delivery-address/default```
+
 
 
