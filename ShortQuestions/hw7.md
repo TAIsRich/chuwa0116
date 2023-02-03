@@ -337,3 +337,6 @@ Design APIs for the following features (思考:path variable 怎么用?有sub re
 should be? 
    1. GET baseUrl/v1/users/{userid}/payments/default
    2. GET baseUrl/v1/users/{userid}/addresses/default
+
+# hw40-springboot-post
+1. See `annotations.md` file
