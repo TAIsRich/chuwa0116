@@ -574,7 +574,7 @@ firstName and operatingSystem
 
 ## What are the layers in springboot application? what is the role of each layer?
 
-![img_1.png](img_1.png)
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1636840785484/hxIUT9R03.png?auto=compress,format&format=webp)
 
 1. Presentation Layer
 
@@ -603,11 +603,11 @@ The database layer contains all the databases such as MySql, MongoDB, etc.
 This layer can contain multiple databases. 
 It is responsible for performing the CRUD operations.
 
-https://techwithmaddy.com/spring-boot-architecture#heading-spring-boot-workflow
+
 
 ## Describe the flow in all the layers if an API is called by Postman.
 
-![img_3.png](img_3.png)
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1636842342576/7ShwFxJxx.png?auto=compress,format&format=webp)
 
 Spring Boot workflow acts like this:
 1. The Client makes an HTTP request.

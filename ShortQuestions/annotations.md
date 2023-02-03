@@ -71,7 +71,7 @@ Annotate other components (for example REST resource classes) with @Component.
 @Repository, @Service, and @Controller are specializations of @Component for more specific use cases,
 for example, in the persistence, service, and presentation layers, respectively.
 
-![img.png](img.png)
+![](https://www.techferry.com/articles/images/SpringComponentAnnotations.jpg)
 
 ## Spring Boot Annotations
 
