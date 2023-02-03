@@ -55,15 +55,142 @@ DELETE FROM oms_company_address WHERE city = "third_city" AND region = "thrid_re
 #MongoDB
 
 ##1. Create test DB
+```
+use testDB
+show dbs
+```
 
 ##2. Create oms_company_address collection (method: createCollection() )
+```
+db.createCollection("oms_company_address")
+
+show collections
+
+```
 
 ##3. Insert few random entries to oms_company_address collection (method: insert() )
+```
+db.oms_company_address.insertMany(
+    [
+        {_id:1, address_name:"address_name_1", send_status:0, receive_status:0, name:"first", phone:"0000000", province:"first_province", city:"first_city", region:"first_region", detail_address:"detail_address_0000000000000000"},
+        {_id:2, address_name:"address_name_2", send_status:0, receive_status:1, name:"second", phone:"1111111111", province:"second_province", city:"second_city", region:"second_region", detail_address:"detail_address_11111111111111"},
+        {_id:3, address_name:"address_name_3", send_status:1, receive_status:0, name:"third", phone:"22222222222", province:"third_province", city:"third_city", region:"thrid_region", detail_address:"detail_address_222222222222222222"},
+        {_id:4, address_name:"address_name_4", send_status:1, receive_status:1, name:"forth", phone:"333333333333", province:"forth_province", city:"forth_city", region:"forth_region", detail_address:"detail_address_3333333333333333"},
+        {_id:5, address_name:"address_name_5", send_status:0, receive_status:0, name:"fifth", phone:"444444444444", province:"fifth_province", city:"fifth_city", region:"fifth_region", detail_address:"detail_address_007700770070007777"},
+        
+    ]
+)
+
+```
 
 ##4. Read one entry from oms_company_address collection (method: find() )
+```
+db.oms_company_address.find({address_name: "address_name_2"})
+```
 
 ##5. Read all entries from oms_company_address collection (method: find() )
+```
+db.oms_company_address.find()
+```
 
 ##6. Update one entry from oms_company_address collection (method: update() or save() )
+```
+db.oms_company_address.updateMany({},{$set:{"phone": "666-6666-8888"}})
+```
 
 ##7. Remove one entry from oms_company_address collection (method: remove() )
+```
+db.oms_company_address.remove({name: "third"})
+```
+
+
+
+#RestAPI
+
+##1.take below examples,
+##1) 5 GET APIs with different response type
+##2) 5 Post API with json request body, please also paste the response here
+##3) 3 PUT API with json request body, please also paste the response here
+##4) 2 DELETE API
+##5) Each example with 404, 401,500 and any http status codes you know
+
+
+#API Design
+
+##1.Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc. -- 命名规范
+
+##2.Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
+Design APIs for the following features (思考：path variable 怎么⽤？有sub resources, 哪些地⽅该⽤复数)
+1. find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
+2. Find the customer's history orders from 10/10/2022 to 10/24/2022
+3. find the customer's delievery addresses
+4. If I also want to get customer's default payment and default delievery address, what kind of the API (URL)
+   should be?
+
+
+
+
+
+
+#Spring Boot:
+
+##1.create a file to list all of the annotaitons you learned and known, and explain the usage and how do you understand it. 
+##you need to update it when you learn a new annotation. Please organize those annotations well, like annotations used by entity, 
+##annotations used by controller.
+    1. File name: annotations.md
+    2. you'd better also list a code example under the annotations.
+####Answer:
+    In the ShortQuestions/annotations.md
+
+##2. explain how the below annotaitons specify the table in database?
+```
+@Column(columnDefinition = "varchar(255) default 'John Snow'")
+private String name;
+@Column(name="STUDENT_NAME", length=50, nullable=false, unique=false)
+private String studentName;
+```
+####Answer:
+    1) the first @Column means that the attribute for this column is name, and the type of this attibute is String which is 
+    varchar(255), and the default value of this attribute is 'John Snow'.
+    2)the second @Column means that the attribuet of this column is studentName, and this column is named as 'STUDENT_NAME',
+    the type of this attribute is String, of which max length is 50. And this attribute is neither  nullable nor unique.
+
+##3. What is the default column names of the table in database for @Column ?
+```
+@Column
+private String firstName;
+@Column
+private String operatingSystem;
+```
+####Answer:
+    The first default column name is firstName, and the second default column name is operatingSystem.
+
+##4.What are the layers in springboot application? what is the role of each layer?
+####Answer:
+      Spring Boot is built on top of the Spring framework mainly for REST APIs. Spring Boot requires very few configurations. It has four layers:
+      Presentation layer — The view part of the MVC framework that handles the front-end.
+      Business layer — The controller where all the business logic and validations are done.
+      Persistence layer — This layer translates the business objects to database objects.
+      Database layer — The actual CRUD (Create, Read, Update, Delete) operations happen here.
+
+
+##5.Describe the flow in all of the layers if an API is called by Postman.
+####Answer:
+
+
+##6. What is the application.properties? do you know application.yml?
+####Answer:
+
+
+##7.Create a Project, name it with mongo-blog, write a POST API for mongo-blog, change database to MongoDB;
+####Answer:
+
+
+
+##8.In your redbook application, write the code for RUD APIs
+####Answer:
+
+
+
+
+
