@@ -16,12 +16,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class MongoBlogApplication {
 
 	public static void main(String[] args) {
-//		ConnectionString connectionString = new ConnectionString("mongodb+srv://admin:admin@cluster0.tdxy5.mongodb.net/?retryWrites=true&w=majority");
-//		MongoClientSettings settings = MongoClientSettings.builder()
-//				.applyConnectionString(connectionString)
-//				.build();
-//		MongoClient mongoClient = MongoClients.create(settings);
-//		MongoDatabase database = mongoClient.getDatabase("mongoblogs");
 
 		SpringApplication.run(MongoBlogApplication.class, args);
 
