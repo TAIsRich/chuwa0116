@@ -1,4 +1,4 @@
-## Database
+## Database & Springboot
 
 ### REST API
 **5 GET APIs with different response type**
@@ -247,3 +247,41 @@ should be?
 https://website/user/{id}/delivery-address/default
 https://website/user/{id}/payments/default
 ```
+
+### Springboot
+1.see colletion in **annotions.md**
+
+2.explain how the below annotaitons specify the table in database?
+```java
+@Column(columnDefinition = "varchar(255) default 'John Snow'")
+//Set the column data type to varchar(255) and the default value is John snow 
+private String name;
+
+@Column(name="STUDENT_NAME", length=50, nullable=false, unique=false)
+//set the column name in database to STUDENT_NAME and data length 50, set constrain to can not be null and can be duplicate 
+private String studentName;
+```
+
+3. What is the default column names of the table in database for @Column 
+```java
+@Column
+private String firstName;
+@Column
+private String operatingSystem;
+```
+
+It will be same as the firstName and operationgSystem
+
+4. What are the layers in springboot application? what is the role of each layer?
+Presentation Layer <-> Businiedd Layer <-> Presistence Layer <->Database
+Client - Controller - Service(Busniess Logic) - DAO(Presistence logic) - DB
+
+5. Describe the flow in all of the layers if an API is called by Postman.
+
+The api is called - controller layer recieve the request - service layer mapping the request - repository interact with database - return the response to controller layer
+
+6. What is the application.properties? do you know application.yml
+
+application.properties is a standard properties file that uses a key-value format to define properties.
+
+application.yml is a YAML file that uses a more human-readable format to define properties.
