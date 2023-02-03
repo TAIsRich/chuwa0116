@@ -74,4 +74,266 @@
 7.  Remove one entry from  `oms_company_address` collection (method: remove() )
    `db.oms_company_address.remove({name:"Emma"});`
 8.  (Optional) You can also try to create other tables that listed above
- 
+
+# HW30-DB&REST-APIs
+## REST API with POSTMAN TEST
+### 5 `GET` APIs with different response type
+1. `{{dummy}}/todos/1` `response 200 OK`
+   ```json
+    {
+    "id": 1,
+    "todo": "Do something nice for someone I care about",
+    "completed": true,
+    "userId": 26
+    }
+    ```
+2. `{{dummy}}/products/1` `response 200 OK`
+    ```json
+    {
+        "id": 1,
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+        "images": [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/4.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+        ]
+    }
+    ```
+3. `{{dummy}}/users` `response 200 OK`
+   ```json
+    {
+    "id": 1,
+    "body": "This is some awesome thinking!",
+    "postId": 100,
+    "user": {
+    "id": 63,
+    "username": "eburras1q"
+    }
+    }
+    ```
+4. `{{dummy}}/posts/1` `response 200 OK`
+    ```json
+    {
+    "id": 1,
+    "title": "His mother had always taught him",
+    "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+    "userId": 9,
+    "tags": [
+    "history",
+    "american",
+    "crime"
+    ],
+    "reactions": 2
+    }
+    ```
+5. `{{dummy}}/comments/1` `response 200 OK`
+    ```json
+    {
+    "id": 1,
+    "body": "This is some awesome thinking!",
+    "postId": 100,
+    "user": {
+    "id": 63,
+    "username": "eburras1q"
+    }
+    }
+    ```
+### 5 `POST` API with json request body, please also paste the response here 
+1. `{{dummy}}/products/add` `200 OK`
+    ```json
+    {
+    "id": 101,
+    "title": "BMW"
+    }
+    ```
+2. `{{dummy}}/carts/add` `200 OK`
+   ```json
+    {
+    "id": 21,
+    "products": [ 
+    {
+    "id": 1,
+    "title": "iPhone 9",
+    "price": 549,
+    "quantity": 1,
+    "total": 549,
+    "discountPercentage": 12.96,
+    "discountedPrice": 478
+    },
+    {
+    "id": 50,
+    "title": "Women Shoes",
+    "price": 36,
+    "quantity": 2,
+    "total": 72,
+    "discountPercentage": 16.87,
+    "discountedPrice": 60
+    }
+    ],
+    "total": 621,
+    "discountedTotal": 538,
+    "userId": 1,
+    "totalProducts": 2,
+    "totalQuantity": 3
+    }
+    ```
+3. `{{dummy}}/users/add` `200 OK`
+   ```json
+    {
+    "id": 101,
+    "firstName": "Muhammad",
+    "lastName": "Ovi",
+    "age": 250
+    }
+    ```
+4. `{{dummy}}/comments/add` `200 OK`
+   ```json
+   {
+    "id": 341,
+    "body": "This makes all sense to me!",
+    "postId": 3,
+    "user": {
+    "id": 5,
+    "username": "kmeus4"
+    }
+    }
+    ```
+5. `{{dummy}}/todos/add` `200 OK`
+   ```json
+    {
+    "id": 151,
+    "todo": "Use DummyJSON in the project",
+    "completed": false,
+    "userId": 5
+    }
+    ```
+### 3 `PUT` API with json request body, please also paste the response here 
+1. `{{dummy}}/products/1`
+   ```json
+    {
+    "id": 1,
+    "title": "iPhone Galaxy +1",
+    "description": "An apple mobile which is nothing like apple",
+    "price": 549,
+    "discountPercentage": 12.96,
+    "rating": 4.69,
+    "stock": 94,
+    "brand": "Apple",
+    "category": "smartphones",
+    "thumbnail": "...",
+    "images": ["...", "...", "..."]
+    }
+    ```
+2. `{{dummy}}/uesrs/1`
+   ```json
+    {
+    "id": "1",
+    "firstName": "Terry",
+    "lastName": "Owais",
+    "email": "atuny0@sohu.com",
+    "phone": "+63 791 675 8914",
+    "gender": "male"
+    }
+   ```
+3. `{{dummy}}/posts/1`
+   ```json
+    {
+    "id": "1",
+    "title": "I think I should shift to the moon",
+    "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
+    "userId": 9,
+    "tags": [
+    "history",
+    "american",
+    "crime"
+    ],
+    "reactions": 2
+    }
+   ```
+### 2 `DELETE` API
+1. `{{dummy}}/todos/1`
+    ```json
+    {
+      "id": 1,
+      "todo": "Do something nice for someone I care about",
+      "completed": true,
+      "userId": 26,
+      "isDeleted": true,
+      "deletedOn": 
+    }
+   ```
+2. `{{dummy}}/todos/1`
+    ```json
+    {
+      "id": 1,
+      "body": "This is some awesome thinking!",
+      "postId": 100,
+      "user": {
+          "id": 63,
+          "username": "eburras1q"
+      },
+      "isDeleted": true,
+      "deletedOn":
+    }
+    ```
+   
+## API Design
+1. Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube
+   1. Twitter
+      1. Users
+         * GET followers/list
+         * GET friends/ids
+         * GET friends/list
+         * GET friendships/incoming
+         * GET friendships/lookup
+         * GET friendships/no_retweets/ids
+         * GET friendships/outgoing
+         * GET friendships/show
+      2. Tweets
+         * POST statuses/update
+         *  POST statuses/destroy/:id
+         *  GET statuses/show/:id
+         *  GET statuses/oembed
+         *  GET statuses/lookup
+         * POST statuses/retweet/:id
+         *  POST statuses/unretweet/:id
+         *  GET statuses/retweets/:id
+         *  GET statuses/retweets_of_me
+         *  GET statuses/retweeters/ids
+   2. Youtube
+      1. PUT https://www.googleapis.com/youtube/v3/channels
+      2. POST https://www.googleapis.com/youtube/v3/comments
+      3. GET https://www.googleapis.com/youtube/v3/comments
+      4. POST https://www.googleapis.com/youtube/v3/comments/markAsSpam
+      5. GET https://www.googleapis.com/youtube/v3/subscriptions
+      6. POST https://www.googleapis.com/youtube/v3/subscriptions
+      
+2. Design a collection of APIs for a Blog Website,please specify GET POST PUT DELETE
+   1. Get user page summary: GET baseURL/v1/users/{userid}/summary
+   2. Get user settings: GET baseURL/v1/users/{userid}/settings/address
+   3. Update user settings: PUT baseURL/v1/users/{userid}/settings/address
+   4. Delete user payment card: DELETE baseURL/v1/users/{userid}/payments/card/{card_id}
+
+Design APIs for the following features (思考:path variable 怎么用?有sub resources, 哪些地方该用复数)
+1. find the customer's payments, like credit card1, credit card2,paypal,ApplePay.
+   1. GET baseUrl/v1/users/{userid}/payments/card/{card_id}
+   2. GET baseUrl/v1/users/{userid}/payments/apple_pay
+   3. GET baseUrl/v1/users/{userid}/payments/paypal
+2. Find the customer's history orders from 10/10/2022to10/24/2022
+   1. GET baseUrl/v1/users/{userid}/orders/?start_date=10-10-2022 & end_date=10-24-2022
+3. find the customer's delivery addresses
+   1. GET baseUrl/v1/users/{userid}/addresses/default
+4. If I also want to get customer's default payment and default delivery address,what kind of the API(URL)
+should be? 
+   1. GET baseUrl/v1/users/{userid}/payments/default
+   2. GET baseUrl/v1/users/{userid}/addresses/default
