@@ -69,5 +69,40 @@
     {address_name: "Delivery Center"}
     )
 
+## 1.  Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc.  -- 命名规范
 
-(Optional) You can also try to create other tables that listed above
+    GET https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={screen_name}
+
+    POST https://api.twitter.com/1.1/statuses/update.json?status={tweet_text}
+
+    GET https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}
+
+## 2.  Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
+
+    Posts:
+    GET /posts - Retrieve a list of all posts.
+    GET /posts/{id} - Retrieve a specific post by its id.
+    POST /posts - Create a new post.
+    PUT /posts/{id} - Update a specific post by its id.
+    DELETE /posts/{id} - Delete a specific post by its id.
+    Comments:
+    GET /posts/{post_id}/comments - Retrieve a list of comments for a specific post.
+    GET /comments/{id} - Retrieve a specific comment by its id.
+    POST /posts/{post_id}/comments - Create a new comment for a specific post.
+    PUT /comments/{id} - Update a specific comment by its id.
+    DELETE /comments/{id} - Delete a specific comment by its id.
+
+
+## Design APIs for the following features (思考：path variable 怎么用？有sub resources, 哪些地方该用复数)
+
+### 1.  find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
+    GET /payments/{customer_id}: retrieve a specific payment by payment i
+
+### 2.  Find the customer's history orders from 10/10/2022 to 10/24/2022
+    GET /orders/{customer_id}?start_date=10/10/2022&end_date=10/24/2022: retrieve all orders for a customer within the specified date range
+
+### 3.  find the customer's delievery  addresses
+    GET /addresses/{customer_id}: retrieve a specific delivery address by address id
+
+### 4.  If I also want to get customer's default payment and default delievery address, what kind of the API (URL) should be?
+    GET /customers/{customer_id}/defaults - Retrieve the customer's default payment and delivery address.
