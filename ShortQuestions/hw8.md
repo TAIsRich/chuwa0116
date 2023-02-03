@@ -56,12 +56,18 @@ find the customer's payments, like credit card 1, credit card 2, paypal, Apple P
    1. Filename:annotations.md
    2. you'd better list a code example\
    The file can be found in ShortQuestions/Annotations.md.
-2. explain how the below annotation specify the table in database?
-    * name column: column type is varchar(255). The default name is 'John Snow'.
-    * studentName column: the column is database is 'Student_name". It can't be nullable. It can have duplicate values.  The size of the database column is 50. The database will reject any values that are more than 50 characters long.
+2. explain how the below annotation specify the table in database?  
+
+The two annotations in the code sample specify the columns in a JPA entity, which represents a database table. 
+
+- The first annotation, @Column(columnDefinition = "varchar(255) default 'John Snow'"), defines the name column with a varchar data type of 255 characters and a default value of "John Snow". 
+
+- The second annotation, @Column(name="STUDENT_NAME", length=50, nullable=false, unique=false), sets the studentName column's name in the database table as "STUDENT_NAME" with a maximum length of 50 characters. This column cannot have null values and does not have to be unique.
+
 3. What is the default column names of the table in database for @Column?
     * firstName
     * operatingSystem
+
 4. What are the layers in springboot application? what is the role of each layer?
     * presentation layer: controller
     * business layer: service
@@ -76,11 +82,12 @@ find the customer's payments, like credit card 1, credit card 2, paypal, Apple P
 6. What is the application.properties? do you know application.yml?
     * application. properties file is used to write the application-related property into that file.
     * application.yml is also a files to write application-related property, but in YAML.
+
 7. Create a Project,name it with mongo-blog, write a POST API for mongo-blog,change database to MongoDB;
    1. https://www.mongodb.com/compatibility/spring-boot
-      Code can be found in MavenProject/mongo-blog.
+      
 8. In your redbook application,write the code for RUD APIs.
    1. https://github.com/TAIsRich/springboot-redbook.git 1. Branch:02_post_RUD
    2. you need to call the new APIS in your postman.
    3. you need to type it line by line and try your best to understand it.
-   Code can be found in MavenProject/redbook.
+   
