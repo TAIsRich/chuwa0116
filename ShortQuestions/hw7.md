@@ -104,7 +104,6 @@ db.oms_company_address.remove({name: "third"})
 ```
 
 
-
 #RestAPI
 
 ##1.take below examples,
@@ -113,9 +112,8 @@ db.oms_company_address.remove({name: "third"})
 ##3) 3 PUT API with json request body, please also paste the response here
 ##4) 2 DELETE API
 ##5) Each example with 404, 401,500 and any http status codes you know
-
-
-
+####Answer:
+   the screenshots are in the /myPhotos/practiveAPI.md
 
 
 #API Design
@@ -228,20 +226,50 @@ private String operatingSystem;
 
 ##5.Describe the flow in all of the layers if an API is called by Postman.
 ####Answer:
+      When Postman sends an API request (GET/POST/PUT/DELETE), the Controller layer firstly processes the request from the front end, 
+      and then calls the interface of the Service layer to execute the business logic. The configuration of Controller layer
+      is also carried out in the configuration file.
+
+      Then, The business logic layer, which completes the design of functions, is the same as the DAO layer, which firstlt designs the 
+      interface, and then creates the class to be implemented. And then it carries out the configuration of its implementation association
+      in the configuration file. The service layer then invokes the interface of the DAO layer to process the business logic application. 
+      The impl of a service interface is the file that integrates the mapper and service.
+
+      DAO is also known as the mapper layer, which is called the data persistence layer. The interface is designed firstly, and then the 
+      association of its implementation is configured in the configuration file.The  purpose and usage of the DAO layer is to access 
+      the database, and sends sql statements to the database to complete the task of adding, deleting, modifying and checking data. 
+      In this way, it can realize insert/delete/check/modify data which is stored in the persistent medium. 
 
 
 ##6. What is the application.properties? do you know application.yml?
 ####Answer:
+      1）application.properties is a global configuration file, in src/main/resources or /config on the classpath used by Spring
+      Boot to modify some of the default configuration values. WHen a Spring Boot porject is built using Spring Initialize,
+      an empty application.properties file is automatically generated in the resource directory. The application.properties 
+      file loads automatically when the Spring Boot project starts. The application.properties file defines the properties 
+      associated with the projetc. And these properties can be system properties, environment variables, command parameters,
+      etc.. Also they can be custom configuration file names and locations.
+      2)application.yml: YAML file format is a JSON superset file format supported by Spring Boot. Compared with traditional 
+      properties configuration files, YAML file takes data as the core, and is more intuitive so that its data serialization
+      format is easily to be recognized. The working mechnism of application.yml configuration is the same as application.properties,
+      except that the yaml format configuration file looks cleaner.
 
 
 ##7.Create a Project, name it with mongo-blog, write a POST API for mongo-blog, change database to MongoDB;
 ####Answer:
-   the code is in the mongo-blog
+      the code is in the mongo-blog
 
 
 ##8.In your redbook application, write the code for RUD APIs
 ####Answer:
-   the code is in the redbook.
+      the code is in the redbook.
+1) get a post via  @GetMapping("/{id}")
+![GetAPost](/Users/krystal/Desktop/ChuWa/Get/p4.png)
+2）update a post via @PutMapping("/{id}")
+![UpdateAPost](/Users/krystal/Desktop/ChuWa/Put/p1.png)
+3)delete a post via @DeleteMapping("/{id}")
+![DeleteAPost](/Users/krystal/Desktop/ChuWa/Delete/p2.png)
+
 
 
 
