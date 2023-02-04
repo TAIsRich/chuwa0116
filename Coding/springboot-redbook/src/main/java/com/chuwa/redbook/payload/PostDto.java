@@ -1,9 +1,5 @@
 package com.chuwa.redbook.payload;
 
-/**
- * @author b1go
- * @date 8/22/22 6:52 PM
- */
 public class PostDto {
     private Long id;
     private String title;

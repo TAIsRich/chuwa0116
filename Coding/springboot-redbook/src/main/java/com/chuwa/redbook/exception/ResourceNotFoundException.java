@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * Questions: why does it extend RuntimeException
- * @author b1go
- * @date 6/16/22 11:29 PM
  *
  * @ResponseStatus cause Spring boot to respond with the specified HTTP status code whenever this exception is thrown from your controller.
  */

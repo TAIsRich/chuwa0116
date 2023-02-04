@@ -6,10 +6,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * @author b1go
- * @date 8/22/22 6:30 PM
- */
 @Entity
 @Table(
         name = "posts",

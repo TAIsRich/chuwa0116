@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author b1go
- * @date 8/22/22 7:14 PM
- */
 @RestController
 @RequestMapping("/api/v1/posts")
 public class PostController {
