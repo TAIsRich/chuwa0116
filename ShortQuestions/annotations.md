@@ -90,7 +90,7 @@ The “@RequestMapping” Annotation is used to map HTTP requests to REST and MV
 
 7. @GetMapping 
 
-    The “@GetMapping” is a shortcut for the  “@RequestMapping(method = RequestMethod.GET)” annotation, which handles the HTTP GET requests corresponding to the specified URL. The following class uses the “@RestController” annotation to indicate it can handle web requests. The “@GetMapping” maps /hello to the hello() method
+The “@GetMapping” is a shortcut for the  “@RequestMapping(method = RequestMethod.GET)” annotation, which handles the HTTP GET requests corresponding to the specified URL. The following class uses the “@RestController” annotation to indicate it can handle web requests. The “@GetMapping” maps /hello to the hello() method
 
     import org.springframework.web.bind.annotation.GetMapping;
     import org.springframework.web.bind.annotation.RestController;
