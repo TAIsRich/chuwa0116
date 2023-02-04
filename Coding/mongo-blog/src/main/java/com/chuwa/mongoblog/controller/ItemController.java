@@ -1,6 +1,6 @@
 package com.chuwa.mongoblog.controller;
 
-import com.chuwa.mongoblog.payload.ItemDto;
+import com.chuwa.mongoblog.entity.GroceryItem;
 import com.chuwa.mongoblog.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +17,8 @@ public class ItemController {
     private ItemService itemService;
 
     @PostMapping
-    public ResponseEntity<ItemDto> savePost(@RequestBody ItemDto itemDto){
-        ItemDto response = itemService.createItem(itemDto);
+    public ResponseEntity<GroceryItem> savePost(@RequestBody GroceryItem groceryItem){
+        GroceryItem response = itemService.createItem(groceryItem);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

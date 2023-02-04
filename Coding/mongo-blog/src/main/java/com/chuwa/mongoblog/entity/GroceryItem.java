@@ -3,15 +3,15 @@ package com.chuwa.mongoblog.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("groceryItem")
+@Document(collection = "groceryItem")
 public class GroceryItem {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private int quantity;
     private String category;
 
-    public GroceryItem(String id, String name, int quantity, String category) {
+    public GroceryItem(Long id, String name, int quantity, String category) {
         super();
         this.id = id;
         this.name = name;
@@ -22,11 +22,11 @@ public class GroceryItem {
     public GroceryItem() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

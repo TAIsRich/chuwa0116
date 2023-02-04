@@ -1,7 +1,7 @@
 package com.chuwa.mongoblog.service;
 
-import com.chuwa.mongoblog.payload.ItemDto;
+import com.chuwa.mongoblog.entity.GroceryItem;
 
 public interface ItemService {
-    public ItemDto createItem(ItemDto itemDto);
+    public GroceryItem createItem(GroceryItem groceryItem);
 }
