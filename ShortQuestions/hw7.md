@@ -368,3 +368,5 @@ should be?
    1. application.properties: used to write the application-related property into this file, 
       and includes configuration which is required to run the application in a different environment
    2. application.yml: provide a convenient way fot writing configuration files
+7. Check `mongo-blog` under `MavenProject` folder
+8. Check `redbook` under `MavenProject` folder
