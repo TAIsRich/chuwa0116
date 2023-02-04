@@ -1,8 +1,6 @@
 package com.example.mongoblog.controller;
 
-import com.example.mongoblog.entity.Post;
 import com.example.mongoblog.payload.PostDTO;
-import com.example.mongoblog.service.Impl.SequenceGenerator;
 import com.example.mongoblog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,13 +14,9 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @Autowired
-    private SequenceGenerator generator;
-
     @PostMapping
     public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO) {
 //        postDTO.setId(generator.getSequenceNumber(Post.SEQUENCE_NAME));
-        postDTO.setId(1L);
         PostDTO postResponse = postService.createPost(postDTO);
         // generate sequence
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);

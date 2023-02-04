@@ -15,7 +15,7 @@ public class Post {
     public static final String SEQUENCE_NAME = "user_sequence";
 
     @Id
-    private Long id;
+    private String id;
 
     private String title;
 
@@ -27,7 +27,7 @@ public class Post {
 
     private LocalDateTime updateDateTime;
 
-    public Post(Long id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
+    public Post(String id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -46,11 +46,11 @@ public class Post {
 
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
