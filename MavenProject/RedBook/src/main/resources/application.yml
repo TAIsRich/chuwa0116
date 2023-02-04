@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/chuwa?useSSL=false&serverTimezone=UTC
+    username: root
+    password: huajun123
+  jpa:
+    properties:
+      hibernate:
+        dialact:
+          org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto:
+          update
