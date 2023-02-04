@@ -340,3 +340,31 @@ should be?
 
 # hw40-springboot-post
 1. See `annotations.md` file
+2. Explain how the below annotations specify the table in database?
+   ```java
+       @Column(columnDefinition = "varchar(255) default 'John Snow'")
+       private String name;
+       @Column(name="STUDENT_NAME", length=50, nullable=false, unique=false)
+       private String studentName;
+   ```
+   1. column: name, type: varchar(255), default value: 'John Snow'
+   2. column: student_name, length: 50, cannot be empty, not unique
+3. What is the default column names of the table in database for  `@Column` ?
+   ```java
+   @Column
+   private String firstName;
+   @Column
+   private String operatingSystem;
+   ```
+   1. firstName and operatingSystem (use the variable name as column name)
+4. What are the layers in springboot application? what is the role of each layer?
+   1. Presentation Layer -> Authentication, JSON Translation
+   2. Business Layer -> Validation, Authorisation
+   3. Persistence Layer -> Storage logic
+   4. Database -> Actual database
+5. Describe the flow in all of the layers if an API is called by Postman.
+   1. Postman API call -> Controller (API layer) -> Service (business layer) -> DAO (persistence layer) -> DB (database)
+6. What is the application.properties? do you know application.yml?
+   1. application.properties: used to write the application-related property into this file, 
+      and includes configuration which is required to run the application in a different environment
+   2. application.yml: provide a convenient way fot writing configuration files
