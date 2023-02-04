@@ -1,24 +1,24 @@
 # Annotations
 ### @Entity
-This annotation declares the class is an entity
+This annotation specifies the class is an entity
 
 ### @Id
-This annotation declares the primary key of the entity
+This annotation specifies the primary key of the entity
 
 ### @GeneratedValue
-This annotation declares the generation strategies for the values of primary keys
+This annotation specifies the generation strategies for the values of primary keys
 
 ### @Table
-This annotation declares the table in the database with which this entity is mapped
+This annotation specifies the table in the database with which this entity is mapped
 
 ### @Column
-This annotation declares variable to table column mapping
+This annotation specifies variable to table column mapping
 
 ### @CreationTimestamp
-This annotation declares creation time
+This annotation specifies creation time
 
 ### @UpdateTimestamp
-This annotation declares update time
+This annotation specifies update time
 
 ### @Controller
 This annotation marks a class as a web request handler
