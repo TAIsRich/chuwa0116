@@ -7,8 +7,8 @@ import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.service.PostService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -31,12 +31,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getAllPosts() {
-        List<Post> res = postRepository.findAll();
-        List<PostDto> response = new ArrayList<>();
-        for(Post p : res){
-            response.add(mapToDTO(p));
-        }
-        return response;
+        List<Post> posts = postRepository.findAll();
+        return posts.stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
     @Override
