@@ -408,8 +408,7 @@ firstName and operatingSystem
 * Persistence Layer: All of the storage logic in this program, including database questions, is accounted for in this portion of code. It also translates between database rows and company items.
 * Database Layer: The structure is constructed in this way: The HTTP request or internet requests are handled by the Controllers from the demonstration layer, the providers control the company logic, as well as also the repositories preserve persistence (storage logic). Each provider, service, and repository may be controlled by a single Controller. There are many repositories, which may be managed by many repositories, and databases may be managed by many databases.
 
-5. Describe the flow in all of the layers if an API is called by Postman.  
+5. Describe the flow in all of the layers if an API is called by Postman.    
    The Presentation Layer get the http request, and the controller(API) handle the request and sent it to Business Layer, where services are done. Then it performs the necessary data CRUD through DAO and changed are made in database. In this process, we use Model and DTO to map data structure. Finally return a response.
-6. What is the application.properties? do you know application.yml?
+6. What is the application.properties? do you know application.yml?  
    in a spring boot application, application. properties file is used to write the application-related property into that file. This file contains the different configuration which is required to run the application in a different environment, and each environment will have a different property defined by it.
-7. 
