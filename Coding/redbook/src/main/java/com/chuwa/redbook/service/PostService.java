@@ -5,7 +5,7 @@ import com.chuwa.redbook.payload.PostResponse;
 
 public interface PostService {
     PostDTO createPost(PostDTO PostDTO);
-    List<PostDTO>getAllPosts();
+//    List<PostDTO>getAllPosts();
 //    PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir);
     PostResponse getAllPosts(int pageNo,int pageSize,String sortBy,String sortDir);
     PostDTO getPostById(long id);
