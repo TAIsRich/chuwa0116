@@ -1,0 +1,8 @@
+- @RequestMapping is an annotation in Spring framework used to map a specific URL to a specific handler method. It can be used at the class level or at the method level.
+- @Autowired is a spring framework annotation used to automatically wire a bean to a member variable, setter method, or constructor in your class. It allows you to inject the required dependencies in your class without having to manually instantiate the objects yourself. 
+- @Service annotation in Java is used to indicate that a class is a service class, which provides some business logic and services to other parts of the application. It's commonly used in the context of Spring framework as a stereotype for a component that is part of the service layer.
+- @Repository: This annotation is used to mark a class as a data access layer in the application. It is typically used for database operations.
+- @Component annotation is used in the Spring framework to indicate that a class is a component. A component is a class that is managed by the Spring framework and can be used to implement various services, such as business logic, data access, and more.
+- @Entity: This annotation is used to mark a class as an entity in JPA (Java Persistence API). It represents a database table.
+- @Id: This annotation is used to specify the primary key of an entity.
+- @Column: This annotation is used to specify the properties of a column.
