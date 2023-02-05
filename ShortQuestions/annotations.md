@@ -41,6 +41,28 @@
         }
     }
     ```
+2. `@GetMapping`: GET endpoint
+   ```java
+   @GetMapping
+   public List<PostDTO> getPost() {
+   return postService.getPosts();
+   ```
+3. `@PutMapping`: PUT endpoint
+   ```java
+   @PutMapping("/{id}")
+   public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDTO, @PathVariable(name = "id") Long id) {
+           PostDTO postResponse = postService.updatePost(postDTO, id);
+           return new ResponseEntity<>(postResponse, HttpStatus.OK);
+           }
+   ```
+4. `@DeleteMapping`: DELETE endpoint
+   ```java
+   @DeleteMapping("/{id}")
+   public ResponseEntity<String> deletePost(@PathVariable(name = "id") Long id) {
+           postService.deletePostById(id);
+           return new ResponseEntity<>("Post entity deleted successfully.", HttpStatus.OK);
+           }
+   ```
 ## Repository
 1. `@Repository`
     ```java
@@ -49,3 +71,12 @@
         // no need to write anything here (yet)
     }
     ```
+   
+### Service
+1. `Service`
+   ```java
+   @Service
+   public class PostServiceImpl implements PostService {
+   ...
+   }
+   ```
