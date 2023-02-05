@@ -1,3 +1,4 @@
+
 1. Explain volatile variables in java? (we also use it in Singleton)\
 volatile is a keyword we can apply to a field to ensure that when one thread writes a value to that field, the value written is "immediately available" to any thread that subsequently reads it (visibility feature).
 2. how to create a new thread(Please also consider Thread Pool case)?\

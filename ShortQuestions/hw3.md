@@ -1,3 +1,4 @@
+
 # HW3 Stream API Exercise
 
 Details can be seen in codingQuestions/stream/api/exercise. Here are some code.
@@ -331,4 +332,3 @@ log.info(result.get().toString());
 
 }
 
-```
