@@ -105,7 +105,16 @@ public String htmlHeader(@RequestHeader(value = "Accept") String acceptHeader, H
 ##@Service
     @Service is used on class, and marks the current class as a service class. Adding this annotation can automatically inject 
     the current class into the spring container, which eliminates the need to define beans in the applicationContext.xml file.
-    
+
+
+
+##@RequestMapping(value = "/users", method =RequestMethod.GET)
+##@RequestMapping(value = "/users", method =RequestMethod.POST)
+##@RequestMapping(value = "/users", method =RequestMethod.PUT)
+##@RequestMapping(value = "/users", method =RequestMethod.DELETE)
+
+
+
 
 
 
