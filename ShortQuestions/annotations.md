@@ -103,7 +103,52 @@ public class PostController {
     }
 }
 ```
+
+## @GetMapping
+
+Annotation for mapping HTTP GET requests onto specific handler methods. 
+
+## @PutMapping
+
+Annotation for mapping HTTP PUT requests onto specific handler methods. 
+
+## @DeleteMapping
+
+Annotation for mapping HTTP DELETE requests onto specific handler methods. 
+
 ## @SpringBootApplication
 
 Enable Spring Boot’s auto-configuration mechanism, enable @Component scan on the package where the application is located, allow to register extra beans in the context or import additional configuration classes.
 
+## @ResponseBody
+
+@ResponseBody annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
+
+## @PathVariable
+
+@PathVariable annotation can be used to handle template variables in the request URI mapping, and set them as method parameters.
+
+```Java
+@GetMapping("/api/employees/{id}")
+@ResponseBody
+public String getEmployeesById(@PathVariable String id) {
+    return "ID: " + id;
+}
+
+```
+
+## @RequestBody 
+
+@RequestBody annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization
+
+## @RequestParam
+
+@RequestParam to extract query parameters, form parameters, and even files from the request.
+
+```Java
+@GetMapping("/api/foos")
+@ResponseBody
+public String getFoos(@RequestParam String id) {
+    return "ID: " + id;
+}
+```
