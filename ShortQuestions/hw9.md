@@ -66,13 +66,21 @@ DTO is Data Tansfer Object, is used to pass data from the presentation layer to 
     Like:Hibernate, Entity Framework
 11. Learn how to use ObjectMapper by this example.
     ```java
-    See code in FoodJackson
+    See code in Coding/FoodJackson
     ```
 12. What is the serialization and desrialization?
     Serialization and deserialization work together to transform/recreate data objects to/from a portable format.
 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
-    
+    ```java
+        class solution{
+    int[] arr = {20, 3, 78, 9, 6, 53, 73, 99, 24, 32};
+    double average = Arrays.stream(arr).average().getAsDouble();
+    }
+    ```
 14. 抄写，https://github.com/TAIsRich/springbootredbook/tree/03_post_pageable， 你也可以像我⼀样分branch添加新代码。
+```
+see code in branch https://github.com/YanrongHuang/Springboot_redbook/tree/03_post_pageable
+```
 15. (Optional) 抄写 https://github.com/TAIsRich/springboot-redbook/tree/04_comm
     ent你也可以像我⼀样分branch添加新代码。
 16. Try to write the CRUD api for a new application Cassandra-Blog

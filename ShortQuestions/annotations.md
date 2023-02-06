@@ -111,11 +111,43 @@ tell the url path
 
 ### @PostMapping
 ```java
-    @PostMapping
+    @PostMapping("/user/{userid}")
     public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO){
             PostDTO postResponse = postService.createPost(postDTO);
     
             return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
             }
         }
+```
+
+### @GetMapping/PutMapping/DeleteMapping
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+        }
+```
+
+### @PathVariable
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+        }
+```
+
+### @RequestBody
+```java
+     @PutMapping("/{id}")
+    public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDto, @PathVariable(name = "id") long id) {
+        PostDTO postResponse = postService.updatePost(postDto, id);
+        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+        }
+```
+
+### @RequestParam
+```java
+      public PostResponse getAllPosts(
+    @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
+        )
 ```
