@@ -1,6 +1,8 @@
 package com.chuwa.redbook.payload;
 
 import com.chuwa.redbook.entity.Post;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
  * @author haoyu
  * @Date 2/6/23
  */
+@JsonPropertyOrder({ "last", "pageNo", "pageSize", "totalElements", "totalPages", "content" })
 public class PostResponse {
 
     private List<PostDto> content;
@@ -18,6 +21,8 @@ public class PostResponse {
     private int pageSize;
     private long totalElements;
     private int totalPages;
+
+    @JsonProperty("isLast")
     private boolean last;
 
     public PostResponse() {}
