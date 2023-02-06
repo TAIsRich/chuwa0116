@@ -123,3 +123,13 @@ return dataSource;
 }
 }
 ```
+
+##### 8. @PropertySource and @Value
+This is used to read properties from .properties file in the resource directory, just as @ConfigurationProperties(prefix="") does
+```
+@PropertySource("classpath:jdbc.properties")
+class JdbcProperties{
+@Value("jdbc.username")
+private String username
+}
+```

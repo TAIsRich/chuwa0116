@@ -1,7 +1,9 @@
 package com.chuwa.controller;
 
 import com.chuwa.payload.PostDto;
+import com.chuwa.payload.PostResponse;
 import com.chuwa.service.PostService;
+import com.chuwa.util.AppConstants;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,10 +17,10 @@ import java.util.List;
 public class PostController {
 	@Autowired
 	private PostService postService;
-	@GetMapping
-	public ResponseEntity<List<PostDto>> getAllPosts(){
-		return ResponseEntity.ok(postService.getAllPost());
-	}
+//	@GetMapping
+//	public ResponseEntity<List<PostDto>> getAllPosts(){
+//		return ResponseEntity.ok(postService.getAllPost());
+//	}
 	@GetMapping("{id}")
 	public ResponseEntity<PostDto> getPostById(@PathVariable("id")long id){
 		return ResponseEntity.ok(postService.getPostById(id));
@@ -36,4 +38,14 @@ public class PostController {
 		postService.deletePostById(id);
 		return new ResponseEntity<>("Successfully delete a post",HttpStatus.OK);
 	}
+	@GetMapping
+	public PostResponse getAllPosts(
+			@RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+			@RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+			@RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+			@RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIR, required = false) String sortDir
+	) {
+		return postService.getAllPost(pageNo, pageSize, sortBy, sortDir);
+	}
+
 }
