@@ -36,6 +36,14 @@ Jackson is one such Java Json library used for parsing and generating Json files
 ```
 - Spring Boot Starters are dependency descriptors that can be added under the <dependencies> section in pom. xml. There are around 50+ Spring Boot Starters for different Spring and related technologies.
 
+## 7. do you know  @RequestMapping(value = "/users", method = RequestMethod.POST) ? could you list CRUD by this style?
+- @RequestMapping(value = "/users", method = RequestMethod.POST) is a Spring annotation that maps an HTTP POST request to a specific handler method in a controller. 
+- CRUD operations can be performed using this style as follows:
+    - POST - Create
+    - GET - Read
+    - PUT - Update/Replace
+    - DELETE - Delete
+
 ## 8.  What is ResponseEntity? why do we need it?
 - ResponseEntity is an extension of HttpEntity that represents an HTTP response including **status, headers and body**. ResponseEntity allows you to modify the response with optional headers and status code. 
 
