@@ -73,6 +73,12 @@ public class PostController {
 }
 ```
 
+`@GetMapping`: This is a Spring MVC annotation that maps a HTTP GET request to a specific handler method. It is used to retrieve data from a server.
+
+`@PutMapping`: This is a Spring MVC annotation that maps a HTTP PUT request to a specific handler method. It is used to update existing data on a server.
+
+`@DeleteMapping`: This is a Spring MVC annotation that maps a HTTP DELETE request to a specific handler method. It is used to delete data from a server.
+
 ### Service
 
 `@Service`: This annotation is used to indicate that a class serves as a service layer in the architecture of a Spring application. The service layer is typically responsible for handling business logic and communicating with the data access layer (for example, a repository) to persist and retrieve data.
