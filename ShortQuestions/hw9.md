@@ -24,6 +24,13 @@
 Jackson is one such Java Json library used for parsing and generating Json files. It has built in Object Mapper class which parses json files and deserializes it to custom java objects. It helps in generating json from java objects
 
 
+
+## 8.  What is ResponseEntity? why do we need it?
+- ResponseEntity is an extension of HttpEntity that represents an HTTP response including **status, headers and body**. ResponseEntity allows you to modify the response with optional headers and status code. 
+
+- It's used to customize the HTTP response returned by a controller method.
+
+
 ## 9.  What is ResultSet in jdbc? and describe the flow how to get data using JDBC
 - A ResultSet is a Java object that contains the results of executing an SQL query. In other words, it contains the rows that satisfy the conditions of the query. 
 
@@ -39,3 +46,7 @@ Jackson is one such Java Json library used for parsing and generating Json files
 ## 10. What is the ORM framework?
 In a nutshell, an ORM framework is written in an object oriented language (like PHP, Java, C# etc…) and it is designed to virtually wrap around a relational database. If you look at the name (ORM), it basically translates into: mapping objects to relational tables.
 
+
+## 12. What is the serialization and desrialization?
+- Serialization in Java allows us to convert an Object to stream that we can send over the network or save it as file or store in DB for later usage. 
+- Deserialization is the process of converting Object stream to actual Java Object to be used in our program.
