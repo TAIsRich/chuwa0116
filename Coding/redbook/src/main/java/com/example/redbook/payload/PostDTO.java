@@ -41,4 +41,14 @@ public class PostDTO {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "PostDTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }
