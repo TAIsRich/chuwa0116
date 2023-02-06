@@ -11,6 +11,9 @@
 
 - DO stands for Data Object, which is a persistence-layer object that represents the data stored in a database.
 
+## 4.  What is @JsonProperty("description_yyds")
+The @JsonProperty annotation is used to map property names with JSON keys during serialization and deserialization. By default, if you try to serialize a POJO, the generated JSON will have keys mapped to the fields of the POJO.s
+
 ## 5.  do you know what is Jackson?
 ```
 <dependency>
