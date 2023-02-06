@@ -49,3 +49,9 @@ Object Relational Mapping (ORM) is a technique used in creating a "bridge" betwe
 ## What is the serialization and deserialization?
 
 Serialization is a mechanism of converting the state of an object into a byte stream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object.git
+
+## use steam api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
+
+```java
+list.stream().average().getAsDouble();
+```
