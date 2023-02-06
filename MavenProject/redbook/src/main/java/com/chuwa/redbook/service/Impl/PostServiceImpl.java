@@ -2,11 +2,13 @@ package com.chuwa.redbook.service.Impl;
 
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
-import com.chuwa.redbook.payload.PostDTO;
+import com.chuwa.redbook.exception.ResourceNotFoundException;
+import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,41 +26,50 @@ public class PostServiceImpl implements PostService {
     private PostRepository postRepository;
 
     @Override
-    public PostDTO createPost(PostDTO postDTO) {
+    public PostDto createPost(PostDto postDTO) {
         // 1. covert postDTO to Post
-        Post post = postDTO.toPost();
+        Post post = postDTO.mapToPost();
 
         // 2. save Post to DB
         Post savedPost = postRepository.save(post);
 
         // 3. convert Post back to postDTO
-        return new PostDTO(savedPost);
+        return new PostDto(savedPost);
     }
 
     @Override
-    public List<PostDTO> getAllPosts() {
+    public List<PostDto> getAllPosts() {
         List<Post> posts = postRepository.findAll();
         return posts.stream()
-            .map(PostDTO::new)
+            .map(PostDto::new)
             .collect(Collectors.toList());
     }
 
     @Override
-    public PostDTO updatePostById(Long id, PostDTO postDTO) {
-        Post post = postRepository.findById(id).get();
+    public PostDto getPostById(long id) {
+        Post post = postRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+        return new PostDto(post);
+    }
+
+    @Override
+    public PostDto updatePostById(long id, PostDto postDTO) {
+        Post post = postRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         post.setTitle(postDTO.getTitle());
         post.setDescription(postDTO.getDescription());
         post.setContent(postDTO.getContent());
 
-        Post savedPost = postRepository.save(post);
+        Post updatedPost = postRepository.save(post);
 
-        return new PostDTO(savedPost);
+        return new PostDto(updatedPost);
     }
 
     @Override
-    public Long deletePostById(Long id) {
-        postRepository.deleteById(id);
-        return id;
+    public void deletePostById(long id) {
+        Post post = postRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+        postRepository.delete(post);
     }
 
 }
