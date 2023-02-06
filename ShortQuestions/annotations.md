@@ -6,3 +6,5 @@ The Test annotation **tells JUnit that the public void method to which it is att
 This annotation is used to mark a class as a data access layer in the application. It is typically used for database operations.
 `@Column`
 This annotation is used to specify the properties of a column.
+`@RequestMapping`
+`@JsonProperty("name")`
