@@ -23,7 +23,15 @@
 
 Jackson is one such Java Json library used for parsing and generating Json files. It has built in Object Mapper class which parses json files and deserializes it to custom java objects. It helps in generating json from java objects
 
-
+## 6.  What is spring-boot-stater? 
+### a. what dependecies in the below starter? do you know any starters?
+```
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+- Spring Boot Starters are dependency descriptors that can be added under the <dependencies> section in pom. xml. There are around 50+ Spring Boot Starters for different Spring and related technologies.
 
 ## 8.  What is ResponseEntity? why do we need it?
 - ResponseEntity is an extension of HttpEntity that represents an HTTP response including **status, headers and body**. ResponseEntity allows you to modify the response with optional headers and status code. 
@@ -49,4 +57,8 @@ In a nutshell, an ORM framework is written in an object oriented language (like 
 
 ## 12. What is the serialization and desrialization?
 - Serialization in Java allows us to convert an Object to stream that we can send over the network or save it as file or store in DB for later usage. 
+
 - Deserialization is the process of converting Object stream to actual Java Object to be used in our program.
+
+## 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
+    double average = Arrays.stream(arr).average().getAsDouble();
