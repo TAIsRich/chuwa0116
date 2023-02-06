@@ -148,4 +148,14 @@
     }
     ```
 15. Copied on local branch
+    Testing API: `{{localhost}}/api/v1/posts/1/comments`
+    Response JSON:
+    ```json
+    {
+        "id": 1,
+        "name": "alex",
+        "email": "12@qq.com",
+        "body": "this is my comment"
+    }
+    ```
 16. TODO
