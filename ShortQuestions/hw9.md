@@ -99,6 +99,7 @@ The reverse process—constructing a data structure or object from a series of b
 
 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32]
 
+    ```
     public class Main {
         public static void main(String[] args) {
             int[] array = new int[]{20, 3, 78, 9, 6, 53, 73, 99, 24, 32};
@@ -107,7 +108,8 @@ The reverse process—constructing a data structure or object from a series of b
         }
         
     }
-
+    ```
+    
 16. Try to write the CRUD api for a new application Cassandra-Blog
 
 Please see codes in Coding/coding9
