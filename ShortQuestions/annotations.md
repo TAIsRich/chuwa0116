@@ -13,3 +13,20 @@
 * @Id: This annotation is used to specify the primary key of an entity in JPA.
 
 * @Column: This annotation is used to specify the properties of a column in a JPA entity.
+
+- @PathVariable
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+        }
+```
+
+- @RequestBody
+```java
+     @PutMapping("/{id}")
+    public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDto, @PathVariable(name = "id") long id) {
+        PostDTO postResponse = postService.updatePost(postDto, id);
+        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+        }
+```

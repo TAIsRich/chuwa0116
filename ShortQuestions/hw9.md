@@ -73,3 +73,7 @@ In a nutshell, an ORM framework is written in an object oriented language (like 
 
 ## 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
     double average = Arrays.stream(arr).average().getAsDouble();
+
+## 14. Finish part of the Redbook project
+
+## 15. Try to write the CRUD api for a new application Cassandra-Blog
