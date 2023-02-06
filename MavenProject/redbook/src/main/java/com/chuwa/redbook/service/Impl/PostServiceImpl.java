@@ -4,8 +4,12 @@ import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
+import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -43,6 +47,24 @@ public class PostServiceImpl implements PostService {
         return posts.stream()
             .map(PostDto::new)
             .collect(Collectors.toList());
+    }
+
+    @Override
+    public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())
+            ? Sort.by(sortBy).ascending()
+            : Sort.by(sortBy).descending();
+
+        // create pageable instance
+        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+        Page<Post> postPages = postRepository.findAll(pageRequest);
+
+        // get content for page object
+        List<PostDto> postDtos = postPages.getContent().stream()
+            .map(PostDto::new)
+            .collect(Collectors.toList());
+
+        return new PostResponse(postDtos, postPages);
     }
 
     @Override
