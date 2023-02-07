@@ -1,33 +1,27 @@
 package com.chuwa.cassandrablog.entity;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+
+
+import org.springframework.data.cassandra.core.mapping.Column;
+
 import java.time.LocalDateTime;
-@Entity //存放post的数据结构
-//give table name
-@Table(
-        name = "posts",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"title"})
-        }
-)
-public class Post {
-    @Id
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //1,2,3,4,5....999
+//give table name
+
+public class Post {
+
     private Long id; //UUID
     //映射到DB上
-    @Column(name = "title", nullable = false)
+    @Column
     private String title;
-    @Column(name = "description", nullable = false)
+    @Column
     private String description;
-    @Column(name = "content", nullable = false)
+    @Column
     private  String content;
-    @CreationTimestamp
+
     private LocalDateTime createDateTime;
-    @UpdateTimestamp
+
     private LocalDateTime updateDateTime;
 
     public Post() {
