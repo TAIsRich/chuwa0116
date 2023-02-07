@@ -29,3 +29,17 @@ It marks configuration can be found automatically.
 
 ### @ComponentScan
 It tells Spring in which packages you have annotated classes that should be managed by Spring.
+
+### @RestController
+
+### @RequestMapping
+
+### @PostMapping
+
+### @GetMapping/PutMapping/DeleteMapping
+
+### @PathVariable
+
+### @RequestBody
+
+### @RequestParam
