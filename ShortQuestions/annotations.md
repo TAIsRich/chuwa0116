@@ -49,6 +49,14 @@ public String htmlHeader(@RequestHeader(value = "Accept") String acceptHeader, H
 
     4)for handling attributes: @SessionAttributes, @ModelAttribute
 
+####@RequestMapping(value = "/users", method =RequestMethod.GET)
+####@RequestMapping(value = "/users", method =RequestMethod.POST)
+####@RequestMapping(value = "/users", method =RequestMethod.PUT)
+####@RequestMapping(value = "/users", method =RequestMethod.DELETE)
+
+
+
+
 
 ##3. Exception:
     1.@RestControllerAdvice
@@ -105,7 +113,20 @@ public String htmlHeader(@RequestHeader(value = "Accept") String acceptHeader, H
 ##@Service
     @Service is used on class, and marks the current class as a service class. Adding this annotation can automatically inject 
     the current class into the spring container, which eliminates the need to define beans in the applicationContext.xml file.
-    
+
+
+
+
+##Assembly Annotation
+####@ImportResource:
+    Replace XML element <import>
+####@Import:
+    Import the Configuration class
+####@ComponentScan
+    Scans for classes annotated with Spring schema annotations under the specified package
+
+
+
 
 
 
