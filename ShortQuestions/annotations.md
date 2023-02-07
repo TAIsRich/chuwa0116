@@ -49,6 +49,14 @@ public String htmlHeader(@RequestHeader(value = "Accept") String acceptHeader, H
 
     4)for handling attributes: @SessionAttributes, @ModelAttribute
 
+####@RequestMapping(value = "/users", method =RequestMethod.GET)
+####@RequestMapping(value = "/users", method =RequestMethod.POST)
+####@RequestMapping(value = "/users", method =RequestMethod.PUT)
+####@RequestMapping(value = "/users", method =RequestMethod.DELETE)
+
+
+
+
 
 ##3. Exception:
     1.@RestControllerAdvice
@@ -108,10 +116,14 @@ public String htmlHeader(@RequestHeader(value = "Accept") String acceptHeader, H
 
 
 
-##@RequestMapping(value = "/users", method =RequestMethod.GET)
-##@RequestMapping(value = "/users", method =RequestMethod.POST)
-##@RequestMapping(value = "/users", method =RequestMethod.PUT)
-##@RequestMapping(value = "/users", method =RequestMethod.DELETE)
+
+##Assembly Annotation
+####@ImportResource:
+    Replace XML element <import>
+####@Import:
+    Import the Configuration class
+####@ComponentScan
+    Scans for classes annotated with Spring schema annotations under the specified package
 
 
 
