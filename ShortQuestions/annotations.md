@@ -53,6 +53,7 @@
 
 - In most cases, the name of the table in the database and the name of the entity won't be the same. In these cases, we can specify the table name using the @Table annotation
 
+
 @RestController
 
 - Spring RestController annotation is used to create RESTful web services using Spring MVC
