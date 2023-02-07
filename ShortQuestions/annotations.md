@@ -46,3 +46,6 @@ This annotation marks configuration can be found automatically
 
 ### @ComponentScan 
 This annotation tells Spring in which packages you have annotated classes that should be managed by Spring
+
+### @PropertySource
+This annotation is used to read properties from .properties file in the resource directory
