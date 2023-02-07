@@ -155,3 +155,23 @@ This annotation is used for mapping HTTP DELETE requests onto specific
 handler methods. @DeleteMapping is a composed annotation that acts as a 
 shortcut for `@RequestMapping(method = RequestMethod.DELETE)`
 
+### @RequestParam
+
+### @RequestBody
+```java
+    @PostMapping
+    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO){
+        PostDTO postResponse = postService.creatPost(postDTO);
+
+        return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
+    }
+```
+
+### @PathVariable
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+    }
+```
+
