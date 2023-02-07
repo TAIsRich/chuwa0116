@@ -238,3 +238,7 @@ Using this annotation, you can specify mocks in ApplicationContext and mocks the
         assertTrue(productService.findAll().isEmpty());
     }
     }
+
+16 @RestController
+@RestController注解，代表返回的是json格式的数据，这个注解是Spring4之后新加的注解，原来返回json格式的数据需要@ResponseBody配合@Controller一起使用；
+A convenience annotation that is itself annotated with @Controller and @ResponseBody.
