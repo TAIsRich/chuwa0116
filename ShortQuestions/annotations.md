@@ -26,13 +26,17 @@ public class T{
 constraint设置为不可重复 unique
 ```java
 @UniqueConstraint(columnNames = {"title"}）
+
 ```
+
 ### @Id
 设置id关键字
 ```java
 @Id
 private Long id;//UUID
+
 ```
+
 ### @GeneratedValue
 设置自动生成
 ```java
@@ -40,22 +44,26 @@ private Long id;//UUID
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;//UUID
 ```
+
 ### @Column
 table的column映射 还可以设置一些constrain
 ```java
     @Column(name = "title", nullable = false)
     private String title;
 ```
+
 ### @CreationTimestamp
 ```java
  @CreationTimestamp
  private LocalDateTime createDateTime;
 ```
+
 ### @UpdateTimestamp
 ```java
  @CreationTimestamp
  private LocalDateTime updateTimestamp;
 ```
+
 ## Annotion used by Repository
 ### @Repository
 ```java
@@ -64,6 +72,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     //no need to write anything here yet
 }
 ```
+
 ## Annotion used by Service
 ### @Service
 ```java
@@ -72,12 +81,14 @@ public class PostServiceImpl implements PostService {
     
 }
 ```
+
 ### @Autowired
 tell service to use repository
 ```java
     @Autowired
     private PostRepository postRepository;
 ```
+
 ## Annotation used by Controller
 ### @RestController
 tell here is controller
@@ -87,6 +98,7 @@ tell here is controller
         
     }
 ```
+
 ### @RequestMapping
 tell the url path
 ```java
@@ -96,13 +108,46 @@ tell the url path
         
     }
 ```
+
 ### @PostMapping
 ```java
-    @PostMapping
+    @PostMapping("/user/{userid}")
     public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO){
             PostDTO postResponse = postService.createPost(postDTO);
     
             return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
             }
         }
+```
+
+### @GetMapping/PutMapping/DeleteMapping
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+        }
+```
+
+### @PathVariable
+```java
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDTO> getPostById(@PathVariable(name = "id") long id) {
+        return ResponseEntity.ok(postService.getPostById(id));
+        }
+```
+
+### @RequestBody
+```java
+     @PutMapping("/{id}")
+    public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDto, @PathVariable(name = "id") long id) {
+        PostDTO postResponse = postService.updatePost(postDto, id);
+        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+        }
+```
+
+### @RequestParam
+```java
+      public PostResponse getAllPosts(
+    @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
+        )
 ```
