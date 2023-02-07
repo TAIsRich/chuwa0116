@@ -3,7 +3,11 @@ package com.example.redbook.service.Impl;
 import com.example.redbook.dao.PostRepository;
 import com.example.redbook.entity.Post;
 import com.example.redbook.payload.PostDTO;
+import com.example.redbook.payload.PostResponse;
 import com.example.redbook.service.PostService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,9 +68,36 @@ public class PostServiceImpl implements PostService {
         Post updatedPost = postRepository.save(post);
         return mapToDTO(updatedPost);
     }
-    
+
     public void deletePostById(long id) {
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
+    }
+
+    @Override
+    public PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
+
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+
+        // create pageable instance
+
+        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+        Page<Post> pagePosts = postRepository.findAll(pageRequest);
+
+        // get content for page abject
+        List<Post> posts = pagePosts.getContent();
+        List<PostDTO> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtos);
+        postResponse.setPageNo(pagePosts.getNumber());
+        postResponse.setPageSize(pagePosts.getSize());
+        postResponse.setTotalElements(pagePosts.getTotalElements());
+        postResponse.setTotalPages(pagePosts.getTotalPages());
+        postResponse.setLast(pagePosts.isLast());
+        return postResponse;
     }
 }
