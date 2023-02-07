@@ -98,3 +98,6 @@ The `@Id` annotation specifies the primary key of an entity and the `@GeneratedV
 
 ### @Column
 `@Column` annotation is used for Adding the column the name in the table of a particular MySQL database.
+
+### @ResponseStatus
+`@ResponseStatus` marks a method or exception class with the status code and reason message that should be returned. The status code is applied to the HTTP response when the handler method is invoked, or whenever the specified exception is thrown. It overrides status information set by other means, like ResponseEntity or redirect.
