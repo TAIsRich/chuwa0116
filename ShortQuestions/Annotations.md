@@ -71,6 +71,22 @@
   void onIllegalArgumentException(IllegalArgumentException exception) {}
   ```
 
++ `@RequestParam`  indicates that a method parameter should be bound to a web request parameter.
+
+  ```java
+  @GetMapping("/api/foos")
+  @ResponseBody
+  public String getFoos(@RequestParam String id) {
+      return "ID: " + id;
+  }
+  ```
+
+  ```
+  http://localhost:8080/spring-mvc-basics/api/foos?id=abc
+  ----
+  ID: abc
+  ```
+
 ## Entity
 
 + `@Entity` in JPA are nothing but POJOs representing data that can be persisted to the database. An entity represents a table stored in a database. Every instance of an entity represents a row in the table.
