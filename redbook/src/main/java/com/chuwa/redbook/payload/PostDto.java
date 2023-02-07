@@ -1,13 +1,13 @@
 package com.chuwa.redbook.payload;
 //DTO = Data Transfer Object
 
-public class PostDTO {
+public class PostDto {
     private Long id;
     private String title;
     private String  description;
     private String content;
 
-    public PostDTO() {
+    public PostDto() {
 
     }
 

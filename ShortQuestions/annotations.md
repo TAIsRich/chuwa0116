@@ -106,3 +106,17 @@ uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}   //数据库�
 )
 public class Post {}
 ```
+
+### @PutMapping
+-@PutMapping annotation is used to handle HTTP PUT requests and map them to specific methods in a controller class.
+```java
+public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDTO, @PathVariable(name = "id") long id) {
+    }
+```
+
+### @DeleteMapping
+-DeleteMapping is used to handle HTTP DELETE requests and map them to specific methods in a controller class.
+```java
+ public ResponseEntity<String> deletePost(@PathVariable(name = "id") long id) {
+    }
+```
