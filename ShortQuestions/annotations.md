@@ -10,4 +10,16 @@
 
 6. @Id: @Id annotation defines the primary key of a table.   
 
-7. @Column: @Column can give names to the columns of a JPA Entity
+7. @Column: @Column can give names to the columns of a JPA Entity    
+
+8. @RequestBody: @RequestBody annotation is used to bind the incoming json request to the pojo class.     
+
+9. @PathVariable: @PathVariable annotation can be used to handle template variables int the request URI mapping.     
+
+10. @PutMapping: @PutMapping is an annotation used for mapping HTTP PUT requests onto specific handler methods.    
+
+11. @DeleteMapping: @DeleteMapping is an annotation to map HTTP DELETE requests onto specific handler methods.    
+
+12. @GetMapping: @GetMapping is an annotation for mapping HTTP GET requests onto specific handler methods.     
+
+13. @PostMapping: @PostMapping annotated methods handle the HTTP POST requests matched with the given URI expression.      
