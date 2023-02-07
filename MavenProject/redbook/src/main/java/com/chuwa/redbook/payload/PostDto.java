@@ -8,23 +8,23 @@ import com.chuwa.redbook.entity.Post;
  * @author haoyu
  * @Date 2/1/23
  */
-public class PostDTO {
+public class PostDto {
 
     private Long id;
     private String title;
     private String description;
     private String content;
 
-    public PostDTO() {}
+    public PostDto() {}
 
-    public PostDTO(Post post) {
+    public PostDto(Post post) {
         this.id = post.getId();
         this.title = post.getTitle();
         this.description = post.getDescription();
         this.content = post.getContent();
     }
 
-    public Post toPost() {
+    public Post mapToPost() {
         Post post = new Post();
         post.setTitle(getTitle());
         post.setDescription(getDescription());
@@ -73,4 +73,5 @@ public class PostDTO {
             ", content='" + content + '\'' +
             '}';
     }
+
 }

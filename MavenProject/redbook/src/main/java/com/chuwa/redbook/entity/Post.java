@@ -105,4 +105,17 @@ public class Post {
     public void setUpdateDateTime(LocalDateTime updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", description='" + description + '\'' +
+            ", content='" + content + '\'' +
+            ", createDateTime=" + createDateTime +
+            ", updateDateTime=" + updateDateTime +
+            '}';
+    }
+
 }
