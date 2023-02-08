@@ -54,4 +54,21 @@
 - In most cases, the name of the table in the database and the name of the entity won't be the same. In these cases, we can specify the table name using the @Table annotation
 
 
+@RestController
+
+- Spring RestController annotation is used to create RESTful web services using Spring MVC
+
+@PostMapping
+- The @PostMapping is a specialized version of @RequestMapping annotation that acts as a shortcut for @RequestMapping(method = RequestMethod. POST) . The @PostMapping annotated methods handle the HTTP POST requests matched with the given URI expression.
+
+@GetMapping
+- @GetMapping: It maps the HTTP GET requests on the specific handler method. It is used to create a web service endpoint that fetches It is used instead of using: @RequestMapping(method = RequestMethod.GET
+
+@PutMapping
+
+-  It maps the HTTP PUT requests on the specific handler method. It is used to create a web service endpoint that creates or updates
+
+@DeleteMapping
+
+- It maps the HTTP DELETE requests on the specific handler method. It is used to create a web service endpoint that deletes a resource.
 
