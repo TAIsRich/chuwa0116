@@ -1,0 +1,161 @@
+## Part 1
+1. List all of the annotations you learned from class and homework to
+   annotaitons.md
+```java
+See updates in aanotation.md
+```
+2. Type the Comment feature for the class project.
+```java
+See in url:
+```
+3. In postman, call of the APIs in PostController and CommentController.
+4. what is JPA? and what is Hibernate?
+
+   JPA is a standard of Object Relational Mapping. It is an interface that defines a set of
+   annotations for creating the object relational mapping.
+
+   The most popular ORM framework is Hibernate
+5. What is Hiraki? what is the benefits of connection pool?
+
+Spring default database connection pool is Hiraki pool. We can configurate Hikari in application.properties file, if we don't specify the
+configuration, it will default configuration.
+
+A connection pool maintains a pool of open connections, which can be reused by multiple clients.
+6. What is the @OneToMany, @ManyToOne, @ManyToMany? write some examples.
+It is the relational databese.
+```java
+@OneToMany(mappedBy = "post", cascade =
+CascadeType.ALL, orphanRemoval = true)
+private Set<Comment> comments = new HashSet<>();
+```
+7. What is the cascade = CascadeType.ALL, orphanRemoval = true? and what
+   are the other CascadeType and their features? In which situation we choose
+   which one?
+```java
+        cascade = CascadeType.ALL
+        means all cascade operations on owning entity applied to related entity 
+        orphanRemoval
+        When we remove the relationship between a parent and child, the child record becomes an orphan record meaning that it does not have a
+        parent record. 
+```
+8. What is the fetch = FetchType.LAZY, fetch = FetchType.EAGER? what is the
+   difference? In which situation you choose which one?
+
+**FetchType.Lazy**
+If we don't need data from comment, JPA doesn't fetch it
+Onyly fetch data from post
+when we need data from comment, then JPA fecth comment data
+
+**FetchType.Eager**
+when we fetch post, JPA also fetch comment at the same time
+9. What is the rule of JPA naming convention? Shall we implement the method by
+   ourselves? Could you list some examples?
+
+We have to use the table name when we try to use JPA naming convention
+
+We don't have to implement the method by ourselves.We can use Key word to help implement.
+```java
+findByLastnameOrFirstname(a, b);
+```
+
+10. Try to use JPA advanced methods in your class project. In the repository layer,
+    you need to use the naming convention to use the method provided by JPA.
+
+## Part 2
+1. List all of the annotations you learned from class and homework to
+   annotaitons.md
+```java
+See updates in aanotation.md
+```
+2. type the code, you need to checkout new branch from branch 02_post_RUD,
+   name the new branch with https://github.com/TAIsRich/springboot-redbook/
+   tree/hw05_01_slides_JPQL.
+3. What is JPQL?
+
+It's a new language we write query to let database do something. We use entity class name instead of DB table name.
+4. What is @NamedQuery and @NamedQueries?
+
+```java
+//@NamedQuery is annotation to define a new query name
+@NamedQuery(name="get_all_posts", query="select p from Post p")
+//@NamedQueries is annotation to clarify a collection of queries.
+@NamedQueries({
+            @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title = :title"),
+            @NamedQuery(name = "Book.findByPublishingDate", query = "SELECT b FROM Book b WHERE b.publishingDate = :publishingDate")
+            })
+```
+5. What is @Query? In which Interface we write the sql or JPQL?
+
+@Query is another way to implement query 
+```java
+        @Query("select p from Post p where p.id = :key or p.title = :title")
+        Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,@Param("title") String title)
+```
+We write in repository interface.
+
+6. What is HQL and Criteria Queries?
+
+HQL is another method to write query, Creiteria queried means you build a query programmatically using the JPA Criteria API
+
+7. What is EnityManager?
+
+A JPA EntityManager manages connection to a database as well as to database
+operations. 
+8. What is SessionFactory and Session?
+
+SessionFactory is to maintain a cset of seesion.
+
+Session object provides an interface between the application and data stored in the
+database.
+
+9. What is Transaction? how to manage your transaction?
+
+A transaction simply represents a unit of work.
+If one step fails, the whole transaction fails (atomicity). 
+
+```java
+/@Test
+void testSessionFactory() {
+// 1. 根据配置⽂件，创建⼀个sessionFactory
+        SessionFactory sessionFactory = new
+        Configuration().configure("hibernate.cfg.xml").buildSessionFactory
+        ();
+// 2. sessionFactory 创建出⼀个session
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+// 3. session 开始⼀个transaction
+        transaction = session.beginTransaction();
+// 4. 执⾏txn
+        post.setTitle(post.getTitle() + LocalDateTime.now());
+        post.setCreateDateTime(LocalDateTime.now());
+        post.setUpdateDateTime(LocalDateTime.now());
+        Post savedPost = (Post) session.merge(post);
+        System.out.println(savedPost);
+// 5. commit txn, 该txn要么成功，要么失败,是个原⼦操作。
+        transaction.commit();
+        } catch (Exception e) {
+        if (transaction != null) {
+// txn 失败则回滚
+        transaction.rollback();
+        }
+        e.printStackTrace();
+        } finally {
+// 6. close session
+        session.close();
+        }
+        }
+```
+10. What is hibernate Caching?
+```java
+Hibernate provides two level cache
+```
+11. What is the difference between first-level cache and second-level cache?
+
+```java
+        First-level cache: only in it own seesion 
+        Second-level cache : in all seesion
+```
+12. How do you understand @Transactional? (不要clone，要⾃⼰抄写并测试
+    transactional，https://github.com/TAIsRich/tutorial-transaction)
+13. Write a simple factory design pattern
