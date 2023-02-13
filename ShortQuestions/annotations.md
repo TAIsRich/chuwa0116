@@ -186,3 +186,13 @@ shortcut for `@RequestMapping(method = RequestMethod.DELETE)`
 ### @ManyToOne
 
 ### @ManyToMany
+
+### @Getter
+
+### @Setter
+
+### @NoArgsConstructor
+
+### @AllArgsConstructor
+
+

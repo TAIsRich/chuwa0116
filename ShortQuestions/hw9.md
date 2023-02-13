@@ -233,3 +233,65 @@ findEmailByName("Tom")
 
 countOrderByName("Sam")
 
+## What is JPQL?
+
+The Java Persistence Query Language (JPQL) is the query language defined by JPA. JPQL is similar to SQL, but operates on objects, attributes and relationships instead of tables and columns. JPQL can be used for reading (SELECT), as well as bulk updates (UPDATE) and deletes (DELETE). JPQL can be used in a NamedQuery (through annotations or XML) or in dynamic queries using the EntityManager createQuery() API.
+
+## What are @NamedQuery and @NamedQueries?
+
+@NamedQuery is a predefined query that you create and associate with a container-managed entity.
+
+@NameQueries annotation is used to define the multiple named queries.
+
+## What is @Query? In which Interface we write the sql or JPQL?
+
+The @Query annotation can only be used to annotate repository interface methods. The call of the annotated methods will trigger the execution of the statement found in it, and their usage is pretty straightforward. The @Query annotation supports both native SQL and JPQL
+
+In the repository interface.
+
+## What is HQL and Criteria Queries?
+
+Hibernate Query Language (HQL) is an object-oriented query language, similar to SQL, but instead of operating on tables and columns, HQL works with persistent objects and their properties. HQL queries are translated by Hibernate into conventional SQL queries, which in turns perform action on database.
+
+It enables us to write queries without doing raw SQL as well as gives us some object-oriented control over the queries, which is one of the main features of Hibernate. The Criteria API allows us to build up a criteria query object programmatically, where we can apply different kinds of filtration rules and logical conditions.
+
+## What is EntityManager?
+
+The EntityManager API is used to create and remove persistent entity instances, to find entities by their primary key, and to query over entities. The set of entities that can be managed by a given EntityManager instance is defined by a persistence unit.
+
+## What is SessionFactory and Session?
+
+SessionFactory is an interface. SessionFactory can be created by providing Configuration object, which will contain all DB related property details pulled from either hibernate.cfg.xml file or hibernate.properties file. SessionFactory is a factory for Session objects.
+
+We can create one SessionFactory implementation per database in any application. If your application is referring to multiple databases, then you need to create one SessionFactory per database.
+
+The SessionFactory is a heavyweight object; it is usually created during application start up and kept for later use. The SessionFactory is a thread safe object and used by all the threads of an application.
+
+The Session interface is the main tool used to communicate with Hibernate. It provides an API enabling us to create, read, update, and delete persistent objects. The session has a simple lifecycle. We open it, perform some operations, and then close it.
+
+When we operate on the objects during the session, they get attached to that session. The changes we make are detected and saved upon closing. After closing, Hibernate breaks the connections between the objects and the session.
+
+## What is Transaction? how to manage your transaction?
+
+Transactions are a set of operations used to perform a logical set of work. A transaction usually means that the data in the database has changed. One of the major uses of DBMS is to protect the user’s data from system failures. It is done by ensuring that all the data is restored to a consistent state when the computer is restarted after a crash. The transaction is any one execution of the user program in a DBMS. Executing the same program multiple times will generate multiple transactions.
+
+In Spring Boot we can use @Transaction annotation to manage transaction.
+
+## What is hibernate Caching?
+
+Hibernate caching acts as a layer between the actual database and your application. It reduces the time taken to obtain the required data — as it fetches from memory instead of directly hitting the database. It is very useful when you need to fetch the same kind of data multiple times.
+
+## What is the difference between first-level cache and second-level cache?
+
+First level cache is a session level cache and it is always associated with session level object. This type of cache is used for minimizing Db interaction by caching the state of the object. That is instead of updating after every modification done in the transaction, it updates the transaction only at the end of the transaction.
+
+Second level cache is session factory level cache and it is available across all sessions.While running the transactions, in between it loads the objects at the Session Factory level, so that those objects will be available to the entire application, not bound to a single user. By default, it is disabled in hibernate.
+
+## How do you understand @Transactional? (不要clone，要自己抄写并测试
+    transactional，https://github.com/TAIsRich/tutorial-transaction)
+
+@Transactional automatically commit a transactional when it is successful, or roll back when fails.
+
+## Write a simple factory design pattern.
+
+See code in factory folder under path Coding/DesignPattern/factory/Single_factory
