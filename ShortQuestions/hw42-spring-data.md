@@ -171,5 +171,10 @@ layer using JdbcTemplate.
     * The second level cache is maintained at the SessionFactory level and available to all Sessions.
 12. How do you understand @Transactional? (不要clone，要自己抄写并测试
     transactional，https://github.com/TAIsRich/tutorial-transaction)
+    * What is @Transactional? what is its role?\
+    It provides a way for Spring to inject behaviors before, after, or around method calls into the object being proxied.We have two ways to rollback a transaction: declarative and programmatic.\
+    The default rollback behavior in the declarative approach will rollback on runtime exceptions.
+    * When do we use it?\
+    When we want to make code in the function to be atomic. This annotation is used to combine the series of operations/action which need to be performed either all or none.
 13. Write a simple factory design pattern.
     Refers to Coding/simpleFactory.
