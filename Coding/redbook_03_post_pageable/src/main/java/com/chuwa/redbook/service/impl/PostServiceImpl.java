@@ -107,7 +107,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
 
-        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction..name()) ? Sort.by(sortBy).ascending()
                 : Sort.by(sortBy).descending();
 
         // create pageable instance
