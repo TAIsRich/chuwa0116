@@ -19,3 +19,10 @@
 * @RequestMapping(method = RequestMethod.GET, value = "/path") - The @RequestMapping(method = RequestMethod.GET, value = "/path") annotation specifies a method in the controller that should be responsible for serving the HTTP request to the given path. Spring will work the implementation details of how it's done. You simply specify the path value on the annotation and Spring will route the requests into the correct action methods.
 * @RequestParam(value="name", defaultValue="World") - Naturally, the methods handling the requests might take parameters. To help you with binding the HTTP parameters into the action method arguments, you can use the @RequestParam(value="name", defaultValue="World") annotation. Spring will parse the request parameters and put the appropriate ones into your method arguments.
 * @PathVariable("placeholderName") - Another common way to provide information to the backend is to encode it in the URL. Then you can use the @PathVariable("placeholderName") annotation to bring the values from the URL to the method arguments.
+* @Id - PK of a table
+* @GeneratedValue - Provides for the specification of generation strategies for the values of primary keys. 
+* @Entity - Specifies that the class is an entity. 
+* @JsonProperty - @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property.
+* @ManyToOne 
+* @OneToOne 
+* @OneToMany 
