@@ -239,6 +239,18 @@ Using this annotation, you can specify mocks in ApplicationContext and mocks the
     }
     }
 
-16 @RestController
+16. @RestController
 @RestController注解，代表返回的是json格式的数据，这个注解是Spring4之后新加的注解，原来返回json格式的数据需要@ResponseBody配合@Controller一起使用；
 A convenience annotation that is itself annotated with @Controller and @ResponseBody.
+
+17. @Transactional
+
+保证原子操作的
+
+18. @PersistenceContext
+
+    
+19. @Configuration 
+
+
+20. @Bean 第三方工具包,想放进来IOC容器中, autowaired 得放这个 @Configuration return new (一般放config文件夹)
