@@ -13,6 +13,7 @@ import java.time.LocalDate;
                 @UniqueConstraint(columnNames = {"title"})
         }
 )
+
 public class Post {
 
     //id
