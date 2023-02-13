@@ -86,3 +86,18 @@
 @ManyToMany
 
 - A relationship is a connection between two types of entities. In the case of a many-to-many relationship, both sides can relate to multiple instances of the other side
+
+@NamedQuery
+
+- @NamedQuery annotation to specify a named query within an entity class and then declare that method in repository. 
+
+@Query
+
+- In order to define SQL to execute for a Spring Data repository method, we can annotate the method with the @Query annotation — its value attribute contains the JPQL or SQL to execute
+
+@Transaction
+- Transactions in Java, as in general refer to a series of actions that must all complete successfully
+
+@EnableTransactionManagement
+
+- Add on top of Applications.java to enable transaction in spring
