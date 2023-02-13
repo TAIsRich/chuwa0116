@@ -1,5 +1,6 @@
 ##1. List all of the annotations you learned from class and homework to annotaitons.md
 ####Answer:
+    The answer is in the annotation.md.
 
 
 ##2. Type the Comment feature for the class project.
@@ -93,13 +94,19 @@
 
 ##10. Try to use JPA advanced methods in your class project. In the repository layer, you need to use the naming convention to use the method provided by JPA.
 ####Answer:
+    for example:
+```
+ @Query(value = "select * from posts p where p.id = ?1 or p.title = ?2 p.update_date_time", nativeQuery = true)
+    Post getPostByIDOOrTitleWithSQLIndexParameters(Long id, String title);
+  
+ List<Comment> findByPostId(long postId);
 
-
-
+```
 
 
 ##1. List all of the annotations you learned from class and homework to annotaitons.md
 ####Answer:
+    The answer is in the annotation.md.
 
 
 ##2. type the code, you need to checkout new branch from branch 02_post_RUD, name the new branch with https://github.com/TAIsRich/springboot-redbook/tree/hw05_01_slides_JPQL.
@@ -206,4 +213,63 @@
 
 ##13. Write a simple factory design pattern.
 ####Answer:
+    1)Step1: Create abstract product classes that define public interfaces for concrete products.
+```
+abstract class Product{
+    public abstract void Show();
+```
+    2)Step2: Create a concrete product class (inheriting the abstract product class) that defines the concrete product to be produced.
+```
+class ProductA extends Product{
+	@Override
+	public void Show(){
+		System.out.println("A product has been produced.");
+	}
+}
+
+class ProductB extends Product{
+	@Override
+	public void Show(){
+		System.out.println("B product has been produced.");
+	}
+}
+
+```
+    3)step3: Create factory class by creating static methods to create instances of different concrete product classes with 
+    different parameters passed in.
+```
+class Factory{
+	public static Product Manufacture(String ProductName){
+		switch (ProductName){
+			case "A": 
+				return new ProductA();
+			case "B":
+				return new ProductB();
+			default:
+				return null;
+		}
+	}
+}
+
+```
+    4)step4:instances of different concrete product classes could be created by calling static methods on the factory class, 
+    passing in different parameters
+```
+public class SimpleFactoryPattern{
+	public static void main(String[] args) {
+		Factory myFactory = new Factory();
+		try{
+			myFactory.Manufacture("A").Show();
+		}catch(NullPointerException e){
+			e.printStackTrace();
+		}
+
+		try{
+			myFactory.Manufacture("B").Show();
+		}catch(NullPointerException e){
+			e.printStackTrace();
+		}
+	}
+}
+```
 
