@@ -53,6 +53,7 @@
 
 - In most cases, the name of the table in the database and the name of the entity won't be the same. In these cases, we can specify the table name using the @Table annotation
 
+
 @RestController
 
 - Spring RestController annotation is used to create RESTful web services using Spring MVC
@@ -70,6 +71,7 @@
 @DeleteMapping
 
 - It maps the HTTP DELETE requests on the specific handler method. It is used to create a web service endpoint that deletes a resource.
+
 
 @OneToOne 
 
@@ -101,3 +103,4 @@
 @EnableTransactionManagement
 
 - Add on top of Applications.java to enable transaction in spring
+
