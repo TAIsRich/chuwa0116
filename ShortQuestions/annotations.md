@@ -10,6 +10,19 @@ public class T{
     
 }
 ```
+### @NamedQuery used by JPQL to give query
+```java
+@NamedQuery(name="get_all_posts", query="select p from Post p")
+//here the Post is match to entity name rather than db name
+```
+
+### @NamedQueries used by JPQL to give s collection of query
+```java
+@NamedQueries({
+        @NamedQuery(name="get_all_posts", query="select p from Post p"),
+        @NamedQuery(name="get_posts_byId", query="select p from Post p where id = :id")
+//here the Post is match to entity name rather than db name
+```
 
 ### @Table
 映射到db的table里并设置了一些比如table name还有constraint
@@ -50,6 +63,15 @@ table的column映射 还可以设置一些constrain
 ```java
     @Column(name = "title", nullable = false)
     private String title;
+```
+### @OneToOne, @ManyToOne, @OneToMany, @ManyToMany, @JoinTable, @JoinColumn
+
+give the relationship between tables
+```java
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
+//many comments in one post
 ```
 
 ### @CreationTimestamp
@@ -151,3 +173,21 @@ tell the url path
     @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo
         )
 ```
+
+### @JsonPropertyOrder give the return order of Json
+```java
+@JsonPropertyOrder({ "last", "pageNo", "pageSize", "totalElements", "totalPages", "content" })
+```
+
+### @JsonProperty match Json to the entity name
+```java
+@JsonProperty("isLast")
+```
+
+### @PersistenceContext to clarify the entity manager
+```java
+    @PersistenceContext
+    EntityManager entityManager;
+```
+
+
