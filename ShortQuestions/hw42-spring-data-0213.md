@@ -80,3 +80,49 @@ annotations.md
    * See annotation.md
 2. type the code, you need to checkout new branch from branch 02_post_RUD.
    * See `Coding/hw42/redbook`
+3.  What is JPQL?
+    * Java Persistence Query Language (JPQL) is used to create queries against entities to store in a relation database,
+        and JPQL is developed based on SQL syntax but it will not affect the database directly.
+4.  What is `@NamedQuery` and `@NamedQueries`?
+    * `@NamedQuery` is an annotation used to define the single named query.
+    * `@NameQueries` is an annotation used to specify multiple `@NamedQuery`
+    ```java
+        @NamedQueries({
+            @NamedQuery(name="Country.findAll",
+                        query="SELECT c FROM Country c"),
+            @NamedQuery(name="Country.findByName",
+                        query="SELECT c FROM Country c WHERE c.name = :name"),
+        }) 
+    ```
+5.  What is `@Query`? In which Interface we write the sql or JPQL?
+    * `@Query`this annotation can only be used to annotate repository interface methods. We write this annotation in 
+      out repository interface.
+6.  What is HQL and Criteria Queries?
+    * Hibernate Query Language (HQL) is an object-oriented query language, similar to SQL, 
+     but instead of operating on tables and columns, HQL works with persistent objects and their properties. HQL queries 
+     are translated by Hibernate into conventional SQL queries, which in turns perform action on database.
+    * HQL is to perform both select and non-select operations on the data,  but Criteria is only for selecting the data,
+        we cannot perform non-select operations using criteria
+    * HQL is suitable for executing Static Queries, where as Criteria is suitable for executing Dynamic Queries
+7.  What is `EnityManager`?
+    * Entity manager is used to read, delete and write an entity. An object referenced by an entity is managed by 
+      entity manager.
+8.  What is `SessionFactory` and `Session`?
+    * SessionFactory is a factory class for Session objects. It is available for the whole application while a 
+      Session is only available for particular transaction.
+    * Session is short-lived while SessionFactory objects are long-lived. SessionFactory provides a second level cache 
+      and Session provides a first level cache.
+9.  What is `Transaction`? how to manage your transaction?
+    * `Transaction` represents a unit of work, the operation follows the ACID principle, either the transaction success
+      or fails (corresponds to either commit or rollback)
+10. What is hibernate `Caching`?
+    * Hibernate caching acts as a layer between the actual database and your application. It reduces the time taken to 
+      obtain the required data — as it fetches from memory instead of directly hitting the database. It is very useful 
+      when you need to fetch the same kind of data multiple times.
+11. What is the difference between first-level cache and second-level cache?
+    * first-level cache: session specific, will only cache same data related to current session
+    * second-level cache: shared among multiple sessions, only get hit when first-level cache is missed
+12. How do you understand `@Transactional?` (不要clone，要自己抄写并测试
+    transactional，https://github.com/TAIsRich/tutorial-transaction)
+    * Through using `@Transactional` we don't need to manually create and maintain `SessionFactory` and `Session` ourself,
+      and still our operations on the database can still be Atomic
