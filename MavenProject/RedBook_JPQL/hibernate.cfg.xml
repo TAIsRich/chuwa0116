@@ -11,6 +11,6 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
-        <mapping class="com.chuwa.redbook.entity.Post"></mapping>
+        <mapping class="com.chuwa.entity.Post"></mapping>
     </session-factory>
 </hibernate-configuration>

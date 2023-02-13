@@ -133,3 +133,78 @@ class JdbcProperties{
 private String username
 }
 ```
+
+##### 9. @Entity @Table @Id @GeneratedValue @Column
+These two annotations are used to map the object to the table, we could use the field in @Table to specify which table the object would going to be mappined to, and GeneratedValue could be used to notify the JPA framework that how to generate the primary key for each record, and @Column could be used to map the field to the table's field in the database.
+```
+@Entity
+@Table(
+    name = "posts",
+    uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
+)
+public class Post{
+    @Id
+    @GeneratedValue(
+        strategy = GenerationType.IDENTITY
+    )
+    private Long id;
+    @Column(name = "title",nullable=false)
+    private String title;
+}
+```
+
+##### 10. @OneToOne @JoinColumn @ManyToOne @ManyToMany and @JoinTable
+These annotations are used to represent the complicated relationship between different entities in our project, and also helps the JPA framework to determine if the corresponding operation should be also performed in its relevant entities.
+
+```
+@ManyToMany(fetch = FetchType.LAZY)
+@JoinTable(name = "sku_inventory",
+    joinColumns = @JoinColumn(name = "sku_id"),
+    inverseJoinColumns = @JoinColumn(name = "inventory_id")
+   )
+private Set<PmsInventory> pmsInventories = new HashSet<>();
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "post_id", nullable = false)
+private Post post;
+```
+
+##### 11. @Transactional
+This annotation could be used to automatically create a transaction for your database operations, if one operation fails, then all the operations would be rolled back.And @Transactional could be specified in a class or a method
+
+```
+@Transactional
+public void transferMoney(){
+bankRepository.deductFromMyAccount(2000);
+bankRepository.depositToAccount(2000,"asdas");
+}
+```
+
+##### 12. @NamedQueries
+This is the annotation that allows you to customize your own query sentence:
+```
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title = :title"),
+    @NamedQuery(name = "Book.findByPublishingDate", query = "SELECT b FROM Book b WHERE b.publishingDate = :publishingDate")
+})
+public class Book implements Serializable {
+...
+}
+
+@PersistenceContext
+EntityManager entityManager;
+@Override
+public List<Post> getAllPostWithJPQL() {
+TypedQuery<Post> posts = entityManager.createNamedQuery("get_all_posts", Post.class);
+return posts.getResultList();
+}
+```
+
+##### 13. @Query
+This could also allow us to customize the query, however, we do not need to obey the JPA name conventions while using this annotation:
+
+```
+@Query("select p from Post p where p.id = :key or p.title = :title")
+Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,@Param("title") String title);
+```
