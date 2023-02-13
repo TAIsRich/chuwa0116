@@ -45,6 +45,102 @@ public class Post {
 }
 ```
 
+
+
+`@ManyToOne` & `@JoinColumn`: @ManyToOne is a JPA (Java Persistence API) annotation that is used in object-relational mapping to define a relationship between two entities, where one entity can have multiple references to the other entity. It indicates that the entity annotated with @ManyToOne has a many-to-one relationship with the target entity.
+
+In simpler terms, it means that one instance of an entity can be related to many instances of another entity. For example, a `Student` entity can have multiple `Enrollment` entities, where each `Enrollment` entity represents the enrollment of the `Student` in a particular course.
+
+The @ManyToOne annotation is usually used with a join column to specify the foreign key column in the source table that references the primary key column in the target table. The target entity is specified as the type parameter in the annotation.
+
+```java
+@Entity
+@Table(name = "comments")
+public class Comment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String name;
+    private String email;
+    private String body;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false)
+    private Post post;
+    
+}
+```
+
+
+
+`@OneToMany` is used to define a one-to-many relationship between two entities, where one entity has a reference to multiple entities. For example, consider the following entities: "Department" and "Employee". A department can have many employees, but an employee can only belong to one department. In this case, we can use the @OneToMany annotation to define the relationship between the "Department" and "Employee" entities:
+
+```java
+@Entity
+public class Department {
+    @Id
+    private int id;
+    private String name;
+    
+    @OneToMany(mappedBy = "department")
+    private Set<Employee> employees;
+    // getters and setters...
+}
+
+@Entity
+public class Employee {
+    @Id
+    private int id;
+    private String name;
+    
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+    // getters and setters...
+}
+```
+
+
+
+`@ManyToMany` is used to define a many-to-many relationship between two entities, where each entity can have references to multiple entities of the other type. For example, consider the following entities: "Student" and "Course". A student can take many courses, and a course can have many students. In this case, we can use the @ManyToMany annotation to define the relationship between the "Student" and "Course" entities:
+
+```java
+@Entity
+public class Student {
+    @Id
+    private int id;
+    private String name;
+    
+    @ManyToMany(mappedBy = "students")
+    private List<Course> courses;
+    // getters and setters...
+}
+
+@Entity
+public class Course {
+    @Id
+    private int id;
+    private String name;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "student_course",
+        joinColumns = @JoinColumn(name = "course_id"),
+        inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<Student> students;
+    // getters and setters...
+}
+```
+
+`@NamedQuery`: A named query is a statically defined query with a predefined unchangeable query string. They're validated when the session factory is created, thus making the application to fail fast in case of an error. It's important to note that every @NamedQuery annotation is attached to exactly one entity class or mapped superclass.
+
+`@Query`: In order to define SQL to execute for a Spring Data repository method, we can annotate the method with the @Query annotation — its value attribute contains the JPQL or SQL to execute. It's used in the repository layer.
+
+
+
 ### Controller
 
 `@RestController`: This annotation is used to indicate that a class serves as a RESTful web service controller. A REST controller typically handles incoming HTTP requests and returns HTTP responses.
@@ -96,3 +192,30 @@ public class PostServiceImpl implements PostService {
 `@Repository`: This annotation is used to indicate that a class serves as a data access layer in the architecture of a Spring application. The repository layer is typically responsible for managing the persistence of data, such as database access.
 
 Additionally, the `@Repository` annotation provides exception translation. In the case of a data access failure, such as a constraint violation or a data integrity issue, the repository layer can catch the exception and translate it into a more appropriate exception that can be easily handled by other components in the application. This helps to ensure that the persistence logic is decoupled from the business logic and that the persistence layer can evolve independently of the rest of the application.
+
+### General
+
+`@ResponseStatus`: 
+
+`@JsonProperty` is a Jackson annotation used to specify the name of a property in a JSON serialization or deserialization process. When a Java object is serialized to JSON, the names of its properties are used as the names of the corresponding fields in the JSON representation. Similarly, when a JSON object is deserialized to a Java object, the names of the fields in the JSON object are used to set the values of the properties in the Java object.
+
+The `@JsonProperty` annotation allows you to specify a custom name for a property that is different from the name of the corresponding field in the Java object. This can be useful if you want to use different names for the same property in the JSON representation and the Java object, or if you want to maintain compatibility with a pre-existing JSON format that uses different names for its fields.
+
+Here's an example of how you might use the `@JsonProperty` annotation in a Java class:
+
+```java
+public class User {
+    @JsonProperty("user_id")
+    private long id;
+
+    @JsonProperty("user_name")
+    private String name;
+    //...
+}
+```
+
+In this example, the `@JsonProperty` annotations are used to specify that the `id` property in the Java object should be serialized as the field `user_id` in the JSON representation, and the `name` property in the Java object should be serialized as the field `user_name` in the JSON representation.
+
+`EnableTransactionManagement` is a **annotation** that we can use in a *@Configuration* class to enable transactional support. However, if we're using a Spring Boot project and have a spring-data-\* or spring-tx dependencies on the classpath, then transaction management will be enabled by default.
+
+`@Transactional`: we can annotate a bean with @Transactional either at the class or method level. The proxy allows the framework to inject transactional logic before and after the running method, mainly for starting and committing the transaction.
