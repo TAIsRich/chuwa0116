@@ -1,3 +1,4 @@
+# HW42-Spring-Data
 1. List all of the annotations you learned from class and homework to
 annotations.md
 2. Type the Comment feature for the class project
@@ -72,4 +73,10 @@ annotations.md
     book/tree/hw02_01_jdbcTemplate) from branch 02_post_RUD, replace the dao
     layer using JdbcTemplate.
 12. (Optional) use JDBC to read the data from database.
- 
+
+# HW43-Spring-Data-Part2
+1. List all of the annotations you learned from class and homework to
+   annotation.md
+   * See annotation.md
+2. type the code, you need to checkout new branch from branch 02_post_RUD.
+   * See `Coding/hw42/redbook`
