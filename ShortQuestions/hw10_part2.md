@@ -57,6 +57,8 @@ The main difference between the first level and second level cache in Hibernate 
 ```
 
 ### 12. How do you understand @Transactional? (不要clone，要自己抄写并测试 transactional，https://github.com/TAIsRich/tutorial-transaction)
+Please check Coding/transcation directory
 
 ### 13. Write a simple factory design pattern.
+Please check Coding/factory-pattern-example directory
 
