@@ -175,3 +175,24 @@ shortcut for `@RequestMapping(method = RequestMethod.DELETE)`
     }
 ```
 
+### @JsonProperty
+
+### @ManyToOne
+
+## Database/Entity
+
+### @OneToMany
+
+### @ManyToOne
+
+### @ManyToMany
+
+### @Getter
+
+### @Setter
+
+### @NoArgsConstructor
+
+### @AllArgsConstructor
+
+
