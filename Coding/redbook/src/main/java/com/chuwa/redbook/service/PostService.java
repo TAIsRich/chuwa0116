@@ -17,4 +17,10 @@ public interface PostService {
     PostDTO updatePost(PostDTO postDTO, long id);
 
     void deletePostById(long id);
+
+    List<PostDTO> getAllPostWithJPQL();
+    PostDTO getPostByIdJPQLIndexParameter(Long id, String title);
+    PostDTO getPostByIdJPQLNamedParameter(Long id, String title);
+    PostDTO getPostByIdSQLIndexParameter(Long id, String title);
+    PostDTO getPostByIdSQLNamedParameter(Long id, String title);
 }

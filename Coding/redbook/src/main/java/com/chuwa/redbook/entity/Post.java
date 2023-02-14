@@ -25,9 +25,11 @@ public class Post {
     @Column(name = "content", nullable = false)
     private String content;
     @CreationTimestamp
+    @Column(name = "create_date_time")
     private LocalDateTime createDateTime;
 
     @UpdateTimestamp
+    @Column(name = "update_date_time")
     private LocalDateTime updateDateTime;
 
     public Post(Long id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
