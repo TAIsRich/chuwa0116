@@ -1,10 +1,11 @@
-package com.chuwa.redbook.entity;
+package com.example.redbook2.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(
@@ -14,6 +15,7 @@ import java.time.LocalDate;
         }
 )
 
+@NamedQuery(name="Post.getAll", query = "select p from Post p")
 public class Post {
 
     //id
@@ -33,9 +35,12 @@ public class Post {
     private  String content;
 
     @CreationTimestamp
-    private LocalDate createDateTime;
+    @Column(name = "create_date_time")
+    private LocalDateTime createDateTime;
+
     @UpdateTimestamp
-    private LocalDate updateDateTime;
+    @Column(name = "update_date_time")
+    private LocalDateTime updateDateTime;
 
     public Post(){
 
@@ -48,7 +53,7 @@ public class Post {
         this.content = content;
     }
 
-    public Post(Long id, String title, String description, String content, LocalDate createDateTime, LocalDate updateDateTime) {
+    public Post(Long id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -73,11 +78,11 @@ public class Post {
         return content;
     }
 
-    public LocalDate getCreateDateTime() {
+    public LocalDateTime getCreateDateTime() {
         return createDateTime;
     }
 
-    public LocalDate getUpdateDateTime() {
+    public LocalDateTime getUpdateDateTime() {
         return updateDateTime;
     }
 
@@ -97,11 +102,11 @@ public class Post {
         this.content = content;
     }
 
-    public void setCreateDateTime(LocalDate createDateTime) {
+    public void setCreateDateTime(LocalDateTime createDateTime) {
         this.createDateTime = createDateTime;
     }
 
-    public void setUpdateDateTime(LocalDate updateDateTime) {
+    public void setUpdateDateTime(LocalDateTime updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
 
@@ -118,3 +123,4 @@ public class Post {
     }
 
 }
+
