@@ -72,3 +72,35 @@
 
 - It maps the HTTP DELETE requests on the specific handler method. It is used to create a web service endpoint that deletes a resource.
 
+
+@OneToOne 
+
+- Defines a single-valued association to another entity that has one-to-one multiplicity. It is not normally necessary to specify the associated target entity explicitly since it can usually be inferred from the type of the object being referenced. If the relationship is bidirectional, the non-owning side must use the mappedBy element of the OneToOne annotation to specify the relationship field or property of the owning side.
+
+@OneToMany
+
+- one-to-many mapping means that one row in a table is mapped to multiple rows in another table
+
+@ManyToOne
+
+- The many-to-one mapping or association means that one parent record can have multiple child records
+
+@ManyToMany
+
+- A relationship is a connection between two types of entities. In the case of a many-to-many relationship, both sides can relate to multiple instances of the other side
+
+@NamedQuery
+
+- @NamedQuery annotation to specify a named query within an entity class and then declare that method in repository. 
+
+@Query
+
+- In order to define SQL to execute for a Spring Data repository method, we can annotate the method with the @Query annotation — its value attribute contains the JPQL or SQL to execute
+
+@Transaction
+- Transactions in Java, as in general refer to a series of actions that must all complete successfully
+
+@EnableTransactionManagement
+
+- Add on top of Applications.java to enable transaction in spring
+

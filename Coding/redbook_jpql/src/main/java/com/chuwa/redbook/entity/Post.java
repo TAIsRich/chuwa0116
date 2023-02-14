@@ -16,7 +16,7 @@ import org.hibernate.annotations.UpdateTimestamp;
         }
 
             )
-
+@NamedQuery(name="Post.getAll",query="select p from Post p")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,8 +49,7 @@ public class Post {
         this.updateDatetime = updateDatetime;
     }
 
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

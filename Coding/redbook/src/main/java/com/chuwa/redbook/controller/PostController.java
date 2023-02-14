@@ -1,11 +1,15 @@
 package com.chuwa.redbook.controller;
 
 
+
+
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.payload.PostDTO;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import com.chuwa.redbook.util.AppConstraints;
+
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,7 @@ public class PostController {
         PostDTO postResponse=postService.createPost(postDTO);
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
+
 
 //    @GetMapping
 //    public List<PostDTO> getAllPosts(){
@@ -57,3 +62,4 @@ public class PostController {
     }
 
 }
+
