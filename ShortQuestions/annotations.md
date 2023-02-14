@@ -152,3 +152,130 @@ public String getFoos(@RequestParam String id) {
     return "ID: " + id;
 }
 ```
+
+## @OneToMany, @ManyToOne, @ManyToMany
+
+@OneToMany: One record in the table relates multiple records in another table.
+
+@ManyToOne: Multiple records in the table relate to one record in another table.
+
+@ManyToMany: Multiple records in the table relate to multiple records in another table.
+
+```Java
+@Entity
+@Table(name = "university")
+public class University {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Student> students;
+
+    /* Getters and setters */
+}
+
+@Entity
+@Table(name = "student")
+public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
+
+    /* Getters and setters */
+}
+```
+
+
+```Java
+@Entity
+@Table(name="course")
+public class Course {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    private Double fee;
+
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students;
+
+    /* Getters and setters */
+}
+
+@Entity
+@Table(name="student")
+public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(
+            name = "student_course",
+            joinColumns = {@JoinColumn(name = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+    )
+    private Set<Course> courses;
+
+    /* Getters and setters */
+}
+```
+
+## @NamedQuery, @NamedQueries
+
+```Java
+@NamedQueries(  
+    {  
+        @NamedQuery(  
+        name = "findEmployeeByName",  
+        query = "from Employee e where e.name = :name"  
+        )  
+    }  
+)  
+```
+## @Query
+
+Write sql or jpql to deal with database
+
+```Java
+    @Query("select p from Post p where p.id = ?1 or p.title = ?2")
+    Post getPostByIDOrTitleWithJPQLIndexParameters(Long id, String title);
+```
+
+## @PersistenceContext
+
+The persistence context is the first-level cache where all the entities are fetched from the database or saved to the database.
+
+```Java
+    @PersistenceContext
+    EntityManager entityManager;
+```
+
+## @Transactional 
+
+To make a unit of operations atomic.
+
+```Java
+@Transactional
+public class PostJPQLRepositoryImpl implements PostJPQLRepository {}
+```
