@@ -4,7 +4,7 @@
 
 3. @Repository: the classes annotated with this annotation defines data repositories. It is used in DAO layer classes. @Repository has one special feature that it catches platform specific exceptions and re-throw them as one of the Spring’s unified unchecked exception i.e. DataAccessException.
 
-4. @C@RequestMapping: @RequestMapping annotation maps the incoming HTTP request to the handler method that will serve this request, we can apply @RequestMapping on a class as well as a method. When used on a class, it maps a specific request path or pattern onto a controller, then the method level annotation will make the mappings more specific to handler methods.   
+4. @RequestMapping: @RequestMapping annotation maps the incoming HTTP request to the handler method that will serve this request, we can apply @RequestMapping on a class as well as a method. When used on a class, it maps a specific request path or pattern onto a controller, then the method level annotation will make the mappings more specific to handler methods.   
 
 5. @Entity: @Entity annotation defines that a class can be mapped to a database table. The class fields will be mapped to the columns of the table.    
 
@@ -22,4 +22,15 @@
 
 12. @GetMapping: @GetMapping is an annotation for mapping HTTP GET requests onto specific handler methods.     
 
-13. @PostMapping: @PostMapping annotated methods handle the HTTP POST requests matched with the given URI expression.      
+13. @PostMapping: @PostMapping annotated methods handle the HTTP POST requests matched with the given URI expression.     
+
+14. @JsonProperty: @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property.     
+
+15. @ManyToOne: JPA allows you to define Many-to-one relationships between entity classes using the @ManyToOne annotation.     
+
+16. @NamedQuery: @NamedQuery is used to define the single named query.      
+
+17. @Transactional: Spring provides Declarative Transaction Management via @Transactional annotation. When a method is qpplied with @Transactional, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.     
+
+18. @PersistenceContext: To tell the EntityManager to use the transaction presistence context, we simply annotate it with @PersistenceContext. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. This interface defines the methods that are used to interact with the persistence contxt.    
+

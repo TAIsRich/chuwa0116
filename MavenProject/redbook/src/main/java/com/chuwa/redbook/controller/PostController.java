@@ -49,4 +49,33 @@ public class PostController {
     ){
         return postService.getAllPost(pageNo, pageSize, sortBy, sortDir);
     }
+
+    @GetMapping("/jpql")
+    public List<PostDTO> getAllPostsJPQL() {
+        return postService.getAllPostWithJPQL();
+    }
+
+    @GetMapping("/jpql-index/{id}")
+    public ResponseEntity<PostDTO> getPostByIdOrTitleJPQLIndex(@PathVariable(name = "id") long id,
+                                                               @RequestParam(value = "title", required = false) String title) {
+        return ResponseEntity.ok(postService.getPostByIdJPQLIndexParameter(id, title));
+    }
+
+    @GetMapping("/jpql-named/{id}")
+    public ResponseEntity<PostDTO> getPostByIdOrTitleJPQLNamed(@PathVariable(name = "id") long id,
+                                                               @RequestParam(value = "title", required = false) String title) {
+        return ResponseEntity.ok(postService.getPostByIdJPQLNamedParameter(id, title));
+    }
+
+    @GetMapping("/sql-index/{id}")
+    public ResponseEntity<PostDTO> getPostByIdOrTitleSQLIndex(@PathVariable(name = "id") long id,
+                                                              @RequestParam(value = "title", required = false) String title) {
+        return ResponseEntity.ok(postService.getPostByIdSQLIndexParameter(id, title));
+    }
+
+    @GetMapping("/sql-named/{id}")
+    public ResponseEntity<PostDTO> getPostByIdOrTitleSQLParameter(@PathVariable(name = "id") long id,
+                                                                  @RequestParam(value = "title", required = false) String title) {
+        return ResponseEntity.ok(postService.getPostByIdSQLNamedParameter(id, title));
+    }
 }
