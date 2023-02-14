@@ -49,3 +49,46 @@ This annotation tells Spring in which packages you have annotated classes that s
 
 ### @PropertySource
 This annotation is used to read properties from .properties file in the resource directory
+
+### @OneToMany
+One record in the table relates multiple records in another table.
+
+### @ManyToOne
+Multiple records in the table relate to one record in another table.
+
+### @ManyToMany
+Multiple records in the table relate to multiple records in another table.
+
+### @NamedQuery 
+This annotation is used by JPQL to give query
+```java
+@NamedQuery(name="get_all_posts", query="select p from Post p")
+//here the Post is match to entity name rather than db name
+```
+
+### @NamedQueries
+This annotation is used by JPQL to give s collection of query
+```java
+@NamedQueries({
+        @NamedQuery(name="get_all_posts", query="select p from Post p"),
+        @NamedQuery(name="get_posts_byId", query="select p from Post p where id = :id")
+//here the Post is match to entity name rather than db name
+})
+```
+
+### @JsonPropertyOrder
+This annotation gives the return order of Json
+```java
+@JsonPropertyOrder({ "last", "pageNo", "pageSize", "totalElements", "totalPages", "content" })
+```
+### @JsonProperty 
+This annotation matches Json to the entity name
+```java
+@JsonProperty("isLast")
+```
+### @PersistenceContext 
+This annotation is used to clarify the entity manager
+```java
+    @PersistenceContext
+    EntityManager entityManager;
+```
