@@ -108,15 +108,216 @@ public class Post {}
 ```
 
 ### @PutMapping
--@PutMapping annotation is used to handle HTTP PUT requests and map them to specific methods in a controller class.
+- @PutMapping annotation is used to handle HTTP PUT requests and map them to specific methods in a controller class.
 ```java
 public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDTO, @PathVariable(name = "id") long id) {
     }
 ```
 
 ### @DeleteMapping
--DeleteMapping is used to handle HTTP DELETE requests and map them to specific methods in a controller class.
+- DeleteMapping is used to handle HTTP DELETE requests and map them to specific methods in a controller class.
 ```java
  public ResponseEntity<String> deletePost(@PathVariable(name = "id") long id) {
     }
 ```
+
+### @OneToOne, @ManyToOne, @OneToMany, @ManyToMany, @JoinTable, @JoinColumn
+
+- Let's say you have an entity `A` which has a `@ManyToOne` related ot an `B`
+
+- `@JoinTable` will define the target table Foreign Key while using the target table.
+
+- `@JoinColumn` will use a separate table to hold the relationship between `A` and `B`.
+
+  ```java
+  @Entity
+  @Table(name = "users")
+  public class User {
+      
+      @Id
+      @GeneratedValue(strategy = GenerationType.AUTO)
+      @Column(name = "id")
+      private Long id;
+      @OneToOne(cascade = CascadeType.ALL)
+      @JoinColumn(name = "address_id", referencedColumnName = "id")
+      private Address address;
+  
+  }
+  
+  @Entity
+  @Table(name = "address")
+  public class Address {
+      @Id
+      @GeneratedValue(strategy = GenerationType.AUTO)
+      @Column(name = "id")
+      private Long id;
+      //...
+  
+      @OneToOne(mappedBy = "address")
+      private User user;
+  }
+  ```
+
+  ```java
+  @Entity
+  @Table(name="CART")
+  public class Cart {
+      @OneToMany(mappedBy="cart")
+      private Set<Item> items;
+      
+  }
+  
+  @Entity
+  @Table(name="ITEMS")
+  public class Item {
+      
+      //...
+      @ManyToOne
+      @JoinColumn(name="cart_id", nullable=false)
+      private Cart cart;
+  
+      public Item() {}
+      
+      // getters and setters
+  }
+  ```
+
+  ```java
+  @Entity
+  class Student {
+  
+      @Id
+      Long id;
+      @ManyToMany
+    	@JoinTable(
+    		name = "course_like", 
+    		joinColumns = @JoinColumn(name = "student_id"), 
+    		inverseJoinColumns = @JoinColumn(name = "course_id"))
+      Set<Course> likedCourses;
+  }
+  
+  @Entity
+  class Course {
+  
+      @Id
+      Long id;
+  
+      @ManyToMany
+      Set<Student> likes;
+  
+      // additional properties
+      // standard constructors, getters, and setters
+  }
+  ```
+### @NotEmpty 
+- field must not empty.
+### @Size 
+- its value between the attributes min and max.
+
+```java
+public class User {
+  	@NotEmpty
+    private String lastName;
+
+    @Size(min = 3, max = 15)
+    private String middleName;
+}
+```
+
+### @Valid
+- We can put the `@Valid` annotation on method parameters and fields to tell Spring that we want a method parameter or field to be validated.
+  ```java
+  @RestController
+  public class UserController {
+      @PostMapping("/users")
+      ResponseEntity<String> addUser(@Valid @RequestBody User user) {
+      }
+  }
+  ```
+### @ControllerAdvice 
+- It is a specialization of the `@Component` annotation which allows to handle exceptions across the whole application in one global handling component.
+
+### @ExceptionHandler 
+- It allows us to handle specified types of exceptions through one single method.
+
+  ```java
+  @ControllerAdvice
+  public class ControllerAdvisor extends ResponseEntityExceptionHandler {
+  
+      @ExceptionHandler(NoDataFoundException.class)
+      public ResponseEntity<Object> handleNodataFoundException(
+          NoDataFoundException ex, WebRequest request) {
+  
+          Map<String, Object> body = new LinkedHashMap<>();
+          body.put("timestamp", LocalDateTime.now());
+          body.put("message", "No cities found");
+  
+          return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+      }
+  
+      @Override
+      protected ResponseEntity<Object> handleMethodArgumentNotValid(
+          MethodArgumentNotValidException ex, HttpHeaders headers, 
+          HttpStatus status, WebRequest request) {
+  
+          Map<String, Object> body = new LinkedHashMap<>();
+          body.put("timestamp", LocalDate.now());
+          body.put("status", status.value());
+  
+          List<String> errors = ex.getBindingResult()
+                  .getFieldErrors()
+                  .stream()
+                  .map(x -> x.getDefaultMessage())
+                  .collect(Collectors.toList());
+  
+          body.put("errors", errors);
+  
+          return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+      }
+  }
+  ```
+### @Query 
+- In order to define SQL to execute for a Spring Data repository method, we can annotate the method with the `@Query` annotation — its value attribute contains the JPQL or SQL to execute.
+
+  ```java
+  @Query("SELECT u FROM User u WHERE u.status = 1")
+  Collection<User> findAllActiveUsers();
+  ```
+
+### @Transactional 
+- describes a transaction attribute on an individual method or on a class.
+
+### `@PersistenceContext` 
+- An EntityManager instance is associated with a persistence context. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. The EntityManager API is used to create and remove persistent entity instances, to find entities by their primary key, and to query over entities.
+
+  ```java
+  @Repository
+  @Transactional
+  public class PostJPQLRepositoryImpl implements PostJPQLRepository {
+      @PersistenceContext
+      EntityManager entityManager;
+      ...
+  }
+  ```
+
+### @NamedQuery
+- pecify a named query within an entity class and then declare that method in repository.
+
+  ```java
+  @Entity
+  @NamedQuery(name = "Employee.findByEmail", query = "select e from Employee e where e.email = ?1")
+  public class Employee {
+    // ...
+  }
+  ```
+
+### @NamedQueries
+  ```java
+  @Entity
+  @NamedQueries({
+      @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title =                :title"),
+      @NamedQuery(name = "Book.findByPublishingDate", query = "SELECT b FROM Book b WHERE     b.publishingDate = :publishingDate")
+  })
+  public class Book implements Serializable {
+  }
+  ```
