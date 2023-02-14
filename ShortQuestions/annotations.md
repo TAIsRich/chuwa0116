@@ -70,3 +70,12 @@ public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO){
     return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
 }
 ```
+
+### @OneToMany, @ManyToOne, @ManyToMany
+* Annotation for table entity relationships in table
+### @NameQuery
+* @NameQuery annotation is used to define the single named query.
+### @Query
+* @Query annotation takes precedence over named queries, which are annotated with @NamedQuery or defined in an orm.xml file.
+### @Transactional
+* The @Transactional annotation is the metadata that specifies the semantics of the transactions on a method.

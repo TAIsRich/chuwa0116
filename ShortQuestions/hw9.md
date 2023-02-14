@@ -38,7 +38,7 @@ public String method0(){
 ### 10. What is the ORM framework?
 * Object Relational Mapping (ORM) is a technique used in creating a "bridge" between object-oriented programs and, in most cases, relational databases. 
 
-### 12. What is the serialization and desrialization?
+### 12. What is the serialization and deserialization?
 * Serialization is the process of converting a data object—a combination of code and data represented within a region of data storage—into a series of bytes that saves the state of the object in an easily transmittable form.
 * Deserialization is constructing a data structure or object from a series of bytes
 

@@ -1,7 +1,9 @@
 package com.chuwa.redbook.controller;
 
 import com.chuwa.redbook.payload.PostDTO;
+import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import com.chuwa.redbook.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,15 @@ public class PostController {
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
 
+    @GetMapping()
+    public PostResponse getAllPosts(
+            @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIR, required = false) String sortDir
+    ) {
+        return postService.getAllpost(pageNo, pageSize, sortBy, sortDir);
+    }
 
 
     @GetMapping("/{id}")
