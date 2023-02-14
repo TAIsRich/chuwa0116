@@ -4,6 +4,7 @@
 @Table
 
 @Id
+@GeneratedValue
 
 @Column
 
@@ -14,5 +15,19 @@
 @RestController
 @RequestMapping
 
+@PostMapping
+@PutMapping
+@GetMapping
+@DeleteMapping
+
 @Autowired 
+
+@JsonPropertity
+
+@ManyToOne
+@JoinColumn
+
+@OneToMany
+
+@ResponseStatus
 ```
