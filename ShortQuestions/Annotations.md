@@ -56,7 +56,22 @@
   }
   ```
 
-  
+
++ `@Transactional` supports further configuration as well:
+
+  - the *Propagation Type* of the transaction
+  - the *Isolation Level* of the transaction
+  - a *Timeout* for the operation wrapped by the transaction
+  - a *readOnly flag* – a hint for the persistence provider that the transaction should be read only
+  - the *Rollback* rules for the transaction
+
+  ```java
+  @Service
+  @Transactional
+  public class FooService {
+      //...
+  }
+  ```
 
 ## Controller
 
