@@ -101,3 +101,17 @@ The `@Id` annotation specifies the primary key of an entity and the `@GeneratedV
 
 ### @ResponseStatus
 `@ResponseStatus` marks a method or exception class with the status code and reason message that should be returned. The status code is applied to the HTTP response when the handler method is invoked, or whenever the specified exception is thrown. It overrides status information set by other means, like ResponseEntity or redirect.
+
+### @OneToMany, @ManyToOne, @ManyToMany
+specify a one-to-many/many-to-one/many-to-many database relationship between two tables
+
+### @NamedQuery, @NamedQueries
+`@NameQueries`: to define the multiple named queries.
+
+`@NameQuery`: to define the single named query.
+
+### @Query
+If we use the `@Query` annotation the method name can violate the JPA naming convention, but it is best to use the method name to understand the purpose of the method.
+
+### @Transactional
+Spring provides Declarative Transaction Management via `@Transactional` annotation. When a method is applied with `@Transactional`, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.
