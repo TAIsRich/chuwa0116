@@ -64,6 +64,18 @@ The @ManyToOne annotation in Spring Boot is used to specify a many-to-one relati
 ## JoinColumn
 The @JoinColumn annotation in Spring Boot is used to specify a column for joining an entity association or to map a foreign key column in the database.
 
+## @Transactional
+The @Transactional annotation is a Spring framework annotation used to indicate that a method or a class should participate in a transaction. When placed on a method, it ensures that any database transactions started within the method are committed or rolled back based on whether the method execution was successful or not. When placed on a class, all public methods within the class will participate in a transaction by default.
+
+## @PersistenceContext
+The @PersistenceContext annotation is used to inject an EntityManager instance into a field or property of a managed bean. The EntityManager is used to manage the persistence of entities in a JPA application. It provides access to a database and is responsible for performing operations like reading and writing entities to the database, as well as managing transactions.
+
+## @Query
+The @Query annotation in Spring is used to declare a query method in a Spring Data repository interface. The annotated method serves as a convenient way to express a search operation that can be executed to retrieve data from a database.
+
+## @NamedQuery
+The NamedQuery annotation in Spring is used to define a static, named query in a JPA entity class. A named query is a pre-defined query that is written in the entity class and can be reused throughout the application.
+
 
 --------------------------
 ## @Override
