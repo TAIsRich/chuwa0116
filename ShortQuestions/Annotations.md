@@ -11,7 +11,16 @@ Specify the column mapping using @Column annotation
 This annotation specifies the primary key of the entity.
 ### @GeneratedValue
 This annotation specifies the generation strategies for the values of primary keys.
-
+### @ManyToMany
+The @ManyToMany annotation is used to specify a many-to-many database relationship.
+### @ManyToOne
+The @ManyToOne annotation is used to specify a many-to-one database relationship.
+### @OneToMany
+The @OneToMany annotation is used to specify a one-to-many database relationship.
+#### @OneToOne
+The @OneToOne annotation is used to specify a one-to-one database relationship.
+### @OrderBy
+The @OrderBy annotation is used to specify the entity attributes used for sorting when fetching the currently annotated collection.
 ## Spring Web
 ### @Controller
 It marks a class as a web request handler.
@@ -40,6 +49,5 @@ It accesses elements that are already in the model of an MVC @Controller.
 It is used to mark the main class of a Spring Boot application.
 ### @Configuration 
 It marks configuration can be found automatically.
-
 ### @ComponentScan 
 It tells Spring in which packages you have annotated classes that should be managed by Spring.
