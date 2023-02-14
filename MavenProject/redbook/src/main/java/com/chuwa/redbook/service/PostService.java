@@ -1,5 +1,6 @@
 package com.chuwa.redbook.service;
 
+import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.payload.PostDTO;
 import com.chuwa.redbook.payload.PostResponse;
 
@@ -16,4 +17,10 @@ public interface PostService {
     PostDTO updatePost(PostDTO postDto, long id);
 
     void deletePostById(long id);
+
+    List<PostDTO> getAllPostWithJPQL();
+    PostDTO getPostByIdJPQLIndexParameter(Long id, String title);
+    PostDTO getPostByIdJPQLNamedParameter(Long id, String title);
+    PostDTO getPostByIdSQLIndexParameter(Long id, String title);
+    PostDTO getPostByIdSQLNamedParameter(Long id, String title);
 }
