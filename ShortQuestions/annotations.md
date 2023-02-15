@@ -195,4 +195,6 @@ shortcut for `@RequestMapping(method = RequestMethod.DELETE)`
 
 ### @AllArgsConstructor
 
+### @NotEmpty
 
+### @Size
