@@ -92,3 +92,39 @@ This annotation is used to clarify the entity manager
     @PersistenceContext
     EntityManager entityManager;
 ```
+
+### @ControllerAdvice
+This annotation in Spring allows us to define methods that will apply to multiple controllers in your application.
+
+`@ControllerAdvice` annotation can handle exceptions in your Spring application:
+Create a new class and annotate it with `@ControllerAdvice`. This class will contain methods that handle exceptions thrown by your controllers.
+```java
+@ControllerAdvice
+public class ExceptionHandlerControllerAdvice {
+    // exception handling methods go here
+}
+```
+Define methods within the `@ControllerAdvice` class that handle specific exceptions. You can use the `@ExceptionHandler` annotation to specify which exception each method handles.
+```java
+@ControllerAdvice
+public class ExceptionHandlerControllerAdvice {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                             .body("An error occurred: " + ex.getMessage());
+    }
+}
+```
+
+### `@Valid`
+This annotation indicates that a nested object should be validated.
+### `@NotNull`
+This annoation validates that the annotated field or parameter is not null.
+### `@Size`
+This annotation validates that the annotated field or parameter has a size within a specified range. You can specify the minimum and maximum size using the `min` and `max` parameters, respectively.
+### `@Pattern`
+This annotation  validates that the annotated field or parameter matches a regular expression pattern.
+### `@Max`
+This annotation validates that the annotated field or parameter is less than or equal to a specified value. You can specify the maximum value using the `value` parameter.
+### `@Min`
+This annotation validates that the annotated field or parameter is greater than or equal to a specified value. You can specify the minimum value using the `value` parameter
