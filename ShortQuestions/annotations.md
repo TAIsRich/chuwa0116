@@ -76,6 +76,30 @@ The @Query annotation in Spring is used to declare a query method in a Spring Da
 ## @NamedQuery
 The NamedQuery annotation in Spring is used to define a static, named query in a JPA entity class. A named query is a pre-defined query that is written in the entity class and can be reused throughout the application.
 
+## @ResponseStatus
+We can use @ResponseStatus with these error handler methods to define response status code.
+
+## @Configuration
+We use @Configuration so that Spring creates a Spring bean in the application context.
+
+## @Bean
+@Bean annotation is used when you want to
+explicitly declare and register a bean into application
+context, so that it will be managed by Spring.
+
+## @Valid
+@Valid annotation for method level validation. We also use it to mark a member attribute for validation.
+
+## @ExceptionHandler
+The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+
+##
+
+##
+
+##
+
+##
 
 --------------------------
 ## @Override
