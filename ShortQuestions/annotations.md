@@ -32,5 +32,10 @@
 
 17. @Transactional: Spring provides Declarative Transaction Management via @Transactional annotation. When a method is qpplied with @Transactional, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.     
 
-18. @PersistenceContext: To tell the EntityManager to use the transaction presistence context, we simply annotate it with @PersistenceContext. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. This interface defines the methods that are used to interact with the persistence contxt.    
+18. @PersistenceContext: To tell the EntityManager to use the transaction presistence context, we simply annotate it with @PersistenceContext. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. This interface defines the methods that are used to interact with the persistence contxt.     
+19. @Valid: In the context of software development, @Valid is an annotation used in Java and some other programming languages to indicate that a particular parameter or object should be validated against certain constraints.    
+
+When applied to a method parameter, @Valid indicates that the parameter must be validated according to the constraints defined on its fields or properties. For example, if a method takes a user object as a parameter and the user object has a field called "email" that is annotated with @Email (a validation annotation that checks if the field contains a valid email address), then applying @Valid to the user parameter will trigger validation of the email field when the method is called.    
+
+@Valid is often used in conjunction with the Java Bean Validation framework, which provides a set of validation annotations (such as @NotNull, @Size, @Min, @Max, etc.) that can be used to define constraints on the fields or properties of Java objects.     
 
