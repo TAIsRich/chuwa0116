@@ -93,13 +93,21 @@ context, so that it will be managed by Spring.
 ## @ExceptionHandler
 The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
 
-##
+## @CompnonentScan ?
+With Spring, we use the @ComponentScan annotation along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
 
-##
+## @SpringbootApplication ?
+@SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.
 
-##
 
-##
+## @Primary
+if there are multiple beans, beans with this annotation are primary choice for spring.
+
+## @Component
+@Component is a generic stereotype for any Spring-managed component.
+
+## @Autowired @Qualifier @Resource and @Inject
+Annotations for dependency injections.
 
 --------------------------
 ## @Override
