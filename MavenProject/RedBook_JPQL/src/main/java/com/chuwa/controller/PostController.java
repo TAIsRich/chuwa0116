@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@ControllerAdvice
 @RequestMapping("/api/v1/posts")
 public class PostController {
 

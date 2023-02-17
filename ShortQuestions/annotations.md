@@ -1,6 +1,6 @@
 ### Common Annotations in Spring Boot project development
 
-##### 1. @Configuration
+##### 1. @Configuration and @Bean
 example:
 ```
 @Configuration 
@@ -207,4 +207,97 @@ This could also allow us to customize the query, however, we do not need to obey
 ```
 @Query("select p from Post p where p.id = :key or p.title = :title")
 Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,@Param("title") String title);
+```
+
+
+##### 14. @ControllerAdvice and @ExceptionHandler
+These two annotations help users to customize the error responseentity the server would return to the front-end, and their uses are demonstrated in the following:
+```
+@ControllerAdvice
+public class ControllerExceptionHandler {
+  
+  @ExceptionHandler(value = {ResourceNotFoundException.class, CertainException.class})
+  public ResponseEntity<ErrorMessage> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+    ErrorMessage message = new ErrorMessage(
+        status,
+        date,
+        ex.getMessage(),
+        description);
+    
+    return new ResponseEntity<ErrorMessage>(message, HttpStatus.NOT_FOUND);
+  }
+}
+```
+We could therefore create a global exception handler responsible for handling multiple exceptions thrown, @ExceptionHandler would require you to declare the exception you want to handle
+
+
+##### 15. Validation in Spring or SpringBoot
+Doing the validations in SpringBoot is very straightforward, the common annotations of validations are as follows:
+- @NotNull: It determines that the value can't be null.
+- @Min: It determines that the number must be equal or greater than the specified value.
+- @Max: It determines that the number must be equal or less than the specified value.
+- @Size: It determines that the size must be equal to the specified value.
+- @Pattern: It determines that the sequence follows the specified regular expression.
+
+Then, we will need to add the hibernate validator to our dependency, this dependency is also included in the jpa-starter
+```
+<dependency>  
+    <groupId>org.hibernate.validator</groupId>  
+    <artifactId>hibernate-validator</artifactId>  
+    <version>6.0.13.Final</version>  
+</dependency>  
+```
+Then, we should define the anemic class object:
+```
+public class Employee {  
+  
+    private String name;  
+    @Size(min=1,message="required")  
+    private String pass;  
+      
+    public String getName() {  
+        return name;  
+    }  
+    public void setName(String name) {  
+        this.name = name;  
+    }  
+    public String getPass() {  
+        return pass;  
+    }  
+    public void setPass(String pass) {  
+        this.pass = pass;  
+    }     
+}  
+
+```
+String pass is actually the password we would need to validate, then, in the controller, we should declare the relevant object @Valid:
+```
+    @PostMapping 
+    public String submitForm( @Valid @RequestBody Employee e)  
+    {  
+    .....
+    }  
+}  
+
+```
+
+Then, define a global exception handler responsible for handling the method argument illegal exception:
+```
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, List<String>>> handleValidationErrors(MethodArgumentNotValidException ex) {
+        List<String> errors = ex.getBindingResult().getFieldErrors()
+                .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList());
+        return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    private Map<String, List<String>> getErrorsMap(List<String> errors) {
+        Map<String, List<String>> errorResponse = new HashMap<>();
+        errorResponse.put("errors", errors);
+        return errorResponse;
+    }
+
+}
 ```
