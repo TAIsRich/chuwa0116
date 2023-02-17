@@ -128,3 +128,22 @@ This annotation  validates that the annotated field or parameter matches a regul
 This annotation validates that the annotated field or parameter is less than or equal to a specified value. You can specify the maximum value using the `value` parameter.
 ### `@Min`
 This annotation validates that the annotated field or parameter is greater than or equal to a specified value. You can specify the minimum value using the `value` parameter
+
+### @Autowired
+This annotation tells service to dependency injection
+```java
+    @Autowired
+    private PostRepository postRepository;
+```
+
+### @ComponentScan
+This annotation defines where the spring need to scan the bean definitions and generate the beans
+```java
+@Configuration
+@ComponentScan(basePackage = "com.chuwa.spring")
+```
+
+### @ControllerAdvice
+This annotation is used to handle the exceptions globally.
+### @ExceptionHandler
+This annotation is used to handle the specific exceptions and sending the custom responses to the client.
