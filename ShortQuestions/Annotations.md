@@ -51,3 +51,9 @@ It is used to mark the main class of a Spring Boot application.
 It marks configuration can be found automatically.
 ### @ComponentScan 
 It tells Spring in which packages you have annotated classes that should be managed by Spring.
+
+## Spring Boot Exception Handling
+### @ControllerAdvice
+It's used to handle the exceptions globally.
+### @ExceptionHandler
+It's used to handle the specific exceptions and sending the custom responses to the client.
