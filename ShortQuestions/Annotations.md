@@ -73,6 +73,38 @@
   }
   ```
 
++ `@ComponentScan` annotation along with the `@Configuration` annotation to specify the packages that we want to be scanned. `@ComponentScan` without arguments tells Spring to scan the current package and all of its sub-packages.
+
+  ```java
+  @Configuration
+  @ComponentScan
+  public class SpringComponentScanApp {
+      private static ApplicationContext applicationContext;
+  
+      @Bean
+      public ExampleBean exampleBean() {
+          return new ExampleBean();
+      }
+  
+      public static void main(String[] args) {
+          applicationContext = 
+            new AnnotationConfigApplicationContext(SpringComponentScanApp.class);
+  
+          for (String beanName : applicationContext.getBeanDefinitionNames()) {
+              System.out.println(beanName);
+          }
+      }
+  }
+  
+  @ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals")
+  @Configuration
+  public class SpringComponentScanApp {
+     // ...
+  }
+  ```
+
+  
+
 ## Controller
 
 + `@RestController`is used to create RESTful web services using Spring MVC.
