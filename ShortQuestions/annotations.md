@@ -26,3 +26,7 @@
 * @ManyToOne 
 * @OneToOne 
 * @OneToMany 
+* @configuration - @configuration clearly states that a class having @Configuration annotation tells Spring container that there is one or more beans that needs to be dealt with on runtime. 
+* @Bean - @Bean is a method-level annotation and a direct analog of the XML <bean/> element. 
+* @CompnonentScan - One of the most important annotations in spring is @ComponentScan which is used along with the @Configuration annotation to specify the packages that we want to be scanned.
+*  @SpringBootApplication - Spring Boot @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It’s same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
