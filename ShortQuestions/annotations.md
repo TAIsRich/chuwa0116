@@ -275,3 +275,68 @@ When an exception is thrown by any controller in your application, Spring will s
 - `@Min`: Validates that the annotated field or parameter is greater than or equal to a specified value. You can specify the minimum value using the `value` parameter.
 
 These annotations can be used in combination to create complex validation rules for your application's data. By using these annotations, you can ensure that the data entered into your application is valid and meets the requirements of your business logic.
+
+#### Spring & Spring Boot
+
+`@ComponentScan` is an annotation provided by the Spring Framework that is used to specify the packages that should be scanned for Spring-managed components. When this annotation is used, Spring searches for classes annotated with the @Component annotation, and creates instances of these classes as Spring-managed components.
+
+The @ComponentScan annotation can be used in a Spring configuration class or in the main class of a Spring Boot application. It takes one or more package names as arguments and instructs Spring to search for components in those packages and their sub-packages.
+
+For example, if you have a Spring application with components located in the "com.example" package and its sub-packages, you can use the @ComponentScan annotation as follows:
+
+```java
+@Configuration
+@ComponentScan(basePackages = "com.example")
+public class AppConfig {
+   //...
+}
+```
+
+This tells Spring to scan the "com.example" package and its sub-packages for components. If you have components in other packages, you can include those as well by providing a comma-separated list of package names.
+
+The @ComponentScan annotation is a convenient way to configure Spring-managed components in a Spring application. It eliminates the need to manually configure individual components and provides a way to quickly and easily configure an entire application with Spring-managed components.
+
+
+
+`@SpringBootApplication` is a convenience annotation provided by Spring Boot that combines three commonly used Spring annotations: @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+
+The @Configuration annotation marks the class as a configuration class that can contain Spring Bean definitions. The @EnableAutoConfiguration annotation tells Spring Boot to automatically configure the application based on its classpath and other configurations. The @ComponentScan annotation tells Spring to scan the specified packages for Spring-managed components.
+
+By using the @SpringBootApplication annotation, you can create a Spring Boot application with minimal configuration. You only need to define the main class of your application, and Spring Boot will take care of the rest. Spring Boot will automatically configure the application based on the classpath and other configurations, and will scan the specified packages for Spring-managed components.
+
+Here's an example of how to use the @SpringBootApplication annotation:
+
+```Java
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+```
+
+In this example, the @SpringBootApplication annotation is used to mark the MyApplication class as a Spring Boot application. The main() method starts the Spring Boot application by calling the static run() method of the SpringApplication class.
+
+By using @SpringBootApplication, you can create a Spring Boot application with minimal configuration and start developing your application right away. It simplifies the process of setting up a Spring application and provides a solid foundation for building and deploying production-grade Spring Boot applications.
+
+
+
+In Spring, there are several annotations that can be used to inject beans into other components:
+
+1. `@Autowired`: The @Autowired annotation is used to inject a bean into a dependent component automatically. Spring will look for a matching bean in the context and inject it into the component.
+2. `@Qualifier`: The @Qualifier annotation is used in conjunction with @Autowired to specify which bean to inject when there are multiple beans of the same type in the context.
+3. `@Resource`: The @Resource annotation is a Java EE standard annotation that can be used to inject a bean into a dependent component. It works in a similar way to @Autowired, but can also be used to inject non-Spring beans.
+4. `@Value`: The @Value annotation is used to inject a value, such as a property or a configuration setting, into a component.
+5. `@Inject`: The @Inject annotation is another Java EE standard annotation that can be used to inject a bean into a dependent component. It works in a similar way to @Autowired, but provides more fine-grained control over injection.
+
+
+
+`@Qualifier` is used to specify which bean should be injected when there are multiple beans of the same type in the context.
+
+`@Primary` is used to indicate that a bean should be given preference when multiple beans of the same type are present in the context.
+
+`Qualifier` has a higher priority.
+
+
+
+`Scope` annotation is used to specify the scope of a bean.
