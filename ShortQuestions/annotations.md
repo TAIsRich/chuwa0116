@@ -198,3 +198,20 @@ shortcut for `@RequestMapping(method = RequestMethod.DELETE)`
 ### @NotEmpty
 
 ### @Size
+
+### @ComponentScan
+
+Define where the spring need to scan the bean definitions and generate the beans
+
+### @Configuration
+
+Which declares a class as the source for bean definitions
+
+### @EnableAutoConfiguration
+
+Which allows the application to add beans using classpath definitions
+
+### @Resource
+
+### @Inject
+
