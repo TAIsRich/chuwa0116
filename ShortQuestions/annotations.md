@@ -321,3 +321,53 @@ public class User {
   public class Book implements Serializable {
   }
   ```
+### @SpringBootApplication 
+- It is used to mark a configuration class that declares one or more `@Bean` methods and also triggers `auto-configuration` and component scanning. It’s same as declaring a class with `@Configuration`, `@EnableAutoConfiguration` and `@ComponentScan` annotations.
+
+  ```java
+  @SpringBootApplication
+  public class SpringBootRestApplication {
+  
+  	public static void main(String[] args) {
+  		SpringApplication.run(SpringBootRestApplication.class, args);
+  	}
+  }
+  ```
+
+### @Configuration 
+- `@Configuration` indicates that the class has `@Bean` definition methods. So Spring container can process the class and generate Spring Beans to be used in the application.
+
+  ```java
+  @Configuration
+  public class CollegeConfig {
+      // Here the method name is the
+      // bean id/bean name
+      @Bean
+      public College collegeBean(){
+   
+          // Returns the College class object
+          return new College();
+      }
+  }
+  ```
+
+### @ComponentScan 
+- `@ComponentScan` annotation along with the `@Configuration` annotation to specify the packages that we want to be scanned. `@ComponentScan` without arguments tells Spring to scan the current package and all of its sub-packages.
+
+  ```java
+  @Configuration
+  @ComponentScan
+  public class SpringComponentScanApp {
+      private static ApplicationContext applicationContext;
+      @Bean
+      public ExampleBean exampleBean() {
+          return new ExampleBean();
+      }
+  }
+  
+  @ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals")
+  @Configuration
+  public class SpringComponentScanApp {
+     // ...
+  }
+  ```
