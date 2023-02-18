@@ -216,3 +216,55 @@ public class UserController {
 }
 
 ```
+#@Configuration
+It is an annotation that indicates that a class declares one or more. It is used to indicate that a class is a configuration class.
+```java
+//Example with @Bean
+```
+#@Bean
+@Bean is a method-level annotation and a direct analog of the XML <bean/> element. The annotation supports most of the attributes offered by <bean/> , such as: init-method , destroy-method , autowiring , lazy-init , dependency-check , depends-on and scope.
+```java
+@Configuration
+public class AppConfig {
+   @Bean
+   public MyService myService() {
+      return new MyServiceImpl();
+   }
+}
+```
+
+#@ExceptionHandler
+
+```java
+@ControllerAdvice
+public class ExceptionHandlerController {
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleException(Exception ex) {
+        ErrorResponse errorResponse = new ErrorResponse("500", ex.getMessage());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+```
+
+# @CompnonentScan
+@ComponentScan is an annotation in Spring that is used to enable component scanning in your application. Component scanning is a process that Spring uses to automatically detect and register Spring components (such as @Component, @Service, @Repository, and @Controller) in your application.
+```java
+@SpringBootApplication
+@ComponentScan("com.example.myapp")
+public class MyAppApplication {
+    // ...
+}
+```
+
+# @SpringBootApplication
+@SpringBootApplication is a convenience annotation that combines three other annotations commonly used in Spring Boot applications: @Configuration, @EnableAutoConfiguration, and @ComponentScan. It is typically used to annotate the main class of a Spring Boot application, as it enables auto-configuration and component scanning for the application.  
+```java
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+```
+
