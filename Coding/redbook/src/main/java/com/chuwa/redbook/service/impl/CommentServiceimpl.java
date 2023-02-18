@@ -9,6 +9,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.CommentDTO;
 import com.chuwa.redbook.service.CommentService;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -24,14 +25,18 @@ public class CommentServiceimpl implements CommentService {
     private PostRepository postRepository;
     @Autowired
     private CommentRepository commentRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public CommentDTO createComment(Long postId, CommentDTO commentDTO) {
-        Comment comment = mapToComment(commentDTO);
+        // Comment comment = mapToComment(commentDTO);
+        Comment comment = modelMapper.map(commentDTO, Comment.class);
         Post post = postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post", "id", postId));
         comment.setPost(post);
         commentRepository.save(comment);
-        CommentDTO response = mapToCommentDTO(comment);
+        // CommentDTO response = mapToCommentDTO(comment);
+        CommentDTO response = modelMapper.map(comment, CommentDTO.class);
         return response;
     }
 
@@ -41,7 +46,8 @@ public class CommentServiceimpl implements CommentService {
                 .findByPostId(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId))
                 .stream()
-                .map(comment -> mapToCommentDTO(comment))
+                // .map(comment -> mapToCommentDTO(comment))
+                .map(comment -> modelMapper.map(comment, CommentDTO.class))
                 .collect(Collectors.toList());
         return list;
     }
@@ -53,7 +59,8 @@ public class CommentServiceimpl implements CommentService {
         if(!comment.getPost().getId().equals(post.getId())) {
             throw new BlogApiException("Comment and post does not match", HttpStatus.BAD_REQUEST);
         }
-        return mapToCommentDTO(comment);
+        // return mapToCommentDTO(comment);
+        return modelMapper.map(comment, CommentDTO.class);
     }
 
     @Override
@@ -67,7 +74,8 @@ public class CommentServiceimpl implements CommentService {
         comment.setEmail(commentDTO.getEmail());
         comment.setBody(commentDTO.getBody());
         Comment updatedComment = commentRepository.save(comment);
-        return mapToCommentDTO(updatedComment);
+        // return mapToCommentDTO(updatedComment);
+        return modelMapper.map(updatedComment, CommentDTO.class);
     }
 
     @Override
@@ -80,21 +88,21 @@ public class CommentServiceimpl implements CommentService {
         commentRepository.deleteById(commentId);
     }
 
-    private Comment mapToComment(CommentDTO commentDTO) {
-        Comment comment = new Comment();
-        comment.setId(commentDTO.getId());
-        comment.setBody(commentDTO.getBody());
-        comment.setEmail(commentDTO.getEmail());
-        comment.setName(commentDTO.getName());
-        return comment;
-    }
-
-    private CommentDTO mapToCommentDTO(Comment comment) {
-        CommentDTO commentDTO = new CommentDTO();
-        commentDTO.setBody(comment.getBody());
-        commentDTO.setId(comment.getId());
-        commentDTO.setEmail(comment.getEmail());
-        commentDTO.setName(comment.getName());
-        return commentDTO;
-    }
+//    private Comment mapToComment(CommentDTO commentDTO) {
+//        Comment comment = new Comment();
+//        comment.setId(commentDTO.getId());
+//        comment.setBody(commentDTO.getBody());
+//        comment.setEmail(commentDTO.getEmail());
+//        comment.setName(commentDTO.getName());
+//        return comment;
+//    }
+//
+//    private CommentDTO mapToCommentDTO(Comment comment) {
+//        CommentDTO commentDTO = new CommentDTO();
+//        commentDTO.setBody(comment.getBody());
+//        commentDTO.setId(comment.getId());
+//        commentDTO.setEmail(comment.getEmail());
+//        commentDTO.setName(comment.getName());
+//        return commentDTO;
+//    }
 }

@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(
@@ -25,6 +26,8 @@ public class Post {
     private String description;
     @Column(name = "content", nullable = false)
     private String content;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comment> comments;
 
     @CreationTimestamp
     private LocalDateTime createDateTime;
@@ -36,6 +39,16 @@ public class Post {
         this.title = title;
         this.description = description;
         this.content = content;
+        this.createDateTime = createDateTime;
+        this.updateDateTime = updateDateTime;
+    }
+
+    public Post(Long id, String title, String description, String content, Set<Comment> comments, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.content = content;
+        this.comments = comments;
         this.createDateTime = createDateTime;
         this.updateDateTime = updateDateTime;
     }
@@ -81,6 +94,14 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     public LocalDateTime getCreateDateTime() {
