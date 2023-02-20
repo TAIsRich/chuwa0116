@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
                 @UniqueConstraint(columnNames = {"title"})
         }
 )
+
+@NamedQuery(name="Post.getAll", query="select p from Post p")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
