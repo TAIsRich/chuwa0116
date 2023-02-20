@@ -194,6 +194,89 @@ public class TutorialTransactionApplication{
 ```
 
 
+####@Bean:
+```
+@Bean
+public ModelMapper modelMapper() {
+   return new ModelMapper();
+}
+
+```
+
+#Dealing with exceptions
+
+####@ExceptionHandler
+####@ControllerAdvice
+```
+@ControllerAdvice
+public class ControllerExceptionHandler{
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorDetails>  handleResourceNotFoundException(ResourceNotFoundException  exception,
+                                                                   WebRequest webRequest) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(), webRequest.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+}
+```
+
+#Validation
+
+#### @Valid
+```
+@PostMapping
+public ResponseEntity<PostDTO> createPost(@Valid @RequestBody postDTO postDTO){
+    return new ResponseEntity<>(postService.createPost(postDTO), HttpStatus.CREATED);
+}
+```
+
+####@NotEmpty, @Size(used for make valid rules)
+```
+@NotEmpty
+@Size(min = 5, message = "Comment body must be minimum 5 characters")
+private String body;
+```
+
+
+#Inversion of Control(IoC)
+####@ComponentScan: 
+    Defines where the spring need to scan the bean definations and generate the beans.
+
+####@SpringBootApplication:
+
+####@Configuration:
+    Declares a class as the source for bean definitions.
+
+####@EnableAutoConfiguration:
+    Allows the application to add beans using classpath definitions
+```
+@Configuration
+@ComponentScan(basePackage = {"packagename"})
+public class BeanConfiguration{
+
+}
+```
+
+####@Qualifier:
+```
+@Qualifier("first")
+@Autowired
+private Formatter formatter;
+System.out.println(formatter.format());
+```
+
+####@Primary:
+```
+@Primary
+@Component("first")
+public class First{
+
+}
+
+```
+####@Resource: 
+    A method to implement dependency injection.
+
+
 
 
 
