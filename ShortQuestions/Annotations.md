@@ -56,6 +56,53 @@
   }
   ```
 
+
++ `@Transactional` supports further configuration as well:
+
+  - the *Propagation Type* of the transaction
+  - the *Isolation Level* of the transaction
+  - a *Timeout* for the operation wrapped by the transaction
+  - a *readOnly flag* – a hint for the persistence provider that the transaction should be read only
+  - the *Rollback* rules for the transaction
+
+  ```java
+  @Service
+  @Transactional
+  public class FooService {
+      //...
+  }
+  ```
+
++ `@ComponentScan` annotation along with the `@Configuration` annotation to specify the packages that we want to be scanned. `@ComponentScan` without arguments tells Spring to scan the current package and all of its sub-packages.
+
+  ```java
+  @Configuration
+  @ComponentScan
+  public class SpringComponentScanApp {
+      private static ApplicationContext applicationContext;
+  
+      @Bean
+      public ExampleBean exampleBean() {
+          return new ExampleBean();
+      }
+  
+      public static void main(String[] args) {
+          applicationContext = 
+            new AnnotationConfigApplicationContext(SpringComponentScanApp.class);
+  
+          for (String beanName : applicationContext.getBeanDefinitionNames()) {
+              System.out.println(beanName);
+          }
+      }
+  }
+  
+  @ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals")
+  @Configuration
+  public class SpringComponentScanApp {
+     // ...
+  }
+  ```
+
   
 
 ## Controller
