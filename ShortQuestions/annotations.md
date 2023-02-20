@@ -109,6 +109,26 @@ if there are multiple beans, beans with this annotation are primary choice for s
 ## @Autowired @Qualifier @Resource and @Inject
 Annotations for dependency injections.
 
+## @EnableTransactionManagement
+When this annotation is added to a Spring configuration class, it allows the Spring framework to detect @Transactional annotations on methods in the application and automatically provide transaction management support.
+
+## @PropertySource
+@PropertySource is an annotation in Spring Framework that is used to declare a property source file or files. It allows Spring to load properties from external files and inject them into a Spring bean.
+
+## @EnableWebMvc
+When @EnableWebMvc is used, Spring Boot automatically configures the application to use Spring MVC. This includes configuring a default RequestMappingHandlerAdapter and RequestMappingHandlerMapping to handle incoming HTTP requests, as well as other MVC-related components.
+##
+
+##
+
+##
+
+##
+
+##
+
+
+
 --------------------------
 ## @Override
 Overrides an inherited methods
