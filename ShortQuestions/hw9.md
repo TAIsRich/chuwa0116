@@ -5,6 +5,17 @@
 ### 2. how do you do the debug?
 
 ### 3. What is DTO, VO, Payload, DO?
+The terms DTO, VO, Payload, and DO are used in software development to represent different concepts related to data transfer and storage. Here is a brief explanation of each term:
+
+DTO (Data Transfer Object): A DTO is an object that is used to transfer data between layers or components of an application. It is used to encapsulate data in a format that can be easily serialized and transmitted over a network, or to represent data that is being passed from one layer of an application to another.
+
+VO (Value Object): A VO is similar to a DTO, but it is focused on representing the value of an object rather than its state. VOs are used to pass values between layers or components of an application and are often used in situations where the data being transferred is immutable.
+
+Payload: The payload is the actual data being transferred in a request or response. It is the data that is carried by a message, such as an HTTP request or a message sent over a network. The payload can be serialized in different formats, such as JSON or XML, and can be used to represent DTOs, VOs, or other data structures.
+
+DO (Data Object): A DO is an object that represents data in a persistent storage layer, such as a database. A DO is typically used to represent a single record in a database table and is used to map data between the database and the application's business logic.
+
+It is important to note that these terms can have different meanings in different contexts, and the exact definition may vary depending on the context and the specific implementation.
 
 ### 4. What is @JsonProperty("description_yyds")
 
@@ -28,8 +39,16 @@ Object–relational mapping (ORM, O/RM, and O/R mapping tool) in computer scienc
 ### 11. Learn how to use ObjectMapper by this example.
 
 ### 12. What is the serialization and desrialization?
+Serialization is a mechanism of converting the state of an object into a byte stream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object. 
 
 ### 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
+```java
+public double calculateAverage(int[] arr) {
+  return arr.stream()
+          .average()
+          .getAsDouble();
+}
+```
 
 ### 14, add new code
 
