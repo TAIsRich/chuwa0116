@@ -197,7 +197,7 @@ Additionally, the `@Repository` annotation provides exception translation. In th
 
 `@ResponseStatus`: 
 
-#### Json
+### Json
 
 `@JsonProperty` is a Jackson annotation used to specify the name of a property in a JSON serialization or deserialization process. When a Java object is serialized to JSON, the names of its properties are used as the names of the corresponding fields in the JSON representation. Similarly, when a JSON object is deserialized to a Java object, the names of the fields in the JSON object are used to set the values of the properties in the Java object.
 
@@ -218,13 +218,13 @@ public class User {
 
 In this example, the `@JsonProperty` annotations are used to specify that the `id` property in the Java object should be serialized as the field `user_id` in the JSON representation, and the `name` property in the Java object should be serialized as the field `user_name` in the JSON representation.
 
-#### Transaction
+### Transaction
 
 `EnableTransactionManagement` is a **annotation** that we can use in a *@Configuration* class to enable transactional support. However, if we're using a Spring Boot project and have a spring-data-\* or spring-tx dependencies on the classpath, then transaction management will be enabled by default.
 
 `@Transactional`: we can annotate a bean with @Transactional either at the class or method level. The proxy allows the framework to inject transactional logic before and after the running method, mainly for starting and committing the transaction.
 
-#### Exception
+### Exception
 
 `@ControllerAdvice` is an annotation in Spring that allows you to define methods that will apply to multiple controllers in your application. Here's how you can use `@ControllerAdvice` to handle exceptions in your Spring application:
 
@@ -265,7 +265,7 @@ In this example, the `@ControllerAdvice` applies only to controllers in the `com
 
 When an exception is thrown by any controller in your application, Spring will search for a matching exception handling method in your `@ControllerAdvice` class and invoke it if found.
 
-#### Validation
+### Validation
 
 - `@Valid`: Indicates that a nested object should be validated.
 - `@NotNull`: Validates that the annotated field or parameter is not null.
@@ -276,7 +276,7 @@ When an exception is thrown by any controller in your application, Spring will s
 
 These annotations can be used in combination to create complex validation rules for your application's data. By using these annotations, you can ensure that the data entered into your application is valid and meets the requirements of your business logic.
 
-#### Spring & Spring Boot
+### Spring & Spring Boot
 
 `@ComponentScan` is an annotation provided by the Spring Framework that is used to specify the packages that should be scanned for Spring-managed components. When this annotation is used, Spring searches for classes annotated with the @Component annotation, and creates instances of these classes as Spring-managed components.
 
@@ -340,3 +340,25 @@ In Spring, there are several annotations that can be used to inject beans into o
 
 
 `Scope` annotation is used to specify the scope of a bean.
+
+### Security
+
+`@EnableWebSecurity` is an annotation in the Spring Security framework that enables web security features in a Spring Boot application. When this annotation is used in a Spring Boot application, it automatically configures several default security features, such as authentication and authorization.
+
+The `@EnableWebSecurity` annotation can be used to configure web security by creating a class that extends the `WebSecurityConfigurerAdapter` class and annotating it with `@EnableWebSecurity`. This class can then override methods to configure various security features, such as authentication and authorization, as well as configure specific security rules for different paths or URLs.
+
+When the Spring Boot application starts up, it scans for any classes that are annotated with `@EnableWebSecurity` and automatically applies the security configuration provided by those classes.
+
+In summary, `@EnableWebSecurity` is a Spring Security annotation that enables web security in a Spring Boot application and provides a convenient way to configure authentication, authorization, and other security features.
+
+
+
+There are several annotations that are related to `@EnableWebSecurity` in the Spring Security framework. Here are a few examples:
+
+1. `@Configuration`: This annotation indicates that the class is a configuration class that provides Spring configuration metadata.
+2. `@EnableGlobalMethodSecurity`: This annotation enables method-level security using Spring Security. It allows you to secure individual methods or entire classes with specific security rules.
+3. `@EnableWebMvcSecurity`: This annotation is used in Spring Security 3.x to enable web security in a Spring MVC application. It has been replaced by `@EnableWebSecurity` in Spring Security 4.x and higher.
+4. `@Order`: This annotation specifies the order in which Spring Security filters should be applied. It is used to control the order in which filters are applied to incoming requests.
+5. `@Secured`: This annotation is used to secure individual methods or entire classes with specific security rules. It is used in conjunction with the `@EnableGlobalMethodSecurity` annotation.
+
+Overall, these annotations provide a convenient way to configure and customize the security features in a Spring Boot application using the Spring Security framework.
