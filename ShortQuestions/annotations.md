@@ -240,10 +240,11 @@ Using this annotation, you can specify mocks in ApplicationContext and mocks the
     }
 
 16. @RestController
+    
 @RestController注解，代表返回的是json格式的数据，这个注解是Spring4之后新加的注解，原来返回json格式的数据需要@ResponseBody配合@Controller一起使用；
 A convenience annotation that is itself annotated with @Controller and @ResponseBody.
 
-17. @Transactional
+17.  @Transactional
 
 保证原子操作的
 
@@ -254,3 +255,17 @@ A convenience annotation that is itself annotated with @Controller and @Response
 
 
 20. @Bean 第三方工具包,想放进来IOC容器中, autowaired 得放这个 @Configuration return new (一般放config文件夹)
+
+21. @ExceptionHandler
+    
+Method Level
+used to handle the specific exceptions and sending the custom 
+responses to the client
+
+
+22.  @ControllerAdvice
+Class Level to handle the exceptions globally
+
+23.  What is @CompnonentScan?
+
+One of the most important annotations in spring is @ComponentScan which is used along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.

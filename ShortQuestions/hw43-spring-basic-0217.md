@@ -1,0 +1,158 @@
+1. List all of the annotations you learned from class and homework to annotaitons.md
+
+see annotaitons.md
+
+2. What is Spring and Springboot? What is the benfits of using Srpingboot?
+
+What is Spring?
+Spring is a lightweight open-source Java development framework. It provides a comprehensive programming and configuration model for developing enterprise level Java applications. It aims to simplify enterprise Java development and helps developers build applications more effectively and efficiently.
+
+Benefits of Spring
+Can be used for all layers of application development
+Quite lightweight considering the POJO model
+Allows loose coupling and easy testing
+Supports declarative programming
+Supports XML and annotation configurations
+Provides middleware services
+ 
+What is Spring Boot?
+Spring Boot is an extension of Spring, which eliminates the boilerplate configurations required for setting up a Spring application. Featuring default codes and annotation based configuration, Spring Boot enables a faster and more efficient development ecosystem.
+
+Since Spring Boot is built on top of Spring, it offers all the features and benefits of Spring. Spring Boot aims to reduce code length and provides developers with the easiest way to build an application.
+
+Benefits of Spring Boot
+Can be used to build standalone applications
+No need to deploy WAR files
+Doesn't require XML configuration
+Embeds Tomcat, Jetty and Undertow directly
+Offers production ready features
+Easier to launch
+Easier management and customization
+ 
+
+Spring vs Spring Boot
+Below is a table listing some of the main differences between Spring and Spring Boot:
+
+Spring: 
+
+    Allows building loosely coupled applications
+
+    Aims to simplify enterprise Java development
+
+    Allows building loosely coupled applications
+
+    Main feature is dependency injection
+
+    Involves writing lots of boilerplate code
+
+    Needs dependencies to be defined manually
+
+    Involves setting up server manually
+
+Spring Boot:
+
+	Widely used for building REST APIs
+
+    Aims to shorten code length and easily build web applications
+
+    Allows building standalone applications
+
+    Main feature is auto-configuration
+
+    Reduces boilerplate code
+
+    Starters take care of dependencies
+
+    Includes embedded server like Tomcat and Jetty
+
+
+ref: https://rollbar.com/blog/spring-vs-spring-boot-whats-the-difference/
+
+3. What is IOC and What is DI?
+
+Spring IoC (Inversion of Control) Container is the core of Spring Framework. It creates the objects, configures and assembles their dependencies, manages their entire life cycle. The Container uses Dependency Injection(DI) to manage the components that make up the application.
+
+
+4. What is  @CompnonentScan?
+
+One of the most important annotations in spring is @ComponentScan which is used along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
+
+5. How to define which package spring need to scan in xml and annotaiton? 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+               
+     <context:component-scan base-package="org.example"/>
+</beans>
+
+@ComponentSacn
+```
+ref: https://docs.spring.io/spring-framework/docs/3.0.0.M4/reference/html/ch03s10.html
+
+6. What is  @SpringbootApplication?
+
+Spring Boot SpringApplication class is used to bootstrap and launch a Spring application from a Java main method. This class automatically creates the ApplicationContext from the classpath, scan the configuration classes and launch the application (not Mandatory)
+
+7. How many ways wo can define a bean?
+
+There are three different ways in which you can define a Spring bean: annotating your class with the stereotype @Component annotation (or its derivatives) writing a bean factory method annotated with the @Bean annotation in a custom Java configuration class. declaring a bean definition in an XML configuration file.
+
+8. What is default bean name for  @Component and  @Bean?
+
+The default bean name will be method name. It means first bean name is getBeanA and second bean name is getBeanB . A bean can be accessed by bean class or bean name or can be injected in component using @Autowired annotation.
+
+9.  What is the difference between  @component and  @service,@repository?
+
+@Component – Indicates a auto scan component. @Repository – Indicates DAO component in the persistence layer. @Service – Indicates a Service component in the business layer.
+
+10. How many annotaitons we can use to inject the bean?
+
+The injection in Spring is either done via setter, field or constructor injection. Classes which are managed by Spring DI must conform to the Java bean standard. In the context of Spring classes are also referred to as beans or as spring beans.
+
+11. Tell me the three types to do dependency injection(How can we inject the beans in Spring)? Which way is better and why?
+
+There are three main styles of dependency injection, according to Fowler: Constructor Injection (also known as Type 3), Setter Injection (also known as Type 2), and Interface Injection (also known as Type 1).
+
+Constructor-based dependency injection is certainly considered a best practice.
+
+12. If we have multiple beans for one type, how to set one is primary? and how to let the spring to pick one bean to inject if no primay.
+
+annotate the object generating method in the @Configuration class with @Primary
+If there is no primary, use @Qualifier
+
+13. What is the difference between BeanFactory and ApplicationContext in Spring?
+
+While the BeanFactory provides basic functionality for managing and manipulating beans, often in a programmatic way, the ApplicationContext provides extra functionality like MessageSource, Access to resources, Event propagation to beans, Loading of multiple (hierarchical) contexts etc
+
+14. What is the Scope of a Bean?  and list the examples for each scope.
+
+The lifecycle of Bean, how long Bean will live, how many instances will be created, how bean is shared in in the environment.
+
+singleton(default), prototype, request, session, global session
+
+15. Configure a bean using xml. If bean has parameters/dependencies, how can we configure the bean? (you can google the tutorial how to configure beans in xml, and feel free to ask me any quesitons if you don't understand. it is a little bit old, I am not sure if I need to exaplain it in class)
+    
+```
+@Configuration
+public class AppConfig {
+    @Bean
+    public TransferService transferService() {
+        return new TransferServiceImpl();
+    }
+}
+
+<beans>
+    <bean name="transferService" class="com.company.TransferServiceImpl"/>
+</beans>
+
+<bean class="org.springframework.config.java.process.ConfigurationPostProcessor"/> 
+```
+
+ref: https://stackoverflow.com/questions/57848151/spring-create-bean-in-xml-with-reference-to-java-bean-and-the-other-way-aroun#:~:text=Creating%20a%20bean%20in%20Java,the%20bean%20and%20vice%20versa.&text=To%20declare%20a%20bean%2C%20simply,method%20with%20the%20%40Bean%20annotation.
