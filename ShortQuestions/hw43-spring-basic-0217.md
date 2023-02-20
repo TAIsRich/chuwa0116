@@ -65,7 +65,7 @@ A bean's scope refers to the lifecycle of the bean; things like how long the bea
     * Session
     * Applicaiton
     * Websocket
-18. Configure a bean using xml. If bean has parameters/dependencies, how can we configure the bean? (you can google the tutorial how to configure beans in xml, and feel free to ask me any quesitons if you don't understand. it is a little bit old, I am not sure if I need to exaplain it in class)
+18. Configure a bean using xml. If bean has parameters/dependencies, how can we configure the bean? (you can google the tutorial how to configure beans in xml, and feel free to ask me any qu`esitons if you don't understand. it is a little bit old, I am not sure if I need to exaplain it in class)
 To declare a bean, simply annotate a method with the @Bean annotation. When JavaConfig encounters such a method, it will execute that method and register the return value as a bean within a BeanFactory. By default, the bean name will be that of the method name.
 ```
 @Configuration
