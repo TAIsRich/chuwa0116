@@ -301,3 +301,22 @@ public class GlobalExceptionHandler {
 
 }
 ```
+
+##### 16. @RequestBody and @ResponseBody
+One exmample of these two annotations is as follows, actually, these two annotations are used to receive json format request from the client, and then respond to the client's requests by json format as well.
+```
+@Controller
+@RequestMapping("/post")
+public class ExamplePostController {
+
+    @Autowired
+    ExampleService exampleService;
+
+    @PostMapping("/response")
+    @ResponseBody
+    public ResponseTransfer postResponseController(
+      @RequestBody LoginForm loginForm) {
+        return new ResponseTransfer("Thanks For Posting!!!");
+     }
+}
+```
