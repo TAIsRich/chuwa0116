@@ -54,6 +54,29 @@
                       query="SELECT c FROM Country c WHERE c.name = :name"),
       }) 
   ```
+
+## Payload
+1. `@NotEmpty`, `@Size()`, `@Valid`
+```java
+public class PostDto {
+    private long id;
+    
+    @NotEmpty
+    @Size(min = 2, message = "Post title should have at least 2 chars")
+    private String title;
+    
+    @NotEmpty
+    @Size(min = 10, message = "Post description should have at least 10 chars")
+    
+}
+```
+
+```java
+@PostMapping
+public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto) {
+    return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
+}
+```
 ## Controller
 1. `@RestController`, `@RequestMapping("/api/v1/posts")`, `@Autowired`, `@PostMapping`
     ```java
