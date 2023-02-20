@@ -104,3 +104,65 @@
 
 - Add on top of Applications.java to enable transaction in spring
 
+
+@configuration
+
+- @Configuration annotation indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application. This annotation is part of the spring core framework
+
+@Bean
+
+- An annotation used to specify some class-related information for the automatically generated BeanInfo classes
+
+@ExceptionHandler
+
+-  Exception handling in Spring MVC. Define a method to handle exceptions and annotate with @ExceptionHandler
+
+@ControlAdvice
+
+- @ControllerAdvice is a specialized form of the spring's stereotype annotation which allows handling exceptions across the whole application in one global handling component
+
+@NotNull
+
+- It determines that the value can't be null.
+
+@Pattern
+
+- It determines that the sequence follows the specified regular expression.
+
+@Min
+
+- It determines that the number must be equal or greater than the specified value.
+
+@Max
+
+- It determines that the number must be equal or less than the specified value
+
+@Size
+
+- It determines that the size must be equal to the specified value.
+  
+
+@ComponentScan
+
+- Directs Spring to search for components in the path specified
+
+@Configuration
+
+- Declares a class as the source for bean definitions
+
+@EnableAutoConfiguration
+
+- Allows the application to add beans using classpath definitions
+
+@SpringbootApplication
+
+- @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It's same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations
+
+@@Qualifier
+
+- There may be a situation when you create more than one bean of the same type and want to wire only one of them with a property. In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired
+
+@Primary
+
+- we use @Primary to give higher preference to a bean when there are multiple beans of the same type
+
