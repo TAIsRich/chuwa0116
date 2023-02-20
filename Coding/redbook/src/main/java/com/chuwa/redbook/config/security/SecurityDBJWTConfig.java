@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -58,6 +59,7 @@ public class SecurityDBJWTConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/auth/**").permitAll()
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/api/v1/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -70,13 +72,8 @@ public class SecurityDBJWTConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     @Bean
-    protected UserDetailsService userDetailsService(){
-        UserDetails chuwa= User.builder().username("chuwa").password(
-                passwordEncoder().encode("chuwa")).roles("USER").build();
-        UserDetails zhangsan=User.builder().username("admin").password(
-                passwordEncoder().encode("admin")).roles("ADMIN").build();
-
-        return  new InMemoryUserDetailsManager(chuwa,zhangsan);
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
 }

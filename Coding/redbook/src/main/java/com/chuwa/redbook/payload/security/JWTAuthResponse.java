@@ -1,6 +1,7 @@
 package com.chuwa.redbook.payload.security;
 
 public class JWTAuthResponse {
+
     private String accessToken;
     private String tokenType;
 

@@ -8,7 +8,8 @@ import com.chuwa.redbook.payload.security.JWTAuthResponse;
 import com.chuwa.redbook.payload.security.LoginDto;
 import com.chuwa.redbook.payload.security.SignUpDto;
 import com.chuwa.redbook.security.JwtTokenProvider;
-import org.modelmapper.ModelMapper;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,23 +44,28 @@ public class AuthJWTController {
 
     @Autowired
     private JwtTokenProvider tokenProvider;
-    private ModelMapper modelMapper;
+
     private static final Logger logger= LoggerFactory.getLogger(AuthJWTController.class);
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/signin")
-    public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
-        logger.info(loginDto.getAccountOrEmail()+"is trying to sign in our application");
+    public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto) {
+        logger.info(loginDto.getAccountOrEmail() + "is trying to sign in our application");
 
-        Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getAccountOrEmail(),loginDto.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                loginDto.getAccountOrEmail(), loginDto.getPassword()
+        ));
+        logger.info(loginDto.getAccountOrEmail() + "is trying to sign in our application");
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token=tokenProvider.generateToken(authentication);
-        JWTAuthResponse jwtAuthResponse=new JWTAuthResponse(token);
-        jwtAuthResponse.setAccessToken("JWT");
-        logger.info(loginDto.getAccountOrEmail()+"sign in successfully");
+        String token = tokenProvider.generateToken(authentication);
+        JWTAuthResponse jwtAuthResponse = new JWTAuthResponse(token);
+        jwtAuthResponse.setTokenType("JWT");
+
+        logger.info(loginDto.getAccountOrEmail() + "sign in successfully");
         return ResponseEntity.ok(jwtAuthResponse);
     }
-
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto){
@@ -72,13 +80,16 @@ public class AuthJWTController {
             return new ResponseEntity<>("Email is already taken!",HttpStatus.BAD_REQUEST);
 
         }
-        User user= modelMapper.map(signUpDto,User.class);
-
-        Role roles=null;
-        if(signUpDto.getAccount().contains("chuwa")){
-            roles=roleRepository.findByName("ROLE_ADMIN").get();
-        }else{
-            roles=roleRepository.findByName("ROLE_USER").get();
+        User user = new User();
+        user.setName(signUpDto.getName());
+        user.setAccount(signUpDto.getAccount());
+        user.setEmail(signUpDto.getEmail());
+        user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
+        Role roles = null;
+        if (signUpDto.getAccount().contains("chuwa")) {
+            roles = roleRepository.findByName("ROLE_ADMIN").get();
+        } else {
+            roles = roleRepository.findByName("ROLE_USER").get();
         }
         user.setRoles(Collections.singleton(roles));
         userRepository.save(user);
