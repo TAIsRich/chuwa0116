@@ -153,6 +153,51 @@ public String getFoos(@RequestParam String id) {
 }
 ```
 
+
+## @Configuration
+
+@Configuration annotation which indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application. 
+
+## @bean
+
+@Bean annotationis applied on a method to specify that it returns a bean to be managed by Spring context. Spring Bean annotation is usually declared in Configuration classes methods.
+
+## @ControllerAdvice
+
+Classes annotated with @ControllerAdvice can be declared explicitly as Spring beans or auto-detected via classpath scanning. 
+
+```Java
+@ControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
+}
+
+```
+
+## @ExceptionHandler
+
+```Java
+@ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception,
+                                                                        WebRequest webRequest) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
+                webRequest.getDescription(false));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+```
+## @NotEmpty @NotNull @Size
+
+```Java
+public class CommentDto {
+
+    private long id;
+
+    @NotEmpty(message = "Name should not be null or empty")
+    private String name;
+}
+
+
 ## @OneToMany, @ManyToOne, @ManyToMany
 
 @OneToMany: One record in the table relates multiple records in another table.
@@ -278,4 +323,5 @@ To make a unit of operations atomic.
 ```Java
 @Transactional
 public class PostJPQLRepositoryImpl implements PostJPQLRepository {}
+
 ```
