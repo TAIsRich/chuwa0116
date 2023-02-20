@@ -105,11 +105,14 @@ public class PostServiceImpl implements PostService {
 ```
 
 ### @Autowired
-tell service to use repository
+tell service to dependency injection
 ```java
     @Autowired
     private PostRepository postRepository;
 ```
+### @Resource
+By Name > By Type
+### @Inject
 
 ## Annotation used by Controller
 ### @RestController
@@ -190,4 +193,11 @@ tell the url path
     EntityManager entityManager;
 ```
 
+### @ComponentScan
+Define where the spring need to scan the bean definitions and generate the beans
+```java
+@Configuration
+@ComponentScan(basePackage = "com.chuwa.spring")
+```
+### @SpringBootApplication
 
