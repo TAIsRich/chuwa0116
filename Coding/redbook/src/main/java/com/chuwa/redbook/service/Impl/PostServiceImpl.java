@@ -6,6 +6,7 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDTO;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,27 +22,20 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+
     @Override
     public PostDTO createPost(PostDTO postDTO){
+        Post post=modelMapper.map(postDTO, Post.class);
 
-        Post post=new Post();
-        post.setTitle(postDTO.getTitle());
-        post.setDescription(postDTO.getDescription());
-        post.setContent(postDTO.getContent());
-
-
-        //2. Save Post to DB
         Post savedPost=postRepository.save(post);
-
-        //3. convert Post back to postDTO
-
-        PostDTO response=new PostDTO();
-        response.setId(savedPost.getId());
-        response.setTitle(savedPost.getTitle());
-        response.setDescription(savedPost.getDescription());
-        response.setContent(savedPost.getContent());
-        return response;
+        return modelMapper.map(savedPost,PostDTO.class);
     }
+
     @Override
     public PostResponse getAllpost(int pageNo, int pageSize, String sortBy, String sortDir){
         Sort sort=sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())? Sort.by(sortBy).ascending()
@@ -50,7 +44,7 @@ public class PostServiceImpl implements PostService {
         Page<Post> pagePosts=postRepository.findAll(pageRequest);
 
         List<Post> posts=pagePosts.getContent();
-        List<PostDTO> postDtos=posts.stream().map(post->mapToDTO(post)).collect(Collectors.toList());
+        List<PostDTO> postDtos=posts.stream().map(post->modelMapper.map(post,PostDTO.class)).collect(Collectors.toList());
         PostResponse postResponse=new PostResponse();
         postResponse.setContent(postDtos);
         postResponse.setPageNo(postResponse.getPageNo());
@@ -64,7 +58,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDTO> getAllPost() {
         List<Post> posts = postRepository.findAll();
-        List<PostDTO> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDTO> postDtos = posts.stream().map(post -> modelMapper.map(post,PostDTO.class)).collect(Collectors.toList());
         return postDtos;
     }
     @Override
@@ -110,11 +104,4 @@ public class PostServiceImpl implements PostService {
         return postDTO;
     }
 
-    private Post mapToEntity(PostDTO postDto){
-        Post post=new Post();
-        post.setTitle(postDto.getTitle());
-        post.setDescription(postDto.getDescription());
-        post.setContent(postDto.getContent());
-        return post;
-    }
 }
