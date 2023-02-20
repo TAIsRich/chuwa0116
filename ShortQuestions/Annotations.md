@@ -432,4 +432,39 @@ public class User {
   }
   ```
 
+
+## Security
+
++ `@EnableWebSecurity` is annotated at class level with `@Configuration` annotation to enable web securities in our application defined by `WebSecurityConfigurer` implementations. 
+
+  ```java
+  @EnableWebSecurity
+  public class SecurityConfig {
   
+      @Autowired
+      public void configureGlobal(AuthenticationManagerBuilder auth) 
+        throws Exception {
+          auth.inMemoryAuthentication().withUser("user")
+            .password(passwordEncoder().encode("password")).roles("USER");
+      }
+  }
+  ```
+
++ `@EnableGlobalMethodSecurity` We can enable annotation-based security using the *@EnableGlobalMethodSecurity* annotation on any *@Configuration* annotated class. By default, global method security is disabled, so if you want to use this functionality, you first need to enable it. Hence, in order to get access of annotations such as *@PreAuthorize, @PostAuthorize, @Secured, @RolesAllowed*, you first need to enable Global Method Security by applying *@EnableGlobalMethodSecurity* annotation to any *@Configuration* annotated java class.
+
+  ```java
+  @EnableWebSecurity
+  @EnableGlobalMethodSecurity(
+          prePostEnabled = true,  // Enables @PreAuthorize and @PostAuthorize
+          securedEnabled = true, // Enables @Secured 
+          jsr250Enabled = true    // Enables @RolesAllowed (Ensures JSR-250 annotations are enabled)
+   )
+  @Configuration 
+   public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Override 
+        protected void configure(HttpSecurity http) throws Exception {
+                ....
+        }
+         // some other overriden methods
+  }
+  ```
