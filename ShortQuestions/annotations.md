@@ -115,3 +115,34 @@ If we use the `@Query` annotation the method name can violate the JPA naming con
 
 ### @Transactional
 Spring provides Declarative Transaction Management via `@Transactional` annotation. When a method is applied with `@Transactional`, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.
+
+### @Configuration
+indicates that the class has @Bean definition methods. Spring container can process the class and generate Spring Beans to be used in the application. Spring `@Configuration` annotation allows us to use annotations for dependency injection. It’s better to use `@Configuration` annotation with configuration classes to make sure our spring container is behaving like the way we want it to. 
+
+### @Bean
+`@Bean` Annotation is applied on a method to specify that it returns a bean to be managed by Spring context. Spring Bean annotation is usually declared in Configuration classes methods. In this case, bean methods may reference other `@Bean` methods in the same class by calling them directly.
+
+### @ExceptionHandler
+`@ExceptionHandler` annotation is used to handle specific exceptions thrown by controllers
+
+### @ControllerAdvice
+`@ControllerAdvice` annotation is a global exception handler used to intercept and handle the exceptions thrown by the controllers across the application.
+
+### @CompnonentScan
+`@ComponentScan` defines where the Spring need to scan the bean definations and generate the beans. It directs Spring to search for components in the path specified.
+
+### @SpringbootApplication
+`@SpringBootApplication` is a combination of 3 different annotations:
+
+`@Configuration`: This annotation marks a class as a Configuration class in Java-based configuration, it allows to register extra beans in the context or import additional configuration classes `@ComponentScan`: to enable component scanning `@EnableAutoConfiguration`: to enable Spring Boot’s auto- configuration feature. These 3 annotations are frequently used together, so SpringBoot designers bundled them into one single
+
+`@SpringBootApplication`, now instead of 3 annotations you just need to specify only one annotation on the Main class. However, if you don’t need one of these annotation depending on your requirement, then you will have to use them separately.
+
+### @component
+`@Component` is a general purpose stereotype annotation which indicates that the class annotated with it, is a spring managed component.
+
+### @Primary
+`@Primary` indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency.
+
+### @Qualifier
+`@Qualifier` indicates specific bean should be autowired when there are multiple candidates. (If there is no primary)
