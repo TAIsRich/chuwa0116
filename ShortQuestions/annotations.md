@@ -160,6 +160,14 @@ tell the url path
         return ResponseEntity.ok(postService.getPostById(id));
         }
 ```
+### @Valid use constrain we created in DTO
+```java
+@PostMapping("/posts/{postId}/comments")
+    public ResponseEntity<CommentDto> createComment(@PathVariable(value = "postId") long id,
+                                                    @Valid @RequestBody CommentDto commentDto) {
+        return new ResponseEntity<>(commentService.createComment(id, commentDto), HttpStatus.CREATED);
+    }
+```
 
 ### @RequestBody
 ```java
@@ -192,6 +200,57 @@ tell the url path
     @PersistenceContext
     EntityManager entityManager;
 ```
+## Config 层
+### @Configuration  @Bean 
+```java
+/**@Configuration: This annotation
+marks a class as a Configuration class in Java-based
+configuration, it allows to register extra beans in the context
+or import additional configuration classes*/
+/**@Bean is a method level annotation,is used when you want to
+explicitly declare and register a bean into application
+ */
+@Configuration
+public class CommentConfig {
+    //把第三方lib放入IOC容器需要 @Bean
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+}
+```
+
+## Exception
+### @ControllerAdvice
+@ControllerAdvice annotation is used to intercept
+and handle the exceptions thrown by the controllers across
+the application, so it is a global exception handler. You can
+also specify @ControllerAdvice for a specific package
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception,
+                                                                        WebRequest webRequest) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
+                webRequest.getDescription(false));
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+}
+```
+### @ExceptionHandler
+@ExceptionHandler annotation is used to handle specific
+exceptions thrown by controllers
+
+## Validation
+### @NotEmpty @NotNull @Size
+```java
+@NotEmpty
+    @Size(min = 10, message = "Post description should have at least 10 characters")
+    private String description;
+```
+
 
 ### @ComponentScan
 Define where the spring need to scan the bean definitions and generate the beans
