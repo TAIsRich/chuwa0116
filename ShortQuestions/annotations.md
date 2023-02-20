@@ -276,6 +276,44 @@ public class First{
 ####@Resource: 
     A method to implement dependency injection.
 
+####@CoookieValue:
+    Placeing in front of method parameters to get the parameter values in the request header cookie.
+  
+#Spring Security:
+
+####@EnableWebSecurity:
+    by this annotation, the WebSecurityConfiguration configuration class is loaded to configure 
+    security authentication policies. And load the AuthenticationConfiguration, configuring the authentication information.
+
+####@EnableGlobalMethodSecurity:
+    Spring Security is disabled by default. If want to open the annotations, it requires to inherit WebSecurityConfigurerAdapter 
+    class and add @ EnableGlobalMethodSecurity annotations to judge whether a user has the access right for methods in a  control layer.
+    @ EnableGlobalMethodSecurity has respectively prePostEnabled, securedEnabled, jsr250Enabled three fields. Every field is annotation supported, 
+    the default is false, true to open it.
+    1)@EnableGlobalMethodSecurity(securedEnabled=true): Enable the permission of @Secured annotation filtering 
+    2)@EnableGlobalMethodSecurity(jsr250Enabled=true): Enable the permission of @RolesAllowed annotation filtering 
+    3)@EnableGlobalMethodSecurity(prePostEnabled=true):
+
+##securedEnabled:
+####@Secured:
+    @Secured specifies the security requirements on the method. It can be used to specify security requirement roles/permissions, etc. 
+    On a method that only users of the corresponding roles/permissions can call. If someone tries to call a method but does not have 
+    the required roles/permissions, access will be denied and an exception will be thrown.
+```
+@Secured("ROLE_ADMIN")
+```
+
+##prePostEnables:
+####@PreAuthorize:
+    It is appropriate to verify authorization before entering the method.
+####@PostAuthorize:
+    The authorization method is checked before it is executed
+####@PostFilter:
+    It is executed after the method executes, and here you can call the return value of the method, and then filter, process 
+    or modify the return value and return it
+####@Prefilter:
+    It is executed before the method executes, and here you can call the parameters of the method and then filter, process 
+    or modify the parameter values.
 
 
 
