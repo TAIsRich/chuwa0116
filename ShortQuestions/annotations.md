@@ -269,3 +269,36 @@ Class Level to handle the exceptions globally
 23.  What is @CompnonentScan?
 
 One of the most important annotations in spring is @ComponentScan which is used along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
+
+24. @RestController vs. @Controller (面试)  
+    @RestController = @Controller + @ResponseBody
+
+    ```
+    @RestController
+    @RequestMapping("/api/v1/posts")
+    public class PostController {
+        @Autowired
+        private PostService postService;
+        @PostMapping()
+        public ResponseEntity<PostDto> 
+        createPost(@RequestBody PostDto postDto) {
+            PostDto postResponse = postService.createPost(postDto);
+            return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
+        }
+    }
+
+vs.
+
+    @Controller
+    @RequestMapping("/api/v1/posts")
+    public class PostController {
+        @Autowired
+        private PostService postService;
+        @PostMapping()
+        public @ResponseBody ResponseEntity<PostDto> 
+            createPost(@RequestBody PostDto postDto) {
+                PostDto postResponse = postService.createPost(postDto);
+                return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
+        }
+    }
+    ```
