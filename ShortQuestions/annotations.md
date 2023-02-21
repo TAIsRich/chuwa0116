@@ -147,3 +147,15 @@ This annotation defines where the spring need to scan the bean definitions and g
 This annotation is used to handle the exceptions globally.
 ### @ExceptionHandler
 This annotation is used to handle the specific exceptions and sending the custom responses to the client.
+
+### @EnableWebSecurity
+It is annotated at class level with `@Configuration` annotation to enable web securities in our application defined by `WebSecurityConfigurer` implementations. 
+```java
+@EnableWebSecurity
+public class SecurityConfig {
+@Autowired
+public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("password")).roles("USER");
+    }
+}
+```
