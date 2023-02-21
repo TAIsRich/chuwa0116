@@ -325,3 +325,17 @@ To make a unit of operations atomic.
 public class PostJPQLRepositoryImpl implements PostJPQLRepository {}
 
 ```
+
+## @Configuration
+
+One of the most important annotations in spring is @Configuration annotation which indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application. This annotation is part of the spring core framework.
+
+## @EnableWebSecurity
+
+The @EnableWebSecurity is a marker annotation. It allows Spring to find (it's a @Configuration and, therefore, @Component) and automatically apply the class to the global WebSecurity.
+
+## @EnableGlobalMethodSecurity
+
+@EnableWebSecurity is used for spring security java configuration. Add this annotation with @configuration on top of your security java class that extends WebSecurityConfigurerAdapter .
+
+
