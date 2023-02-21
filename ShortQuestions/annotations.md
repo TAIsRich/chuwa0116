@@ -371,3 +371,13 @@ public class User {
      // ...
   }
   ```
+  
+### @EnableWebSecurity
+The`@EnableWebSecurity` is an annotation in the Spring Security framework that enables web security features in a Spring Boot application. When this annotation is used in a Spring Boot application, it automatically configures several default security features, such as authentication and authorization.
+The `@EnableWebSecurity` annotation can be used to configure web security by creating a class that extends the `WebSecurityConfigurerAdapter` class and annotating it with `@EnableWebSecurity`. This class can then override methods to configure various security features, such as authentication and authorization, as well as configure specific security rules for different paths or URLs.
+
+- `@Configuration`: This annotation indicates that the class is a configuration class that provides Spring configuration metadata.
+- `@EnableGlobalMethodSecurity`: This annotation enables method-level security using Spring Security. It allows you to secure individual methods or entire classes with specific security rules.
+- `@EnableWebMvcSecurity`: This annotation is used in Spring Security 3.x to enable web security in a Spring MVC application. It has been replaced by `@EnableWebSecurity` in Spring Security 4.x and higher.
+- `@Order`: This annotation specifies the order in which Spring Security filters should be applied. It is used to control the order in which filters are applied to incoming requests.
+- `@Secured`: This annotation is used to secure individual methods or entire classes with specific security rules. It is used in conjunction with the `@EnableGlobalMethodSecurity` annotation.
