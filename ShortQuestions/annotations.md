@@ -159,3 +159,22 @@ public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception 
     }
 }
 ```
+
+### @EnableWebSecurity
+This annotation is a marker annotation. It allows Spring to find (it's a @Configuration and, therefore, @Component) and automatically apply the class to the global WebSecurity.
+
+
+### @EnableGlobalMethodSecurity
+This annotation provides AOP security on methods. Some of the annotations that it provides are PreAuthorize, PostAuthorize
+
+### @PreAuthorize
+This annotation checks the given expression before entering the method
+
+### @PostAuthorize
+This annotation verifies it after the execution of the method and could alter the result
+
+### @Value
+This annotation is used for injecting values into fields in Spring-managed beans, and it can be applied at the field or constructor/method parameter level.
+
+### @JsonProperty
+This annotation is used to mark non-standard getter/setter method to be used with respect to json property
