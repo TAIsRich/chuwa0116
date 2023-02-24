@@ -260,3 +260,39 @@ Define where the spring need to scan the bean definitions and generate the beans
 ```
 ### @SpringBootApplication
 
+
+### @EnableWebSecurity
+This annotation is a marker annotation. It allows Spring to find (it's a @Configuration and, therefore, @Component) and automatically apply the class to the global WebSecurity.
+
+
+### @EnableGlobalMethodSecurity
+This annotation provides AOP security on methods. Some of the annotations that it provides are PreAuthorize, PostAuthorize
+
+### @PreAuthorize
+This annotation checks the given expression before entering the method
+```java
+@PreAuthorize("hasRole('ADMIN')")
+@PostMappint
+public ResponseEntity<PostDTO> createPost(@Valid, @RequestBody PostDTO postDTO){
+    return new ResponseEntity<>(postService.createPost(postDTO), HttpStatus.CREATED)
+}
+```
+
+### @PostAuthorize
+This annotation verifies it after the execution of the method and could alter the result
+
+### @Value
+This annotation is used for injecting values into fields in Spring-managed beans, and it can be applied at the field or constructor/method parameter level.
+```java
+in application.properties:
+app.jwt-secret = JWTSecretKey
+app.jwt-expiration-milliseconds = 10000000
+can use @Value as following:
+@Value("${app.jwt-secret}")
+private String jwtSecret;
+@Value("${app.jwt-expiration-milliseconds}")
+private int jwtExpirationInMs;
+```
+### @JsonProperty
+This annotation is used to mark non-standard getter/setter method to be used with respect to json property
+
