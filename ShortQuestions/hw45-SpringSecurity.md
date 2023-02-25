@@ -78,7 +78,7 @@
     Session management filter: This filter is responsible for managing user sessions, including invalidating sessions that have timed out or been invalidated due to security issues.
     By using the Spring Security filter chain, developers can easily add robust security features to their Java-based web applications. The filter chain provides a flexible and extensible framework for enforcing security policies and protecting against common security threats.
 
-11.  decribe how do JWT work(slides 里有图， 26页)
+11. decribe how do JWT work(slides 里有图， 26页)
 
     JWTs consist of three parts: a header, a payload, and a signature. The header typically contains information about the type of token and the algorithm used to sign it. The payload contains the data that is being transmitted, such as user information or access permissions. The signature is used to verify the authenticity of the token and ensure that it has not been tampered with.
 
