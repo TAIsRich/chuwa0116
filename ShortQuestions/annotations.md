@@ -146,3 +146,10 @@ indicates that the class has @Bean definition methods. Spring container can proc
 
 ### @Qualifier
 `@Qualifier` indicates specific bean should be autowired when there are multiple candidates. (If there is no primary)
+
+### @ConfigurationProperties
+This is mostly used in Spring projects to load configuration properties (map values from .properties( .yml also supported) to a POJO).
+
+- It initializes an entity based on property data.
+
+- `@ConfigurationProperties` identifies the property file to load.
