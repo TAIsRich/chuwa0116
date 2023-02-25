@@ -268,3 +268,40 @@ public class MyApplication {
 }
 ```
 
+# @Getter
+It is generates the getter methods for class fields at compile time.
+```java
+import lombok.Getter;
+
+@Getter
+public class Person {
+    private String name;
+    private int age;
+}
+```
+
+# @Setter
+Similar with getter
+
+#@Data
+generates boilerplate code for a class, including getter and setter methods, equals, hashCode, and toString methods, as well as a constructor that initializes all final fields and all non-final fields. This annotation is used to reduce the amount of boilerplate code required in Java classes.
+```java
+import lombok.Data;
+
+@Data
+public class Person {
+    private String name;
+    private int age;
+}
+```
+# @NoArgsConstructor
+it is a Lombok annotation that generates a no-argument constructor for a class. This annotation is used to reduce the amount of boilerplate code required in Java classes.
+```java
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class Person {
+    private String name;
+    private int age;
+}
+```
