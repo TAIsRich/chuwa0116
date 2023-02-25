@@ -30,3 +30,5 @@
 * @Bean - @Bean is a method-level annotation and a direct analog of the XML <bean/> element. 
 * @CompnonentScan - One of the most important annotations in spring is @ComponentScan which is used along with the @Configuration annotation to specify the packages that we want to be scanned.
 *  @SpringBootApplication - Spring Boot @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It’s same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
+* @EnableWebSecurity - is used to enable Spring Security's web security support and provide a configuration that extends WebSecurityConfigurerAdapter class to configure security settings.
+* @EnableGlobalMethodSecurity - is used to enable global method-level security annotations such as @PreAuthorize and @PostAuthorize for securing controller methods and service layer methods in Spring MVC applications.
