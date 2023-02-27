@@ -37,3 +37,30 @@
 ## 18. Can a container restart by itself?
 
 ## 19. Can you tell the differences between a docker Image and Layer?
+
+## 20. What is the purpose of the volume parameter in a docker run command?
+
+## 21. Where are docker volumes stored in docker?
+
+## 22. What does the docker info command do?
+
+## 23. Can you tell the what are the purposes of up, run, and start commands of docker compose?
+
+## 24. What are the basic requirements for the docker to run on any system?
+
+## 25. Can you tell the approach to login to the docker registry?
+- Using the __"docker login"__ command credentials to log in to their own cloud repositories can be entered and accessed.
+
+
+## 26. List the most commonly used instructions in Dockerfile?
+
+## 27. Can you differentiate between Daemon Logging and Container Logging?
+
+## 28. What is the way to establish communication between docker host and Linux host?
+
+## 29. What is the best way of deleting a container?
+-  Following two steps below:
+    - docker stop <container_id>
+    - docker rm <container_id>
+
+## 30. Can you tell the difference between CMD and ENTRYPOINT?
