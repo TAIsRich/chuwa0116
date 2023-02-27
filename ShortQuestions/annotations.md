@@ -305,6 +305,14 @@ public class First{
 
 ##prePostEnables:
 ####@PreAuthorize:
+```
+@PreAuthorize("hasRole('ADMIN')")
+@PostMappint
+public ResponseEntity<PostDTO> createPost(@Valid, @RequestBody PostDTO postDTO){
+    return new ResponseEntity<>(postService.createPost(postDTO), HttpStatus.CREATED)
+}
+
+```
     It is appropriate to verify authorization before entering the method.
 ####@PostAuthorize:
     The authorization method is checked before it is executed
@@ -316,6 +324,20 @@ public class First{
     or modify the parameter values.
 
 
+
+####@Value:
+    get value from application.properties
+```
+in application.properties:
+app.jwt-secret = JWTSecretKey
+app.jwt-expiration-milliseconds = 10000000
+can use @Value as following:
+@Value("${app.jwt-secret}")
+private String jwtSecret;
+@Value("${app.jwt-expiration-milliseconds}")
+private int jwtExpirationInMs;
+
+```
 
 
 
