@@ -64,3 +64,11 @@
     - docker rm <container_id>
 
 ## 30. Can you tell the difference between CMD and ENTRYPOINT?
+
+## 31. Can we use JSON instead of YAML while developing docker-compose file in Docker?
+- Yes! It can be used. In order to run docker-compose with JSON, "__docker-compose -f docker-compose.json up__" can be used.
+
+## 32. How many containers you can run in docker and what are the factors influencing this limit?
+- There is no clearly defined limit to the number of containers that can be run within docker. But it all depends on the limitations - more specifically hardware restrictions. The size of the app and the CPU resources available are 2 important factors influencing this limit. In case your application is not very big and you have abundant CPU resources, then we can run a huge number of containers.
+
+## 33. Describe the lifecycle of Docker Container?
