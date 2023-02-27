@@ -33,22 +33,43 @@
 
 
 ## 8. On what circumstances will you lose data stored in a container?
+- The data of a container remains in it until and unless you delete the container.
+
+
+
 
 ## 9. What is docker image registry?
+- A Docker image registry, in simple terms, is an area where the docker images are stored. Instead of converting the applications to containers each and every time, a developer can directly use the images stored in the registry.
+- This image registry can either be public or private and Docker hub is the most popular and famous public registry available.
+
 
 ## 10. How many Docker components are there?
+- __Docker Client__: This component performs “build” and “run” operations for the purpose of opening communication with the docker host.
+- __Docker Host__: This component has the main docker daemon and hosts containers and their associated images. The daemon establishes a connection with the docker registry.
+- __Docker Registry__: This component stores the docker images. There can be a public registry or a private one. The most famous public registries are Docker Hub and Docker Cloud.
 
 ## 11. What is a Docker Hub?
+- It is a public cloud-based registry provided by Docker for storing public images of the containers along with the provision of finding and sharing them.
+- The images can be pushed to Docker Hub through the "__docker push__" command.
+
 
 ## 12. What command can you run to export a docker image as an archive?
+```
+ docker save -o <exported_name>.tar <container-name>
+```
 
 ## 13. What command can be run to import a pre-exported Docker image into another Docker host?
+```
+docker load -i <export_image_name>.tar
+```
 
 ## 14. Can a paused container be removed from Docker?
 - No,  a container MUST be in the stopped state before we can remove it.
 
 
 ## 15. What command is used to check for the version of docker client and server?
+- The command used to get all version information of the client and server is the ```docker version```.
+- To get only the server version details, we can run ```docker version --format '{{.Server.Version}}'```
 
 ## 16. Differentiate between virtualization and containerization
 
