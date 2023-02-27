@@ -320,3 +320,21 @@ public class ExamplePostController {
      }
 }
 ```
+
+##### 17. @EnableGlobalMethodSecurity, @PreAuthorize and @PostAuthorize
+These annotations are typically used with Spring Security to specify which controller method would need to have what roles to access. 
+```
+@RestController("hello")
+public class HelloController{
+@GetMapping("{id}")
+@PreAuthorize("hasRole(ROLE_ADMIN)")
+ResponseEntity<User> getUserById(@PathVariable("id")long id){
+ return ....
+}
+@GetMapping("method2/{id}")
+@PostAuthorize("hasRole(ROLE_ADMIN)")
+ResponseEntity<User> getUserById33(@PathVariable("id")long id){
+ return ....
+}
+}
+```
