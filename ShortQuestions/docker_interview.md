@@ -126,6 +126,19 @@ Docker can run on both Windows and Linux platforms.
 - __CMD__: This command is used to provide default values of an executing container. In cases of multiple CMD commands the last instruction would be considered.
 
 ## 27. Can you differentiate between Daemon Logging and Container Logging?
+In docker, logging is supported at 2 levels and they are logging at the Daemon level or logging at the Container level.
+- __Daemon Level__: This kind of logging has four levels- Debug, Info, Error, and Fatal.
+    - Debug has all the data that happened during the execution of the daemon process.
+    - Info carries all the information along with the error information during the execution of the daemon process.
+    - Errors have those errors that occurred during the execution of the daemon process.
+
+    - Fatal has the fatal errors that occurred during the 
+    execution.
+
+- __Container Level__:
+    - Container level logging can be done using the command: ```sudo docker run –it <container_name> /bin/bash```
+    - In order to check for the container level logs, we can run the command: ```sudo docker logs <container_id>```
+
 
 ## 28. What is the way to establish communication between docker host and Linux host?
 - This can be done using networking by identifying the “__ipconfig__” on the docker host. This command ensures that an ethernet adapter is created as long as the docker is present in the host.
