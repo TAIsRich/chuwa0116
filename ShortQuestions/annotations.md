@@ -166,3 +166,30 @@
 
 - we use @Primary to give higher preference to a bean when there are multiple beans of the same type
 
+
+@EnableWebSecurity
+
+- The @EnableWebSecurity is a marker annotation. It allows Spring to find (it's a @Configuration and, therefore, @Component) and automatically apply the class to the global WebSecurity.
+
+
+@EnableGlobalMethodSecurity
+
+- EnableGlobalMethodSecurity provides AOP security on methods. Some of the annotations that it provides are PreAuthorize, PostAuthorize
+
+@PreAuthorize
+
+- @PreAuthorize annotation checks the given expression before entering the method
+
+@PostAuthorize
+
+- @PostAuthorize annotation verifies it after the execution of the method and could alter the result
+
+@Value
+
+- @Value is used for injecting values into fields in Spring-managed beans, and it can be applied at the field or constructor/method parameter level.
+
+@JsonProperty
+
+-
+@JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
+
