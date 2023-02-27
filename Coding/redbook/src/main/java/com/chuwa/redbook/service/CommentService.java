@@ -12,7 +12,7 @@ public interface CommentService {
 
     CommentDto getCommentById(Long postId, Long commentId);
 
-
+    List<CommentDto> getAllComments();
 
     CommentDto updateComment(Long postId, Long commentId, CommentDto commentDtoRequest);
 
