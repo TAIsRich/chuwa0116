@@ -74,11 +74,17 @@ docker load -i <export_image_name>.tar
 
 ## 15. What command is used to check for the version of docker client and server?
 - The command used to get all version information of the client and server is the ```docker version```.
+
 - To get only the server version details, we can run ```docker version --format '{{.Server.Version}}'```
 
 ## 16. Differentiate between virtualization and containerization
 
 ## 17. Differentiate between COPY and ADD commands that are used in a Dockerfile?
+- Both the commands have similar functionality, but ```COPY``` is more preferred because of its higher transparency level than that of ```ADD```.
+
+- ```COPY``` provides just the basic support of copying local files into the container whereas ```ADD``` provides additional features like remote URL and tar extraction support.
+
+
 
 ## 18. Can a container restart by itself?
 
