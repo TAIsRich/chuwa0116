@@ -78,6 +78,28 @@ docker load -i <export_image_name>.tar
 - To get only the server version details, we can run ```docker version --format '{{.Server.Version}}'```
 
 ## 16. Differentiate between virtualization and containerization
+<table>
+<thead><tr>
+<th>Virtualization&nbsp;</th>
+<th>Containerization</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>This helps developers to run and host multiple <strong>OS</strong> on the hardware of a single physical server.</td>
+<td>This helps developers to deploy multiple <strong>applications</strong> using the same operating system on a single virtual machine or server.</td>
+</tr>
+<tr>
+<td>
+<strong>Hypervisors</strong> provide overall virtual machines to the guest operating systems.&nbsp;</td>
+<td>
+<strong>Containers</strong> ensure isolated environment/ user spaces are provided for running the applications. Any changes done within the container do not reflect on the host or other containers of the same host.</td>
+</tr>
+<tr>
+<td>These virtual machines form an <strong>abstraction of the system hardware</strong> <strong>layer </strong>this means that each virtual machine on the host acts like a physical machine.</td>
+<td>Containers form <strong>abstraction of the application</strong> <strong>layer</strong> which means that each container constitutes a different application.</td>
+</tr>
+</tbody>
+</table>
 
 ## 17. Differentiate between COPY and ADD commands that are used in a Dockerfile?
 - Both the commands have similar functionality, but ```COPY``` is more preferred because of its higher transparency level than that of ```ADD```.
@@ -87,6 +109,17 @@ docker load -i <export_image_name>.tar
 
 
 ## 18. Can a container restart by itself?
+Yes, it is possible only while using certain docker-defined policies while using the docker run command. Following are the available policies:
+
+1. __Off__: In this, the container won’t be restarted in case it's stopped or it fails.
+2. __On-failure__: Here, the container restarts by itself only when it experiences failures not associated with the user.
+3. __Unless-stopped__: Using this policy, ensures that a container can restart only when the command is executed to stop it by the user.
+4. __Always__: Irrespective of the failure or stopping, the container always gets restarted in this type of policy.
+
+These policies can be used as:
+
+```docker run -dit — restart [restart-policy-value] [container_name]```
+
 
 ## 19. Can you tell the differences between a docker Image and Layer?
 
