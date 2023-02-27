@@ -93,16 +93,27 @@ docker load -i <export_image_name>.tar
 ## 23. Can you tell the what are the purposes of up, run, and start commands of docker compose?
 
 ## 24. What are the basic requirements for the docker to run on any system?
+Docker can run on both Windows and Linux platforms.
+
+- For the Windows platform, docker atleast needs Windows 10 64bit with 2GB RAM space. For the lower versions, docker can be installed by taking help of the toolbox. Docker can be downloaded from https://docs.docker.com/docker-for-windows/ website.
+- For Linux platforms, Docker can run on various Linux flavors such as Ubuntu >=12.04, Fedora >=19, RHEL >=6.5, CentOS >=6 etc.
 
 ## 25. Can you tell the approach to login to the docker registry?
 - Using the __"docker login"__ command credentials to log in to their own cloud repositories can be entered and accessed.
 
 
 ## 26. List the most commonly used instructions in Dockerfile?
+- __FROM__: This is used to set the base image for upcoming instructions. A docker file is considered to be valid if it starts with the FROM instruction.
+- __LABEL__: This is used for the image organization based on projects, modules, or licensing. It also helps in automation as we specify a key-value pair while defining a label that can be later accessed and handled programmatically.
+- __RUN__: This command is used to execute instructions following it on the top of the current image in a new layer. Note that with each RUN command execution, we add layers on top of the image and then use that in subsequent steps.
+- __CMD__: This command is used to provide default values of an executing container. In cases of multiple CMD commands the last instruction would be considered.
 
 ## 27. Can you differentiate between Daemon Logging and Container Logging?
 
 ## 28. What is the way to establish communication between docker host and Linux host?
+- This can be done using networking by identifying the “__ipconfig__” on the docker host. This command ensures that an ethernet adapter is created as long as the docker is present in the host.
+
+
 
 ## 29. What is the best way of deleting a container?
 -  Following two steps below:
@@ -118,6 +129,15 @@ docker load -i <export_image_name>.tar
 - There is no clearly defined limit to the number of containers that can be run within docker. But it all depends on the limitations - more specifically hardware restrictions. The size of the app and the CPU resources available are 2 important factors influencing this limit. In case your application is not very big and you have abundant CPU resources, then we can run a huge number of containers.
 
 ## 33. Describe the lifecycle of Docker Container?
+The different stages of the docker container from the start of creating it to its end are called the docker container life cycle. 
+
+The most important stages are:
+
+- Created: This is the state where the container has just been created new but not started yet.
+- Running: In this state, the container would be running with all its associated processes.
+- Paused: This state happens when the running container has been paused.
+- Stopped: This state happens when the running container has been stopped.
+- Deleted: In this, the container is in a dead state.
 
 ## 34. How to use docker for multiple application environments?
 
