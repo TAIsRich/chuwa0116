@@ -117,11 +117,18 @@ When this annotation is added to a Spring configuration class, it allows the Spr
 
 ## @EnableWebMvc
 When @EnableWebMvc is used, Spring Boot automatically configures the application to use Spring MVC. This includes configuring a default RequestMappingHandlerAdapter and RequestMappingHandlerMapping to handle incoming HTTP requests, as well as other MVC-related components.
-##
 
-##
+## @Value
+get value from application.properties
 
-##
+## @EnableGlobalMethodSecurity 
+When you use this annotation, it enables the use of Spring Security's method security features such as @PreAuthorize, @PostAuthorize, @Secured, and other similar annotations that can be used to restrict access to specific methods based on user roles or permissions.
+
+## @EnableWebSecurity
+The @EnableWebSecurity annotation is usually added to a configuration class that extends the WebSecurityConfigurerAdapter class. This class provides a convenient base class for creating a custom security configuration.
+
+## @PreAuthorize
+validate if user has role specified in the brackets
 
 ##
 
