@@ -108,6 +108,14 @@ Volumes are created and managed by Docker and cannot be accessed by non-docker e
 
 
 ## 23. Can you tell the what are the purposes of up, run, and start commands of docker compose?
+- Using the up command for keeping a docker-compose up (ideally at all times), we can start or restart all the networks, services, and drivers associated with the app that are specified in the docker-compose.yml file. Now if we are running the docker-compose up in the “attached” mode then all the logs from the containers would be accessible to us. In case the docker-compose is run in the “detached” mode, then once the containers are started, it just exits and shows no logs.
+
+- Using the run command, the docker-compose can run one-off or ad-hoc tasks based on the business requirements. Here, the service name has to be provided and the docker starts only that specific service and also the other services to which the target service is dependent (if any).
+    - This command is helpful for testing the containers and also performing tasks such as adding or removing data to the container volumes etc.
+
+- Using the start command, only those containers can be 
+restarted which were already created and then stopped. This is not useful for creating new containers on its own.
+
 
 ## 24. What are the basic requirements for the docker to run on any system?
 Docker can run on both Windows and Linux platforms.
@@ -151,6 +159,14 @@ In docker, logging is supported at 2 levels and they are logging at the Daemon l
     - docker rm <container_id>
 
 ## 30. Can you tell the difference between CMD and ENTRYPOINT?
+- CMD command provides executable defaults for an executing container. In case the executable has to be omitted then the usage of ENTRYPOINT instruction along with the JSON array format has to be incorporated.
+
+- ENTRYPOINT specifies that the instruction within it will always be run when the container starts. 
+This command provides an option to configure the parameters and the executables. If the DockerFile does not have this command, then it would still get inherited from the base image mentioned in the FROM instruction.
+    - The most commonly used ENTRYPOINT is ```/bin/sh``` or ```/bin/bash``` for most of the base images.
+- As part of good practices, every DockerFile should have at least one of these two commands.
+
+
 
 ## 31. Can we use JSON instead of YAML while developing docker-compose file in Docker?
 - Yes! It can be used. In order to run docker-compose with JSON, "__docker-compose -f docker-compose.json up__" can be used.
