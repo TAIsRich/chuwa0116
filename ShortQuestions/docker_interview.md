@@ -87,8 +87,14 @@ docker load -i <export_image_name>.tar
 ## 20. What is the purpose of the volume parameter in a docker run command?
 
 ## 21. Where are docker volumes stored in docker?
+Volumes are created and managed by Docker and cannot be accessed by non-docker entities. They are stored in Docker host filesystem at __/var/lib/docker/volumes/__
+
+
 
 ## 22. What does the docker info command do?
+- The command gets detailed information about Docker installed on the host system. The information can be like what is the number of containers or images and in what state they are running and hardware specifications like total memory allocated, speed of the processor, kernel version, etc.
+
+
 
 ## 23. Can you tell the what are the purposes of up, run, and start commands of docker compose?
 
