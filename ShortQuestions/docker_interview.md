@@ -122,6 +122,16 @@ These policies can be used as:
 
 
 ## 19. Can you tell the differences between a docker Image and Layer?
+- __Image__: This is built up from a series of read-only layers of instructions. An image corresponds to the docker container and is used for speedy operation due to the caching mechanism of each step.
+
+- __Layer__: Each layer corresponds to an instruction of the image’s Dockerfile. In simple words, the layer is also an image but it is the image of the instructions run.
+
+Consider the example Dockerfile below.
+```FROM ubuntu:18.04 COPY . /myapp RUN make /myapp CMD python /myapp/app.py Importantly, each layer is only a set of differences from the layer before it.``` 
+
+- The result of building this docker file is an image. Whereas the instructions present in this file add the layers to the image. The layers can be thought of as intermediate images. In the example above, there are 4 instructions, hence 4 layers are added to the resultant image.
+
+
 
 ## 20. What is the purpose of the volume parameter in a docker run command?
 - The syntax of docker run when using the volumes is: ```docker run -v host_path:docker_path <container_name>```
@@ -222,7 +232,3 @@ The most important stages are:
 - Docker-compose feature of docker will come to help here. In the docker-compose file, we can define multiple services, networks, and containers along with the volume mapping in a clean manner, and then we can just call the command “```docker-compose up```”.
 - When there are multiple environments involved - it can be either dev, staging, uat, or production servers, we would want to define the server-specific dependencies and processes for running the application. In this case, we can go ahead with creating environment-specific docker-compose files of the name “```docker-compose.{environment}.yml```” and then based on the environment, we can set up and run the application.
 
-
-## 35. How will you ensure that a container 1 runs before container 2 while using docker compose?
-
-## 36. Conclusion
