@@ -186,6 +186,9 @@ The most important stages are:
 - Deleted: In this, the container is in a dead state.
 
 ## 34. How to use docker for multiple application environments?
+- Docker-compose feature of docker will come to help here. In the docker-compose file, we can define multiple services, networks, and containers along with the volume mapping in a clean manner, and then we can just call the command “```docker-compose up```”.
+- When there are multiple environments involved - it can be either dev, staging, uat, or production servers, we would want to define the server-specific dependencies and processes for running the application. In this case, we can go ahead with creating environment-specific docker-compose files of the name “```docker-compose.{environment}.yml```” and then based on the environment, we can set up and run the application.
+
 
 ## 35. How will you ensure that a container 1 runs before container 2 while using docker compose?
 
