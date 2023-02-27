@@ -91,6 +91,11 @@ docker load -i <export_image_name>.tar
 ## 19. Can you tell the differences between a docker Image and Layer?
 
 ## 20. What is the purpose of the volume parameter in a docker run command?
+- The syntax of docker run when using the volumes is: ```docker run -v host_path:docker_path <container_name>```
+- The volume parameter is used for syncing a directory of a container with any of the host directories. Consider the below command as an example: ```docker run -v /data/app:usr/src/app myapp```
+The above command mounts the directory  ```/data/app``` in the host to the ```usr/src/app``` directory. We can sync the container with the data files from the host without having the need to restart it.
+This also ensures data security in cases of container deletion. - This ensures that even if the container is deleted, the data of the container exists in the volume mapped host location making it the easiest way to store the container data.
+
 
 ## 21. Where are docker volumes stored in docker?
 Volumes are created and managed by Docker and cannot be accessed by non-docker entities. They are stored in Docker host filesystem at __/var/lib/docker/volumes/__
