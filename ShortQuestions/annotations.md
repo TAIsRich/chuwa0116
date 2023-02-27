@@ -302,3 +302,67 @@ vs.
         }
     }
     ```
+
+25. @Configuration is used to indicate that a class contains bean definitions that should be processed by the Spring container.
+
+26. @EnableWebSecurity is used to enable Spring Security's web security support and provide a configuration that extends WebSecurityConfigurerAdapter class to configure security settings.
+    ```
+    @Configuration
+    @EnableWebSecurity
+    public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+        @Autowired
+        private UserDetailsService userDetailsService;
+
+        @Autowired
+        private PasswordEncoder passwordEncoder;
+
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        }
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                .authorizeRequests()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+                    .anyRequest().authenticated()
+                    .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
+                .logout()
+                    .permitAll();
+        }
+    }
+
+
+    ```
+27. @EnableGlobalMethodSecurity(prePostEnabled = true) is used to enable global method-level security annotations such as @PreAuthorize and @PostAuthorize for securing controller methods and service layer methods in Spring MVC applications.
+    ```
+    @Configuration
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+    public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
+
+        @Autowired
+        private CustomPermissionEvaluator permissionEvaluator;
+
+        @Override
+        protected MethodSecurityExpressionHandler createExpressionHandler() {
+            DefaultMethodSecurityExpressionHandler expressionHandler =
+                    new DefaultMethodSecurityExpressionHandler();
+            expressionHandler.setPermissionEvaluator(permissionEvaluator);
+            return expressionHandler;
+        }
+    }
+
+    ```
+
+    In this example, we use @EnableGlobalMethodSecurity to enable method-level security in our application. We set prePostEnabled to true, which enables the use of @PreAuthorize and @PostAuthorize annotations on methods.
+
+    We also extend GlobalMethodSecurityConfiguration to configure the method security settings. We inject a custom PermissionEvaluator, which will be used to evaluate custom permissions on secured methods. We then override the createExpressionHandler method to create a DefaultMethodSecurityExpressionHandler and set the custom PermissionEvaluator on it.
+
+    Overall, @EnableGlobalMethodSecurity provides a convenient way to enable and configure method-level security in Spring Security, and GlobalMethodSecurityConfiguration provides a way to customize the security settings to fit the needs of our application.
