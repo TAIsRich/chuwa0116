@@ -1,11 +1,26 @@
 import java.nio.charset.Charset;
-import java.util.*;
-import java.util.stream.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 class streamapi{
     public static void main(String [] args)
     {
-
+        int [] arr=new int[]{1,2,3,4,5,6};
+        arr=Arrays.stream(arr).map((e)-> e +10).toArray();
+        for(int i=0;i<arr.length;++i){
+            System.out.println(arr[i]);
+        }
     }
 
     public void creation(){
@@ -71,5 +86,4 @@ class streamapi{
         .toArray(Integer[]::new);
         System.out.print(evenNumbersArr);
     }
-
 }
