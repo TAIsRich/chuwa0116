@@ -279,10 +279,10 @@ public class User {
 ### @Query 
 - In order to define SQL to execute for a Spring Data repository method, we can annotate the method with the `@Query` annotation — its value attribute contains the JPQL or SQL to execute.
 
-  ```java
+```java
   @Query("SELECT u FROM User u WHERE u.status = 1")
   Collection<User> findAllActiveUsers();
-  ```
+```
 
 ### @Transactional 
 - describes a transaction attribute on an individual method or on a class.
