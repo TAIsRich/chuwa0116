@@ -53,7 +53,7 @@ Consider an environment where users have to do a lot of batch processing. This w
 
 ### 11 How Spring Batch works?
 
-![](/Users/cxy/Desktop/workplace/ICC/chuwa0116/ShortQuestions/media/boot13_1.jpg)
+![](./media/boot13_1.jpg)
 
 - **step -** A Step that delegates to a Job to do its work. This is a great tool for managing dependencies between jobs, and also to modularise complex step logic into something that is testable in isolation. The job is executed with parameters that can be extracted from the step execution, hence this step can also be usefully used as the worker in a parallel or partitioned execution.
 - **ItemReader -** Strategy interface for providing the data. Implementations are expected to be stateful and will be called multiple times for each batch, with each call to read() returning a different value and finally returning null when all input data is exhausted. Implementations need not be thread-safe and clients of a ItemReader need to be aware that this is the case. A richer interface (e.g. with a look ahead or peek) is not feasible because we need to support transactions in an asynchronous batch.
