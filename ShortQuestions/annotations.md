@@ -153,3 +153,42 @@ This is mostly used in Spring projects to load configuration properties (map val
 - It initializes an entity based on property data.
 
 - `@ConfigurationProperties` identifies the property file to load.
+
+### @Scheduled 
+The Spring `@Scheduled` annotation can be used to configure and schedule tasks.
+
+The simple rules that we need to follow to annotate a method with @Scheduled are:
+- the method should typically have a void return type (if not, the returned value will be ignored)
+- the method should not expect any parameters
+
+### @Aspect
+`@Aspect` indicates this is a aop class.
+
+### @Pointcut
+Mark a function as a Pointcut.
+execution( expression ) − Expression covering methods on which advice is to be applied.
+
+```
+@Pointcut("execution(* com.tutorialspoint.Student.getAge(..))")
+private void selectGetName(){}
+
+@After("selectGetAge()")
+public void afterAdvice(){
+   System.out.println("Student profile setup completed.");
+} 
+```
+
+### @After
+`@After` is an advice type which ensures that an advice runs after the method execution.
+
+### @Before
+`@Before` is an advice type which ensures that an advice runs before the method execution.
+
+### @AfterThrowing
+`@AfterThrowing` is an advice type which ensures that an advice runs if the method throws an exception.
+
+### @AfterReturning
+We can implement after returning advice in an application by using `@AfterReturning` annotation. The annotation marks a function as an advice to be executed before the method covered by PointCut. After returning advice runs when a matched method execution returns a value normally.
+
+### @Around
+`@Around` is an advice type, which ensures that an advice can run before and after the method execution.
