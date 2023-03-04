@@ -268,3 +268,48 @@ public class MyApplication {
 }
 ```
 
+# @Aspect
+@Aspect is a Spring Framework annotation used to declare a class as an aspect. An aspect is a module that encapsulates cross-cutting concerns, which are separate from the application's main business logic. The @Aspect annotation is used along with other annotations like @Before, @After, @Around, @AfterReturning, and @AfterThrowing to define the behavior of the aspect in response to method calls or specific events in the application.
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+ 
+    @Before("execution(* com.example.myapp.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Executing method: " + joinPoint.getSignature().getName());
+    }
+ 
+    @AfterReturning(pointcut = "execution(* com.example.myapp.service.*.*(..))",
+                    returning= "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("Executed method: " + joinPoint.getSignature().getName() + ", Result: " + result);
+    }
+ 
+    @AfterThrowing(pointcut = "execution(* com.example.myapp.service.*.*(..))",
+                   throwing = "error")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable error) {
+        System.out.println("Error in method: " + joinPoint.getSignature().getName() + ", Message: " + error.getMessage());
+    }
+}
+```
+
+# @EnableScheduling
+It is used in conjunction with @Scheduled annotation, which is used to specify when a task should be executed.
+```java
+@SpringBootApplication
+@EnableScheduling
+public class MyApplication {
+
+   public static void main(String[] args) {
+      SpringApplication.run(MyApplication.class, args);
+   }
+
+   @Scheduled(fixedDelay = 1000)
+   public void myScheduledTask() {
+      System.out.println("Executing scheduled task...");
+   }
+
+}
+```
