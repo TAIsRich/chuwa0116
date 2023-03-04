@@ -30,4 +30,13 @@
 @OneToMany
 
 @ResponseStatus
+
+@Aspect
+
+@Order
+
+@EnableScheduling
+@Scheduled
 ```
+
+
