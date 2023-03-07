@@ -338,3 +338,20 @@ ResponseEntity<User> getUserById33(@PathVariable("id")long id){
 }
 }
 ```
+
+##### 18. Spring AOP annotations: @Aspect, @Before, @After, @AfterReturning @AfterThrowing and @Around, etc
+```
+@Aspect
+public class EmployeeAspect {
+
+	@Before("execution(public String getName())")
+	public void getNameAdvice(){
+		System.out.println("Executing Advice on getName()");
+	}
+	
+	@Before("execution(* com.journaldev.spring.service.*.get*())")
+	public void getAllAdvice(){
+		System.out.println("Service method getter called");
+	}
+}
+```
