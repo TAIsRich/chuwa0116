@@ -103,6 +103,39 @@
   }
   ```
 
+
++ `@Order` is an annotation in Spring Framework that is used to specify the order in which beans should be created or processed. When multiple beans of the same type are defined in a Spring context, the @Order annotation can be used to control the order in which they are autowired or processed by other Spring components, such as interceptors or advice.
+
+  The @Order annotation takes a single parameter, which is an integer value representing the order. Lower values indicate higher priority, so a bean with an @Order value of 1 will be processed before a bean with an @Order value of 2.
+
+  ```java
+  @Component
+  @Order(2)
+  public class MySecondBean implements MyBeanInterface {
+      // ...
+  }
+  
+  @Component
+  @Order(1)
+  public class MyFirstBean implements MyBeanInterface {
+      // ...
+  }
+  
+  @Service
+  public class MyService {
+      
+      @Autowired
+      private List<MyBeanInterface> myBeans;
+      
+      public void doSomething() {
+          // Process the beans in order
+          for (MyBeanInterface bean : myBeans) {
+              bean.doSomething();
+          }
+      }
+  }
+  ```
+
   
 
 ## Controller
@@ -468,3 +501,50 @@ public class User {
          // some other overriden methods
   }
   ```
+
+## AOP
+
++ `@Aspect` is used to declare an aspect.
++ `@Pointcut` is an annotation used in Spring AOP (Aspect-Oriented Programming) to specify a particular join point in the application where an advice will be applied.
++ `@AfterThrowing` is an advice type in Spring AOP that is executed after a method throws an exception.
++ `@Around` is an advice type in Spring AOP that is executed around a join point, i.e., before and after the execution of the method. 
++ `@Before `is an advice type in Spring AOP that is executed before a method is invoked. 
++ `@AfterReturning` is an advice type in Spring AOP that is executed after a method successfully returns a result.
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+  
+  @Before("execution(* com.example.*.*(..))")
+  public void logBefore(JoinPoint joinPoint) {
+    System.out.println("Logging before method " + joinPoint.getSignature().getName());
+  }
+  
+  @AfterReturning(pointcut = "execution(* com.example.*.*(..))", returning = "result")
+  public void logAfterReturning(JoinPoint joinPoint, Object result) {
+    System.out.println("Logging after method " + joinPoint.getSignature().getName() + " returned " + result);
+  }
+  
+  @AfterThrowing(pointcut = "execution(* com.example.*.*(..))", throwing = "ex")
+  public void logAfterThrowing(JoinPoint joinPoint, Exception ex) {
+    System.out.println("Logging after method " + joinPoint.getSignature().getName() + " threw " + ex);
+  }
+  
+  @Around("execution(* com.example.*.*(..))")
+  public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    System.out.println("Logging around method " + joinPoint.getSignature().getName());
+    Object result = joinPoint.proceed();
+    System.out.println("Logging after method " + joinPoint.getSignature().getName() + " returned " + result);
+    return result;
+  }
+  
+  @Pointcut("execution(* com.example.*.*(..))")
+  public void loggingPointcut() {}
+  
+  @DeclarePrecedence("logBefore, loggingPointcut, logAfterReturning, logAfterThrowing, logAround")
+  public static final String[] adviceOrder() { return null; }
+  
+}
+```
+
