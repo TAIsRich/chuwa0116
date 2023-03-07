@@ -381,3 +381,49 @@ The `@EnableWebSecurity` annotation can be used to configure web security by cre
 - `@EnableWebMvcSecurity`: This annotation is used in Spring Security 3.x to enable web security in a Spring MVC application. It has been replaced by `@EnableWebSecurity` in Spring Security 4.x and higher.
 - `@Order`: This annotation specifies the order in which Spring Security filters should be applied. It is used to control the order in which filters are applied to incoming requests.
 - `@Secured`: This annotation is used to secure individual methods or entire classes with specific security rules. It is used in conjunction with the `@EnableGlobalMethodSecurity` annotation.
+
+### AOP
+- `@Aspect` is used to declare an aspect.
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    
+}
+```
+- `@Pointcut` is an annotation used in Spring AOP (Aspect-Oriented Programming) to specify a particular join point in the application where an advice will be applied.
+```java
+@Pointcut("execution(* com.example.*.*(..))")
+  public void loggingPointcut() {}
+```
+- `@AfterThrowing` is an advice type in Spring AOP that is executed after a method throws an exception.
+```java
+ @AfterThrowing(pointcut = "execution(* com.example.*.*(..))", throwing = "ex")
+  public void logAfterThrowing(JoinPoint joinPoint, Exception ex) {
+    System.out.println("Logging after method " + joinPoint.getSignature().getName() + " threw " + ex);
+  }
+```
+- `@Around` is an advice type in Spring AOP that is executed around a join point, i.e., before and after the execution of the method.
+```java
+ @Around("execution(* com.example.*.*(..))")
+  public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    System.out.println("Logging around method " + joinPoint.getSignature().getName());
+    Object result = joinPoint.proceed();
+    System.out.println("Logging after method " + joinPoint.getSignature().getName() + " returned " + result);
+    return result;
+  }
+```
+- `@Before `is an advice type in Spring AOP that is executed before a method is invoked.
+```java
+@Before("execution(* com.example.*.*(..))")
+  public void logBefore(JoinPoint joinPoint) {
+    System.out.println("Logging before method " + joinPoint.getSignature().getName());
+  }
+```
+- `@AfterReturning` is an advice type in Spring AOP that is executed after a method successfully returns a result.
+```java
+@AfterReturning(pointcut = "execution(* com.example.*.*(..))", returning = "result")
+public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("Logging after method " + joinPoint.getSignature().getName() + " returned " + result);
+        }
+```
