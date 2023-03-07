@@ -339,3 +339,49 @@ The @EnableWebSecurity is a marker annotation. It allows Spring to find (it's a 
 @EnableWebSecurity is used for spring security java configuration. Add this annotation with @configuration on top of your security java class that extends WebSecurityConfigurerAdapter .
 
 
+## @Scheduled 
+
+configure and schedule tasks.
+
+```
+@Scheduled(fixedDelay = 1000)
+public void scheduleFixedDelayTask() {
+    System.out.println(
+      "Fixed delay task - " + System.currentTimeMillis() / 1000);
+}
+```
+
+## @PreAuthorize
+
+The @PreAuthorize annotation checks the given expression before entering the method
+
+## @PostAuthorize
+
+@PostAuthorize annotation verifies it after the execution of the method and could alter the result.
+
+## @Aspect
+
+It declares the class as an aspect.
+
+## @Pointcut
+
+It declares the pointcut expression.
+
+## @Around
+
+It can perform the behavior before and after the method invocation.
+
+## @Pointcut
+
+Pointcut is a signature that matches the join points.
+
+## @Before
+
+It runs before the method execution.
+
+## @AfterReturning
+
+It runs after the result is returned by the method.
+
+## @AfterThrowing
+It runs after an exception is thrown by the method.
