@@ -215,3 +215,8 @@ Which allows the application to add beans using classpath definitions
 
 ### @Inject
 
+### @EnableScheduling
+
+### @Scheduled(cron = "0/1 * * ? * ?")
+
+### @WebFilter
