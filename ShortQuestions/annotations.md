@@ -190,6 +190,32 @@
 
 @JsonProperty
 
+
+- @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
+
+@Before 
+- Run before the method execution @After – Run after the method returned a result
+
+@AfterReturning 
+- Run after the method returned a result, intercept the returned result as well.
+
+@AfterThrowing 
+- Run after the method throws an exception
+
+@Around  
+- Run around the method execution, combine all three advices above.
+
+@Aspect  
+- indicate this is a aop class
+
+@Component -
+- This annotation mark the beans as Spring’s managed components
+
+@EnableScheduling
+
+- Enables Spring's scheduled task execution capability
+
 -
 @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
+
 
