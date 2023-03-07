@@ -32,3 +32,12 @@
 *  @SpringBootApplication - Spring Boot @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It’s same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
 * @EnableWebSecurity - is used to enable Spring Security's web security support and provide a configuration that extends WebSecurityConfigurerAdapter class to configure security settings.
 * @EnableGlobalMethodSecurity - is used to enable global method-level security annotations such as @PreAuthorize and @PostAuthorize for securing controller methods and service layer methods in Spring MVC applications.
+* @Before – Run before the method execution
+* @After – Run after the method returned a result
+* @AfterReturning – Run after the method returned a result, intercept the returned result as well.
+* @AfterThrowing – Run after the method throws an exception
+* @Around – Run around the method execution, combine all three advices above.
+* @Aspect - indicate this is a aop class
+* @Component - This annotation mark the beans as Spring’s managed
+components
+* @Before annotated methods run exactly before all methods matching with pointcut expression
