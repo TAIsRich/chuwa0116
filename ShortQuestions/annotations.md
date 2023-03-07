@@ -56,4 +56,20 @@ It tells Spring in which packages you have annotated classes that should be mana
 ### @ControllerAdvice
 It's used to handle the exceptions globally.
 ### @ExceptionHandler
-It's used to handle the specific exceptions and sending the custom responses to the client.
+
+## AOP
+### @Pointcut("execution(public * *(..))") - Pointcut expressions
+### @target 
+limits matching to join points (the execution of methods when using Spring AOP) where the class of the executing object has an annotation of the given type
+### @args 
+limits matching to join points (the execution of methods when using Spring AOP) where the runtime type of the actual arguments passed have annotations of the given type(s)
+### @within
+limits matching to join points within types that have the given annotation (the execution of methods declared in types with the given annotation when using Spring AOP)
+### @annotation 
+limits matching to join points where the subject of the join point (method being executed in Spring AOP) has the given annotation
+### @After
+### @Before
+### @AfterThrowing
+### @AfterReturning
+### @Around
+
