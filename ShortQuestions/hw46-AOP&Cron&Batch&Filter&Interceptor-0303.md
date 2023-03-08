@@ -46,4 +46,4 @@
    * prehandle() – called before the execution of the actual handler. 
    * postHandle() – called after the handler is executed.
 19. What is Swagger?
-   * 
+   * Swagger allows you to describe the structure of your APIs so that machines can read them. 
