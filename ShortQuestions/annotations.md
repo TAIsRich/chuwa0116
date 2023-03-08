@@ -71,6 +71,7 @@
 
 - It maps the HTTP DELETE requests on the specific handler method. It is used to create a web service endpoint that deletes a resource.
 
+
 @OneToOne 
 
 - Defines a single-valued association to another entity that has one-to-one multiplicity. It is not normally necessary to specify the associated target entity explicitly since it can usually be inferred from the type of the object being referenced. If the relationship is bidirectional, the non-owning side must use the mappedBy element of the OneToOne annotation to specify the relationship field or property of the owning side.
@@ -101,6 +102,7 @@
 @EnableTransactionManagement
 
 - Add on top of Applications.java to enable transaction in spring
+
 
 @configuration
 
@@ -163,6 +165,7 @@
 
 - we use @Primary to give higher preference to a bean when there are multiple beans of the same type
 
+
 @EnableWebSecurity
 
 - The @EnableWebSecurity is a marker annotation. It allows Spring to find (it's a @Configuration and, therefore, @Component) and automatically apply the class to the global WebSecurity.
@@ -210,6 +213,7 @@
 
 - Enables Spring's scheduled task execution capability
 
+
 @Mock
 
 - @Mock Annotation is used to mock the objects that assist in minimizing the repeated mock objects
@@ -234,3 +238,8 @@
 
 @Spy
 - spy() to spy on a real object. This will allow us to call all the normal methods of the object while still tracking every interaction, just as we would with a mock. 
+
+-
+@JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
+
+
