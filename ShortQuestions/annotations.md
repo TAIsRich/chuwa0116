@@ -53,7 +53,6 @@
 
 - In most cases, the name of the table in the database and the name of the entity won't be the same. In these cases, we can specify the table name using the @Table annotation
 
-
 @RestController
 
 - Spring RestController annotation is used to create RESTful web services using Spring MVC
@@ -190,7 +189,6 @@
 
 @JsonProperty
 
-
 - @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
 
 @Before 
@@ -214,6 +212,32 @@
 @EnableScheduling
 
 - Enables Spring's scheduled task execution capability
+
+
+@Mock
+
+- @Mock Annotation is used to mock the objects that assist in minimizing the repeated mock objects
+
+@InjectMock
+- @InjectMocks creates an instance of the class and injects the mocks that are created with the @Mock annotations into this instance.
+
+@BeforeAll
+- @BeforeAll is used to signal that the annotated method should be executed before all tests in the current test class.
+
+@BeforeEach
+- @BeforeEach annotation is used to signal that the annotated method should be executed before each invocation of @Test, @RepeatedTest, @ParameterizedTest, or @TestFactory method in the current class
+
+@Test
+- The Test annotation tells JUnit that the public void method to which it is attached can be run as a test case
+
+@AfterEach
+- @AfterEach is used to signal that the annotated method should be executed after each @Test method in the current test class.
+
+@AfterAll
+- @AfterAll is used to signal that the annotated method should be executed after all tests in the current test class
+
+@Spy
+- spy() to spy on a real object. This will allow us to call all the normal methods of the object while still tracking every interaction, just as we would with a mock. 
 
 -
 @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
