@@ -548,3 +548,49 @@ public class LoggingAspect {
 }
 ```
 
+## Unit Test
+
++ `@ExtendWith` is a JUnit 5 annotation used to register extensions for a test class or method. 
++ `@Mock` is an annotation used in Java testing frameworks, such as JUnit and Mockito, to create mock objects. Mock objects are objects that simulate the behavior of real objects in a controlled way, making it easier to test the functionality of a system in isolation from its dependencies.
+
++ `@Spy` is an annotation used in Java testing frameworks, such as JUnit and Mockito, to create spy objects. Spy objects are objects that have the same behavior as the real objects they are based on, but they can also be configured to capture and report interactions with them.
+
++ `@InjectMocks` is used in conjunction with @Mock or @Spy annotations to create mock or spy objects and inject them into the fields of the class being tested. This allows the developer to test the class in isolation while providing the necessary dependencies.
++ `@BeforeAll`  is used to set up the preconditions for the tests and perform any initialization necessary before the tests run. This annotation is typically used to set up static resources that are required by all tests in a class.
++ `@BeforeEach`is used to set up the preconditions for each individual test and perform any initialization necessary before the test runs. This annotation is typically used to set up non-static resources that are required by each test in a class.
+
+```java
+@ExtendWith(MockitoExtension.class)
+public class MyTest {
+   @Mock
+  private MyDependency mockedDependency;
+  
+  @Spy
+  private List<String> spiedList = new ArrayList<String>();
+  
+  @InjectMocks
+  private MyService myService;
+  
+  @BeforeAll
+  public static void setUp() {
+    // set up any static resources needed for the test class
+  }
+  
+  @Test
+  public void testMyService() {
+    // set up the mock behavior for the dependency
+    when(mockedDependency.someMethod()).thenReturn("mocked result");
+    
+    // add some items to the spied list
+    spiedList.add("item 1");
+    spiedList.add("item 2");
+    
+    // call the method being tested
+    String result = myService.doSomething();
+    
+    // verify the results
+    assertEquals("mocked result", result);
+    assertEquals(2, spiedList.size());
+  }
+}
+```
