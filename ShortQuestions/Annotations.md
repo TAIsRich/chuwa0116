@@ -27,7 +27,7 @@ It marks a class as a web request handler.
 ### @RequestBody
 It maps the body of the HTTP request to an object:
 ### @RestController = @Controller + @RequestBody
-### @RequestMapping("books")
+### @RequestMapping("books")  
 It is used to map web requests onto specific handler classes and/or handler methods.
 ### @Service
 It tells the Spring that class contains the business logic.
@@ -47,58 +47,13 @@ It accesses elements that are already in the model of an MVC @Controller.
 ## Springboot
 ### @SpringBootApplication
 It is used to mark the main class of a Spring Boot application.
-### @Configuration
+### @Configuration 
 It marks configuration can be found automatically.
-### @ComponentScan
+### @ComponentScan 
 It tells Spring in which packages you have annotated classes that should be managed by Spring.
 
 ## Spring Boot Exception Handling
 ### @ControllerAdvice
 It's used to handle the exceptions globally.
 ### @ExceptionHandler
-
-## AOP
-### @Pointcut("execution(public * *(..))") - Pointcut expressions
-<<<<<<< HEAD
-### @target 
-limits matching to join points (the execution of methods when using Spring AOP) where the class of the executing object has an annotation of the given type
-### @args 
-limits matching to join points (the execution of methods when using Spring AOP) where the runtime type of the actual arguments passed have annotations of the given type(s)
-### @within
-limits matching to join points within types that have the given annotation (the execution of methods declared in types with the given annotation when using Spring AOP)
-### @annotation 
-=======
-### @target
-limits matching to join points (the execution of methods when using Spring AOP) where the class of the executing object has an annotation of the given type
-### @args
-limits matching to join points (the execution of methods when using Spring AOP) where the runtime type of the actual arguments passed have annotations of the given type(s)
-### @within
-limits matching to join points within types that have the given annotation (the execution of methods declared in types with the given annotation when using Spring AOP)
-### @annotation
->>>>>>> d168db7816d9a195821b65e06d976edda55856ad
-limits matching to join points where the subject of the join point (method being executed in Spring AOP) has the given annotation
-### @After
-### @Before
-### @AfterThrowing
-### @AfterReturning
-### @Around
-
-## Mockito
-### @Mock
-create and inject mocked instances without having to call Mockito.mock manually.
-### @Spy
-spy on an existing instance.
-### @InjectMocks
-inject mock fields into the tested object automatically.
-
-## Junit
-### @BeforeClass
-run once during the start of the class.
-### @AfterClass
-run once at the end of the class.
-###  @Before
-run it before each testcase runs.
-### @After
-run it after the execution of each test case.
-###  @Test
-annotates that these are the core test cases for the JUnit class to be executed.
+It's used to handle the specific exceptions and sending the custom responses to the client.
