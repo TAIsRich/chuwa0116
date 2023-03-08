@@ -325,3 +325,10 @@ When you annotate a class with @EqualsAndHashCode, the annotation processor gene
 
 ### @Scheduled 
 When you try to use task schedule
+
+### `@BeforeAll`: provides class level set-up
+### `@BeforeEach`: provides method level set-up
+### `@Test`: test execution and assertion happens
+### `@AfterEach`: provides method level clean-up
+### `@AfterAll`: provides class level clean-up
+## @ExtendWith(MockitoExtension.class)
