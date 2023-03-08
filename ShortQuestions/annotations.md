@@ -59,13 +59,13 @@ It's used to handle the exceptions globally.
 
 ## AOP
 ### @Pointcut("execution(public * *(..))") - Pointcut expressions
-### @target 
+### @target
 limits matching to join points (the execution of methods when using Spring AOP) where the class of the executing object has an annotation of the given type
-### @args 
+### @args
 limits matching to join points (the execution of methods when using Spring AOP) where the runtime type of the actual arguments passed have annotations of the given type(s)
 ### @within
 limits matching to join points within types that have the given annotation (the execution of methods declared in types with the given annotation when using Spring AOP)
-### @annotation 
+### @annotation
 limits matching to join points where the subject of the join point (method being executed in Spring AOP) has the given annotation
 ### @After
 ### @Before
@@ -92,4 +92,3 @@ run it before each testcase runs.
 run it after the execution of each test case.
 ###  @Test
 annotates that these are the core test cases for the JUnit class to be executed.
-
