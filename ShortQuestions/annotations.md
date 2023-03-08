@@ -366,3 +366,7 @@ vs.
     We also extend GlobalMethodSecurityConfiguration to configure the method security settings. We inject a custom PermissionEvaluator, which will be used to evaluate custom permissions on secured methods. We then override the createExpressionHandler method to create a DefaultMethodSecurityExpressionHandler and set the custom PermissionEvaluator on it.
 
     Overall, @EnableGlobalMethodSecurity provides a convenient way to enable and configure method-level security in Spring Security, and GlobalMethodSecurityConfiguration provides a way to customize the security settings to fit the needs of our application.
+
+28. @Mock 
+
+    @Mock is used to create a mock object in a test class, while @InjectMocks is used to inject the dependencies of the mock object into the class being tested.
