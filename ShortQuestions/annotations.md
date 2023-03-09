@@ -33,9 +33,19 @@
 17. @Transactional: Spring provides Declarative Transaction Management via @Transactional annotation. When a method is qpplied with @Transactional, then it will execute inside a database transaction. @Transactional annotation can be applied at the class level also, in that case, all methods of that class will be executed inside a database transaction.     
 
 18. @PersistenceContext: To tell the EntityManager to use the transaction presistence context, we simply annotate it with @PersistenceContext. A persistence context is a set of entity instances in which for any persistent entity identity there is a unique entity instance. Within the persistence context, the entity instances and their lifecycle are managed. This interface defines the methods that are used to interact with the persistence contxt.     
+
 19. @Valid: In the context of software development, @Valid is an annotation used in Java and some other programming languages to indicate that a particular parameter or object should be validated against certain constraints.    
 
 When applied to a method parameter, @Valid indicates that the parameter must be validated according to the constraints defined on its fields or properties. For example, if a method takes a user object as a parameter and the user object has a field called "email" that is annotated with @Email (a validation annotation that checks if the field contains a valid email address), then applying @Valid to the user parameter will trigger validation of the email field when the method is called.    
 
 @Valid is often used in conjunction with the Java Bean Validation framework, which provides a set of validation annotations (such as @NotNull, @Size, @Min, @Max, etc.) that can be used to define constraints on the fields or properties of Java objects.     
 
+20. @Mock is used to create a mock object for a class or interface. When a test class is executed, Mockito will create a mock object for each field annotated with @Mock. The mock object can then be configured with behavior using Mockito's API, and used in the test methods to simulate the behavior of a real object.    
+
+21. @InjectMocks is used to inject the mock objects created using @Mock into the class being tested. When a test class is executed, Mockito will automatically inject the mock objects created using @Mock into the fields annotated with @InjectMocks. This simplifies the process of setting up the mock objects for testing.     
+
+22. @Spy is used to create a partial mock object for a class or interface, where some of the methods are mocked and some are not. The behavior of the spy object can be controlled using Mockito's API, but the unmocked methods will call the original implementation of the class being spied on.
+
+23. @BeforeAll is a JUnit annotation in Java that is used to indicate a method that should be executed once before any test methods in a test class are run. It is used to perform any setup tasks that need to be executed only once, such as initializing a database connection or loading configuration files.     
+
+24. @BeforeEach is a JUnit annotation in Java that is used to indicate a method that should be executed before each test method in a test class is run. It is used to perform any setup tasks that need to be executed before each test, such as resetting variables or initializing objects.     
