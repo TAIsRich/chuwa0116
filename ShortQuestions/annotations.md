@@ -121,7 +121,7 @@ When @EnableWebMvc is used, Spring Boot automatically configures the application
 ## @Value
 get value from application.properties
 
-## @EnableGlobalMethodSecurity 
+## @EnableGlobalMethodSecurity
 When you use this annotation, it enables the use of Spring Security's method security features such as @PreAuthorize, @PostAuthorize, @Secured, and other similar annotations that can be used to restrict access to specific methods based on user roles or permissions.
 
 ## @EnableWebSecurity
@@ -129,6 +129,28 @@ The @EnableWebSecurity annotation is usually added to a configuration class that
 
 ## @PreAuthorize
 validate if user has role specified in the brackets
+
+## @Aspect
+The @Aspect annotation in Spring is used to mark a class as an aspect.
+
+## @Order
+The @Order annotation is a Spring Framework annotation that can be used to specify the ordering of beans or components within an application context.
+
+## @Pointcut
+The @Pointcut annotation is typically used in combination with other annotations, such as @Before, @After, or @Around, to define advice that will be executed at the join points matched by the pointcut expression.
+
+## @AfterThrowing
+pring will automatically generate code that wraps the target method in a try-catch block. If the target method throws an exception, the code defined in the annotated method will be executed.
+
+## @Around
+When the @Around annotation is applied to a method, Spring's AOP mechanism will wrap the target method with the advice method, and will execute the advice method before and/or after the target method execution.
+
+## @EqualsAndHashCode
+When you annotate a class with @EqualsAndHashCode, the annotation processor generates equals() and hashCode() methods using all non-static, non-transient fields of the annotated class.
+
+## @Data
+@Data annotation is used to automatically generate the getter and setter methods for the fields of a class.
+
 
 ## @Mock
 you can use the @Mock annotation to annotate any field that you want to mock. Mockito will then create a mock object of the appropriate type and assign it to the annotated field.
