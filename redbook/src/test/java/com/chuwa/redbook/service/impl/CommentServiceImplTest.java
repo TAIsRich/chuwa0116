@@ -132,15 +132,36 @@ class CommentServiceImplTest {
 
     @Test
     void updateComment() {
+        String description = "new" + comment.getBody();
+        commentDto.setBody(description);
+
+        Comment updatedComment = new Comment();
+        updatedComment.setId(comment.getId());
+        updatedComment.setEmail(comment.getEmail());
+        updatedComment.setName(comment.getName());
+        updatedComment.setBody(description);
+        updatedComment.setPost(comment.getPost());
+
+
         Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
                 .thenReturn(Optional.of(post));
-        
+
+
         Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
                 .thenReturn(Optional.of(comment));
 
-        commentService.deleteComment(1L, 1L);
 
-        Mockito.verify(commentRepositoryMock, Mockito.times(1)).delete(ArgumentMatchers.any(Comment.class));
+        Mockito.when(commentRepositoryMock.save(ArgumentMatchers.any(Comment.class)))
+                .thenReturn(updatedComment);
+
+
+        CommentDto commentResponse = commentService.updateComment(1L, 1L, commentDto);
+
+
+        Assertions.assertNotNull(commentResponse);
+        Assertions.assertEquals(commentDto.getName(), commentResponse.getName());
+        Assertions.assertEquals(commentDto.getEmail(), commentResponse.getEmail());
+        Assertions.assertEquals(commentDto.getBody(), commentResponse.getBody());
 
     }
 
