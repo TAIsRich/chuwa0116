@@ -157,6 +157,13 @@ class CommentServiceImplTest {
     }
 
     @Test
+    void createComment_ResourceNotFoundException(){
+        Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Post", "id", 1L));
+        Assertions.assertThrows(ResourceNotFoundException.class,()-> commentService.createComment(3L,commentDto));
+    }
+
+
+    @Test
     void getCommentById_ResourceNotFoundException2(){
         Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(post));
         Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Comment", "id", 1L));
@@ -173,12 +180,38 @@ class CommentServiceImplTest {
 
 
     @Test
+    void updateComment_ResourceNotFoundException1(){
+        Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Post","id",2L));
+        Assertions.assertThrows(ResourceNotFoundException.class,()->commentService.updateComment(2L,1L,commentDto));
+    }
+
+    @Test
+    void updateComment_ResourceNotFoundException2(){
+        Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(post));
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Comment","id",2L));
+        Assertions.assertThrows(ResourceNotFoundException.class,()->commentService.updateComment(1L,2L,commentDto));
+    }
+
+    @Test
     void updateComment_BlogAPIException(){
         Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(post1));
         Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(comment));
         Assertions.assertThrows(BlogAPIException.class,()->commentService.updateComment(2L,1L,commentDto));
     }
 
+
+    @Test
+    void deleteComment_ResourceNotFoundException1(){
+        Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Post","id",2L));
+        Assertions.assertThrows(ResourceNotFoundException.class,()->commentService.deleteComment(2L,1L));
+    }
+
+    @Test
+    void deletComment_ResourceNotFoundException2(){
+        Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(post));
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong())).thenThrow(new ResourceNotFoundException("Comment","id",2L));
+        Assertions.assertThrows(ResourceNotFoundException.class,()->commentService.deleteComment(1L,2L));
+    }
     @Test
     void deleteComment_BlogAPIException(){
         Mockito.when(postRepository.findById(ArgumentMatchers.anyLong())).thenReturn(Optional.of(post1));
