@@ -313,3 +313,191 @@ public class MyApplication {
 
 }
 ```
+
+# @BeforeAll
+It is a JUnit annotation that is used to indicate that a method should be executed once before all test methods in a test class. This annotation can be used on static methods, and is typically used to perform setup tasks that only need to be done once for all tests in the class.
+```java
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MyTest {
+
+    private static MyClass myClass;
+
+    @BeforeAll
+    public static void setup() {
+        myClass = new MyClass();
+    }
+
+    @Test
+    public void testMyMethod() {
+        // Call the method being tested
+        String result = myClass.myMethod();
+
+        // Verify the result
+        assertEquals("expected result", result);
+    }
+}
+
+```
+# @BeforeEach
+It is a JUnit annotation that is used to indicate that a method should be executed before each test method in a test class. This annotation can be used on instance or static methods, and is typically used to perform setup tasks that need to be done before each test in the class.  
+```java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MyTest {
+
+    private MyClass myClass;
+
+    @BeforeEach
+    public void setup() {
+        myClass = new MyClass();
+    }
+
+    @Test
+    public void testMyMethod() {
+        // Call the method being tested
+        String result = myClass.myMethod();
+
+        // Verify the result
+        assertEquals("expected result", result);
+    }
+
+    @Test
+    public void testAnotherMethod() {
+        // Call another method being tested
+        int result = myClass.anotherMethod();
+
+        // Verify the result
+        assertEquals(42, result);
+    }
+}
+```
+
+# @AfterAll
+It is a JUnit annotation that is used to indicate that a method should be executed once after all test methods in a test class have been run. This annotation can be used on static methods, and is typically used to perform cleanup tasks that only need to be done once after all tests in the class.
+```java
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MyTest {
+
+    @Test
+    public void testMyMethod() {
+        // Call the method being tested
+        String result = MyClass.myMethod();
+
+        // Verify the result
+        assertEquals("expected result", result);
+    }
+
+    @AfterAll
+    public static void cleanup() {
+        // Perform cleanup tasks here
+    }
+}
+```
+
+# @AfterEach
+It is a JUnit annotation that is used to indicate that a method should be executed after each test method in a test class. This annotation can be used on instance or static methods, and is typically used to perform cleanup tasks that need to be done after each test in the class.
+```java
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MyTest {
+
+    private MyClass myClass;
+
+    @BeforeEach
+    public void setup() {
+        myClass = new MyClass();
+    }
+
+    @Test
+    public void testMyMethod() {
+        // Call the method being tested
+        String result = myClass.myMethod();
+
+        // Verify the result
+        assertEquals("expected result", result);
+    }
+
+    @Test
+    public void testAnotherMethod() {
+        // Call another method being tested
+        int result = myClass.anotherMethod();
+
+        // Verify the result
+        assertEquals(42, result);
+    }
+
+    @AfterEach
+    public void cleanup() {
+        // Perform cleanup tasks here
+    }
+}
+```
+
+# @@Mock and @InjectMocks
+@Mock is used to create a mock object of a class or interface. A mock object is a fake implementation of an interface or class, which is used to simulate the behavior of real objects in a controlled way. Mock objects are useful for testing because they allow you to isolate the code being tested and verify that it is behaving as expected without the need for real dependencies.
+
+@InjectMocks is used to inject the mocks created with @Mock into the object being tested. The object being tested is typically an instance of a class, and @InjectMocks injects the mock objects into the class, replacing any real dependencies. This allows you to test the behavior of the class in isolation, without the need for real dependencies.
+```java
+@RunWith(MockitoJUnitRunner.class)
+public class MyTest {
+
+    @Mock
+    private Dependency dependency;
+
+    @InjectMocks
+    private MyClass myClass;
+
+    @Test
+    public void testMyMethod() {
+        // Setup expectations on the dependency
+        when(dependency.doSomething()).thenReturn("mock result");
+
+        // Call the method being tested
+        String result = myClass.myMethod();
+
+        // Verify the result
+        assertEquals("mock result", result);
+    }
+}
+```
+
+# @Spy
+It is a Mockito annotation that is used to create a real instance of a class and spy on it. This means that the real methods of the class will be called, but their behavior can be modified using Mockito's mocking capabilities.
+```java
+import org.junit.jupiter.api.Test;
+import org.mockito.Spy;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class MyTest {
+
+    @Spy
+    private MyClass myClass;
+
+    @Test
+    public void testMyMethod() {
+        // Set up the spy to return a specific value
+        when(myClass.myMethod()).thenReturn("expected result");
+
+        // Call the method being tested
+        String result = myClass.myMethod();
+
+        // Verify the result
+        assertEquals("expected result", result);
+
+        // Verify that the real method was called
+        verify(myClass).myMethod();
+    }
+}
+
+```
