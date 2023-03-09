@@ -424,6 +424,85 @@ public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
 }
 ```
 
+#Test
+
+##@BeforeALl:
+    Method is executed only once,before all test methods.
+    @BeforeAll runs only once before all the test methods of a Test class. Sometimes there are heavy operations like setting 
+    up a Database connection or spinning up an embedded server etc which should be done only once for a test class.
+```
+@BeforeAll
+static void runOnceBeforeAllTests(){
+}
+```
+
+##@BeforeEach:
+    This method is executed before each test method. This is used to ensure we have clean data(for eg. setting up mocks) 
+    for each test case and is not updated by any other already executed @Test method.
+```
+@BeforeEach
+public void testMethod(){
+    System.out.println("BeforeEach executed!");
+}
+
+```
+
+##@Test:
+    This annotation marks a method as a test method. 
+```
+@Test
+public void testMethod(){
+
+}
+```
+
+##@AfterEach:
+    This method is executed after each test method. This is generally used to clean up the data or to perform an action 
+    after a @Test method. If it is just a cleanup of data then sometimes it is can also be done in @BeforeEach method.
+```
+@AfterEach
+public void testMethod(){
+    System.out.println("AfterEach executed!");
+}
+```
+##@AfterAll:
+    Method is executed only once, before all testmethods.
+    @AfterAll runs only once after all the test methods of a Test class. Mostly the setup that is done in @BeforeAll method 
+    also needs to be cleaned up like closing the Database connection or shutting down the embedded server etc which is generally
+    done only once for a test class.
+```
+@AfterAll
+static void runOnceAfterAllTests(){
+}
+```
+
+##@SpringBootTest
+
+##@Mock:
+    Create a Mock.
+```
+@Mock
+private PostRepository postRepositoryMock;
+```
+
+##@Spy:
+     Wrap a real object and call the real method by default. Additionally, @spy also has the ability same as @Mock.
+```
+@Spy
+private ModelMapper modelMapper;
+```
+
+##@InjectMocks:
+    Create an instance. The instance can call the method of the real code, and the rest of the mocks created with the @Mock 
+    (or @Spy) annotation will be injected into the instance.
+
+```
+@InjectMocks
+private PostServiceImpl postService;
+```
+
+
+
 
 
 
