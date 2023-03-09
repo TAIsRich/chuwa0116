@@ -178,3 +178,9 @@ This annotation is used for injecting values into fields in Spring-managed beans
 
 ### @JsonProperty
 This annotation is used to mark non-standard getter/setter method to be used with respect to json property
+
+### @Mock
+This annotation is used to create mock objects that can be used to replace dependencies in a test class.
+
+### @InjectMocks
+This annotation is used to create an instance of a class and inject the mock objects into it, allowing you to test the behavior of the class.
