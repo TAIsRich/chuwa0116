@@ -130,20 +130,6 @@ The @EnableWebSecurity annotation is usually added to a configuration class that
 ## @PreAuthorize
 validate if user has role specified in the brackets
 
-## @Mock
-you can use the @Mock annotation to annotate any field that you want to mock. Mockito will then create a mock object of the appropriate type and assign it to the annotated field.
-
-## @Spy
-with @Spy, the actual methods of the object are called, unless they are explicitly stubbed.
-
-## @ExtendWith
-The @ExtendWith annotation is used in JUnit 5 to register extensions for a test class or a test method. An extension is a class that can modify the behavior of a test class or method.
-
-## @InjectMocks
-When you use @InjectMocks in conjunction with @Mock or @Spy annotations, Mockito will automatically inject the mocked objects into the fields of the object being tested.
-
-##
-
 ##
 
 ##
@@ -156,8 +142,3 @@ Overrides an inherited methods
 
 ## @FunctionalInterface
 Sanity check, a functional interface should only have one abstract method.
-
-## @Test
-the @Test annotation is used to mark a method as a test method. This annotation is part of the JUnit testing framework and is used to indicate that the method should be executed as a test case.
-
-
