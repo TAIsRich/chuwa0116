@@ -4,6 +4,7 @@ import com.chuwa.redbook.dao.CommentRepository;
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Comment;
 import com.chuwa.redbook.entity.Post;
+import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.payload.PostDto;
@@ -24,6 +25,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import javax.naming.CommunicationException;
+import javax.swing.text.BadLocationException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -135,6 +137,19 @@ public class CommentServiceImplTest {
     }
 
     @Test
+    public void testGetCommentById_BlogAPIException() {
+        Post wrongPost = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+        comment.setPost(wrongPost);
+
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(post));
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.getCommentById(1L, 1L));
+    }
+
+    @Test
     public void testUpdateComment(){
         comment.setPost(post);
 
@@ -164,6 +179,31 @@ public class CommentServiceImplTest {
     }
 
     @Test
+    public void testUpdateComment_BlogAPIException() {
+        Post wrongPost = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+        comment.setPost(wrongPost);
+
+        String body = "UPDATED - " + comment.getBody();
+        commentDto.setBody(body);
+
+        // deep copy
+        Comment updatedComment = new Comment();
+        updatedComment.setId(comment.getId());
+        updatedComment.setName(comment.getName());
+        updatedComment.setEmail(comment.getEmail());
+        updatedComment.setBody(body);
+
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(post));
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+        //Mockito.when(commentRepositoryMock.save(ArgumentMatchers.any(Comment.class)))
+        //        .thenReturn(updatedComment);
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.updateComment(1L, 1L, commentDto));
+    }
+
+    @Test
     public void testDeleteComment(){
         comment.setPost(post);
         Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
@@ -177,5 +217,17 @@ public class CommentServiceImplTest {
         Mockito.verify(commentRepositoryMock, Mockito.times(1)).delete(ArgumentMatchers.any(Comment.class));
     }
 
+    @Test
+    public void testDeleteComment_BlogAPIException() {
+        Post wrongPost = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+        comment.setPost(wrongPost);
+
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(post));
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.deleteComment(1L, 1L));
+    }
 
 }
