@@ -427,3 +427,33 @@ public void logAfterReturning(JoinPoint joinPoint, Object result) {
         System.out.println("Logging after method " + joinPoint.getSignature().getName() + " returned " + result);
         }
 ```
+- `@ExtendWith` is a JUnit 5 annotation used to register extensions for a test class or method.
+```java
+@ExtendWith(MockitoExtension.class)
+public class MyTest {
+}
+
+```
+- `@Mock` is an annotation used in Java testing frameworks, such as JUnit and Mockito, to create mock objects. Mock objects are objects that simulate the behavior of real objects in a controlled way, making it easier to test the functionality of a system in isolation from its dependencies.
+```java
+ @Mock
+  private MyDependency mockedDependency;
+```
+- `@Spy` is an annotation used in Java testing frameworks, such as JUnit and Mockito, to create spy objects. Spy objects are objects that have the same behavior as the real objects they are based on, but they can also be configured to capture and report interactions with them.
+```java
+    @Spy
+  private List<String> spiedList = new ArrayList<String>();
+```
+- `@InjectMocks` is used in conjunction with @Mock or @Spy annotations to create mock or spy objects and inject them into the fields of the class being tested. This allows the developer to test the class in isolation while providing the necessary dependencies.
+```java
+ @InjectMocks
+  private MyService myService;
+```
+- `@BeforeAll`  is used to set up the preconditions for the tests and perform any initialization necessary before the tests run. This annotation is typically used to set up static resources that are required by all tests in a class.
+```java
+ @BeforeAll
+  public static void setUp() {
+    // set up any static resources needed for the test class
+  }
+```
+- `@BeforeEach`is used to set up the preconditions for each individual test and perform any initialization necessary before the test runs. This annotation is typically used to set up non-static resources that are required by each test in a class.
