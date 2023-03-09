@@ -6,20 +6,18 @@ import com.chuwa.redbook.entity.Comment;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.BlogApiException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
-import com.chuwa.redbook.payload.CommentDTO;
+import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.service.CommentService;
-import com.chuwa.redbook.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class CommentServiceimpl implements CommentService {
+public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private PostRepository postRepository;
@@ -29,42 +27,42 @@ public class CommentServiceimpl implements CommentService {
     private ModelMapper modelMapper;
 
     @Override
-    public CommentDTO createComment(Long postId, CommentDTO commentDTO) {
-        // Comment comment = mapToComment(commentDTO);
-        Comment comment = modelMapper.map(commentDTO, Comment.class);
+    public CommentDto createComment(Long postId, CommentDto commentDto) {
+        // Comment comment = mapToComment(commentDto);
+        Comment comment = modelMapper.map(commentDto, Comment.class);
         Post post = postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post", "id", postId));
         comment.setPost(post);
         commentRepository.save(comment);
         // CommentDTO response = mapToCommentDTO(comment);
-        CommentDTO response = modelMapper.map(comment, CommentDTO.class);
+        CommentDto response = modelMapper.map(comment, CommentDto.class);
         return response;
     }
 
     @Override
-    public List<CommentDTO> getCommentByPostId(Long postId) {
-        List<CommentDTO> list = commentRepository
+    public List<CommentDto> getCommentByPostId(Long postId) {
+        List<CommentDto> list = commentRepository
                 .findByPostId(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId))
                 .stream()
                 // .map(comment -> mapToCommentDTO(comment))
-                .map(comment -> modelMapper.map(comment, CommentDTO.class))
+                .map(comment -> modelMapper.map(comment, CommentDto.class))
                 .collect(Collectors.toList());
         return list;
     }
 
     @Override
-    public CommentDTO getCommentById(Long postId, Long commentId) {
+    public CommentDto getCommentById(Long postId, Long commentId) {
         Post post = postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post", "id", postId));
         Comment comment = commentRepository.findById(commentId).orElseThrow(()->new ResourceNotFoundException("Comment", "id", commentId));
         if(!comment.getPost().getId().equals(post.getId())) {
             throw new BlogApiException("Comment and post does not match", HttpStatus.BAD_REQUEST);
         }
         // return mapToCommentDTO(comment);
-        return modelMapper.map(comment, CommentDTO.class);
+        return modelMapper.map(comment, CommentDto.class);
     }
 
     @Override
-    public CommentDTO updateComment(Long postId, Long commentId, CommentDTO commentDTO) {
+    public CommentDto updateComment(Long postId, Long commentId, CommentDto commentDTO) {
         Post post = postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post", "id", postId));
         Comment comment = commentRepository.findById(commentId).orElseThrow(()->new ResourceNotFoundException("Comment", "id", commentId));
         if(!comment.getPost().getId().equals(post.getId())) {
@@ -75,7 +73,7 @@ public class CommentServiceimpl implements CommentService {
         comment.setBody(commentDTO.getBody());
         Comment updatedComment = commentRepository.save(comment);
         // return mapToCommentDTO(updatedComment);
-        return modelMapper.map(updatedComment, CommentDTO.class);
+        return modelMapper.map(updatedComment, CommentDto.class);
     }
 
     @Override

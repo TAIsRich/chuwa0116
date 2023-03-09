@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class CommentDTO {
+public class CommentDto {
 
     private Long id;
     @NotEmpty(message = "Name should not be null or empty")
@@ -16,10 +16,10 @@ public class CommentDTO {
     @Size(min = 5, message = "Comment body must be minimum 5 characters")
     private String body;
 
-    public CommentDTO() {
+    public CommentDto() {
     }
 
-    public CommentDTO(Long id, String name, String email, String body) {
+    public CommentDto(Long id, String name, String email, String body) {
         this.id = id;
         this.name = name;
         this.email = email;

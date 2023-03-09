@@ -1,9 +1,6 @@
 package com.chuwa.redbook.controller;
 
-import com.chuwa.redbook.dao.CommentRepository;
-import com.chuwa.redbook.dao.PostRepository;
-import com.chuwa.redbook.entity.Comment;
-import com.chuwa.redbook.payload.CommentDTO;
+import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.service.CommentService;
 import com.chuwa.redbook.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,30 +22,30 @@ public class CommentController {
     private CommentService commentService;
 
     @PostMapping("/posts/{post_id}/comments")
-    public ResponseEntity<CommentDTO> createComment(@PathVariable(value = "post_id") Long post_id,
-                                                    @Valid @RequestBody CommentDTO commentDTO) {
-        CommentDTO commentResponse = commentService.createComment(post_id, commentDTO);
+    public ResponseEntity<CommentDto> createComment(@PathVariable(value = "post_id") Long post_id,
+                                                    @Valid @RequestBody CommentDto commentDTO) {
+        CommentDto commentResponse = commentService.createComment(post_id, commentDTO);
         return new ResponseEntity<>(commentResponse, HttpStatus.CREATED);
     }
 //    List<CommentDTO> getCommentByPostId(Long postId);
     @GetMapping("/posts/{post_id}/comments")
-    public List<CommentDTO> getCommentByPostId(@PathVariable(value = "post_id") Long postId) {
+    public List<CommentDto> getCommentByPostId(@PathVariable(value = "post_id") Long postId) {
         return commentService.getCommentByPostId(postId);
     }
 //    CommentDTO getCommentById(Long postId, Long commentId);
     @GetMapping("/posts/{post_id}/comments/{comment_id}")
-    public ResponseEntity<CommentDTO> getCommentById(@PathVariable(value = "post_id") Long postId,
+    public ResponseEntity<CommentDto> getCommentById(@PathVariable(value = "post_id") Long postId,
                                                      @PathVariable(value = "comment_id") Long commentId) {
-        CommentDTO commentDTO = commentService.getCommentById(postId, commentId);
+        CommentDto commentDTO = commentService.getCommentById(postId, commentId);
         return ResponseEntity.ok(commentDTO);
     }
 //    CommentDTO updateComment(Long postId, Long commentId, CommentDTO commentDTO);
     @PutMapping("/posts/{post_id}/comments/{comment_id}")
-    public ResponseEntity<CommentDTO> updateComment(@PathVariable(value = "post_id") Long postId,
+    public ResponseEntity<CommentDto> updateComment(@PathVariable(value = "post_id") Long postId,
                                                     @PathVariable(value = "comment_id") Long commentId,
-                                                    @Valid @RequestBody CommentDTO commentDTO) {
-        CommentDTO updatedCommentDTO = commentService.updateComment(postId, commentId, commentDTO);
-        return ResponseEntity.ok(updatedCommentDTO);
+                                                    @Valid @RequestBody CommentDto commentDTO) {
+        CommentDto updatedCommentDto = commentService.updateComment(postId, commentId, commentDTO);
+        return ResponseEntity.ok(updatedCommentDto);
     }
 
 //    void deleteComment(Long postId, Long commentId);
