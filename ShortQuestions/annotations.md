@@ -130,10 +130,35 @@ The @EnableWebSecurity annotation is usually added to a configuration class that
 ## @PreAuthorize
 validate if user has role specified in the brackets
 
+## @Aspect
+The @Aspect annotation in Spring is used to mark a class as an aspect.
+
+## @Order
+The @Order annotation is a Spring Framework annotation that can be used to specify the ordering of beans or components within an application context.
+
+## @Pointcut
+The @Pointcut annotation is typically used in combination with other annotations, such as @Before, @After, or @Around, to define advice that will be executed at the join points matched by the pointcut expression.
+
+## @AfterThrowing
+pring will automatically generate code that wraps the target method in a try-catch block. If the target method throws an exception, the code defined in the annotated method will be executed.
+
+## @Around
+When the @Around annotation is applied to a method, Spring's AOP mechanism will wrap the target method with the advice method, and will execute the advice method before and/or after the target method execution.
+
+## @EqualsAndHashCode
+When you annotate a class with @EqualsAndHashCode, the annotation processor generates equals() and hashCode() methods using all non-static, non-transient fields of the annotated class.
+
+## @Data
+
+##
+
 ##
 
 ##
 
+##
+
+##
 
 
 --------------------------
