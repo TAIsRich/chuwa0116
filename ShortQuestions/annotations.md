@@ -192,3 +192,9 @@ We can implement after returning advice in an application by using `@AfterReturn
 
 ### @Around
 `@Around` is an advice type, which ensures that an advice can run before and after the method execution.
+
+### @Mock
+We can use `@Mock` to create and inject mocked instances without having to call Mockito.mock manually.
+
+### @Spy
+use the `@Spy` annotation to spy on an existing instance.
