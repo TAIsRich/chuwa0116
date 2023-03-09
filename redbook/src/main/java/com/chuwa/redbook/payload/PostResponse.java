@@ -3,8 +3,8 @@ package com.chuwa.redbook.payload;
 import java.util.List;
 
 /**
- * @author Zhipeng Yin
- * @date 2023-02-06 18:05
+ * @author b1go
+ * @date 6/22/22 2:15 AM
  */
 public class PostResponse {
     private List<PostDto> content;

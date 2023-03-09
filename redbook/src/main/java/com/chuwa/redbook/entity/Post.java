@@ -5,33 +5,53 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-@Entity //存放post的数据结构
-//give table name
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author b1go
+ * @date 8/22/22 6:30 PM
+ */
+@Entity
 @Table(
         name = "posts",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"title"})
+             @UniqueConstraint(columnNames = {"title"})
         }
 )
 public class Post {
-    @Id
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //1,2,3,4,5....999
-    private Long id; //UUID
-    //映射到DB上
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "title", nullable = false)
     private String title;
+
     @Column(name = "description", nullable = false)
     private String description;
+
     @Column(name = "content", nullable = false)
-    private  String content;
+    private String content;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comment> comments = new HashSet<>();
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
     @CreationTimestamp
     private LocalDateTime createDateTime;
+
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
     public Post() {
-
     }
 
     public Post(Long id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
@@ -89,5 +109,17 @@ public class Post {
 
     public void setUpdateDateTime(LocalDateTime updateDateTime) {
         this.updateDateTime = updateDateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
+                ", createDateTime=" + createDateTime +
+                ", updateDateTime=" + updateDateTime +
+                '}';
     }
 }

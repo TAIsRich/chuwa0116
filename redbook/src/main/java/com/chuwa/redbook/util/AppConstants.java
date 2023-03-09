@@ -1,8 +1,8 @@
 package com.chuwa.redbook.util;
 
 /**
- * @author Zhipeng Yin
- * @date 2023-02-06 18:18
+ * @author b1go
+ * @date 6/22/22 2:40 AM
  */
 public class AppConstants {
     public static final String DEFAULT_PAGE_NUMBER = "0";
