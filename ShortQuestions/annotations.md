@@ -37,6 +37,13 @@
 
 @EnableScheduling
 @Scheduled
+
+@ExtendWith
+
+@Test
+@Mock
+@Spy
+@InjectMocks
+@BeforeEach
+@BeforeAll
 ```
-
-

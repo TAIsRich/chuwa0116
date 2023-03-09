@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
-public class PostDTO {
+public class PostDto {
     private Long id;
     @NotEmpty
     @Size(min = 2, message = "Post title should have at least 2 characters")
@@ -14,13 +14,13 @@ public class PostDTO {
     private String description;
     @NotEmpty
     private String content;
-    private Set<CommentDTO> comments;
+    private Set<CommentDto> comments;
 
-    public PostDTO() {
+    public PostDto() {
 
     }
 
-    public PostDTO(Long id, String title, String description, String content, Set<CommentDTO> comments) {
+    public PostDto(Long id, String title, String description, String content, Set<CommentDto> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -60,11 +60,11 @@ public class PostDTO {
         this.content = content;
     }
 
-    public Set<CommentDTO> getComments() {
+    public Set<CommentDto> getComments() {
         return comments;
     }
 
-    public void setComments(Set<CommentDTO> comments) {
+    public void setComments(Set<CommentDto> comments) {
         this.comments = comments;
     }
 }

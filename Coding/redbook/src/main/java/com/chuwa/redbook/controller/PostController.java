@@ -1,7 +1,6 @@
 package com.chuwa.redbook.controller;
 
-import com.chuwa.redbook.entity.Post;
-import com.chuwa.redbook.payload.PostDTO;
+import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import com.chuwa.redbook.util.AppConstants;
@@ -12,7 +11,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -22,8 +20,8 @@ public class PostController {
     private PostService postService;
 
     @PostMapping
-    public ResponseEntity<PostDTO> savePost(@Valid @RequestBody PostDTO postDTO) {
-        PostDTO postResponse = postService.createPost(postDTO);
+    public ResponseEntity<PostDto> savePost(@Valid @RequestBody PostDto postDTO) {
+        PostDto postResponse = postService.createPost(postDTO);
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
 
@@ -38,13 +36,13 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PostDTO> getPostById(@Valid @PathVariable(name = "id") Long id) {
-        PostDTO postDTO = postService.getPostById(id);
+    public ResponseEntity<PostDto> getPostById(@Valid @PathVariable(name = "id") Long id) {
+        PostDto postDTO = postService.getPostById(id);
         return new ResponseEntity<>(postDTO, HttpStatus.OK);
     };
 
     @PutMapping("/{id}")
-    public ResponseEntity<PostDTO> updatePostById(@RequestBody PostDTO postDTO,
+    public ResponseEntity<PostDto> updatePostById(@RequestBody PostDto postDTO,
                                                   @PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(postService.updatePost(postDTO, id));
     }
