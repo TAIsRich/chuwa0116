@@ -17,20 +17,17 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CommentServiceImplTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(PostServiceImplTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(CommentServiceImplTest.class);
 
     @Mock
     private PostRepository postRepositoryMock;
@@ -43,12 +40,8 @@ class CommentServiceImplTest {
 
 
     @InjectMocks
-    private PostServiceImpl postService;
-
-    @InjectMocks
     private CommentServiceImpl commentService;
 
-    private PostDto postDto;
     private CommentDto commentDto;
 
     private Post post;
@@ -65,11 +58,10 @@ class CommentServiceImplTest {
 
         this.post = new Post(1L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
                 LocalDateTime.now(), LocalDateTime.now());
-        ModelMapper modelMapper = new ModelMapper();
-        this.postDto = modelMapper.map(this.post, PostDto.class);
+        this.modelMapper = new ModelMapper();
 
         this.comment = new Comment(1L, "xiao ruishi", "123@qq.com"
-                    , "this is a comment from xiao ruishi");
+                , "this is a comment from xiao ruishi");
         comment.setPost(post);
         this.commentDto = modelMapper.map(this.comment, CommentDto.class);
 
