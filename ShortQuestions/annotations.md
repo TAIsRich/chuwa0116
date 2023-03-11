@@ -237,5 +237,13 @@ Useful for getting database connections, connecting to servers
 Method is executed only once, after all test methods.
 Useful for closing database connections, disconnecting to servers
 
+### @EnableCircuitBreaker
+
+### @LoadBalanced
+
+
+
+
+
 
 
