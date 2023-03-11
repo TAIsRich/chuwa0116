@@ -220,3 +220,30 @@ Which allows the application to add beans using classpath definitions
 ### @Scheduled(cron = "0/1 * * ? * ?")
 
 ### @WebFilter
+
+### @Mock
+
+### @InjectMocks
+
+### @Spy
+
+### @BeforeAll
+
+Method is executed only once, before all test methods.
+Useful for getting database connections, connecting to servers 
+
+### @AfterAll
+
+Method is executed only once, after all test methods.
+Useful for closing database connections, disconnecting to servers
+
+### @EnableCircuitBreaker
+
+### @LoadBalanced
+
+
+
+
+
+
+
