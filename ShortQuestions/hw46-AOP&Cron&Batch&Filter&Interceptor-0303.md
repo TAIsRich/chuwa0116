@@ -43,6 +43,8 @@ https://tobebetterjavaer.com/springboot/springtask.html#%E5%85%B3%E4%BA%8E-cron-
 ### What is the spring task?
 Spring Task 是 Spring 提供的轻量级定时任务工具，也就意味着不需要再添加第三方依赖了，相比其他第三方类库更加方便易用。
 
+
+
 ### When to use Spring task?
 + Periodic tasks
 + Time-based tasks
