@@ -92,3 +92,20 @@ run it before each testcase runs.
 run it after the execution of each test case.
 ###  @Test
 annotates that these are the core test cases for the JUnit class to be executed.
+
+
+## Spring Cloud
+### @LoadBalanced
+enable loadbalancer in spring cloud.
+### @EnableCircuitBreaker
+This Spring Cloud annotation configures Hystrix circuit breaker protocols.
+### @EnableConfigServer
+This Spring Cloud annotation turns your application into a server that other apps can use to get their configuration.
+### @EnableEurekaServer
+This Spring Boot annotation makes your application a Eureka discovery service, which other applications can use to locate services through it.
+### @EnableDiscoveryClient
+This Spring Cloud annotation makes your application register in the service discovery and discovers other services through it.
+### @HystrixCommand(fallbackMethod = “fallbackMethodName”)
+This Spring boot annotation marks methods to fall back to another method if they cannot succeed normally.
+@HystrixCommand annotation and wraps that method in a proxy connected to a circuit breaker so that Hystrix can monitor it to handle failures.
+
