@@ -184,3 +184,36 @@ This annotation is used to create mock objects that can be used to replace depen
 
 ### @InjectMocks
 This annotation is used to create an instance of a class and inject the mock objects into it, allowing you to test the behavior of the class.
+
+### @BeforeAll
+This annotation is used to signal that the annotated method should be executed before all tests in the current test class.
+
+### @BeforeEach
+This annotation is used to signal that the annotated method should be executed before each invocation of @Test, @RepeatedTest, @ParameterizedTest, or @TestFactory method in the current class
+
+### @Test
+This annotation tells JUnit that the public void method to which it is attached can be run as a test case
+
+### @AfterEach
+This annotation is used to signal that the annotated method should be executed after each @Test method in the current test class.
+
+### @AfterAll
+This annotation is used to signal that the annotated method should be executed after all tests in the current test class
+
+### @Spy
+This annotation is used to to spy on a real object. This will allow us to call all the normal methods of the object while still tracking every interaction, just as we would with a mock. 
+
+### @LoadBalanced
+This annotation is used as a marker annotation indicating that the annotated RestTemplate should use a RibbonLoadBalancerClient for interacting with your service(s)
+
+### @EnableCircuitBreaker
+This annotation can scan the classpath for any compatible Circuit Breaker implementation. It enables the underlying circuit breaker config
+
+### @EnableEurekaClient
+This annotation makes your Spring Boot application act as a Eureka client
+
+### @EnableEurekaServer
+This annotation is used to make your Spring Boot application acts as a Eureka Server. Make sure Spring cloud Eureka server dependency is added in your build configuration file. By default, the Eureka Server registers itself into the discovery.
+
+### @HystrixCommand
+Hystrix looks for any method annotated with the @HystrixCommand annotation, and wraps it inside proxy so that Hystrix can monitor it.
