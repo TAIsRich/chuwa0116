@@ -190,7 +190,6 @@
 
 @JsonProperty
 
-
 - @JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
 
 @Before 
@@ -215,7 +214,49 @@
 
 - Enables Spring's scheduled task execution capability
 
--
-@JsonProperty is used to mark non-standard getter/setter method to be used with respect to json property
+
+@Mock
+
+- @Mock Annotation is used to mock the objects that assist in minimizing the repeated mock objects
+
+@InjectMock
+- @InjectMocks creates an instance of the class and injects the mocks that are created with the @Mock annotations into this instance.
+
+@BeforeAll
+- @BeforeAll is used to signal that the annotated method should be executed before all tests in the current test class.
+
+@BeforeEach
+- @BeforeEach annotation is used to signal that the annotated method should be executed before each invocation of @Test, @RepeatedTest, @ParameterizedTest, or @TestFactory method in the current class
+
+@Test
+- The Test annotation tells JUnit that the public void method to which it is attached can be run as a test case
+
+@AfterEach
+- @AfterEach is used to signal that the annotated method should be executed after each @Test method in the current test class.
+
+@AfterAll
+- @AfterAll is used to signal that the annotated method should be executed after all tests in the current test class
+
+@Spy
+- spy() to spy on a real object. This will allow us to call all the normal methods of the object while still tracking every interaction, just as we would with a mock. 
+
+
+@LoadBalanced
+
+
+- Used as a marker annotation indicating that the annotated RestTemplate should use a RibbonLoadBalancerClient for interacting with your service(s)
+
+@EnableCircuitBreaker
+
+-  The @EnableCircuitBreaker annotation will scan the classpath for any compatible Circuit Breaker implementation. It enables the underlying circuit breaker config
+@EnableEurekaClient
+
+- The @EnableEurekaClient annotation makes your Spring Boot application act as a Eureka client
+
+@EnableEurekaServer
+- The @EnableEurekaServer annotation is used to make your Spring Boot application acts as a Eureka Server. Make sure Spring cloud Eureka server dependency is added in your build configuration file. By default, the Eureka Server registers itself into the discovery.
+
+@HystrixCommand
+- Hystrix looks for any method annotated with the @HystrixCommand annotation, and wraps it inside proxy so that Hystrix can monitor it.
 
 
