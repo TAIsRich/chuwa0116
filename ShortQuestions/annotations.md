@@ -355,3 +355,24 @@ public class EmployeeAspect {
 	}
 }
 ```
+
+##### 19. @Spy, @Mock and @InjectMocks
+These threee annotations aim to implement unit tests
+```
+@ExtendWith(MockitoExtension.class)
+public class CommentServiceImplTest {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CommentServiceImplTest.class);
+    @InjectMocks
+    private CommentServiceImpl commentService;
+	@Mock
+	private CommentRepository commentRepository;
+	@Mock
+	private PostRepository postRepository;
+	private Comment comment;
+	private CommentDto commentDto;
+	private Post post,post1;
+   @Test
+   public testSomeFunction(){
+
+   }
+```
