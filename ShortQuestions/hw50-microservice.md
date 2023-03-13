@@ -66,9 +66,13 @@ b. https://www.fullstack.cafe/blog/load-balancing-interview-questions
     Load Balancer enables our service to scale well and stay high-available when the traffic load increases. Distribute heavy traffic load across servers. \
 There are mainly two problems we need to tackle with. The first is single point failure:If the server goes down or something happens to the server the whole application will be interrupted and it will become unavailable for the users for a certain period. Another is overloadded servers: There will be a limitation on the number of requests that a web server can handle.  
 To solve these problems we can add the number of web servers in the network and add a load balancer in front of the web servers. The load balancer can spread requests across multiple servers. If one of the servers goes offline the service will be continued. The load balancer also do regular health check on the machines in the cluster.
-    There are three types of load balancers. 
+    There are 3 types of load balancers. 
     1. Client-side Software Load Balancers: the client application will be provided with a list of web servers/application servers to interact with. The application chooses the first one in the list and requests data from the server.
     2. Service-side Software Load Balancers: These load balancers are the pieces of software that receive a set of requests and redirect these requests according to a set of rules.
     3. Hardware Load Balancer: When a request comes from a client application, it forwards the connection to the most appropriate real server doing bi-directional network address translation (NAT). These load balancers are also known as Layer 4-7 Routers.
-
-    
+    There are 5 types of algorithms for load balancers.
+    1. Round Robin: Requests are distributed across the servers in a sequential or rotational manner. 
+    2. Weighted Round Robin: It is much similar to the round-robin technique. The only difference is, that each of the resources in a list is provided a weighted score.
+    3. Least Connection Method: In this method, the request will be directed to the server with the fewest number of requests or active connections. 
+    4. Least Response Time Method: This technique is more sophisticated than the Least connection method.  In this method, the request is forwarded to the server with the fewest active connections and the least average response time. 
+    5. Source IP Hash: In this method, the request is sent to the server based on the client’s IP address.
