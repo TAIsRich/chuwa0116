@@ -41,3 +41,6 @@
 * @Component - This annotation mark the beans as Spring’s managed
 components
 * @Before annotated methods run exactly before all methods matching with pointcut expression
+* @Mock - the @Mock annotation is used to create a mock object of a class or interface that is used as a dependency of the class being tested. 
+* @InjectMocks - the @InjectMocks annotation is used to inject the mock objects created using the @Mock annotation into the class being tested. 
+* @Spy - Mockito creates a mock object that wraps around the real object being mocked. This means that some methods of the real object are called, while others are intercepted by the spy and can be stubbed out or verified. 

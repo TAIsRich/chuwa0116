@@ -1,0 +1,75 @@
+1.  list all of the new annotations you learned to your annotations.md
+2.  Document the microservice architeture and components/tools/dependencies
+    * Spring Cloud
+    * Zuul API Gateway (While a conventional proxy can be used to process traffic from a network to the outside, a reverse proxy is a solution for inbound network connections.)
+    * Eureka (Service Registry)
+    * Ribbon Load Balancer(Load balancing enables our service to scale well and stay highly available when the traffic load increases.)
+    * Hystrix Circuit Breaker(If a system call results in an error, the circuit breaker is opened and does not allow any calls to pass through.)
+    * Config Server
+    * Kafka (Mesage broker/agent, producer and consumer, producer sent message to kafka server and kafka server dispatch message to different queue based on routing key, consumer will get message from queue)
+    * Docker
+3.  What are Resilience patterns? What is circuit breaker?
+    * Time out
+A timeout prevents a microservice from waiting too long for another
+microservice.
+    * Fail fast
+Fail Fast describes a similar pattern. It is better to generate an error as quickly as possible.
+    * Bulkhead
+Hystrix can use its own thread pool for each type of request. For
+example, a separate thread pool can be set up for each called
+microservice.
+    * Circuit breaker
+If a system call results in an error, the circuit breaker is opened
+and does not allow any calls to pass through.
+4.  Read this article, then list the important questions, then write your answers 
+a. https://www.interviewbit.com/microservices-interview-questions/#main-features-of-microservices
+    * Write main components of Microservices.
+        * Containers, Clustering, and Orchestration 
+        * IaC [Infrastructure as Code Conception] 
+        * Cloud Infrastructure 
+        * API Gateway 
+        * Enterprise Service Bus 
+        * Service Delivery
+    * Explain the working of Microservice Architecture.
+        * Clients: Different users send requests from various devices. 
+Identity Provider: Validate a user's or client's identity and issue security tokens. 
+        * API Gateway: Handles the requests from clients. 
+        * Static Content: Contains all of the system's content. 
+Management: Services are balanced on nodes and failures are identified. 
+        * Service Discovery: A guide to discovering the routes of communication between microservices. 
+        * Content Delivery Network: Includes distributed network of proxy servers and their data centers. 
+        * Remote Service: Provides remote access to data or information that resides on networked computers and devices. 
+    * Explain spring cloud and spring boot.
+        * Spring Cloud: In Microservices, the Spring cloud is a system that integrates with external systems.
+        * Spring Boot: Spring Boot is an open-sourced, Java-based framework.
+    * Write the fundamental characteristics of Microservice Design.
+        * Based on Business Capabilities: Services are divided and organized around business capabilities. 
+        * Products not projects: A product should belong to the team that handles it.  
+        * Essential messaging frameworks: Rely on functional messaging frameworks: Eliminate centralized service buses by embracing the concept of decentralization.  
+        * Decentralized Governance: The development teams are accountable for all aspects of the software they produce.  
+        * Decentralized data management: Microservices allow each service to manage its data separately.  
+        * Automated infrastructure: These systems are complete and can be deployed independently.   
+        * Design for failure: Increase the tolerance for failure of services by focusing on continuous monitoring of the applications.
+    * Explain how independent microservices communicate with each other.
+        * HTTP/REST with JSON or binary protocol for request-response 
+        * A broker or server program that uses advanced routing algorithms(Kafka).
+    * What do you mean by Domain driven design?
+        * In this approach, the business domain is modeled carefully in software, without regard to how the system actually works.
+    * Explain the term Eureka in Microservices.
+        * An application that keeps track of all client-service applications.(Service registry)
+5.  how to do load balance in microservice? Write a long Summary by yourself.
+a. https://www.geeksforgeeks.org/load-balancer-system-design-interview-question/
+b. https://www.fullstack.cafe/blogload-balancing-interview-questions 
+    * Load balancing is a critical component of a microservice architecture, and careful consideration should be given to its implementation to ensure that the system is scalable, reliable, and performant.
+    * Load balancing is the process of distributing incoming network traffic across multiple servers to ensure that no single server is overwhelmed with requests. In a microservice architecture, load balancing is typically done at the API gateway level.
+
+    * The API gateway acts as a front-end interface for clients to access the microservices, and it is responsible for routing incoming requests to the appropriate microservice instance.
+
+    * There are several different load balancing algorithms that can be used, including round-robin, weighted round-robin, least connections, IP hash, and consistent hashing. The choice of algorithm will depend on the specific needs of the application.
+
+    * When implementing load balancing in a microservice architecture, it is important to consider factors such as service discovery, health checking, and circuit breaking. Service discovery allows the API gateway to locate the microservice instances, while health checking ensures that only healthy instances receive traffic. Circuit breaking is used to prevent cascading failures in the event of a service outage.
+
+    * Load balancing can be implemented using either hardware or software solutions. Hardware load balancers are physical appliances that sit in front of the servers and distribute traffic, while software load balancers can be implemented using open-source tools such as HAProxy, NGINX, or Apache.
+
+    * Load balancing can also be implemented using cloud-based solutions such as AWS Elastic Load Balancing or Google Cloud Load Balancing. These services offer automatic scaling and can integrate with other cloud services such as auto-scaling groups.
+6.  Udemy: Theory + CLI
