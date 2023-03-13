@@ -1,0 +1,97 @@
+# hw50-microservice
+
+### 1 list all of the new annotations you learned to your annotations.md
+
+### 2 Document the microservice architeture and components/tools/dependencies
+
+- **Clients**: Different users send requests from various devices. 
+- **Identity Provider**: Validate a user's or client's identity and issue security tokens. 
+- **API Gateway:** Handles the requests from clients. 
+- **Static Content:** Contains all of the system's content. 
+- **Management:** Services are balanced on nodes and failures are identified. 
+- **Service Discovery:** A guide to discovering the routes of communication between microservices. 
+- **Content Delivery Network:** Includes distributed network of proxy servers and their data centers. 
+- **Remote Service:** Provides remote access to data or information that resides on networked computers and devices. 
+
+### 3 What are Resilience patterns? What is circuit breaker?
+
+Resilience patterns refer to the design and implementation strategies that enable individual microservices to be resilient to failures and disruptions. These patterns are important because they help ensure that the entire system remains available and responsive even when individual microservices experience problems.
+
+Here are some examples of resilience patterns in microservices:
+
+1. Circuit Breaker: This pattern involves adding a circuit breaker component between microservices to detect and handle failures in a controlled manner. When a microservice fails or becomes unresponsive, the circuit breaker trips, preventing further requests from being sent to that microservice until it recovers.
+2. Bulkhead: This pattern involves dividing microservices into isolated compartments or "bulkheads" to prevent failures in one microservice from affecting the performance of other microservices. Each bulkhead has its own resources and runs independently, allowing the system to remain responsive even when some microservices are under heavy load or experiencing failures.
+3. Retry: This pattern involves retrying requests that fail due to temporary problems such as network errors or timeouts. By retrying failed requests, the system can recover from transient failures without requiring manual intervention.
+4. Timeouts: This pattern involves setting timeouts for requests to microservices to prevent them from hanging indefinitely and consuming resources. Timeouts also help ensure that the system remains responsive and can recover quickly from failures.
+5. Redundancy: This pattern involves replicating microservices across multiple nodes or regions to ensure high availability and fault tolerance. By having redundant microservices, the system can continue to function even if some microservices fail or become unavailable.
+
+By implementing these resilience patterns in microservices architecture, organizations can ensure that their systems remain highly available, responsive, and resilient to failures and disruptions.
+
+### 4 Read this article, then list the important questions, then write your answers 
+
+​	a. https://www.interviewbit.com/microservices-interview-questions/#main-features-of-microservices
+
++ Write the fundamental characteristics of Microservice Design.
+  + **Based on Business Capabilities**
+  + **Products not projects**
+  + **Essential messaging frameworks**
+  + **Decentralized Governance**
+  + **Decentralized data management**
+  + **Automated infrastructure**
+  + **Design for failure**
+
++ Explain how independent microservices communicate with each other.
+  + HTTP/REST with JSON or binary protocol for request-response 
+  + Websockets for streaming.  
+  + A broker or server program that uses advanced routing algorithms.(RabbitMQ, Nats, Kafka, etc., can be used as message brokers; each is built to handle a particular message semantic)
+
+​	You can also use Backend as a Service like Space Cloud to automate your entire backend. 
+
++ Explain the term Eureka in Microservices.
+
+  Eureka Server, also referred to as Netflix Service Discovery Server, is an application that keeps track of all client-service applications. As every Microservice registers to Eureka Server, Eureka Server knows all the client applications running on the different ports and IP addresses. It generally uses Spring Cloud and is not heavy on the application development process. 
+
+### 5 how to do load balance in microservice? Write a long Summary by yourself.
+
+​	a. https://www.geeksforgeeks.org/load-balancer-system-design-interview-question/
+​	b. https://www.fullstack.cafe/blog/load-balancing-interview-questions
+
+Load balancing is a critical aspect of microservices architecture that involves distributing the workload evenly across multiple instances of a microservice. Load balancing helps improve system performance, scalability, and availability by ensuring that no single instance of a microservice becomes overwhelmed with requests.
+
+1. Client-side load balancing: In this approach, the client application is responsible for selecting which instance of a microservice to send requests to. The client typically uses a load balancing algorithm to distribute the workload evenly across the available instances of the microservice.
+2. Server-side load balancing: In this approach, a load balancer component sits between the client and the microservice instances, routing requests to the appropriate instance based on a load balancing algorithm. The load balancer can be implemented as a separate microservice or as part of a service mesh architecture.
+3. DNS-based load balancing: In this approach, multiple IP addresses are associated with a single hostname, and the DNS server returns a different IP address for each request. The client then sends requests to the different IP addresses in a round-robin fashion.
+4. Container orchestration: In container-based microservices architecture, container orchestration platforms such as Kubernetes provide built-in load balancing capabilities. Kubernetes uses a load balancing algorithm to distribute requests across multiple replicas of a microservice running in different containers.
+
+When implementing load balancing in microservices architecture, it's important to choose the right approach based on the specific needs of the system. Factors to consider include performance requirements, scalability, fault tolerance, and the availability of resources such as hardware and software.
+
+### 6 Udemy: Theory + CLI
+
+### 7 (Optional) Watching the below videos. and write your understanding about microservice. (要开始熟悉印度又音了，所以给了好多视频)
+
+​	a. Required (按顺序看会好很多)
+
+​		i.  What, Why and How: 
+
+​			i.  https://www.youtube.com/watch?v=rv4LlmLmVWk
+​			ii. https://www.youtube.com/watch?v=j1gU2oGFayY
+​			iii.  https://www.youtube.com/watch?v=gfWr2_H39N0 
+​			iv.  https://www.youtube.com/watch?v=rckfN7xFig0 
+​		ii. Tutorial List
+​			i.  https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
+​		iii.  Microservices interview question and answers
+​			i.  https://www.youtube.com/watch?v=G0waumbpK48&t=2s
+​	b. Message Queue
+​		i.  https://www.youtube.com/watch?v=oUJbuFMyBDk
+
+​		ii. https://youtube.com/playlist?list=PLCh59G4US86oC5GnhYrSrKZKDoQbfzZLW
+​	c.  Docker & Kubernet
+​		i.  https://www.youtube.com/watch?v=rmf04ylI2K0
+​		ii. https://www.youtube.com/watch?v=pTFZFxd4hOI
+​	d.  CI/CD
+​		i.  https://www.youtube.com/watch?v=2INTzteK4B4
+​	e.  NoSQL
+​		i.  https://www.youtube.com/watch?v=xQnIN9bW0og
+​	f.  System Design
+​		i.  https://www.youtube.com/watch?v=vvhC64hQZMk
+​	g.  https://www.interviewbit.com/microservices-interview-questions/#main-role-of-docker-in-microservices
