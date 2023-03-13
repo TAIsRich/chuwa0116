@@ -370,3 +370,48 @@ vs.
 28. @Mock 
 
     @Mock is used to create a mock object in a test class, while @InjectMocks is used to inject the dependencies of the mock object into the class being tested.
+    
+
+Spring Cloud
+
+@EnableDiscoveryClient: 用于将微服务注册到服务注册中心，例如Eureka或Consul。
+
+@EnableCircuitBreaker: 用于启用断路器模式，例如Hystrix。
+
+@EnableFeignClients: 用于启用Feign客户端，它是一个基于注解的HTTP客户端，用于访问其他微服务的RESTful API。
+
+@SpringBootApplication: 是一个组合注解，相当于同时使用了@SpringBootConfiguration、@EnableAutoConfiguration和@ComponentScan三个注解，用于指示Spring Boot应用程序的入口。
+
+@RestController: 用于声明一个Controller类，并在其中定义RESTful API的映射路径和响应内容。
+
+@RequestMapping: 用于将HTTP请求映射到Controller方法上。
+
+@Value: 用于将配置文件中的值注入到Spring Bean中。
+    ```
+    @Service
+    public class MyService {
+        @Value("${my.service.name}")
+        private String serviceName;
+
+        public String getServiceName() {
+            return serviceName;
+        }
+    }
+
+    @RestController
+    public class MyController {
+        @Autowired
+        private MyService myService;
+
+        @RequestMapping("/service-name")
+        public String getServiceName() {
+            return myService.getServiceName();
+        }
+    }
+    ```
+    此例中，@Value将配置文件中的“my.service.name”值注入到MyService类的serviceName属性中，@Autowired将MyService自动注入到MyController中，@RequestMapping将“/service-name”映射到MyController中的getServiceName方法，该方法返回MyService的getServiceName方法的结果。
+
+
+@Retryable: 用于定义需要重试的方法，例如在发生异常时进行重试。
+
+@HystrixCommand: 用于定义需要启用Hystrix断路器模式的方法。
