@@ -1,13 +1,12 @@
-package com.chuwa.redbook.service.impl;
+package com.chuwa.redbook.service.Impl;
 
 import com.chuwa.redbook.dao.CommentRepository;
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Comment;
 import com.chuwa.redbook.entity.Post;
+import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.payload.PostDto;
-import com.chuwa.redbook.service.Impl.CommentServiceImpl;
-import com.chuwa.redbook.service.Impl.PostServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -134,6 +133,22 @@ class CommentServiceImplTest {
     }
 
     @Test
+    void testGetCommentById_BlogAPIException() {
+        // MOCK: post find by id
+        Post postFake = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(postFake));
+
+        // MOCK: comment find by id
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+
+        // execute and assertions
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.getCommentById(1L, 1L));
+    }
+
+    @Test
     void testUpdateComment() {
         String description = "UPDATED - " + comment.getBody();
         commentDto.setBody(description);
@@ -168,6 +183,23 @@ class CommentServiceImplTest {
     }
 
     @Test
+    void testUpdateComment_BlogAPIException() {
+        // MOCK: post find by id
+        Post postFake = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(postFake));
+
+        // MOCK: comment find by id
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+
+        // execute and assertions
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.updateComment(1L, 1L, commentDto));
+    }
+
+    @Test
     void testDeleteComment() {
         // MOCK: post find by id
         Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
@@ -180,6 +212,23 @@ class CommentServiceImplTest {
         commentService.deleteComment(1L, 1L);
 
         Mockito.verify(commentRepositoryMock, Mockito.times(1)).delete(ArgumentMatchers.any(Comment.class));
+    }
+
+    @Test
+    void testDeleteComment_BlogAPIException() {
+        // MOCK: post find by id
+        Post postFake = new Post(2L, "xiao ruishi", "wanqu", "wanqu xiao ruishi",
+                LocalDateTime.now(), LocalDateTime.now());
+
+        Mockito.when(postRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(postFake));
+
+        // MOCK: comment find by id
+        Mockito.when(commentRepositoryMock.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(comment));
+
+        // execute and assertions
+        Assertions.assertThrows(BlogAPIException.class, () -> commentService.deleteComment(1L, 1L));
     }
 
 }
