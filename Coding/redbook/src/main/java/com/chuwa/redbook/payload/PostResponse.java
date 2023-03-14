@@ -3,7 +3,7 @@ package com.chuwa.redbook.payload;
 import java.util.List;
 
 public class PostResponse {
-    private List<PostDTO> content;
+    private List<PostDto> content;
     private int pageNo;
     private int pageSize;
     private long totalElements;
@@ -13,7 +13,7 @@ public class PostResponse {
     public PostResponse() {
     }
 
-    public PostResponse(List<PostDTO> content, int pageNo, int pageSize,
+    public PostResponse(List<PostDto> content, int pageNo, int pageSize,
                         long totalElements, int totalPages, boolean last) {
         this.content = content;
         this.pageNo = pageNo;
@@ -23,11 +23,11 @@ public class PostResponse {
         this.last = last;
     }
 
-    public List<PostDTO> getContent() {
+    public List<PostDto> getContent() {
         return content;
     }
 
-    public void setContent(List<PostDTO> content) {
+    public void setContent(List<PostDto> content) {
         this.content = content;
     }
 
